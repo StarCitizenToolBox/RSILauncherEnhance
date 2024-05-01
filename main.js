@@ -9616,6 +9616,7 @@
                 },
                 gamePage: {
                     game_page_title: "进入<0/><1>{{name}} 宇宙</1>",
+                    game_page_nav_title: "游戏",
                     game_page_nav_title_one: "游戏",
                     game_page_nav_title_other: "游戏",
                     game_page_game_is_running: "游戏正在运行",
