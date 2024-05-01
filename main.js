@@ -9640,7 +9640,7 @@
                     game_page_cards_loading: "正在加载内容。",
                     game_page_cards_tab_community: "社区",
                     "game_page_cards_tab_comm-links": "通讯链接",
-                    "game_page_cards_tab_new-citizens": "公民新闻",
+                    "game_page_cards_tab_new-citizens": "新手指南",
                     "game_page_cards_tab_patch-notes": "补丁说明",
                     game_page_card_button_label: "查看更多"
                 },
