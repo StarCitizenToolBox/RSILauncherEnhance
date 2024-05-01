@@ -9484,7 +9484,7 @@
                     download_status: "状态",
                     download_speed: "速度",
                     download_left: "剩余",
-                    download_files_left: "剩余文件数",
+                    download_files_left: "剩余文件",
                     download_title: "下载任务",
                     download_settings: "下载设置",
                     download_play: "开始",
