@@ -18993,7 +18993,7 @@
             resources: {
                 en: a,
                 fr: i,
-                zh: SC_TOOLBOX_LOCALIZATION_ZHCN_MAP,
+                zh_CN: SC_TOOLBOX_LOCALIZATION_ZHCN_MAP,
             },
             lng: SC_TOOLBOX_ENABLED_LOCALIZATION,
             interpolation: {
