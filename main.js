@@ -48989,7 +48989,7 @@
                     }
                 }
             }), zx = [{
-                label: "不限速",
+                label: "Unlimited",
                 value: 0
             }, {
                 label: "25 MB/s",
@@ -49022,20 +49022,20 @@
                 label: "128 KB/s",
                 value: 131072
             }], Fx = SC_TOOLBOX_ENABLE_DOWNLOADER_BOOST ? [{
-                label: "增强-1024",
+                label: "!1024",
                 value: 1024
             }, {
-                label: "增强-512",
+                label: "!512",
                 value: 512
             },
             {
-                label: "增强-256",
+                label: "!256",
                 value: 256
             }, {
-                label: "增强-128",
+                label: "!128",
                 value: 128
             }, {
-                label: "25",
+                label: "CIG-MAX (25)",
                 value: 25
             }, {
                 label: "20",
@@ -49050,7 +49050,7 @@
                 label: "5",
                 value: 5
             }] : [{
-                label: "最高(25)",
+                label: "Max (25)",
                 value: 25
             }, {
                 label: "20",
