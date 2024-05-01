@@ -9615,7 +9615,7 @@
                     text_field_hide_password: "隐藏密码"
                 },
                 gamePage: {
-                    game_page_title: "进入<0/><1>{{name}}宇宙</1>",
+                    game_page_title: "进入<0/><1>{{name}} 宇宙</1>",
                     game_page_nav_title_one: "游戏",
                     game_page_nav_title_other: "游戏",
                     game_page_game_is_running: "游戏正在运行",
@@ -9639,7 +9639,7 @@
                     game_page_cards_loading: "正在加载内容。",
                     game_page_cards_tab_community: "社区",
                     "game_page_cards_tab_comm-links": "通讯链接",
-                    "game_page_cards_tab_new-citizens": "新公民",
+                    "game_page_cards_tab_new-citizens": "公民新闻",
                     "game_page_cards_tab_patch-notes": "补丁说明",
                     game_page_card_button_label: "查看更多"
                 },
