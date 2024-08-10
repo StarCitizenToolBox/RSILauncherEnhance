@@ -13352,7 +13352,7 @@
                 zh_CN: SC_TOOLBOX_LOCALIZATION_ZHCN_MAP,
                 zh_TW: SC_TOOLBOX_LOCALIZATION_ZHTW_MAP,
             },
-            lng: "en",
+            lng: SC_TOOLBOX_ENABLED_LOCALIZATION,
             interpolation: {
                 escapeValue: !1
             },
