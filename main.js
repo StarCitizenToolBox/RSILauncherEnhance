@@ -10276,7 +10276,7 @@
                     tray_quit: "退出"
                 }
             },
-            SC_TOOLBOX_LOCALIZATION_ZHTW_MAP = SC_TOOLBOX_LOCALIZATION_ZHTW_MAP = {
+            SC_TOOLBOX_LOCALIZATION_ZHTW_MAP = {
                 agreements: {
                     agreement_fetch_info_error: "暫時無法從伺服器取得協議，請稍等一分鐘後再試。",
                     agreement_declined: "協議被拒絕"
