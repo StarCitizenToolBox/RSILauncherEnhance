@@ -1,4 +1,4 @@
-/*! For license information please see main.ade910f7.js.LICENSE.txt */
+/*! For license information please see main.43e60bfe.js.LICENSE.txt */
 (() => {
     const SC_TOOLBOX_ENABLED_LOCALIZATION = "en";
     const SC_TOOLBOX_ENABLE_DOWNLOADER_BOOST = false;
@@ -52142,7 +52142,7 @@
                         }), (0, _w.jsx)("hr", {}), (0, _w.jsxs)("p", {
                             children: [(0, _w.jsx)("strong", {
                                 children: t("settings_about_launcher_version")
-                            }), " ", null !== (e = "2.0.4") ? e : "\u2013"]
+                            }), " ", null !== (e = "2.0.5") ? e : "\u2013"]
                         })]
                     })
                 })
@@ -54707,9 +54707,9 @@
                             return n instanceof RS && e.agreements.actions.checkAgreementsFailure(n)
                         }
                     },
-                    async checkAgreementsFailure(e) {
+                    checkAgreementsFailure: async e => {
                         var n;
-                        const r = null !== (n = e.payload.agreements) && void 0 !== n ? n : [],
+                        const r = null !== (n = e.payload.data.agreements) && void 0 !== n ? n : [],
                             i = t();
                         try {
                             const e = [eE.EULA, eE.TOS, eE.DISCLAIMER].map((e => r.filter((t => t.type === e)))).reduce(((e, t) => e.concat(t)), []);
@@ -67228,4 +67228,4 @@
         xD.createRoot(document.getElementById("root")).render((0, _w.jsx)(ID, {})), wD()
     })()
 })();
-//# sourceMappingURL=main.ade910f7.js.map
+//# sourceMappingURL=main.43e60bfe.js.map
