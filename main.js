@@ -1,4 +1,4 @@
-/*! For license information please see main.43e60bfe.js.LICENSE.txt */
+/*! For license information please see main.d5394d7f.js.LICENSE.txt */
 (() => {
     const SC_TOOLBOX_ENABLED_LOCALIZATION = "en";
     const SC_TOOLBOX_ENABLE_DOWNLOADER_BOOST = false;
@@ -52142,7 +52142,7 @@
                         }), (0, _w.jsx)("hr", {}), (0, _w.jsxs)("p", {
                             children: [(0, _w.jsx)("strong", {
                                 children: t("settings_about_launcher_version")
-                            }), " ", null !== (e = "2.0.5") ? e : "\u2013"]
+                            }), " ", null !== (e = "2.0.6") ? e : "\u2013"]
                         })]
                     })
                 })
@@ -52745,7 +52745,7 @@
                 return new Promise((t => setTimeout(t, e)))
             }
             isUnsafeError(e) {
-                return e instanceof VS || e instanceof zS || e instanceof BS
+                return e instanceof VS || e instanceof zS || e instanceof BS || e instanceof WS
             }
         }
         class ZS extends QS {
@@ -52882,14 +52882,8 @@
             }
         }
         class cE extends QS {
-            set accountClaims(e) {
-                this._accountClaims = e
-            }
-            get accountClaims() {
-                return this._accountClaims
-            }
             constructor(e, t) {
-                super(), this.client = e, this.policy = t, this._accountClaims = null
+                super(), this.client = e, this.policy = t
             }
             async getCaptcha() {
                 return `data:image/png;base64,${await this.client.callImage({endpoint:this.client.endpoints.SIGN_IN_CAPTCHA})}`
@@ -52975,26 +52969,19 @@
                 })
             }
             async getSignInSession(e) {
-                this.accountClaims || await this.getAccountClaims();
-                const t = await this.operationWithBasicRetry((async () => await this.client.call({
+                const t = await this.client.call({
                     platformId: e,
                     endpoint: this.client.endpoints.SIGN_IN_CLAIMS,
                     payload: {
-                        claims: this.accountClaims
+                        claims: await this.getAccountClaims()
                     }
-                })), {
-                    refreshClaims: async () => await this.getAccountClaims()
                 });
                 return rE(t.data)
             }
-            clearClaims() {
-                this.accountClaims = null
-            }
             async getAccountClaims() {
-                const e = await this.client.call({
+                return (await this.client.call({
                     endpoint: this.client.endpoints.ACCOUNT_CLAIMS
-                });
-                this.accountClaims = e.data
+                })).data
             }
             async verifyPolicy(e) {
                 const {
@@ -54360,7 +54347,7 @@
                 i = pR.getState().user,
                 a = (null === (t = i.device) || void 0 === t ? void 0 : t.duration) === XS.SESSION || (null === e || void 0 === e ? void 0 : e.clearDevice);
             try {
-                (i.sessions[n.platformMaster] && Object.keys(i.sessions[n.platformMaster] || {}).length > 0 ? i.sessions[n.platformMaster] : null) && (yE.games.clearClaims(), yE.authentication.clearClaims(), await yE.authentication.signOut({
+                (i.sessions[n.platformMaster] && Object.keys(i.sessions[n.platformMaster] || {}).length > 0 ? i.sessions[n.platformMaster] : null) && (yE.games.clearClaims(), await yE.authentication.signOut({
                     clearDevice: a
                 }))
             } catch (o) {
@@ -55707,7 +55694,8 @@
                         isConnectionPopoverOpened: c = !1,
                         nonOperationalStatus: u,
                         connection: d = {
-                            mode: navigator.onLine ? yw.ConnectionMode.ONLINE : yw.ConnectionMode.NO_CONNECTION
+                            mode: navigator.onLine ? yw.ConnectionMode.ONLINE : yw.ConnectionMode.NO_CONNECTION,
+                            needToBeCheck: !1
                         },
                         animations: p = {
                             appLayoutWipe: {
@@ -55751,7 +55739,8 @@
                                 isAppInitialized: !0,
                                 connection: {
                                     mode: a ? yw.ConnectionMode.NO_CONNECTION : yw.ConnectionMode.ONLINE,
-                                    lastTimeOnline: a
+                                    lastTimeOnline: a,
+                                    needToBeCheck: !0
                                 }
                             });
                             e((e => ({
@@ -55930,7 +55919,8 @@
                                     ...e.application,
                                     connection: {
                                         mode: yw.ConnectionMode.ONLINE,
-                                        lastTimeOnline: void 0
+                                        lastTimeOnline: void 0,
+                                        needToBeCheck: !1
                                     }
                                 }
                             }))), window.launcherAPI.store.setValueToStore("application.connection.lastTimeOnline", null), r.actions.add({
@@ -55941,60 +55931,68 @@
                             }))
                         },
                         setConnectionUnavailable: async () => {
+                            var n;
                             const {
                                 application: {
-                                    actions: n,
-                                    connection: r
+                                    actions: r,
+                                    connection: i
                                 },
-                                user: i,
-                                toasts: a
+                                user: a
                             } = t();
-                            if (r.mode === yw.ConnectionMode.NO_CONNECTION) return;
-                            if (r.mode === yw.ConnectionMode.OFFLINE) return;
-                            const o = Date.now();
-                            if (e((e => ({
+                            if (i.mode === yw.ConnectionMode.NO_CONNECTION && !i.needToBeCheck) return;
+                            if (i.mode === yw.ConnectionMode.OFFLINE) return;
+                            const o = null !== (n = i.lastTimeOnline) && void 0 !== n ? n : Date.now();
+                            e((e => ({
                                 application: {
                                     ...e.application,
                                     connection: {
                                         mode: yw.ConnectionMode.NO_CONNECTION,
-                                        lastTimeOnline: o
+                                        lastTimeOnline: o,
+                                        needToBeCheck: !1
                                     }
                                 }
-                            }))), window.launcherAPI.store.setValueToStore("application.connection.lastTimeOnline", o), i.actions.isLoggedIn()) {
-                                const e = n.getRemainingTimeOfOfflineSession();
-                                n.setCloseAllPopovers(), a.actions.add({
-                                    type: "informative",
-                                    icon: mI,
-                                    title: _e.t("connection_toast_warning_lost_connection_title", {
-                                        ns: "connection"
-                                    }),
-                                    children: (0, _w.jsxs)(cl, {
-                                        gap: "100",
-                                        vertical: !0,
-                                        children: [(0, _w.jsx)(Ys, {
-                                            as: "span",
-                                            children: _e.t("connection_toast_warning_lost_connection_content", {
-                                                ns: "connection"
-                                            })
-                                        }), e && (0, _w.jsxs)(Ys, {
-                                            as: "span",
-                                            children: [_e.t("connection_toast_warning_lost_connection_remaining", {
-                                                ns: "connection"
-                                            }), (0, _w.jsx)(Ys, {
-                                                as: "span",
-                                                variant: "body-m-bold",
-                                                children: " " + n.getRemainingTimeOfOfflineSession()
-                                            })]
-                                        })]
-                                    }),
-                                    actions: [{
-                                        close: !0,
-                                        label: _e.t("connection_toast_action_continue_offline", {
+                            }))), window.launcherAPI.store.setValueToStore("application.connection.lastTimeOnline", o), a.actions.isLoggedIn() && (r.setCloseAllPopovers(), r.setLostConnectionToast(), r.setConnectionPopoverOpened(!0))
+                        },
+                        setLostConnectionToast: () => {
+                            const {
+                                application: {
+                                    actions: e
+                                },
+                                toasts: n
+                            } = t(), r = e.getRemainingTimeOfOfflineSession();
+                            n.actions.add({
+                                duration: 6e3,
+                                type: "informative",
+                                icon: mI,
+                                title: _e.t("connection_toast_warning_lost_connection_title", {
+                                    ns: "connection"
+                                }),
+                                children: (0, _w.jsxs)(cl, {
+                                    gap: "100",
+                                    vertical: !0,
+                                    children: [(0, _w.jsx)(Ys, {
+                                        as: "span",
+                                        children: _e.t("connection_toast_warning_lost_connection_content", {
                                             ns: "connection"
                                         })
-                                    }]
-                                }), n.setConnectionPopoverOpened(!0)
-                            }
+                                    }), r && (0, _w.jsxs)(Ys, {
+                                        as: "span",
+                                        children: [_e.t("connection_toast_warning_lost_connection_remaining", {
+                                            ns: "connection"
+                                        }), (0, _w.jsx)(Ys, {
+                                            as: "span",
+                                            variant: "body-m-bold",
+                                            children: " " + e.getRemainingTimeOfOfflineSession()
+                                        })]
+                                    })]
+                                }),
+                                actions: [{
+                                    close: !0,
+                                    label: _e.t("connection_toast_action_continue_offline", {
+                                        ns: "connection"
+                                    })
+                                }]
+                            })
                         },
                         setConnection: n => {
                             const {
@@ -56005,7 +56003,10 @@
                             r.mode !== n.mode && e((e => ({
                                 application: {
                                     ...e.application,
-                                    connection: n
+                                    connection: {
+                                        ...n,
+                                        needToBeCheck: !1
+                                    }
                                 }
                             })))
                         }
@@ -58933,7 +58934,7 @@
                     reduceMotion: {
                         unessentialAnimationsDisabled: o
                     }
-                } = Ns(), s = i.systems && i.systems.length > 0, l = (0, Ee.useMemo)((() => {
+                } = Ns(), s = i.systems && i.systems.length > 0, l = a.connection.mode === yw.ConnectionMode.NO_CONNECTION, c = (0, Ee.useMemo)((() => {
                     if (!t && !a.isStatusPopoverOpened && i.summaryStatus && i.summaryStatus !== yw.RSISystemStatus.OPERATIONAL) return "status-" + jw(i.summaryStatus)
                 }), [t, a.isStatusPopoverOpened, i.summaryStatus]);
                 return (0, Ee.useEffect)((() => {
@@ -58947,8 +58948,8 @@
                         "data-test-id": "status",
                         "data-sol-discover": "status",
                         icon: (0, _w.jsx)(Ks, {
-                            color: l,
-                            source: o ? mI : $C,
+                            color: c,
+                            source: o || l ? mI : $C,
                             isPlaying: !a.isStatusPopoverOpened && !t && i.summaryStatus !== yw.RSISystemStatus.OPERATIONAL
                         }),
                         label: e,
@@ -59304,8 +59305,14 @@
                                     gap: "100",
                                     vertical: !0,
                                     children: [(0, _w.jsx)(Ys, {
-                                        children: xt.t("error_launch_account_not_found_content", {
-                                            ns: "errors"
+                                        children: (0, _w.jsx)(ft, {
+                                            i18nKey: "error_launch_account_not_found_content",
+                                            t: xt.t,
+                                            ns: "errors",
+                                            components: [(0, _w.jsx)(zm, {
+                                                href: yw.configuration.copyPTUAccountSupportUrl,
+                                                external: !0
+                                            })]
                                         })
                                     }), (0, _w.jsx)(Ys, {
                                         children: (0, _w.jsx)(ft, {
@@ -59322,7 +59329,7 @@
                                         })
                                     }), (0, _w.jsx)(Ys, {
                                         children: xt.t("error_installer_error_code", {
-                                            code: "8005",
+                                            code: s.code,
                                             ns: "errors"
                                         })
                                     })]
@@ -59361,7 +59368,9 @@
                                 })
                             });
                             await pR.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
-                                title: xt.t("error_launch_unknown_title"),
+                                title: xt.t("error_launch_unknown_title", {
+                                    ns: "errors"
+                                }),
                                 content: (0, _w.jsxs)(cl, {
                                     gap: "100",
                                     vertical: !0,
@@ -59373,7 +59382,7 @@
                                         })
                                     }), (0, _w.jsx)(Ys, {
                                         children: xt.t("error_installer_error_code", {
-                                            code: "6001",
+                                            code: yw.LauncherSpecificLaunchErrorCodes.ERR_LAUNCH_UNKNOWN,
                                             ns: "errors"
                                         })
                                     })]
@@ -66546,8 +66555,12 @@
                     }))), [n.actions, e]), (0, Ee.useEffect)((() => t((() => {
                         n.actions.setConnectionUnavailable()
                     }))), [n.actions, t]), (0, Ee.useEffect)((() => {
-                        const e = () => n.actions.checkConnection(),
-                            t = () => n.actions.checkConnection();
+                        const e = () => {
+                                n.actions.checkConnection()
+                            },
+                            t = () => {
+                                n.actions.checkConnection()
+                            };
                         return window.addEventListener("offline", e), window.addEventListener("online", t), () => {
                             window.removeEventListener("offline", e), window.removeEventListener("online", t)
                         }
@@ -67228,4 +67241,4 @@
         xD.createRoot(document.getElementById("root")).render((0, _w.jsx)(ID, {})), wD()
     })()
 })();
-//# sourceMappingURL=main.43e60bfe.js.map
+//# sourceMappingURL=main.d5394d7f.js.map
