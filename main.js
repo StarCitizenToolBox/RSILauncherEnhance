@@ -63205,6 +63205,9 @@
             }, {
                 label: "5",
                 value: 5
+            },{
+                label: "1",
+                value: 1
             }] : [{
                 label: "Max",
                 value: 25
