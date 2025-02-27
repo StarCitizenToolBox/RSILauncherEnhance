@@ -1,10 +1,10 @@
-/*! For license information please see main.f0354cce.js.LICENSE.txt */
+/*! For license information please see main.b2b18aa1.js.LICENSE.txt */
 
 ! function() {
     try {
         var e = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : {},
             n = (new e.Error).stack;
-        n && (e._sentryDebugIds = e._sentryDebugIds || {}, e._sentryDebugIds[n] = "032c1ac3-6566-59d2-b43b-c485cfb20905")
+        n && (e._sentryDebugIds = e._sentryDebugIds || {}, e._sentryDebugIds[n] = "1283a101-a29f-523a-a22d-fda06ac74a44")
     } catch (e) {}
 }();
 (() => {
@@ -7488,7 +7488,7 @@
                     };
                 Object.defineProperty(t, "__esModule", {
                     value: !0
-                }), i(n(9316), t), i(n(6735), t), i(n(2130), t), i(n(2383), t), i(n(8762), t), i(n(2859), t), i(n(7433), t), i(n(8675), t), i(n(5465), t), i(n(8533), t), i(n(6423), t), i(n(3081), t), i(n(712), t), i(n(3621), t), i(n(730), t), i(n(5535), t), i(n(6305), t)
+                }), i(n(9316), t), i(n(6735), t), i(n(2130), t), i(n(2383), t), i(n(8762), t), i(n(2859), t), i(n(7433), t), i(n(8675), t), i(n(5465), t), i(n(7798), t), i(n(8533), t), i(n(6423), t), i(n(3081), t), i(n(712), t), i(n(3621), t), i(n(730), t), i(n(5535), t), i(n(6305), t)
             },
             8675: function(e, t, n) {
                 "use strict";
@@ -7553,6 +7553,37 @@
                     INSTALLER_UNINSTALL: "installer@uninstall",
                     INSTALLER_UNINSTALL_SUCCESSFUL: "installer@uninstall-successful",
                     INSTALLER_UNINSTALL_FAILED: "installer@uninstall-failed"
+                }
+            },
+            7798: function(e, t, n) {
+                "use strict";
+                var r = this && this.__createBinding || (Object.create ? function(e, t, n, r) {
+                        void 0 === r && (r = n);
+                        var i = Object.getOwnPropertyDescriptor(t, n);
+                        i && !("get" in i ? !t.__esModule : i.writable || i.configurable) || (i = {
+                            enumerable: !0,
+                            get: function() {
+                                return t[n]
+                            }
+                        }), Object.defineProperty(e, r, i)
+                    } : function(e, t, n, r) {
+                        void 0 === r && (r = n), e[r] = t[n]
+                    }),
+                    i = this && this.__exportStar || function(e, t) {
+                        for (var n in e) "default" === n || Object.prototype.hasOwnProperty.call(t, n) || r(t, e, n)
+                    };
+                Object.defineProperty(t, "__esModule", {
+                    value: !0
+                }), i(n(3737), t)
+            },
+            3737: (e, t) => {
+                "use strict";
+                Object.defineProperty(t, "__esModule", {
+                    value: !0
+                }), t.launcherSupport = void 0, t.launcherSupport = {
+                    DELETE_LOCAL_SETTINGS: "launcher-support@delete-local-settings",
+                    DELETE_LOCAL_SETTINGS_SUCCESS: "launcher-support@delete-local-settings-success",
+                    DELETE_LOCAL_SETTINGS_ERROR: "launcher-support@delete-local-settings-error"
                 }
             },
             5465: function(e, t, n) {
@@ -7863,6 +7894,7 @@
                     gameFiles: r.gameFiles,
                     installer: r.installer,
                     launcher: r.launcher,
+                    launcherSupport: r.launcherSupport,
                     library: r.library,
                     notification: r.notification,
                     logger: r.logger,
@@ -7901,7 +7933,7 @@
                     value: !0
                 }), t.AnalyticsEventName = void 0,
                     function(e) {
-                        e.APP_OPEN = "App:Open", e.APP_CLOSE = "App:Close", e.APP_SIGNEDIN = "App:SignedIn", e.APP_SIGNEDOUT = "App:SignedOut", e.APP_API_ERROR = "App:Api:Error", e.APP_INSTALL_START = "App:Install:Start", e.APP_INSTALL_STOP = "App:Install:Stop", e.APP_INSTALL_SUCCESS = "App:Install:Success", e.APP_INSTALL_ERROR = "App:Install:Error", e.APP_VERIFY_START = "App:Verify:Start", e.APP_VERIFY_STOP = "App:Verify:Stop", e.APP_VERIFY_SUCCESS = "App:Verify:Success", e.APP_VERIFY_ERROR = "App:Verify:Error", e.APP_UPDATE_START = "App:Update:Start", e.APP_UPDATE_STOP = "App:Update:Stop", e.APP_UPDATE_SUCCESS = "App:Update:Success", e.APP_UPDATE_ERROR = "App:Update:Error", e.APP_UNINSTALL_START = "App:Uninstall:Start", e.APP_UNINSTALL_SUCCESS = "App:Uninstall:Success", e.APP_UNINSTALL_ERROR = "App:Uninstall:Error", e.APP_LAUNCH_START = "App:Launch:Start", e.APP_LAUNCH_STOP = "App:Launch:Stop", e.APP_LAUNCH_ERROR = "App:Launch:Error", e.OLD_APP_LAUNCH_START = "App:Launcher:Start", e.OLD_APP_LAUNCH_STOP = "App:Launcher:Stop", e.OLD_APP_LAUNCH_ERROR = "App:Launcher:Error"
+                        e.APP_OPEN = "App:Open", e.APP_CLOSE = "App:Close", e.APP_SIGNEDIN = "App:SignedIn", e.APP_SIGNEDOUT = "App:SignedOut", e.APP_API_ERROR = "App:Api:Error", e.APP_INSTALL_START = "App:Install:Start", e.APP_INSTALL_STOP = "App:Install:Stop", e.APP_INSTALL_SUCCESS = "App:Install:Success", e.APP_INSTALL_ERROR = "App:Install:Error", e.APP_VERIFY_START = "App:Verify:Start", e.APP_VERIFY_STOP = "App:Verify:Stop", e.APP_VERIFY_SUCCESS = "App:Verify:Success", e.APP_VERIFY_ERROR = "App:Verify:Error", e.APP_UPDATE_START = "App:Update:Start", e.APP_UPDATE_STOP = "App:Update:Stop", e.APP_UPDATE_SUCCESS = "App:Update:Success", e.APP_UPDATE_ERROR = "App:Update:Error", e.APP_UNINSTALL_START = "App:Uninstall:Start", e.APP_UNINSTALL_SUCCESS = "App:Uninstall:Success", e.APP_UNINSTALL_ERROR = "App:Uninstall:Error", e.APP_LAUNCH_START = "App:Launch:Start", e.APP_LAUNCH_STOP = "App:Launch:Stop", e.APP_LAUNCH_ERROR = "App:Launch:Error", e.OLD_APP_LAUNCH_START = "App:Launcher:Start", e.OLD_APP_LAUNCH_STOP = "App:Launcher:Stop", e.OLD_APP_LAUNCH_ERROR = "App:Launcher:Error", e.APP_LS_ERROR = "App:LauncherSupport:Error"
                     }(n || (t.AnalyticsEventName = n = {}))
             },
             5708: (e, t) => {
@@ -7967,14 +7999,15 @@
                     };
                 Object.defineProperty(t, "__esModule", {
                     value: !0
-                }), i(n(2700), t), i(n(728), t), i(n(6565), t), i(n(2358), t), i(n(2299), t)
+                }), i(n(2700), t), i(n(5320), t), i(n(728), t), i(n(6565), t), i(n(2358), t), i(n(2299), t)
             },
             728: (e, t, n) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", {
                     value: !0
-                }), t.CancelError = t.Error21Error = t.NetworkDefaultError = t.NetworkTooManyFilesFailedError = t.NetworkFailedToRecieveHandshakeError = t.NetworkCouldNotResolveHostError = t.ExceptionU00Error = t.InvalidArgumentTypeError = t.P4KError = t.IOError = t.InstallerSupportPermissionError = t.CreateDirectoryError = t.FixPermissionError = t.BasePackGenericError = t.DownloadUnsuccessfullError = t.PatcherGenericError = t.BasePackP4kCorruptedError = t.PatcherUnknownNetworkError = t.RetrieveManifestError = t.Pk4CorruptedError = t.FileInUseError = t.WritePermissionsError = t.DiskFullError = t.NotMappedError = t.MDFileHeaderNotFoundError = t.InvalidMDFileHeaderError = t.InvalidMDFileError = t.InstallerError = t.LauncherSpecificInstallerErrorsCodes = t.InstallerErrorsNames = t.InitialDownloadErrorsNames = t.PatcherErrorsNames = void 0;
-                const r = n(2700);
+                }), t.CancelError = t.Error21Error = t.NetworkDefaultError = t.NetworkTooManyFilesFailedError = t.NetworkFailedToRecieveHandshakeError = t.NetworkCouldNotResolveHostError = t.ExceptionU00Error = t.InvalidArgumentTypeError = t.P4KError = t.IOError = t.FixPermissionError = t.BasePackGenericError = t.DownloadUnsuccessfullError = t.PatcherGenericError = t.BasePackP4kCorruptedError = t.PatcherUnknownNetworkError = t.RetrieveManifestError = t.Pk4CorruptedError = t.FileInUseError = t.WritePermissionsError = t.DiskFullError = t.NotMappedError = t.MDFileHeaderNotFoundError = t.InvalidMDFileHeaderError = t.InvalidMDFileError = t.InstallerError = t.LauncherSpecificInstallerErrorsCodes = t.InstallerErrorsNames = t.InitialDownloadErrorsNames = t.PatcherErrorsNames = void 0;
+                const r = n(2700),
+                    i = n(5320);
                 t.PatcherErrorsNames = {
                     ERR_DISK_FULL: "DiskFullError",
                     ERR_WRITE_PERMISSION: "WritePermissionError",
@@ -7999,20 +8032,17 @@
                     ERR_INVALID_MD_FILE: "InvalidMDFileError",
                     ERR_INVALID_MD_FILE_HEADER: "InvalidMDFileHeaderError",
                     ERR_MD_FILE_HEADER_NOT_FOUND: "MDFileHeaderNotFoundError",
-                    ERR_NOT_MAPPED_ERRORS: "NotMappedErrors"
-                }, t.InstallerErrorsNames = Object.assign(Object.assign(Object.assign({}, t.PatcherErrorsNames), t.InitialDownloadErrorsNames), {
+                    ERR_NOT_MAPPED_ERRORS: "NotMappedErrors",
+                    ERR_INIT_DISK_FULL: "DiskFullError"
+                }, t.InstallerErrorsNames = Object.assign(Object.assign(Object.assign(Object.assign({}, t.PatcherErrorsNames), t.InitialDownloadErrorsNames), i.LauncherSupportErrorsNames), {
                     ERR_INSTALL_UNKNOWN: "GenericInstallerError",
-                    ERR_CREATE_DIRECTORY: "CreateDirectoryError",
-                    ERR_INSTALLER_SUPPORT_PERMISSION: "InstallerSupportPermission",
                     ERR_FIX_PERMISSIONS: "FixPermissionsError",
                     ERR_CANCEL_FAIL: "CancelFailError"
                 });
-                t.LauncherSpecificInstallerErrorsCodes = Object.assign(Object.assign({
+                t.LauncherSpecificInstallerErrorsCodes = Object.assign(Object.assign(Object.assign({
                     ERR_INSTALL_UNKNOWN: "2000",
                     ERR_FIX_PERMISSIONS: "2001",
-                    ERR_CANCEL_FAIL: "2002",
-                    ERR_CREATE_DIRECTORY: "2003",
-                    ERR_INSTALLER_SUPPORT_PERMISSION: "2004"
+                    ERR_CANCEL_FAIL: "2002"
                 }, {
                     ERR_DISK_FULL: "5000",
                     ERR_WRITE_PERMISSION: "5001",
@@ -8037,9 +8067,10 @@
                     ERR_INVALID_MD_FILE: "3001",
                     ERR_INVALID_MD_FILE_HEADER: "3003",
                     ERR_MD_FILE_HEADER_NOT_FOUND: "3004",
-                    ERR_NOT_MAPPED_ERRORS: "3005"
-                });
-                class i extends r.GenericError {
+                    ERR_NOT_MAPPED_ERRORS: "3005",
+                    ERR_INIT_DISK_FULL: "3006"
+                }), i.LauncherSupportErrorsCodes);
+                class a extends r.GenericError {
                     constructor({
                                     message: e,
                                     code: n = t.LauncherSpecificInstallerErrorsCodes.ERR_INSTALL_UNKNOWN,
@@ -8049,264 +8080,244 @@
                             message: e,
                             code: n,
                             payload: r
-                        }), Object.setPrototypeOf(this, i.prototype), this.code = n, this.payload = r
+                        }), Object.setPrototypeOf(this, a.prototype), this.code = n, this.payload = r
                     }
                 }
-                t.InstallerError = i;
-                class a extends i {
+                t.InstallerError = a;
+                class o extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_INVALID_MD_FILE,
                             payload: n
-                        }), Object.setPrototypeOf(this, a.prototype)
+                        }), Object.setPrototypeOf(this, o.prototype)
                     }
                 }
-                t.InvalidMDFileError = a;
-                t.InvalidMDFileHeaderError = class extends i {
+                t.InvalidMDFileError = o;
+                t.InvalidMDFileHeaderError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_INVALID_MD_FILE_HEADER,
                             payload: n
-                        }), Object.setPrototypeOf(this, a.prototype)
+                        }), Object.setPrototypeOf(this, o.prototype)
                     }
                 };
-                t.MDFileHeaderNotFoundError = class extends i {
+                t.MDFileHeaderNotFoundError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_MD_FILE_HEADER_NOT_FOUND,
                             payload: n
-                        }), Object.setPrototypeOf(this, a.prototype)
+                        }), Object.setPrototypeOf(this, o.prototype)
                     }
                 };
-                t.NotMappedError = class extends i {
+                t.NotMappedError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_NOT_MAPPED_ERRORS,
                             payload: n
-                        }), Object.setPrototypeOf(this, a.prototype)
+                        }), Object.setPrototypeOf(this, o.prototype)
                     }
                 };
-                class o extends i {
+                class s extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_DISK_FULL,
                             payload: n
-                        }), Object.setPrototypeOf(this, o.prototype)
+                        }), Object.setPrototypeOf(this, s.prototype)
                     }
                 }
-                t.DiskFullError = o;
-                class s extends i {
+                t.DiskFullError = s;
+                class l extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_WRITE_PERMISSION,
                             payload: n
-                        }), Object.setPrototypeOf(this, s.prototype)
+                        }), Object.setPrototypeOf(this, l.prototype)
                     }
                 }
-                t.WritePermissionsError = s;
-                class l extends i {
+                t.WritePermissionsError = l;
+                class c extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_FILE_IN_USE,
                             payload: n
-                        }), Object.setPrototypeOf(this, l.prototype)
+                        }), Object.setPrototypeOf(this, c.prototype)
                     }
                 }
-                t.FileInUseError = l;
-                class c extends i {
+                t.FileInUseError = c;
+                class u extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_P4K_CORRUPTED,
                             payload: n
-                        }), Object.setPrototypeOf(this, c.prototype)
+                        }), Object.setPrototypeOf(this, u.prototype)
                     }
                 }
-                t.Pk4CorruptedError = c;
-                class u extends i {
+                t.Pk4CorruptedError = u;
+                class d extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_RETRIEVE_MANIFEST,
                             payload: n
-                        }), Object.setPrototypeOf(this, u.prototype)
+                        }), Object.setPrototypeOf(this, d.prototype)
                     }
                 }
-                t.RetrieveManifestError = u;
-                class d extends i {
+                t.RetrieveManifestError = d;
+                class p extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_UNKNOWN_NETWORK_ERROR,
                             payload: n
-                        }), Object.setPrototypeOf(this, d.prototype)
+                        }), Object.setPrototypeOf(this, p.prototype)
                     }
                 }
-                t.PatcherUnknownNetworkError = d;
-                class p extends i {
+                t.PatcherUnknownNetworkError = p;
+                class h extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_BASE_P4K_CORRUPTED,
                             payload: n
-                        }), Object.setPrototypeOf(this, p.prototype)
+                        }), Object.setPrototypeOf(this, h.prototype)
                     }
                 }
-                t.BasePackP4kCorruptedError = p;
-                class h extends i {
+                t.BasePackP4kCorruptedError = h;
+                class f extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_PATCHER_UNKNOWN,
                             payload: n
-                        }), Object.setPrototypeOf(this, h.prototype)
+                        }), Object.setPrototypeOf(this, f.prototype)
                     }
                 }
-                t.PatcherGenericError = h;
-                t.DownloadUnsuccessfullError = class extends i {
+                t.PatcherGenericError = f;
+                t.DownloadUnsuccessfullError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_DOWNLOAD_UNSUCCESSFULL,
                             payload: n
-                        }), Object.setPrototypeOf(this, h.prototype)
+                        }), Object.setPrototypeOf(this, f.prototype)
                     }
                 };
-                class f extends i {
+                class m extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_INIT_UNKNOWN,
                             payload: n
-                        }), Object.setPrototypeOf(this, f.prototype)
+                        }), Object.setPrototypeOf(this, m.prototype)
                     }
                 }
-                t.BasePackGenericError = f;
-                class m extends i {
+                t.BasePackGenericError = m;
+                class g extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_FIX_PERMISSIONS,
                             payload: n
-                        }), Object.setPrototypeOf(this, m.prototype)
-                    }
-                }
-                t.FixPermissionError = m;
-                class g extends i {
-                    constructor(e, n) {
-                        super({
-                            message: e,
-                            code: t.LauncherSpecificInstallerErrorsCodes.ERR_CREATE_DIRECTORY,
-                            payload: n
                         }), Object.setPrototypeOf(this, g.prototype)
                     }
                 }
-                t.CreateDirectoryError = g;
-                class v extends i {
-                    constructor(e, n) {
-                        super({
-                            message: e,
-                            code: t.LauncherSpecificInstallerErrorsCodes.ERR_INSTALLER_SUPPORT_PERMISSION,
-                            payload: n
-                        }), Object.setPrototypeOf(this, v.prototype)
-                    }
-                }
-                t.InstallerSupportPermissionError = v;
-                t.IOError = class extends i {
+                t.FixPermissionError = g;
+                t.IOError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_IO_ERROR,
                             payload: n
-                        }), Object.setPrototypeOf(this, m.prototype)
+                        }), Object.setPrototypeOf(this, g.prototype)
                     }
                 };
-                t.P4KError = class extends i {
+                t.P4KError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_P4K_ERROR,
                             payload: n
-                        }), Object.setPrototypeOf(this, m.prototype)
+                        }), Object.setPrototypeOf(this, g.prototype)
                     }
                 };
-                t.InvalidArgumentTypeError = class extends i {
+                t.InvalidArgumentTypeError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_INVALID_ARGUMENT_TYPE,
                             payload: n
-                        }), Object.setPrototypeOf(this, m.prototype)
+                        }), Object.setPrototypeOf(this, g.prototype)
                     }
                 };
-                t.ExceptionU00Error = class extends i {
+                t.ExceptionU00Error = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_EXCEPTION_U_00,
                             payload: n
-                        }), Object.setPrototypeOf(this, m.prototype)
+                        }), Object.setPrototypeOf(this, g.prototype)
                     }
                 };
-                t.NetworkCouldNotResolveHostError = class extends i {
+                t.NetworkCouldNotResolveHostError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_NETWORK_COULD_NOT_RESOLVE_HOST,
                             payload: n
-                        }), Object.setPrototypeOf(this, m.prototype)
+                        }), Object.setPrototypeOf(this, g.prototype)
                     }
                 };
-                t.NetworkFailedToRecieveHandshakeError = class extends i {
+                t.NetworkFailedToRecieveHandshakeError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_NETWORK_FAILED_TO_RECEIVE_HANDSHAKE,
                             payload: n
-                        }), Object.setPrototypeOf(this, m.prototype)
+                        }), Object.setPrototypeOf(this, g.prototype)
                     }
                 };
-                t.NetworkTooManyFilesFailedError = class extends i {
+                t.NetworkTooManyFilesFailedError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_NETWORK_TOO_MANY_FILES_FAILED,
                             payload: n
-                        }), Object.setPrototypeOf(this, m.prototype)
+                        }), Object.setPrototypeOf(this, g.prototype)
                     }
                 };
-                t.NetworkDefaultError = class extends i {
+                t.NetworkDefaultError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_NETWORK_DEFAULT,
                             payload: n
-                        }), Object.setPrototypeOf(this, m.prototype)
+                        }), Object.setPrototypeOf(this, g.prototype)
                     }
                 };
-                t.Error21Error = class extends i {
+                t.Error21Error = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_ERROR_21,
                             payload: n
-                        }), Object.setPrototypeOf(this, m.prototype)
+                        }), Object.setPrototypeOf(this, g.prototype)
                     }
                 };
-                t.CancelError = class extends i {
+                t.CancelError = class extends a {
                     constructor(e, n) {
                         super({
                             message: e,
                             code: t.LauncherSpecificInstallerErrorsCodes.ERR_CANCEL_FAIL,
                             payload: n
-                        }), Object.setPrototypeOf(this, m.prototype)
+                        }), Object.setPrototypeOf(this, g.prototype)
                     }
                 }
             },
@@ -8315,68 +8326,77 @@
                 Object.defineProperty(t, "__esModule", {
                     value: !0
                 }), t.serializerInstallerErrors = void 0;
-                const r = n(728);
+                const r = n(728),
+                    i = n(5320);
                 t.serializerInstallerErrors = e => {
                     const {
                         code: t,
                         message: n,
-                        payload: i
+                        payload: a
                     } = e;
                     switch (t) {
-                        case r.InstallerErrorsNames.ERR_INVALID_MD_FILE:
-                            return new r.InvalidMDFileError(n, i);
-                        case r.InstallerErrorsNames.ERR_INVALID_MD_FILE_HEADER:
-                            return new r.InvalidMDFileHeaderError(n, i);
-                        case r.InstallerErrorsNames.ERR_MD_FILE_HEADER_NOT_FOUND:
-                            return new r.MDFileHeaderNotFoundError(n, i);
-                        case r.InstallerErrorsNames.ERR_NOT_MAPPED_ERRORS:
-                            return new r.NotMappedError(n, i);
                         case r.InstallerErrorsNames.ERR_DISK_FULL:
-                            return new r.DiskFullError(n, i);
-                        case r.InstallerErrorsNames.ERR_FILE_IN_USE:
-                            return new r.FileInUseError(n, i);
+                            return new r.DiskFullError(n, a);
                         case r.InstallerErrorsNames.ERR_WRITE_PERMISSION:
-                            return new r.WritePermissionsError(n, i);
-                        case r.InstallerErrorsNames.ERR_P4K_CORRUPTED:
-                            return new r.Pk4CorruptedError(n, i);
+                            return new r.WritePermissionsError(n, a);
+                        case r.InstallerErrorsNames.ERR_FILE_IN_USE:
+                            return new r.FileInUseError(n, a);
                         case r.InstallerErrorsNames.ERR_RETRIEVE_MANIFEST:
-                            return new r.RetrieveManifestError(n, i);
-                        case r.InstallerErrorsNames.ERR_UNKNOWN_NETWORK_ERROR:
-                            return new r.PatcherUnknownNetworkError(n, i);
+                            return new r.RetrieveManifestError(n, a);
+                        case r.InstallerErrorsNames.ERR_P4K_CORRUPTED:
+                            return new r.Pk4CorruptedError(n, a);
                         case r.InstallerErrorsNames.ERR_BASE_P4K_CORRUPTED:
-                            return new r.BasePackP4kCorruptedError(n, i);
-                        case r.InstallerErrorsNames.ERR_DOWNLOAD_UNSUCCESSFULL:
-                            return new r.DownloadUnsuccessfullError(n, i);
+                            return new r.BasePackP4kCorruptedError(n, a);
+                        case r.InstallerErrorsNames.ERR_UNKNOWN_NETWORK_ERROR:
+                            return new r.PatcherUnknownNetworkError(n, a);
                         case r.InstallerErrorsNames.ERR_PATCHER_UNKNOWN:
-                            return new r.PatcherGenericError(n, i);
-                        case r.InstallerErrorsNames.ERR_INIT_UNKNOWN:
-                            return new r.BasePackGenericError(n, i);
-                        case r.InstallerErrorsNames.ERR_FIX_PERMISSIONS:
-                            return new r.FixPermissionError(n, i);
-                        case r.InstallerErrorsNames.ERR_CREATE_DIRECTORY:
-                            return new r.CreateDirectoryError(n, i);
-                        case r.InstallerErrorsNames.ERR_INSTALLER_SUPPORT_PERMISSION:
-                            return new r.InstallerSupportPermissionError(n, i);
+                            return new r.PatcherGenericError(n, a);
+                        case r.InstallerErrorsNames.ERR_DOWNLOAD_UNSUCCESSFULL:
+                            return new r.MDFileHeaderNotFoundError(n, a);
                         case r.InstallerErrorsNames.ERR_IO_ERROR:
-                            return new r.IOError(n, i);
+                            return new r.IOError(n, a);
                         case r.InstallerErrorsNames.ERR_P4K_ERROR:
-                            return new r.P4KError(n, i);
+                            return new r.P4KError(n, a);
                         case r.InstallerErrorsNames.ERR_INVALID_ARGUMENT_TYPE:
-                            return new r.InvalidArgumentTypeError(n, i);
+                            return new r.InvalidArgumentTypeError(n, a);
                         case r.InstallerErrorsNames.ERR_EXCEPTION_U_00:
-                            return new r.ExceptionU00Error(n, i);
+                            return new r.ExceptionU00Error(n, a);
                         case r.InstallerErrorsNames.ERR_NETWORK_COULD_NOT_RESOLVE_HOST:
                         case r.InstallerErrorsNames.ERR_NETWORK_FAILED_TO_RECEIVE_HANDSHAKE:
-                            return new r.NetworkFailedToRecieveHandshakeError(n, i);
+                            return new r.NetworkFailedToRecieveHandshakeError(n, a);
+                        case r.InstallerErrorsNames.ERR_NETWORK_TOO_MANY_FILES_FAILED:
+                            return new r.NetworkTooManyFilesFailedError(n, a);
                         case r.InstallerErrorsNames.ERR_NETWORK_DEFAULT:
-                            return new r.NetworkDefaultError(n, i);
+                            return new r.NetworkDefaultError(n, a);
                         case r.InstallerErrorsNames.ERR_ERROR_21:
-                            return new r.Error21Error(n, i);
+                            return new r.Error21Error(n, a);
+                        case r.InstallerErrorsNames.ERR_INIT_UNKNOWN:
+                            return new r.BasePackGenericError(n, a);
+                        case r.InstallerErrorsNames.ERR_INVALID_MD_FILE:
+                            return new r.InvalidMDFileError(n, a);
+                        case r.InstallerErrorsNames.ERR_INVALID_MD_FILE_HEADER:
+                            return new r.InvalidMDFileHeaderError(n, a);
+                        case r.InstallerErrorsNames.ERR_MD_FILE_HEADER_NOT_FOUND:
+                            return new r.NotMappedError(n, a);
+                        case r.InstallerErrorsNames.ERR_NOT_MAPPED_ERRORS:
+                            return new r.DownloadUnsuccessfullError(n, a);
+                        case r.InstallerErrorsNames.ERR_INIT_DISK_FULL:
+                            return new r.DiskFullError(n, a);
+                        case r.InstallerErrorsNames.ERR_LS_PERMISSION:
+                            return new i.LSPermissionError(n, a);
+                        case r.InstallerErrorsNames.ERR_LS_CREATE_DIRECTORY:
+                            return new i.LSCreateDirectoryError(n, a);
+                        case r.InstallerErrorsNames.ERR_LS_FIX_PERMISSION:
+                            return new i.LSFixPermissionError(n, a);
+                        case r.InstallerErrorsNames.ERR_FIX_PERMISSIONS:
+                            return new r.FixPermissionError(n, a);
+                        case r.InstallerErrorsNames.ERR_CANCEL_FAIL:
+                            return new r.CancelError(n, a);
                         default:
                             return new r.InstallerError({
                                 code: r.LauncherSpecificInstallerErrorsCodes.ERR_INSTALL_UNKNOWN,
                                 message: n,
-                                payload: i
+                                payload: a
                             })
                     }
                 }
@@ -8472,6 +8492,72 @@
                     }
                 }
             },
+            5320: (e, t, n) => {
+                "use strict";
+                Object.defineProperty(t, "__esModule", {
+                    value: !0
+                }), t.LSFixPermissionError = t.LSCreateDirectoryError = t.LSPermissionError = t.LauncherSupportError = t.LauncherSupportErrorsCodes = t.LauncherSupportErrorsNames = void 0;
+                const r = n(2700);
+                t.LauncherSupportErrorsNames = {
+                    ERR_LS_UNKNOWN: "LSGenericError",
+                    ERR_LS_PERMISSION: "LSPermissionError",
+                    ERR_LS_WRITE_PERMISSION: "LSWritePermissionError",
+                    ERR_LS_INVALID_COMMAND: "LSInvalidCommandError",
+                    ERR_LS_CREATE_DIRECTORY: "LSCreateDirectoryError",
+                    ERR_LS_FIX_PERMISSION: "LSFixPermissionError"
+                }, t.LauncherSupportErrorsCodes = {
+                    ERR_LS_UNKNOWN: "8000",
+                    ERR_LS_PERMISSION: "8001",
+                    ERR_LS_WRITE_PERMISSION: "8002",
+                    ERR_LS_INVALID_COMMAND: "8003",
+                    ERR_LS_CREATE_DIRECTORY: "8004",
+                    ERR_LS_FIX_PERMISSION: "8005"
+                };
+                class i extends r.GenericError {
+                    constructor({
+                                    message: e,
+                                    code: n = t.LauncherSupportErrorsCodes.ERR_LS_UNKNOWN,
+                                    payload: r
+                                }) {
+                        super({
+                            message: e,
+                            code: n,
+                            payload: r
+                        }), Object.setPrototypeOf(this, i.prototype), this.code = n, this.payload = r
+                    }
+                }
+                t.LauncherSupportError = i;
+                class a extends i {
+                    constructor(e, n) {
+                        super({
+                            message: e,
+                            code: t.LauncherSupportErrorsCodes.ERR_LS_PERMISSION,
+                            payload: n
+                        }), Object.setPrototypeOf(this, a.prototype)
+                    }
+                }
+                t.LSPermissionError = a;
+                class o extends i {
+                    constructor(e, n) {
+                        super({
+                            message: e,
+                            code: t.LauncherSupportErrorsCodes.ERR_LS_CREATE_DIRECTORY,
+                            payload: n
+                        }), Object.setPrototypeOf(this, o.prototype)
+                    }
+                }
+                t.LSCreateDirectoryError = o;
+                class s extends i {
+                    constructor(e, n) {
+                        super({
+                            message: e,
+                            code: t.LauncherSupportErrorsCodes.ERR_LS_FIX_PERMISSION,
+                            payload: n
+                        }), Object.setPrototypeOf(this, s.prototype)
+                    }
+                }
+                t.LSFixPermissionError = s
+            },
             2087: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", {
@@ -8497,7 +8583,7 @@
                     };
                 Object.defineProperty(t, "__esModule", {
                     value: !0
-                }), i(n(6994), t), i(n(8096), t), i(n(7035), t), i(n(2087), t), i(n(5708), t), i(n(4208), t), i(n(7735), t), i(n(3010), t), i(n(4764), t), i(n(9056), t), i(n(4724), t), i(n(6840), t)
+                }), i(n(6994), t), i(n(8096), t), i(n(7035), t), i(n(2087), t), i(n(5708), t), i(n(4208), t), i(n(7735), t), i(n(3010), t), i(n(4764), t), i(n(9056), t), i(n(4724), t), i(n(6840), t), i(n(4762), t)
             },
             4208: (e, t) => {
                 "use strict";
@@ -8520,6 +8606,22 @@
                 Object.defineProperty(t, "__esModule", {
                     value: !0
                 })
+            },
+            4762: (e, t) => {
+                "use strict";
+                var n, r, i;
+                Object.defineProperty(t, "__esModule", {
+                    value: !0
+                }), t.LSErrorCodes = t.UserSettingsFields = t.DeleteLocalSettingsFields = void 0,
+                    function(e) {
+                        e.SHADERS = "shaders", e.SCREENSHOTS = "screenshots", e.USER = "user"
+                    }(n || (t.DeleteLocalSettingsFields = n = {})),
+                    function(e) {
+                        e.KEYBINDINGS = "keybindings", e.PREFERENCES = "preferences", e.CHARACTERS = "characters"
+                    }(r || (t.UserSettingsFields = r = {})),
+                    function(e) {
+                        e[e.Success = 0] = "Success", e[e.Failed = 25] = "Failed", e[e.Error = 50] = "Error", e[e.Crash = 100] = "Crash"
+                    }(i || (t.LSErrorCodes = i = {}))
             },
             7735: (e, t) => {
                 "use strict";
@@ -9003,7 +9105,7 @@
                     dialog_action_install: "Install Game",
                     dialog_action_relaunch: "Relaunch",
                     dialog_action_discard: "Discard",
-                    dialog_action_delete: "DELETE",
+                    dialog_action_delete: "Delete",
                     dialog_action_browse_library: "browse library",
                     dialog_action_cancel_download: "Cancel download",
                     dialog_warning_back_launcher: "Go back to Launcher",
@@ -9045,7 +9147,8 @@
                     dialog_warning_change_installed_game_question_dialog: "Are you sure you want to change this library location?",
                     dialog_warning_change_game_current_dialog: "Current:",
                     dialog_warning_change_game_new_dialog: "New:",
-                    dialog_warning_change_game_warn_dialog: "If you wish to proceed, make sure to move your files to the new location and verify or reinstall the game at the new location."
+                    dialog_warning_change_game_warn_dialog: "If you wish to proceed, make sure to move your files to the new location and verify or reinstall the game at the new location.",
+                    dialog_settings_delete_local_title: "Delete local settings"
                 },
                 discover: {
                     step_done_label: "Enter Now",
@@ -9361,7 +9464,20 @@
                     settings_action_delete_library: "Delete Library",
                     settings_toast_delete_lib_success: "Library has been deleted",
                     settings_toast_default_lib_updated: "Default library has been updated",
-                    settings_toast_lib_added: "A new library has been created"
+                    settings_toast_lib_added: "A new library has been created",
+                    settings_games_local_title: "Local Settings",
+                    settings_games_local_description: "Deleting your local settings will reset the shaders and user folder, this can be useful to troubleshoot any in-game issue you may encounter.",
+                    settings_games_local_button: "DELETE LOCAL SETTINGS",
+                    settings_games_local_shaders_folder: "Shaders folder",
+                    settings_games_local_screenshots_folder: "Screenshots folder",
+                    settings_games_local_user_folder: "User folder",
+                    settings_games_local_keybindings: "Keybindings (Controls)",
+                    settings_games_local_settings: "Settings preferences (Profiles)",
+                    settings_games_local_characters: "Custom characters",
+                    settings_games_local_delete_description: "Please choose which files you want to delete.",
+                    settings_games_local_delete_success: "Local settings have been deleted",
+                    settings_games_local_delete_error: "Delete local settings failed",
+                    settings_games_local_delete_error_message: "Something went wrong, please make sure the files you are trying to delete are not in use, then try again."
                 },
                 status: {
                     status_title: "RSI Status",
@@ -9512,7 +9628,9 @@
                     dialog_warning_change_installed_game_question_dialog: "\xcates-vous s\xfbr de vouloir changer l'emplacement de cette biblioth\xe8que?",
                     dialog_warning_change_game_current_dialog: "Actuel:",
                     dialog_warning_change_game_new_dialog: "Nouveau:",
-                    dialog_warning_change_game_warn_dialog: "Si vous souhaitez continuer, assurez-vous de d\xe9placer vos fichiers vers le nouvel emplacement et de v\xe9rifier ou r\xe9installer le jeu \xe0 cet endroit."
+                    dialog_warning_change_game_warn_dialog: "Si vous souhaitez continuer, assurez-vous de d\xe9placer vos fichiers vers le nouvel emplacement et de v\xe9rifier ou r\xe9installer le jeu \xe0 cet endroit.",
+                    dialog_settings_delete_local_title: "Delete local settings",
+                    dialog_settings_delete_local_description: "Please choose which files you want to delete."
                 },
                 discover: {
                     step_done_label: "Enter Now",
@@ -9814,7 +9932,20 @@
                     settings_action_delete_library: "Supprimer la biblioth\xe8que",
                     settings_toast_delete_lib_success: "La biblioth\xe8que a \xe9t\xe9 supprim\xe9e",
                     settings_toast_default_lib_updated: "La biblioth\xe8que par d\xe9faut a \xe9t\xe9 mise \xe0 jour",
-                    settings_toast_lib_added: "Une nouvelle biblioth\xe8que a \xe9t\xe9 cr\xe9\xe9e"
+                    settings_toast_lib_added: "Une nouvelle biblioth\xe8que a \xe9t\xe9 cr\xe9\xe9e",
+                    settings_games_local_title: "Param\xe8tres Locaux",
+                    settings_games_local_description: "La suppression de vos param\xe8tres locaux r\xe9initialisera les shaders et les dossiers utilisateur, cela peut \xeatre utile pour r\xe9soudre tout probl\xe8me dans le jeu que vous pourriez rencontrer.",
+                    settings_games_local_button: "SUPPRIMER LES PARAM\xc8TRES LOCAUX",
+                    settings_games_local_shaders_folder: "Shaders folder",
+                    settings_games_local_screenshots_folder: "Screenshots folder",
+                    settings_games_local_user_folder: "User folder",
+                    settings_games_local_keybindings: "Keybindings (Controls)",
+                    settings_games_local_settings: "Settings preferences (Profiles)",
+                    settings_games_local_characters: "Custom characters",
+                    settings_games_local_delete_description: "Veuillez choisir les fichiers que vous souhaitez supprimer.",
+                    settings_games_local_delete_success: "Local settings have been deleted",
+                    settings_games_local_delete_error: "Delete local settings failed",
+                    settings_games_local_delete_error_message: "Something went wrong, please make sure the files you are trying to delete are not in use, then try again."
                 },
                 status: {
                     status_title: "RSI Status",
@@ -9969,7 +10100,8 @@
                 dialog_warning_change_installed_game_question_dialog: "你确定要更改此游戏库的位置？",
                 dialog_warning_change_game_current_dialog: "当前：",
                 dialog_warning_change_game_new_dialog: "新：",
-                dialog_warning_change_game_warn_dialog: "如要继续，请确保将文件移动到新位置，并在新位置验证文件或重新安装游戏。"
+                dialog_warning_change_game_warn_dialog: "如要继续，请确保将文件移动到新位置，并在新位置验证文件或重新安装游戏。",
+                dialog_settings_delete_local_title: "删除本地配置"
             },
             discover: {
                 step_done_label: "立即进入",
@@ -10263,7 +10395,6 @@
                 settings_download_concurrent_desc: "调整同时下载的最大文件数。优化你的下载体验以匹配你的偏好和网络。",
                 settings_download_speed_title: "限制下载速度",
                 settings_download_speed_desc: "通过为每个并发下载连接设置每秒数据传输速率上限来调节下载速度。",
-                settings_download_speed_unlimited: "无限制",
                 settings_application_discover_behavior_title: "探索行为",
                 settings_application_discover_behavior_description: "启动器探索仅在首次进入启动器时显示（或通过点击 RSI 菜单中的 探索 按钮）。此选项将允许您在负载时重新启用 探索 以进行测试。",
                 settings_application_discover_behavior_isDiscoverDone: "isDiscoverDone",
@@ -10287,7 +10418,20 @@
                 settings_action_delete_library: "删除游戏库",
                 settings_toast_delete_lib_success: "游戏库已删除",
                 settings_toast_default_lib_updated: "默认游戏库已更新",
-                settings_toast_lib_added: "一个新的游戏库已创建"
+                settings_toast_lib_added: "一个新的游戏库已创建",
+                settings_games_local_title: "本地配置",
+                settings_games_local_description: "删除本地配置将重置着色器和用户文件夹，可能可以帮助你解决在游戏中遇到的任何问题。",
+                settings_games_local_button: "清除本地配置",
+                settings_games_local_shaders_folder: "着色器文件夹",
+                settings_games_local_screenshots_folder: "截图文件夹",
+                settings_games_local_user_folder: "用户文件夹",
+                settings_games_local_keybindings: "键位绑定（控制）",
+                settings_games_local_settings: "设置偏好（配置）",
+                settings_games_local_characters: "自定义角色",
+                settings_games_local_delete_description: "请选择需要删除的文件。",
+                settings_games_local_delete_success: "本地配置已删除。",
+                settings_games_local_delete_error: "删除本地配置失败",
+                settings_games_local_delete_error_message: "发生错误，请确保你尝试删除的文件未被占用后再试。"
             },
             status: {
                 status_title: "RSI 状态",
@@ -53772,8 +53916,8 @@
                 const e = document.createElement("iframe");
                 document.body.appendChild(e), Array.from = Qx([e, "access", e => e.contentWindow, "optionalAccess", e => e.Array, "access", e => e.from]) || Array.from, document.body.removeChild(e)
             }
-        } catch (MV) {
-            console.debug("Unable to override Array.from", MV)
+        } catch (BV) {
+            console.debug("Unable to override Array.from", BV)
         }
         const tI = new rE;
 
@@ -55909,10 +56053,10 @@
             let y;
             try {
                 y = await h.send(v)
-            } catch (MV) {
+            } catch (BV) {
                 const t = new Error(qS);
                 try {
-                    t.cause = MV
+                    t.cause = BV
                 } catch (b) {}
                 throw t
             }
@@ -55942,14 +56086,14 @@
             var i, a;
             if (n.length) try {
                 return await LC(e), !0
-            } catch (MV) {
-                if (MV instanceof NC || MV instanceof jC) throw MV;
+            } catch (BV) {
+                if (BV instanceof NC || BV instanceof jC) throw BV;
                 if (i = "Replays", a = {
                     _retryCount: t.count
-                }, wb().setContext(i, a), r && r(MV), t.count >= 3) {
+                }, wb().setContext(i, a), r && r(BV), t.count >= 3) {
                     const e = new Error(`${qS} - max retries exceeded`);
                     try {
-                        e.cause = MV
+                        e.cause = BV
                     } catch (o) {}
                     throw e
                 }
@@ -56110,15 +56254,15 @@
                             dataURLOptions: e.dataURLOptions
                         } : {}
                     })
-                } catch (MV) {
-                    this.handleException(MV)
+                } catch (BV) {
+                    this.handleException(BV)
                 }
             }
             stopRecording() {
                 try {
                     return this._stopRecording && (this._stopRecording(), this._stopRecording = void 0), !0
-                } catch (MV) {
-                    return this.handleException(MV), !1
+                } catch (BV) {
+                    return this.handleException(BV), !1
                 }
             }
             async stop({
@@ -56131,8 +56275,8 @@
                         rI && sI.info("Stopping Replay" + (t ? ` triggered by ${t}` : "")), this._removeListeners(), this.stopRecording(), this._debouncedFlush.cancel(), e && await this._flush({
                             force: !0
                         }), this.eventBuffer && this.eventBuffer.destroy(), this.eventBuffer = null, qI(this)
-                    } catch (MV) {
-                        this.handleException(MV)
+                    } catch (BV) {
+                        this.handleException(BV)
                     }
                 }
             }
@@ -56248,8 +56392,8 @@
             _addListeners() {
                 try {
                     GS.document.addEventListener("visibilitychange", this._handleVisibilityChange), GS.addEventListener("blur", this._handleWindowBlur), GS.addEventListener("focus", this._handleWindowFocus), GS.addEventListener("keydown", this._handleKeyboardEvent), this.clickDetector && this.clickDetector.addListeners(), this._hasInitializedCoreListeners || (TC(this), this._hasInitializedCoreListeners = !0)
-                } catch (MV) {
-                    this.handleException(MV)
+                } catch (BV) {
+                    this.handleException(BV)
                 }
                 this._performanceCleanupCallback = function(e) {
                     function t(t) {
@@ -56272,8 +56416,8 @@
             _removeListeners() {
                 try {
                     GS.document.removeEventListener("visibilitychange", this._handleVisibilityChange), GS.removeEventListener("blur", this._handleWindowBlur), GS.removeEventListener("focus", this._handleWindowFocus), GS.removeEventListener("keydown", this._handleKeyboardEvent), this.clickDetector && this.clickDetector.removeListeners(), this._performanceCleanupCallback && this._performanceCleanupCallback()
-                } catch (MV) {
-                    this.handleException(MV)
+                } catch (BV) {
+                    this.handleException(BV)
                 }
             }
             __init() {
@@ -56385,13 +56529,13 @@
                             timestamp: t,
                             onError: e => this.handleException(e)
                         })
-                    } catch (MV) {
-                        this.handleException(MV), this.stop({
+                    } catch (BV) {
+                        this.handleException(BV), this.stop({
                             reason: "sendReplay"
                         });
                         const t = Sb();
                         if (t) {
-                            const n = MV instanceof jC ? "ratelimit_backoff" : "send_error";
+                            const n = BV instanceof jC ? "ratelimit_backoff" : "send_error";
                             t.recordDroppedEvent(n, "replay")
                         }
                     }
@@ -56416,8 +56560,8 @@
                     this._flushLock || (this._flushLock = this._runFlush());
                     try {
                         await this._flushLock
-                    } catch (MV) {
-                        this.handleException(MV)
+                    } catch (BV) {
+                        this.handleException(BV)
                     } finally {
                         this._flushLock = void 0, o && this._debouncedFlush()
                     }
@@ -57912,7 +58056,7 @@
                                 type: "instrument"
                             }
                         }))
-                    } catch (MV) {}
+                    } catch (BV) {}
                     return t.apply(this, [n, tS(r, {
                         mechanism: {
                             data: {
@@ -58609,8 +58753,8 @@
                 "GET" !== t && (s.body = JSON.stringify(n));
                 try {
                     l = await fetch(a, s)
-                } catch (MV) {
-                    throw new CT("Could not connect to server", MV, null)
+                } catch (BV) {
+                    throw new CT("Could not connect to server", BV, null)
                 }
                 return this.handleResponse(l)
             }
@@ -58760,8 +58904,8 @@
                         rsiApiResult: r,
                         environment: e
                     })
-                } catch (MV) {
-                    throw MV instanceof uT && (this._session = null, this._device = null), MV
+                } catch (BV) {
+                    throw BV instanceof uT && (this._session = null, this._device = null), BV
                 }
             }
             handleSession(e, t) {
@@ -58789,8 +58933,8 @@
                         o = await this.post(e, t, a, i),
                         s = await o.arrayBuffer();
                     return window.btoa(String.fromCharCode(...new Uint8Array(s)))
-                } catch (MV) {
-                    throw MV
+                } catch (BV) {
+                    throw BV
                 }
             }
         }
@@ -59160,8 +59304,9 @@
                     const {
                         id: t,
                         name: n,
-                        channels: r
-                    } = e, i = Object.values(r).map((({
+                        weight: r,
+                        channels: i
+                    } = e, a = Object.values(i).map((({
                                                           id: e,
                                                           name: t,
                                                           version: n,
@@ -59170,7 +59315,8 @@
                                                           servicesEndpoint: a,
                                                           nid: o,
                                                           network: s,
-                                                          installDir: l
+                                                          installDir: l,
+                                                          weight: c
                                                       }) => ({
                         id: e,
                         name: null !== t && void 0 !== t ? t : e,
@@ -59181,12 +59327,14 @@
                         nid: o,
                         network: s,
                         installDir: l,
-                        status: xP.GameChannelStatus.AVAILABLE
+                        status: xP.GameChannelStatus.AVAILABLE,
+                        weight: Number(c || 0)
                     })));
                     return {
                         id: t,
                         name: n,
-                        channels: i
+                        weight: Number(r || 0),
+                        channels: a
                     }
                 }));
                 return e
@@ -59381,7 +59529,7 @@
             e.DISPLAY_WARNING_DIALOG = "displayWarningDialog", e.DISPLAY_ACKNOWLEDGE_DIALOG = "displayAcknowledgeDialog", e.DISPLAY_INLINE_MESSAGE = "displayInlineMessage", e.EXECUTE_CALLBACK = "executeCallback"
         }(lR || (lR = {}));
         const cR = async e => {
-            const t = jz.getState().dialog,
+            const t = Uz.getState().dialog,
                 n = Array.isArray(e) ? e : [e];
             for (const {
                 handler: r,
@@ -59584,7 +59732,7 @@
                 const {
                     application: n,
                     agreements: r
-                } = jz.getState(), i = await n.actions.isMinimumWindowsVersion(), a = await n.actions.isRespectingCPUCapabilites();
+                } = Uz.getState(), i = await n.actions.isMinimumWindowsVersion(), a = await n.actions.isRespectingCPUCapabilites();
                 console.log("[Requirement] OS check : ", i), console.log("[Requirement] CPU check : ", a);
                 return !!await r.actions.checkAgreements()
             }, xR = (e, t, n, r) => e.map((e => yR(e.game, t) ? {
@@ -59682,7 +59830,7 @@
             zR = e => {
                 var t;
                 const n = xP.configuration.env,
-                    r = jz.getState().application.platformMaster;
+                    r = Uz.getState().application.platformMaster;
                 return ("reviewapp" === r ? FR : null !== (t = n[r].rootUrl) && void 0 !== t ? t : xP.configuration.rootUrl) + e
             },
             VR = e => e / 1e3,
@@ -59695,7 +59843,7 @@
                         onSetHideWindowSuccessFul: t,
                         onSetShowWindowSuccessFul: n
                     }
-                } = window.launcherAPI, r = jz.getState().application, [i, a] = (0, Ee.useState)(!1);
+                } = window.launcherAPI, r = Uz.getState().application, [i, a] = (0, Ee.useState)(!1);
                 return (0, Ee.useEffect)((() => {
                     const e = t((() => {
                             a(!0), r.actions.setWindowMinimized(!0)
@@ -63668,15 +63816,15 @@
                 })(), {
                     exitLauncher: i,
                     logoutLauncher: a
-                } = jz((e => e.window.actions)), {
+                } = Uz((e => e.window.actions)), {
                     identity: o
-                } = jz((e => e.user)), {
+                } = Uz((e => e.user)), {
                     volume: s,
                     actions: {
                         mute: l,
                         unmute: c
                     }
-                } = jz((e => e.soundSystem)), u = 0 === s, d = !!o, p = (0, Ee.useMemo)((() => [...Nj, {
+                } = Uz((e => e.soundSystem)), u = 0 === s, d = !!o, p = (0, Ee.useMemo)((() => [...Nj, {
                     id: "logout",
                     action: a,
                     visible: d
@@ -63722,7 +63870,7 @@
             zj = (e, t) => ({
                 queryKey: [`platformContent-${e}-${t}`],
                 queryFn: async () => oR.content.getContent(e, t),
-                enabled: !jz.getState().application.isWindowMinimized || !jz.getState().application.actions.isOffline(),
+                enabled: !Uz.getState().application.isWindowMinimized || !Uz.getState().application.actions.isOffline(),
                 select: e => ({
                     commLinks: e.commLinks.map(CR),
                     patchNotes: e.patchNotes.map(CR),
@@ -64219,7 +64367,7 @@
                 user: {
                     identity: r
                 }
-            } = jz.getState(), i = e instanceof QT ? kP : e.code, a = e instanceof QT ? n : null !== (t = e.environment) && void 0 !== t ? t : n;
+            } = Uz.getState(), i = e instanceof QT ? kP : e.code, a = e instanceof QT ? n : null !== (t = e.environment) && void 0 !== t ? t : n;
             window.launcherAPI.analytics.setAnalyticsEvent(xP.AnalyticsEventName.APP_API_ERROR, {
                 ErrorCode: i,
                 ErrorMessage: e.message,
@@ -64232,15 +64380,15 @@
                 application: {
                     connection: t
                 }
-            } = jz.getState();
+            } = Uz.getState();
             return e instanceof CT && t.mode === xP.ConnectionMode.ONLINE
         }, Kj = async (e = {
             clearDevice: !1
         }) => {
             var t;
-            const n = jz.getState().application,
-                r = jz.getState().authentication,
-                i = jz.getState().user,
+            const n = Uz.getState().application,
+                r = Uz.getState().authentication,
+                i = Uz.getState().user,
                 a = (null === (t = i.device) || void 0 === t ? void 0 : t.duration) === jT.SESSION || (null === e || void 0 === e ? void 0 : e.clearDevice);
             try {
                 (i.sessions[n.platformMaster] && Object.keys(i.sessions[n.platformMaster] || {}).length > 0 ? i.sessions[n.platformMaster] : null) && (oR.games.clearClaims(), await oR.authentication.signOut({
@@ -64261,7 +64409,7 @@
         }, Yj = async e => {
             switch (!0) {
                 case e instanceof kT:
-                    await Kj(), await jz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                    await Kj(), await Uz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
                         title: xt.t("error_api_denied_request_title", {
                             ns: "errors"
                         }),
@@ -64269,7 +64417,7 @@
                     });
                     break;
                 case e instanceof ST:
-                    await Kj(), await jz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                    await Kj(), await Uz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
                         title: xt.t("error_api_too_many_requests_title", {
                             ns: "errors"
                         }),
@@ -64282,12 +64430,12 @@
                             connection: t,
                             actions: n
                         }
-                    } = jz.getState();
+                    } = Uz.getState();
                     if (t.mode === xP.ConnectionMode.NO_CONNECTION) return;
                     n.checkConnection();
                     break;
                 case e instanceof uT:
-                    await Kj(), await jz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                    await Kj(), await Uz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
                         title: xt.t("error_api_auth_expired_title", {
                             ns: "errors"
                         }),
@@ -64304,7 +64452,7 @@
                 case e instanceof mT:
                     break;
                 case e instanceof pT:
-                    await Kj(), await jz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                    await Kj(), await Uz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
                         title: xt.t("error_generic_title", {
                             ns: "errors"
                         }),
@@ -64315,7 +64463,7 @@
                 case e instanceof gT:
                     break;
                 default:
-                    await jz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                    await Uz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
                         title: xt.t("error_generic_title", {
                             ns: "errors"
                         }),
@@ -66279,10 +66427,10 @@
             CM = ({
                       children: e
                   }) => {
-                const t = jz((e => e.application)),
-                    n = jz((e => e.settings)),
-                    r = jz((e => e.window)),
-                    i = jz((e => e.user)),
+                const t = Uz((e => e.application)),
+                    n = Uz((e => e.settings)),
+                    r = Uz((e => e.window)),
+                    i = Uz((e => e.user)),
                     {
                         t: a
                     } = bt("discover"),
@@ -66337,7 +66485,7 @@
             PM = () => {
                 const {
                     t: e
-                } = bt("connection"), t = jz((e => e.application)), {
+                } = bt("connection"), t = Uz((e => e.application)), {
                     reduceMotion: {
                         unessentialAnimationsDisabled: n
                     }
@@ -66379,7 +66527,7 @@
                 var t;
                 const [n, r] = (0, Ee.useState)(!1), {
                     t: i
-                } = bt("download"), a = OL(), o = jz((e => e.installer)), s = jz((e => e.application)), {
+                } = bt("download"), a = OL(), o = Uz((e => e.installer)), s = Uz((e => e.application)), {
                     reduceMotion: {
                         wipeAnimationsDisabled: l,
                         unessentialAnimationsDisabled: c
@@ -66452,10 +66600,10 @@
                         icon: gM,
                         onClick: () => (() => {
                             const e = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
-                            if (p(!1), l) return void a(`${CV.SETTINGS}/${CV.SETTINGS_DOWNLOAD}`);
+                            if (p(!1), l) return void a(`${DV.SETTINGS}/${DV.SETTINGS_DOWNLOAD}`);
                             s.actions.setAnimatingAppLayoutWipe("full", !0);
                             const t = setTimeout((() => {
-                                a(`${CV.SETTINGS}/${CV.SETTINGS_DOWNLOAD}`)
+                                a(`${DV.SETTINGS}/${DV.SETTINGS_DOWNLOAD}`)
                             }), e / 2);
                             return () => clearTimeout(t)
                         })(),
@@ -66571,12 +66719,12 @@
                             })))
                         },
                         checkStatus: async () => {
-                            if (!jz.getState().status.intervalId) {
+                            if (!Uz.getState().status.intervalId) {
                                 await NM();
                                 const e = setInterval(NM, $T(xP.configuration.requestPollingInterval.status.base, xP.configuration.requestPollingInterval.status.window));
-                                jz.setState({
+                                Uz.setState({
                                     status: {
-                                        ...jz.getState().status,
+                                        ...Uz.getState().status,
                                         intervalId: e
                                     }
                                 })
@@ -66590,9 +66738,9 @@
                     application: e,
                     user: t,
                     status: n
-                } = jz.getState();
+                } = Uz.getState();
                 if (t.actions.isLoggedIn() || jM(n.intervalId), !e.isWindowMinimized) {
-                    if (e.actions.isOffline()) return e.actions.setNonOperationalStatus(void 0), void jz.setState((e => ({
+                    if (e.actions.isOffline()) return e.actions.setNonOperationalStatus(void 0), void Uz.setState((e => ({
                         ...e,
                         status: {
                             ...e.status,
@@ -66629,7 +66777,7 @@
                                 staleTime: 0
                             }),
                             n = null === t || void 0 === t ? void 0 : t.systems.filter((e => (e.name === xP.RSISystemName.PERSISTENTE_UNIVERSE || e.name === xP.RSISystemName.ARENA_COMMANDER) && e.status !== xP.RSISystemStatus.OPERATIONAL)).sort(((e, t) => xP.SystemStatusOrder[e.status.toUpperCase()] - xP.SystemStatusOrder[t.status.toUpperCase()])).map((e => e.status)).shift();
-                        e.actions.setNonOperationalStatus(n), jz.setState((e => ({
+                        e.actions.setNonOperationalStatus(n), Uz.setState((e => ({
                             ...e,
                             status: {
                                 ...e.status,
@@ -66642,8 +66790,8 @@
                     }
                 }
             }, jM = e => {
-                const t = jz.getState().application;
-                clearInterval(e), t.actions.setNonOperationalStatus(void 0), jz.setState((e => ({
+                const t = Uz.getState().application;
+                clearInterval(e), t.actions.setNonOperationalStatus(void 0), Uz.setState((e => ({
                     ...e,
                     status: {
                         ...e.status,
@@ -66678,7 +66826,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             }) => {
                 const [t, n] = (0, Ee.useState)(!1), {
                     t: r
-                } = bt("status"), i = jz((e => e.status)), a = jz((e => e.application)), {
+                } = bt("status"), i = Uz((e => e.status)), a = Uz((e => e.application)), {
                     reduceMotion: {
                         unessentialAnimationsDisabled: o
                     }
@@ -66737,7 +66885,7 @@
             };
         class zM extends Error {}
         const VM = async (e, t, n = !0) => {
-            const r = jz.getState().user;
+            const r = Uz.getState().user;
             if (!r.identity) throw new Error("Identification of the user cannot be retrieved");
             try {
                 const n = await r.actions.getSession(e),
@@ -66787,7 +66935,7 @@
                     storage: p,
                     settings: h,
                     library: f
-                } = jz.getState(), {
+                } = Uz.getState(), {
                     gameId: m,
                     channelId: g,
                     gameName: v,
@@ -66832,20 +66980,20 @@
             THE_OCHO: 12,
             STARBASE: 11,
             SQ42: 10
-        }, WM = (e, t) => (qM[t] || 0) - (qM[e] || 0), HM = "LIVE", KM = {
+        }, WM = (e, t) => (qM[t] || 0) - (qM[e] || 0), HM = (e, t) => e.weight - t.weight, KM = (e, t) => e.weight - t.weight, YM = "LIVE", QM = {
             platformId: "prod",
             gameId: "SC",
             gameName: "Star Citizen",
-            channelId: HM,
+            channelId: YM,
             channelName: "Live Release"
-        }, YM = (e = [], t = []) => ({
+        }, ZM = (e = [], t = []) => ({
             availableGames: t,
             installedGames: e,
-            gameSelected: KM.gameId,
-            channelSelected: KM
-        }), QM = (e, t) => ({
+            gameSelected: QM.gameId,
+            channelSelected: QM
+        }), XM = (e, t) => ({
             library: {
-                ...YM(),
+                ...ZM(),
                 actions: {
                     initializeLibrary: async () => {
                         const t = await window.launcherAPI.store.getValueFromStore("library.installed"),
@@ -66853,7 +67001,7 @@
                         e((e => ({
                             library: {
                                 ...e.library,
-                                ...YM(t, n)
+                                ...ZM(t, n)
                             }
                         })))
                     },
@@ -66900,23 +67048,26 @@
                         const {
                             availableGames: r
                         } = t().library, i = r.find((t => t.id === e));
-                        return (null !== (n = null === i || void 0 === i ? void 0 : i.channels) && void 0 !== n ? n : []).sort(((e, t) => WM(e.id, t.id)))
+                        return (null !== (n = null === i || void 0 === i ? void 0 : i.channels) && void 0 !== n ? n : []).sort(KM)
                     },
                     getInstalledChannelsSorted: e => {
                         var n;
                         const {
                             installedGames: r
                         } = t().library, i = r.find((t => t.id === e));
-                        return (null !== (n = null === i || void 0 === i ? void 0 : i.channels) && void 0 !== n ? n : []).sort(((e, t) => WM(e.id, t.id)))
+                        return (null !== (n = null === i || void 0 === i ? void 0 : i.channels) && void 0 !== n ? n : []).sort(KM)
                     },
                     getAvailableGamesChannelsWeightSorted: () => {
                         const {
                             availableGames: e
                         } = t().library;
-                        return e.map((e => ({
-                            ...e,
-                            channels: e.channels.sort(((e, t) => WM(e.id, t.id)))
-                        })))
+                        return e.sort(HM).map((e => {
+                            const t = e.channels.sort(KM);
+                            return {
+                                ...e,
+                                channels: t
+                            }
+                        }))
                     },
                     getAvailableChannel: e => {
                         const {
@@ -67111,7 +67262,7 @@
                                     })]
                                 })
                             });
-                            await jz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                            await Uz.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
                                 title: xt.t("error_launch_unknown_title", {
                                     ns: "errors"
                                 }),
@@ -67174,7 +67325,7 @@
                         }))), r.actions.unmute(), window.launcherAPI.window.setRestoreWindow();
                         const o = (0, xP.serializerLaunchErrors)(n);
                         await cR((e => {
-                            const t = jz.getState().installer,
+                            const t = Uz.getState().installer,
                                 {
                                     gameId: n,
                                     platformId: r,
@@ -67284,19 +67435,6 @@
                                                                 ns: "errors"
                                                             })
                                                         })]
-                                                    }), (0, wR.jsx)(ds, {
-                                                        children: (0, wR.jsx)(ft, {
-                                                            i18nKey: "error_report_bug",
-                                                            t: xt.t,
-                                                            ns: "errors",
-                                                            components: [(0, wR.jsx)(Pv, {
-                                                                href: xP.configuration.issueCouncilUrl,
-                                                                external: !0
-                                                            }), (0, wR.jsx)(Pv, {
-                                                                href: xP.configuration.filesSupportUrl,
-                                                                external: !0
-                                                            })]
-                                                        })
                                                     }), (0, wR.jsx)(ds, {
                                                         children: xt.t("error_game_error_code", {
                                                             code: e.message,
@@ -67413,7 +67551,7 @@
                                 })))
                             })));
                             window.launcherAPI.store.setValueToStore("library.installed", o)
-                        } catch (MV) {
+                        } catch (BV) {
                             throw new zM
                         }
                     },
@@ -67434,7 +67572,7 @@
                     }
                 }
             }
-        }), ZM = (e, t) => ({
+        }), JM = (e, t) => ({
             installer: {
                 installations: [],
                 uninstallations: [],
@@ -67772,8 +67910,8 @@
                         const o = (0, xP.serializerInstallerErrors)(n);
                         await cR((e => {
                             var t, n, r, i, a;
-                            const o = jz.getState().installer,
-                                s = jz.getState().library,
+                            const o = Uz.getState().installer,
+                                s = Uz.getState().library,
                                 {
                                     gameId: l,
                                     platformId: c,
@@ -67790,10 +67928,10 @@
                                 }) && void 0 !== t ? t : s.channelSelected,
                                 f = fR(o.installations, h);
                             switch (!0) {
-                                case e instanceof xP.InstallerSupportPermissionError:
+                                case e instanceof xP.LSPermissionError:
                                     return {
                                         handler: {
-                                            type: lR.DISPLAY_WARNING_DIALOG,
+                                            type: lR.DISPLAY_ACKNOWLEDGE_DIALOG,
                                             args: {
                                                 title: xt.t("error_installer_support_permission_title", {
                                                     ns: "errors"
@@ -67825,10 +67963,10 @@
                                             }
                                         }, error: e
                                     };
-                                case e instanceof xP.CreateDirectoryError:
+                                case e instanceof xP.LSCreateDirectoryError:
                                     return {
                                         handler: {
-                                            type: lR.DISPLAY_WARNING_DIALOG,
+                                            type: lR.DISPLAY_ACKNOWLEDGE_DIALOG,
                                             args: {
                                                 title: xt.t("error_installer_create_directory_title", {
                                                     ns: "errors"
@@ -68428,7 +68566,7 @@
                     }
                 }
             }
-        }), XM = () => {
+        }), eF = () => {
             var e, t, n, r, i, a;
             const o = OL(),
                 {
@@ -68440,11 +68578,11 @@
                         setMinimizeWindow: c
                     }
                 } = RR(),
-                u = jz((e => e.application)),
-                d = jz((e => e.user)),
-                p = jz((e => e.soundSystem)),
-                h = jz((e => e.window)),
-                f = jz((e => e.installer)),
+                u = Uz((e => e.application)),
+                d = Uz((e => e.user)),
+                p = Uz((e => e.soundSystem)),
+                h = Uz((e => e.window)),
+                f = Uz((e => e.installer)),
                 {
                     wipeAnimationsDisabled: m
                 } = Qo().reduceMotion,
@@ -68479,15 +68617,15 @@
                     }),
                     children: [g() && (0, wR.jsx)(Gv, {
                         onClick: () => {
-                            if (m) return void o(CV.SETTINGS);
+                            if (m) return void o(DV.SETTINGS);
                             u.actions.setAnimatingAppLayoutWipe("full", !0);
                             const e = setTimeout((() => {
-                                o(CV.SETTINGS)
+                                o(DV.SETTINGS)
                             }), l / 2);
                             return () => clearTimeout(e)
                         },
                         label: s("app_header_menu_settings"),
-                        disabled: window.location.hash.includes(CV.SETTINGS)
+                        disabled: window.location.hash.includes(DV.SETTINGS)
                     }), (0, wR.jsx)(Gv, {
                         external: !0,
                         endIcon: pM,
@@ -68508,11 +68646,11 @@
                         label: s("app_header_menu_discover"),
                         "data-test-id": "rsi-menu-discover",
                         onClick: () => {
-                            if (window.location.hash.includes(CV.SETTINGS)) {
-                                if (m) return void o(CV.HOME);
+                            if (window.location.hash.includes(DV.SETTINGS)) {
+                                if (m) return void o(DV.HOME);
                                 u.actions.setAnimatingAppLayoutWipe("full", !0);
                                 const e = setTimeout((() => {
-                                    o(CV.HOME), h.actions.openDiscover()
+                                    o(DV.HOME), h.actions.openDiscover()
                                 }), l / 2);
                                 return () => clearTimeout(e)
                             }
@@ -68590,7 +68728,7 @@
                     })]
                 })]
             })
-        }, JM = () => {
+        }, tF = () => {
             const [e, t] = (0, Ee.useState)("");
             return (0, Ee.useEffect)((() => {
                 const e = setTimeout((() => t("in")), xP.configuration.appLayoutLoaderWipeTrigger);
@@ -68600,10 +68738,10 @@
                 "data-sol-animation-wipe": e,
                 children: (0, wR.jsx)(zv, {})
             })
-        }, eF = () => {
-            const e = jz((e => e.autoUpdate));
+        }, nF = () => {
+            const e = Uz((e => e.autoUpdate));
             return (() => {
-                const e = jz((e => e.autoUpdate)),
+                const e = Uz((e => e.autoUpdate)),
                     {
                         onUpdateDownloaded: t,
                         onQuitInstallError: n
@@ -68613,14 +68751,14 @@
                 ...e.dialog
             })
         };
-        var tF = function() {
-                return tF = Object.assign || function(e) {
+        var rF = function() {
+                return rF = Object.assign || function(e) {
                     for (var t, n = 1, r = arguments.length; n < r; n++)
                         for (var i in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, i) && (e[i] = t[i]);
                     return e
-                }, tF.apply(this, arguments)
+                }, rF.apply(this, arguments)
             },
-            nF = function(e, t) {
+            iF = function(e, t) {
                 var n = {};
                 for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && t.indexOf(r) < 0 && (n[r] = e[r]);
                 if (null != e && "function" === typeof Object.getOwnPropertySymbols) {
@@ -68629,57 +68767,57 @@
                 }
                 return n
             },
-            rF = Symbol("NiceModalId"),
-            iF = {},
-            aF = Ee.createContext(iF),
-            oF = Ee.createContext(null),
-            sF = {},
-            lF = {},
-            cF = 0,
-            uF = function() {
+            aF = Symbol("NiceModalId"),
+            oF = {},
+            sF = Ee.createContext(oF),
+            lF = Ee.createContext(null),
+            cF = {},
+            uF = {},
+            dF = 0,
+            pF = function() {
                 throw new Error("No dispatch method detected, did you embed your app with NiceModal.Provider?")
             },
-            dF = function() {
-                return "_nice_modal_" + cF++
+            hF = function() {
+                return "_nice_modal_" + dF++
             },
-            pF = function(e, t) {
+            fF = function(e, t) {
                 var n, r, i;
-                switch (void 0 === e && (e = iF), t.type) {
+                switch (void 0 === e && (e = oF), t.type) {
                     case "nice-modal/show":
                         var a = t.payload,
                             o = a.modalId,
                             s = a.args;
-                        return tF(tF({}, e), ((n = {})[o] = tF(tF({}, e[o]), {
+                        return rF(rF({}, e), ((n = {})[o] = rF(rF({}, e[o]), {
                             id: o,
                             args: s,
-                            visible: !!lF[o],
-                            delayVisible: !lF[o]
+                            visible: !!uF[o],
+                            delayVisible: !uF[o]
                         }), n));
                     case "nice-modal/hide":
-                        return e[o = t.payload.modalId] ? tF(tF({}, e), ((r = {})[o] = tF(tF({}, e[o]), {
+                        return e[o = t.payload.modalId] ? rF(rF({}, e), ((r = {})[o] = rF(rF({}, e[o]), {
                             visible: !1
                         }), r)) : e;
                     case "nice-modal/remove":
                         o = t.payload.modalId;
-                        var l = tF({}, e);
+                        var l = rF({}, e);
                         return delete l[o], l;
                     case "nice-modal/set-flags":
                         var c = t.payload,
                             u = (o = c.modalId, c.flags);
-                        return tF(tF({}, e), ((i = {})[o] = tF(tF({}, e[o]), u), i));
+                        return rF(rF({}, e), ((i = {})[o] = rF(rF({}, e[o]), u), i));
                     default:
                         return e
                 }
             };
-        var hF = {},
-            fF = {},
-            mF = function(e) {
-                return "string" === typeof e ? e : (e[rF] || (e[rF] = dF()), e[rF])
+        var mF = {},
+            gF = {},
+            vF = function(e) {
+                return "string" === typeof e ? e : (e[aF] || (e[aF] = hF()), e[aF])
             };
 
-        function gF(e, t) {
-            var n = mF(e);
-            if ("string" === typeof e || sF[n] || bF(n, e), uF(function(e, t) {
+        function yF(e, t) {
+            var n = vF(e);
+            if ("string" === typeof e || cF[n] || wF(n, e), pF(function(e, t) {
                 return {
                     type: "nice-modal/show",
                     payload: {
@@ -68687,83 +68825,83 @@
                         args: t
                     }
                 }
-            }(n, t)), !hF[n]) {
+            }(n, t)), !mF[n]) {
                 var r, i, a = new Promise((function(e, t) {
                     r = e, i = t
                 }));
-                hF[n] = {
+                mF[n] = {
                     resolve: r,
                     reject: i,
                     promise: a
                 }
             }
-            return hF[n].promise
+            return mF[n].promise
         }
 
-        function vF(e) {
-            var t = mF(e);
-            if (uF(function(e) {
+        function _F(e) {
+            var t = vF(e);
+            if (pF(function(e) {
                 return {
                     type: "nice-modal/hide",
                     payload: {
                         modalId: e
                     }
                 }
-            }(t)), delete hF[t], !fF[t]) {
+            }(t)), delete mF[t], !gF[t]) {
                 var n, r, i = new Promise((function(e, t) {
                     n = e, r = t
                 }));
-                fF[t] = {
+                gF[t] = {
                     resolve: n,
                     reject: r,
                     promise: i
                 }
             }
-            return fF[t].promise
+            return gF[t].promise
         }
-        var yF = function(e) {
-            var t = mF(e);
-            uF(function(e) {
+        var bF = function(e) {
+            var t = vF(e);
+            pF(function(e) {
                 return {
                     type: "nice-modal/remove",
                     payload: {
                         modalId: e
                     }
                 }
-            }(t)), delete hF[t], delete fF[t]
+            }(t)), delete mF[t], delete gF[t]
         };
 
-        function _F(e, t) {
-            var n = (0, Ee.useContext)(aF),
-                r = (0, Ee.useContext)(oF),
+        function xF(e, t) {
+            var n = (0, Ee.useContext)(sF),
+                r = (0, Ee.useContext)(lF),
                 i = null,
                 a = e && "string" !== typeof e;
-            if (!(i = e ? mF(e) : r)) throw new Error("No modal id found in NiceModal.useModal.");
+            if (!(i = e ? vF(e) : r)) throw new Error("No modal id found in NiceModal.useModal.");
             var o = i;
             (0, Ee.useEffect)((function() {
-                a && !sF[o] && bF(o, e, t)
+                a && !cF[o] && wF(o, e, t)
             }), [a, o, e, t]);
             var s = n[o],
                 l = (0, Ee.useCallback)((function(e) {
-                    return gF(o, e)
+                    return yF(o, e)
                 }), [o]),
                 c = (0, Ee.useCallback)((function() {
-                    return vF(o)
+                    return _F(o)
                 }), [o]),
                 u = (0, Ee.useCallback)((function() {
-                    return yF(o)
+                    return bF(o)
                 }), [o]),
                 d = (0, Ee.useCallback)((function(e) {
                     var t;
-                    null === (t = hF[o]) || void 0 === t || t.resolve(e), delete hF[o]
+                    null === (t = mF[o]) || void 0 === t || t.resolve(e), delete mF[o]
                 }), [o]),
                 p = (0, Ee.useCallback)((function(e) {
                     var t;
-                    null === (t = hF[o]) || void 0 === t || t.reject(e), delete hF[o]
+                    null === (t = mF[o]) || void 0 === t || t.reject(e), delete mF[o]
                 }), [o]),
                 h = (0, Ee.useCallback)((function(e) {
                     var t;
-                    null === (t = fF[o]) || void 0 === t || t.resolve(e), delete fF[o]
+                    null === (t = gF[o]) || void 0 === t || t.resolve(e), delete gF[o]
                 }), [o]);
             return (0, Ee.useMemo)((function() {
                 return {
@@ -68780,43 +68918,43 @@
                 }
             }), [o, null === s || void 0 === s ? void 0 : s.args, null === s || void 0 === s ? void 0 : s.visible, null === s || void 0 === s ? void 0 : s.keepMounted, l, c, u, d, p, h])
         }
-        var bF = function(e, t, n) {
-                sF[e] ? sF[e].props = n : sF[e] = {
+        var wF = function(e, t, n) {
+                cF[e] ? cF[e].props = n : cF[e] = {
                     comp: t,
                     props: n
                 }
             },
-            xF = function() {
-                var e = (0, Ee.useContext)(aF),
+            kF = function() {
+                var e = (0, Ee.useContext)(sF),
                     t = Object.keys(e).filter((function(t) {
                         return !!e[t]
                     }));
                 t.forEach((function(e) {
-                    sF[e] || lF[e] || console.warn("No modal found for id: " + e + ". Please check the id or if it is registered or declared via JSX.")
+                    cF[e] || uF[e] || console.warn("No modal found for id: " + e + ". Please check the id or if it is registered or declared via JSX.")
                 }));
                 var n = t.filter((function(e) {
-                    return sF[e]
+                    return cF[e]
                 })).map((function(e) {
-                    return tF({
+                    return rF({
                         id: e
-                    }, sF[e])
+                    }, cF[e])
                 }));
                 return Ee.createElement(Ee.Fragment, null, n.map((function(e) {
-                    return Ee.createElement(e.comp, tF({
+                    return Ee.createElement(e.comp, rF({
                         key: e.id,
                         id: e.id
                     }, e.props))
                 })))
             },
-            wF = function(e) {
+            SF = function(e) {
                 var t = e.children,
-                    n = (0, Ee.useReducer)(pF, iF),
+                    n = (0, Ee.useReducer)(fF, oF),
                     r = n[0];
-                return uF = n[1], Ee.createElement(aF.Provider, {
+                return pF = n[1], Ee.createElement(sF.Provider, {
                     value: r
-                }, t, Ee.createElement(xF, null))
+                }, t, Ee.createElement(kF, null))
             },
-            kF = function(e) {
+            EF = function(e) {
                 return {
                     visible: e.visible,
                     onOk: function() {
@@ -68830,7 +68968,7 @@
                     }
                 }
             },
-            SF = function(e) {
+            OF = function(e) {
                 return {
                     visible: e.visible,
                     onClose: function() {
@@ -68841,23 +68979,23 @@
                     }
                 }
             },
-            EF = {
+            IF = {
                 Provider: function(e) {
                     var t = e.children,
                         n = e.dispatch,
                         r = e.modals;
-                    return n && r ? (uF = n, Ee.createElement(aF.Provider, {
+                    return n && r ? (pF = n, Ee.createElement(sF.Provider, {
                         value: r
-                    }, t, Ee.createElement(xF, null))) : Ee.createElement(wF, null, t)
+                    }, t, Ee.createElement(kF, null))) : Ee.createElement(SF, null, t)
                 },
                 ModalDef: function(e) {
                     var t = e.id,
                         n = e.component;
                     return (0, Ee.useEffect)((function() {
-                        return bF(t, n),
+                        return wF(t, n),
                             function() {
                                 ! function(e) {
-                                    delete sF[e]
+                                    delete cF[e]
                                 }(t)
                             }
                     }), [t, n]), null
@@ -68866,40 +69004,40 @@
                     var t, n = e.modal,
                         r = e.handler,
                         i = void 0 === r ? {} : r,
-                        a = nF(e, ["modal", "handler"]),
+                        a = iF(e, ["modal", "handler"]),
                         o = (0, Ee.useMemo)((function() {
-                            return dF()
+                            return hF()
                         }), []),
-                        s = "string" === typeof n ? null === (t = sF[n]) || void 0 === t ? void 0 : t.comp : n;
+                        s = "string" === typeof n ? null === (t = cF[n]) || void 0 === t ? void 0 : t.comp : n;
                     if (!i) throw new Error("No handler found in NiceModal.ModalHolder.");
                     if (!s) throw new Error("No modal found for id: " + n + " in NiceModal.ModalHolder.");
                     return i.show = (0, Ee.useCallback)((function(e) {
-                        return gF(o, e)
+                        return yF(o, e)
                     }), [o]), i.hide = (0, Ee.useCallback)((function() {
-                        return vF(o)
-                    }), [o]), Ee.createElement(s, tF({
+                        return _F(o)
+                    }), [o]), Ee.createElement(s, rF({
                         id: o
                     }, a))
                 },
-                NiceModalContext: aF,
+                NiceModalContext: sF,
                 create: function(e) {
                     return function(t) {
                         var n, r = t.defaultVisible,
                             i = t.keepMounted,
                             a = t.id,
-                            o = nF(t, ["defaultVisible", "keepMounted", "id"]),
-                            s = _F(a),
+                            o = iF(t, ["defaultVisible", "keepMounted", "id"]),
+                            s = xF(a),
                             l = s.args,
                             c = s.show,
-                            u = (0, Ee.useContext)(aF),
+                            u = (0, Ee.useContext)(sF),
                             d = !!u[a];
                         (0, Ee.useEffect)((function() {
-                            return r && c(), lF[a] = !0,
+                            return r && c(), uF[a] = !0,
                                 function() {
-                                    delete lF[a]
+                                    delete uF[a]
                                 }
                         }), [a, c, r]), (0, Ee.useEffect)((function() {
-                            i && uF(function(e, t) {
+                            i && pF(function(e, t) {
                                 return {
                                     type: "nice-modal/set-flags",
                                     payload: {
@@ -68914,23 +69052,23 @@
                         var p = null === (n = u[a]) || void 0 === n ? void 0 : n.delayVisible;
                         return (0, Ee.useEffect)((function() {
                             p && c(l)
-                        }), [p, l, c]), d ? Ee.createElement(oF.Provider, {
+                        }), [p, l, c]), d ? Ee.createElement(lF.Provider, {
                             value: a
-                        }, Ee.createElement(e, tF({}, o, l))) : null
+                        }, Ee.createElement(e, rF({}, o, l))) : null
                     }
                 },
-                register: bF,
+                register: wF,
                 getModal: function(e) {
                     var t;
-                    return null === (t = sF[e]) || void 0 === t ? void 0 : t.comp
+                    return null === (t = cF[e]) || void 0 === t ? void 0 : t.comp
                 },
-                show: gF,
-                hide: vF,
-                remove: yF,
-                useModal: _F,
-                reducer: pF,
-                antdModal: kF,
-                antdDrawer: SF,
+                show: yF,
+                hide: _F,
+                remove: bF,
+                useModal: xF,
+                reducer: fF,
+                antdModal: EF,
+                antdDrawer: OF,
                 muiDialog: function(e) {
                     return {
                         open: e.visible,
@@ -68954,15 +69092,15 @@
                     }
                 }
             };
-        const OF = EF,
-            IF = OF.create((({
+        const CF = IF,
+            AF = CF.create((({
                                  title: e,
                                  content: t,
                                  primaryCallback: n,
                                  primaryLabel: r,
                                  typeDialog: i
                              }) => {
-                const a = _F(),
+                const a = xF(),
                     {
                         t: o
                     } = bt(["dialog"]),
@@ -68987,8 +69125,8 @@
                     children: t
                 })
             }));
-        OF.register("acknowledgement-dialog", IF);
-        const CF = OF.create((({
+        CF.register("acknowledgement-dialog", AF);
+        const PF = CF.create((({
                                    title: e,
                                    content: t,
                                    primaryCallback: n,
@@ -68997,7 +69135,7 @@
                                    secondaryCallback: a,
                                    secondaryLabel: o
                                }) => {
-            const s = _F(),
+            const s = xF(),
                 {
                     t: l
                 } = bt(["dialog"]),
@@ -69042,8 +69180,8 @@
                 })
             })
         }));
-        OF.register("form-dialog", CF);
-        const AF = OF.create((({
+        CF.register("form-dialog", PF);
+        const TF = CF.create((({
                                    title: e,
                                    content: t,
                                    primaryCallback: n,
@@ -69053,7 +69191,7 @@
                                    secondaryLabel: o,
                                    disablePrimaryUntilScrolled: s
                                }) => {
-            const l = _F(),
+            const l = xF(),
                 {
                     t: c
                 } = bt(["dialog"]),
@@ -69093,11 +69231,11 @@
                 children: t
             })
         }));
-        OF.register("warning-confirm-dialog", AF);
-        const PF = e => {
+        CF.register("warning-confirm-dialog", TF);
+        const RF = e => {
                 var t, n, r;
-                const i = jz((e => e.library)),
-                    a = jz((e => e.application)),
+                const i = Uz((e => e.library)),
+                    a = Uz((e => e.application)),
                     o = null !== (t = null === (n = a.animations) || void 0 === n || null === (r = n.appLayoutWipe) || void 0 === r ? void 0 : r.isAnimating) && void 0 !== t && t,
                     {
                         wipeAnimationsDisabled: s
@@ -69128,7 +69266,7 @@
                     m = (0, Ee.useCallback)(((e, t) => {
                         e.preventDefault(), t.id === p || t.id === c.gameId || o || (h(t.id), s ? l(`game-page/${p}`) : (a.actions.setAnimatingAppLayoutWipe("full", !0), f(`game-page/${p}`)))
                     }), [p, o, l, c.gameId, s, a.actions, f]),
-                    g = (0, Ee.useMemo)((() => null === i || void 0 === i ? void 0 : i.availableGames.map((e => e.channels.length > 0 ? (0, wR.jsx)(wv, {
+                    g = (0, Ee.useMemo)((() => null === i || void 0 === i ? void 0 : i.availableGames.sort(HM).map((e => e.channels.length > 0 ? (0, wR.jsx)(wv, {
                         logo: e.logo,
                         name: e.name,
                         active: e.id === p,
@@ -69144,7 +69282,7 @@
                     children: g
                 })
             },
-            TF = ({
+            DF = ({
                       status: e
                   }) => {
                 const {
@@ -69170,17 +69308,17 @@
                 })
             };
 
-        function RF() {
-            return RF = Object.assign ? Object.assign.bind() : function(e) {
+        function LF() {
+            return LF = Object.assign ? Object.assign.bind() : function(e) {
                 for (var t = 1; t < arguments.length; t++) {
                     var n = arguments[t];
                     for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r])
                 }
                 return e
-            }, RF.apply(this, arguments)
+            }, LF.apply(this, arguments)
         }
 
-        function DF(e, t) {
+        function NF(e, t) {
             if (null == e) return {};
             var n, r, i = {},
                 a = Object.keys(e);
@@ -69188,17 +69326,17 @@
             return i
         }
         new Set(["application/x-www-form-urlencoded", "multipart/form-data", "text/plain"]);
-        const LF = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset", "unstable_viewTransition"];
+        const jF = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset", "unstable_viewTransition"];
 
-        function NF() {
+        function MF() {
             var e;
             let t = null == (e = window) ? void 0 : e.__staticRouterHydrationData;
-            return t && t.errors && (t = RF({}, t, {
-                errors: jF(t.errors)
+            return t && t.errors && (t = LF({}, t, {
+                errors: FF(t.errors)
             })), t
         }
 
-        function jF(e) {
+        function FF(e) {
             if (!e) return null;
             let t = Object.entries(e),
                 n = {};
@@ -69219,17 +69357,17 @@
                 } else n[i] = a;
             return n
         }
-        const MF = Ee.createContext({
+        const zF = Ee.createContext({
             isTransitioning: !1
         });
-        const FF = Ee.createContext(new Map);
-        const zF = Oe.startTransition,
-            VF = Ja.flushSync;
+        const VF = Ee.createContext(new Map);
+        const UF = Oe.startTransition,
+            BF = Ja.flushSync;
 
-        function UF(e) {
-            VF ? VF(e) : e()
+        function GF(e) {
+            BF ? BF(e) : e()
         }
-        class BF {
+        class $F {
             constructor() {
                 this.status = "pending", this.promise = new Promise(((e, t) => {
                     this.resolve = t => {
@@ -69241,7 +69379,7 @@
             }
         }
 
-        function GF(e) {
+        function qF(e) {
             let {
                 fallbackElement: t,
                 router: n,
@@ -69252,7 +69390,7 @@
                 v7_startTransition: v
             } = r || {}, y = Ee.useCallback((e => {
                 v ? function(e) {
-                    zF ? zF(e) : e()
+                    UF ? UF(e) : e()
                 }(e) : e()
             }), [v]), _ = Ee.useCallback(((e, t) => {
                 let {
@@ -69266,7 +69404,7 @@
                 let l = null == n.window || "function" !== typeof n.window.document.startViewTransition;
                 if (o && !l) {
                     if (i) {
-                        UF((() => {
+                        GF((() => {
                             p && (u && u.resolve(), p.skipTransition()), c({
                                 isTransitioning: !0,
                                 flushSync: !0,
@@ -69275,15 +69413,15 @@
                             })
                         }));
                         let t = n.window.document.startViewTransition((() => {
-                            UF((() => a(e)))
+                            GF((() => a(e)))
                         }));
                         return t.finished.finally((() => {
-                            UF((() => {
+                            GF((() => {
                                 d(void 0), h(void 0), s(void 0), c({
                                     isTransitioning: !1
                                 })
                             }))
-                        })), void UF((() => h(t)))
+                        })), void GF((() => h(t)))
                     }
                     p ? (u && u.resolve(), p.skipTransition(), m({
                         state: e,
@@ -69295,10 +69433,10 @@
                         currentLocation: o.currentLocation,
                         nextLocation: o.nextLocation
                     }))
-                } else i ? UF((() => a(e))) : y((() => a(e)))
+                } else i ? GF((() => a(e))) : y((() => a(e)))
             }), [n.window, p, u, g, y]);
             Ee.useLayoutEffect((() => n.subscribe(_)), [n, _]), Ee.useEffect((() => {
-                l.isTransitioning && !l.flushSync && d(new BF)
+                l.isTransitioning && !l.flushSync && d(new $F)
             }), [l]), Ee.useEffect((() => {
                 if (u && o && n.window) {
                     let e = o,
@@ -69347,31 +69485,31 @@
                 value: w
             }, Ee.createElement(yL.Provider, {
                 value: i
-            }, Ee.createElement(FF.Provider, {
+            }, Ee.createElement(VF.Provider, {
                 value: g.current
-            }, Ee.createElement(MF.Provider, {
+            }, Ee.createElement(zF.Provider, {
                 value: l
             }, Ee.createElement(GL, {
                 basename: x,
                 location: i.location,
                 navigationType: i.historyAction,
                 navigator: b
-            }, i.initialized ? Ee.createElement($F, {
+            }, i.initialized ? Ee.createElement(WF, {
                 routes: n.routes,
                 state: i
             }) : t))))), null)
         }
 
-        function $F(e) {
+        function WF(e) {
             let {
                 routes: t,
                 state: n
             } = e;
             return PL(t, void 0, n)
         }
-        const qF = "undefined" !== typeof window && "undefined" !== typeof window.document && "undefined" !== typeof window.document.createElement,
-            WF = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i,
-            HF = Ee.forwardRef((function(e, t) {
+        const HF = "undefined" !== typeof window && "undefined" !== typeof window.document && "undefined" !== typeof window.document.createElement,
+            KF = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i,
+            YF = Ee.forwardRef((function(e, t) {
                 let n, {
                         onClick: r,
                         relative: i,
@@ -69383,12 +69521,12 @@
                         preventScrollReset: u,
                         unstable_viewTransition: d
                     } = e,
-                    p = DF(e, LF),
+                    p = NF(e, jF),
                     {
                         basename: h
                     } = Ee.useContext(_L),
                     f = !1;
-                if ("string" === typeof c && WF.test(c) && (n = c, qF)) try {
+                if ("string" === typeof c && KF.test(c) && (n = c, HF)) try {
                     let e = new URL(window.location.href),
                         t = c.startsWith("//") ? new URL(e.protocol + c) : new URL(c),
                         n = pD(t.pathname, h);
@@ -69453,7 +69591,7 @@
                         relative: i,
                         unstable_viewTransition: d
                     });
-                return Ee.createElement("a", RF({}, p, {
+                return Ee.createElement("a", LF({}, p, {
                     href: n || m,
                     onClick: f || a ? r : function(e) {
                         r && r(e), e.defaultPrevented || g(e)
@@ -69462,14 +69600,14 @@
                     target: l
                 }))
             }));
-        var KF, YF;
+        var QF, ZF;
         (function(e) {
             e.UseScrollRestoration = "useScrollRestoration", e.UseSubmit = "useSubmit", e.UseSubmitFetcher = "useSubmitFetcher", e.UseFetcher = "useFetcher", e.useViewTransitionState = "useViewTransitionState"
-        })(KF || (KF = {})),
+        })(QF || (QF = {})),
             function(e) {
                 e.UseFetcher = "useFetcher", e.UseFetchers = "useFetchers", e.UseScrollRestoration = "useScrollRestoration"
-            }(YF || (YF = {}));
-        const QF = (0, Ee.forwardRef)((({
+            }(ZF || (ZF = {}));
+        const XF = (0, Ee.forwardRef)((({
                                             children: e,
                                             href: t = "",
                                             ...n
@@ -69480,13 +69618,13 @@
                 target: "_blank",
                 ...n,
                 children: e
-            }) : (0, wR.jsx)(HF, {
+            }) : (0, wR.jsx)(YF, {
                 ref: r,
                 to: t,
                 ...n,
                 children: e
             }))),
-            ZF = ({
+            JF = ({
                       children: e,
                       control: t,
                       name: n,
@@ -69533,7 +69671,7 @@
                     })
                 })
             },
-            XF = ({
+            ez = ({
                       control: e,
                       name: t,
                       defaultValue: n,
@@ -69583,13 +69721,119 @@
                         ...o
                     })
                 })
+            };
+        let tz, nz;
+        ! function(e) {
+            e.SHADERS = "shaders", e.SCREENSHOTS = "screenshots", e.USER = "user"
+        }(tz || (tz = {})),
+            function(e) {
+                e.KEYBINDINGS = "keybindings", e.PREFERENCES = "preferences", e.CHARACTERS = "characters"
+            }(nz || (nz = {}));
+        const rz = () => {
+                const {
+                    t: e
+                } = bt(["settingsPage"]), t = {
+                    [tz.SHADERS]: !0,
+                    [tz.SCREENSHOTS]: !0,
+                    [tz.USER]: !0,
+                    [nz.KEYBINDINGS]: !0,
+                    [nz.PREFERENCES]: !0,
+                    [nz.CHARACTERS]: !0
+                }, [n, r] = (0, Ee.useState)(t), i = (0, Ee.useCallback)((e => {
+                    const {
+                        name: t,
+                        checked: n
+                    } = e.target;
+                    r((e => {
+                        const r = {
+                            ...e,
+                            [t]: n
+                        };
+                        if (Object.values(nz).includes(t)) {
+                            const e = r.keybindings || r.preferences || r.characters;
+                            r[tz.USER] = e
+                        }
+                        return r
+                    }))
+                }), []), a = (0, Ee.useCallback)((async e => {
+                    const {
+                        name: t,
+                        checked: n
+                    } = e.target;
+                    r((e => {
+                        const r = {
+                            ...e,
+                            [t]: null !== n && void 0 !== n && n
+                        };
+                        return Object.values(nz).forEach((e => {
+                            r[e] = n
+                        })), r
+                    }))
+                }), []), o = [];
+                Object.values(nz).forEach((e => {
+                    o.push(n[e])
+                }));
+                const s = o.every(Boolean),
+                    l = o.some(Boolean) && !s;
+                return (0, wR.jsxs)(Es, {
+                    "aria-labelledby": "legend",
+                    role: "group",
+                    gap: "100",
+                    vertical: !0,
+                    children: [(0, wR.jsx)("p", {
+                        id: "legend",
+                        children: e("settings_games_local_delete_description")
+                    }), (0, wR.jsx)(ed, {
+                        name: tz.SHADERS,
+                        checked: n.shaders,
+                        value: n.shaders.toString(),
+                        onChange: e => i(e),
+                        children: e("settings_games_local_shaders_folder")
+                    }), (0, wR.jsx)(ed, {
+                        name: tz.SCREENSHOTS,
+                        checked: n.screenshots,
+                        value: n.screenshots.toString(),
+                        onChange: e => i(e),
+                        children: e("settings_games_local_screenshots_folder")
+                    }), (0, wR.jsxs)(ed, {
+                        name: tz.USER,
+                        checked: n.user,
+                        value: n.user.toString(),
+                        onChange: e => a(e),
+                        indeterminate: l,
+                        children: [e("settings_games_local_user_folder"), (0, wR.jsxs)(Es, {
+                            vertical: !0,
+                            gap: "100",
+                            className: "sol-u-margin-bs-050",
+                            children: [(0, wR.jsx)(ed, {
+                                name: nz.KEYBINDINGS,
+                                checked: n.keybindings,
+                                value: n.keybindings.toString(),
+                                onChange: e => i(e),
+                                children: e("settings_games_local_keybindings")
+                            }), (0, wR.jsx)(ed, {
+                                name: nz.PREFERENCES,
+                                checked: n.preferences,
+                                value: n.preferences.toString(),
+                                onChange: e => i(e),
+                                children: e("settings_games_local_settings")
+                            }), (0, wR.jsx)(ed, {
+                                name: nz.CHARACTERS,
+                                checked: n.characters,
+                                value: n.characters.toString(),
+                                onChange: e => i(e),
+                                children: e("settings_games_local_characters")
+                            })]
+                        })]
+                    })]
+                })
             },
-            JF = (e, t) => ({
+            iz = (e, t) => ({
                 dialog: {
                     actions: {
                         showExitAppDialog: () => {
                             const e = t();
-                            return OF.show(CF, {
+                            return CF.show(PF, {
                                 title: _e.t("dialog_warning_exit_app_title", {
                                     ns: "dialog"
                                 }),
@@ -69614,7 +69858,7 @@
                                 primaryCallback: () => e.window.actions.exitLauncher()
                             })
                         },
-                        showWarningExitAppGameRuningDialog: () => OF.show(AF, {
+                        showWarningExitAppGameRuningDialog: () => CF.show(TF, {
                             title: _e.t("dialog_warning_exit_app_title", {
                                 ns: "dialog"
                             }),
@@ -69627,7 +69871,7 @@
                         }),
                         showDiscoverDialog: () => {
                             const e = t();
-                            return OF.show(AF, {
+                            return CF.show(TF, {
                                 title: _e.t("dialog_discover_title", {
                                     ns: "dialog"
                                 }),
@@ -69653,7 +69897,7 @@
                         showLogoutDialog: e => {
                             const n = t(),
                                 r = n.settings.appSettings.accessibility.reduceMotion.wipeAnimationsDisabled;
-                            return OF.show(AF, {
+                            return CF.show(TF, {
                                 title: _e.t("dialog_warning_logout_title", {
                                     ns: "dialog"
                                 }),
@@ -69672,7 +69916,7 @@
                                 }
                             })
                         },
-                        showOsRequirementsDialog: e => OF.show(IF, {
+                        showOsRequirementsDialog: e => CF.show(AF, {
                             title: _e.t("error_os_requirements_title", {
                                 ns: "errors"
                             }),
@@ -69689,7 +69933,7 @@
                                 }
                             })
                         }),
-                        showCpuRequirementsDialog: () => OF.show(IF, {
+                        showCpuRequirementsDialog: () => CF.show(AF, {
                             title: _e.t("error_cpu_requirements_title", {
                                 ns: "errors"
                             }),
@@ -69705,7 +69949,7 @@
                                                             secondaryLabel: i,
                                                             secondaryCallback: a,
                                                             error: o
-                                                        }) => OF.show(AF, {
+                                                        }) => CF.show(TF, {
                             title: null !== e && void 0 !== e ? e : _e.t("error_generic_title", {
                                 ns: "errors"
                             }),
@@ -69734,7 +69978,7 @@
                             }),
                             secondaryCallback: () => null === a || void 0 === a ? void 0 : a()
                         }),
-                        showWarningDialogCacheClear: () => OF.show(AF, {
+                        showWarningDialogCacheClear: () => CF.show(TF, {
                             title: _e.t("dialog_debug_cache_clear_title", {
                                 ns: "dialog"
                             }),
@@ -69758,7 +70002,7 @@
                                                                 primaryCallback: n,
                                                                 primaryLabel: r,
                                                                 error: i
-                                                            }) => OF.show(IF, {
+                                                            }) => CF.show(AF, {
                             title: null !== e && void 0 !== e ? e : _e.t("error_generic_title", {
                                 ns: "errors"
                             }),
@@ -69780,7 +70024,7 @@
                             primaryCallback: () => null === n || void 0 === n ? void 0 : n(),
                             primaryLabel: null !== r && void 0 !== r ? r : void 0
                         }),
-                        showWarningsDialog: (e, t) => OF.show(AF, {
+                        showWarningsDialog: (e, t) => CF.show(TF, {
                             title: e,
                             typeDialog: "positive",
                             content: AR(t),
@@ -69791,7 +70035,7 @@
                                 ns: "dialog"
                             })
                         }),
-                        showAgreementsDialog: (e, t, n) => OF.show(AF, {
+                        showAgreementsDialog: (e, t, n) => CF.show(TF, {
                             title: e,
                             typeDialog: "positive",
                             content: AR(`<h1>${t}</h1>${n}`),
@@ -69805,7 +70049,7 @@
                         }),
                         showResetSettingsDialog: e => {
                             const n = t();
-                            return OF.show(AF, {
+                            return CF.show(TF, {
                                 title: _e.t("dialog_settings_reset_title", {
                                     ns: "dialog"
                                 }),
@@ -69823,9 +70067,21 @@
                                 }
                             })
                         },
+                        showDeleteLocalSettingsDialog: () => CF.show(PF, {
+                            title: _e.t("dialog_settings_delete_local_title", {
+                                ns: "dialog"
+                            }),
+                            content: (0, wR.jsx)(rz, {}),
+                            secondaryLabel: _e.t("dialog_action_cancel", {
+                                ns: "dialog"
+                            }),
+                            primaryLabel: _e.t("dialog_action_delete", {
+                                ns: "dialog"
+                            })
+                        }),
                         showGameNotInstalledDialog: e => {
                             const n = t();
-                            return OF.show(AF, {
+                            return CF.show(TF, {
                                 title: _e.t("dialog_settings_game_not_installed_title", {
                                     ns: "dialog"
                                 }),
@@ -69847,7 +70103,7 @@
                             const i = t(),
                                 a = i.settings.appSettings.accessibility.reduceMotion.wipeAnimationsDisabled,
                                 o = await GM(e);
-                            return OF.show(AF, {
+                            return CF.show(TF, {
                                 typeDialog: "default",
                                 title: _e.t("dialog_start_installation_title", {
                                     ns: "dialog",
@@ -69886,7 +70142,7 @@
                                     ns: "dialog"
                                 }),
                                 secondaryCallback: r ? void 0 : () => {
-                                    const t = cD(`/${CV.SETTINGS}/${CV.SETTINGS_GAMES}`, {
+                                    const t = cD(`/${DV.SETTINGS}/${DV.SETTINGS_GAMES}`, {
                                         gameId: e.gameId,
                                         channelId: e.channelId
                                     });
@@ -69908,7 +70164,7 @@
                         },
                         showGameCancelInstallationDialog: e => {
                             const n = t();
-                            return OF.show(AF, {
+                            return CF.show(TF, {
                                 title: _e.t("dialog_cancel_installation_title", {
                                     ns: "dialog"
                                 }),
@@ -69945,7 +70201,7 @@
                                 }
                             })
                         },
-                        showGameChannelUpdateAvailableDialog: e => OF.show(IF, {
+                        showGameChannelUpdateAvailableDialog: e => CF.show(AF, {
                             typeDialog: "positive",
                             title: _e.t("dialog_launch_check_update_available_title", {
                                 ns: "dialog"
@@ -69956,7 +70212,7 @@
                                 channel: e.channelName
                             })
                         }),
-                        showWarningUninstallDialog: e => OF.show(CF, {
+                        showWarningUninstallDialog: e => CF.show(PF, {
                             title: _e.t("dialog_warning_uninstall_title", {
                                 game: e.gameName,
                                 channel: e.channelName,
@@ -69989,7 +70245,7 @@
                                 ns: "dialog"
                             })
                         }),
-                        showLostConnectionDialog: () => OF.show(IF, {
+                        showLostConnectionDialog: () => CF.show(AF, {
                             typeDialog: "default",
                             title: _e.t("dialog_warning_lost_connection_title", {
                                 ns: "dialog"
@@ -70005,7 +70261,7 @@
                                 ns: "dialog"
                             })
                         }),
-                        showDuplicateLibraryDialog: () => OF.show(IF, {
+                        showDuplicateLibraryDialog: () => CF.show(AF, {
                             typeDialog: "negative",
                             title: _e.t("dialog_warning_duplicate_library_title", {
                                 ns: "dialog"
@@ -70021,7 +70277,7 @@
                                 ns: "dialog"
                             })
                         }),
-                        showDeleteLibraryDialog: (e, t) => OF.show(AF, {
+                        showDeleteLibraryDialog: (e, t) => CF.show(TF, {
                             typeDialog: "negative",
                             title: _e.t("dialog_warning_delete_game_library_title", {
                                 ns: "dialog"
@@ -70069,7 +70325,7 @@
                                 ns: "dialog"
                             })
                         }),
-                        showReplaceInstalledLibraryDialog: (e, t, n) => OF.show(AF, {
+                        showReplaceInstalledLibraryDialog: (e, t, n) => CF.show(TF, {
                             typeDialog: "notice",
                             title: _e.t("dialog_warning_change_game_title_dialog", {
                                 ns: "dialog"
@@ -70150,7 +70406,7 @@
                                 ns: "dialog"
                             })
                         }),
-                        showReplaceInstalledDefaultLibraryDialog: (e, t, n) => OF.show(AF, {
+                        showReplaceInstalledDefaultLibraryDialog: (e, t, n) => CF.show(TF, {
                             typeDialog: "notice",
                             title: _e.t("dialog_warning_set_default_library_title", {
                                 ns: "dialog"
@@ -70230,7 +70486,7 @@
                                 ns: "dialog"
                             })
                         }),
-                        showSetDefaultLibraryDialog: e => OF.show(AF, {
+                        showSetDefaultLibraryDialog: e => CF.show(TF, {
                             typeDialog: "default",
                             title: _e.t("dialog_warning_set_default_library_title", {
                                 ns: "dialog"
@@ -70256,7 +70512,7 @@
                                 ns: "dialog"
                             })
                         }),
-                        showChannelLibraryChangeDialog: (e, t, n) => OF.show(AF, {
+                        showChannelLibraryChangeDialog: (e, t, n) => CF.show(TF, {
                             typeDialog: "notice",
                             title: _e.t("dialog_warning_change_game_title_dialog", {
                                 ns: "dialog"
@@ -70331,7 +70587,7 @@
                     }
                 }
             }),
-            ez =SC_TOOLBOX_ENABLE_DOWNLOADER_BOOST ? [{
+            az = SC_TOOLBOX_ENABLE_DOWNLOADER_BOOST ? [{
                 label: "!1024",
                 value: 1024
             }, {
@@ -70377,7 +70633,7 @@
                 label: "5",
                 value: 5
             }],
-            tz = {
+            oz = {
                 reduceMotion: {
                     syncWithSystem: !1,
                     backgroundVideoDisabled: !1,
@@ -70385,29 +70641,29 @@
                     wipeAnimationsDisabled: !1
                 }
             },
-            nz = {
+            sz = {
                 appSettings: {
                     quitOnWindowClose: !1,
                     hideQuitWarning: !1,
                     isDiscoverDone: !1,
                     download: {
-                        concurrentTransfers: ez[0].value,
+                        concurrentTransfers: az[0].value,
                         maximumDownloadBandwidth: 0
                     },
-                    accessibility: tz
+                    accessibility: oz
                 }
             },
-            rz = ({
+            lz = ({
                       gamesSettings: e = [],
-                      quitOnWindowClose: t = nz.appSettings.quitOnWindowClose,
-                      hideQuitWarning: n = nz.appSettings.hideQuitWarning,
-                      isDiscoverDone: r = nz.appSettings.isDiscoverDone,
-                      download: i = nz.appSettings.download,
-                      accessibility: a = nz.appSettings.accessibility
+                      quitOnWindowClose: t = sz.appSettings.quitOnWindowClose,
+                      hideQuitWarning: n = sz.appSettings.hideQuitWarning,
+                      isDiscoverDone: r = sz.appSettings.isDiscoverDone,
+                      download: i = sz.appSettings.download,
+                      accessibility: a = sz.appSettings.accessibility
                   } = {}) => ({
-                ...nz,
+                ...sz,
                 appSettings: {
-                    ...nz.appSettings,
+                    ...sz.appSettings,
                     quitOnWindowClose: t,
                     hideQuitWarning: n,
                     isDiscoverDone: r,
@@ -70416,9 +70672,9 @@
                 },
                 gamesSettings: e
             }),
-            iz = (e, t) => ({
+            cz = (e, t) => ({
                 settings: {
-                    ...rz(),
+                    ...lz(),
                     actions: {
                         initializeApplicationSettings: async () => {
                             const n = await window.launcherAPI.store.getValueFromStore("application.quitOnWindowClose"),
@@ -70429,7 +70685,7 @@
                             e((e => ({
                                 settings: {
                                     ...e.settings,
-                                    ...rz({
+                                    ...lz({
                                         gamesSettings: e.settings.gamesSettings,
                                         quitOnWindowClose: n,
                                         hideQuitWarning: r,
@@ -70648,27 +70904,27 @@
                     }
                 }
             });
-        let az = null;
-        const oz = e => Object.entries(e).reduce(((e, [t, n]) => ({
+        let uz = null;
+        const dz = e => Object.entries(e).reduce(((e, [t, n]) => ({
                 ...e,
                 [t]: `${xP.configuration.assets.directory}${n}`
             })), {}),
-            sz = e => ({
+            pz = e => ({
                 volume: null !== e && void 0 !== e ? e : 50,
                 previousVolume: null,
                 system: null,
-                soundList: oz(xP.configuration.assets.sounds),
-                trackList: oz(xP.configuration.assets.musics)
+                soundList: dz(xP.configuration.assets.sounds),
+                trackList: dz(xP.configuration.assets.musics)
             }),
-            lz = (e, t) => ({
+            hz = (e, t) => ({
                 soundSystem: {
-                    ...sz(),
+                    ...pz(),
                     actions: {
                         initializeSoundContext: async () => {
                             var t;
                             const n = await window.launcherAPI.store.getValueFromStore("application.volume"),
-                                r = sz(n);
-                            az = null !== (t = az) && void 0 !== t ? t : new sR({
+                                r = pz(n);
+                            uz = null !== (t = uz) && void 0 !== t ? t : new sR({
                                 sounds: r.soundList,
                                 musics: r.trackList,
                                 volume: r.volume
@@ -70676,9 +70932,9 @@
                                 soundSystem: {
                                     ...e.soundSystem,
                                     ...r,
-                                    system: az
+                                    system: uz
                                 }
-                            }))), az.playSound("open"), az.playBackgroundTrack()
+                            }))), uz.playSound("open"), uz.playBackgroundTrack()
                         },
                         changeVolume: (n, r = 0) => {
                             const i = t().soundSystem.system;
@@ -70716,13 +70972,13 @@
                     }
                 }
             }),
-            cz = {
+            fz = {
                 defaultLibraryFolder: "",
                 additionalLibraries: []
             },
-            uz = (e, t) => ({
+            mz = (e, t) => ({
                 storage: {
-                    ...cz,
+                    ...fz,
                     actions: {
                         initializeStorageSettings: async () => {
                             var t;
@@ -70890,38 +71146,38 @@
                     }
                 }
             }),
-            dz = {
+            gz = {
                 randomUUID: "undefined" !== typeof crypto && crypto.randomUUID && crypto.randomUUID.bind(crypto)
             };
-        let pz;
-        const hz = new Uint8Array(16);
+        let vz;
+        const yz = new Uint8Array(16);
 
-        function fz() {
-            if (!pz && (pz = "undefined" !== typeof crypto && crypto.getRandomValues && crypto.getRandomValues.bind(crypto), !pz)) throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
-            return pz(hz)
+        function _z() {
+            if (!vz && (vz = "undefined" !== typeof crypto && crypto.getRandomValues && crypto.getRandomValues.bind(crypto), !vz)) throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
+            return vz(yz)
         }
-        const mz = [];
-        for (let n = 0; n < 256; ++n) mz.push((n + 256).toString(16).slice(1));
+        const bz = [];
+        for (let n = 0; n < 256; ++n) bz.push((n + 256).toString(16).slice(1));
 
-        function gz(e, t = 0) {
-            return (mz[e[t + 0]] + mz[e[t + 1]] + mz[e[t + 2]] + mz[e[t + 3]] + "-" + mz[e[t + 4]] + mz[e[t + 5]] + "-" + mz[e[t + 6]] + mz[e[t + 7]] + "-" + mz[e[t + 8]] + mz[e[t + 9]] + "-" + mz[e[t + 10]] + mz[e[t + 11]] + mz[e[t + 12]] + mz[e[t + 13]] + mz[e[t + 14]] + mz[e[t + 15]]).toLowerCase()
+        function xz(e, t = 0) {
+            return (bz[e[t + 0]] + bz[e[t + 1]] + bz[e[t + 2]] + bz[e[t + 3]] + "-" + bz[e[t + 4]] + bz[e[t + 5]] + "-" + bz[e[t + 6]] + bz[e[t + 7]] + "-" + bz[e[t + 8]] + bz[e[t + 9]] + "-" + bz[e[t + 10]] + bz[e[t + 11]] + bz[e[t + 12]] + bz[e[t + 13]] + bz[e[t + 14]] + bz[e[t + 15]]).toLowerCase()
         }
-        const vz = function(e, t, n) {
-                if (dz.randomUUID && !t && !e) return dz.randomUUID();
-                const r = (e = e || {}).random || (e.rng || fz)();
+        const wz = function(e, t, n) {
+                if (gz.randomUUID && !t && !e) return gz.randomUUID();
+                const r = (e = e || {}).random || (e.rng || _z)();
                 if (r[6] = 15 & r[6] | 64, r[8] = 63 & r[8] | 128, t) {
                     n = n || 0;
                     for (let e = 0; e < 16; ++e) t[n + e] = r[e];
                     return t
                 }
-                return gz(r)
+                return xz(r)
             },
-            yz = {
+            kz = {
                 list: []
             },
-            _z = (e, t) => ({
+            Sz = (e, t) => ({
                 toasts: {
-                    ...yz,
+                    ...kz,
                     actions: {
                         async init() {
                             const e = t();
@@ -70937,7 +71193,7 @@
                         async add(n, r = !1) {
                             const i = await window.launcherAPI.window.isMinimized(),
                                 a = t(),
-                                o = vz();
+                                o = wz();
                             r && window.launcherAPI.notification.show({
                                 title: TR(n.title),
                                 body: TR(n.children)
@@ -70964,19 +71220,19 @@
                     }
                 }
             }),
-            bz = (e = null, t = null, n = {}) => ({
+            Ez = (e = null, t = null, n = {}) => ({
                 identity: e,
                 device: t,
                 sessions: n
             }),
-            xz = (e, t) => ({
+            Oz = (e, t) => ({
                 user: {
-                    ...bz(),
+                    ...Ez(),
                     actions: {
                         initializeUser: async () => {
                             const {
                                 environment: t
-                            } = await window.launcherAPI.game.getGlobalConfig(), n = await window.launcherAPI.store.getValueFromStore("identity"), r = await window.launcherAPI.store.getValueFromStore("device"), i = await window.launcherAPI.store.getValueFromStore("session"), a = bz(n, r, i ? {
+                            } = await window.launcherAPI.game.getGlobalConfig(), n = await window.launcherAPI.store.getValueFromStore("identity"), r = await window.launcherAPI.store.getValueFromStore("device"), i = await window.launcherAPI.store.getValueFromStore("session"), a = Ez(n, r, i ? {
                                 [t]: i
                             } : {});
                             var o, s, l;
@@ -71088,7 +71344,7 @@
                             window.launcherAPI.store.setValueToStore("session", null), window.launcherAPI.store.setValueToStore("identity", null), t.clearDevice && window.launcherAPI.store.setValueToStore("device", null), e((e => ({
                                 user: {
                                     ...e.user,
-                                    ...bz(),
+                                    ...Ez(),
                                     device: t.clearDevice ? null : e.user.device
                                 }
                             })))
@@ -71096,12 +71352,12 @@
                     }
                 }
             }),
-            wz = (e, t) => ({
+            Iz = (e, t) => ({
                 window: {
                     actions: {
                         openInternalWindow: async (e, t) => {
-                            const n = jz.getState().application,
-                                r = jz.getState().user,
+                            const n = Uz.getState().application,
+                                r = Uz.getState().user,
                                 i = n.platformMaster,
                                 a = r.sessions[i],
                                 o = r.device,
@@ -71187,7 +71443,7 @@
                     }
                 }
             }),
-            kz = e => {
+            Cz = e => {
                 let t;
                 const n = new Set,
                     r = (e, r) => {
@@ -71210,32 +71466,32 @@
                     o = t = e(r, i, a);
                 return a
             },
-            Sz = e => e ? kz(e) : kz;
-        var Ez = n(327);
+            Az = e => e ? Cz(e) : Cz;
+        var Pz = n(327);
         const {
-            useDebugValue: Oz
+            useDebugValue: Tz
         } = Ee, {
-            useSyncExternalStoreWithSelector: Iz
-        } = Ez;
-        let Cz = !1;
-        const Az = e => e;
-        const Pz = e => {
+            useSyncExternalStoreWithSelector: Rz
+        } = Pz;
+        let Dz = !1;
+        const Lz = e => e;
+        const Nz = e => {
                 "function" !== typeof e && console.warn("[DEPRECATED] Passing a vanilla store will be unsupported in a future version. Instead use `import { useStore } from 'zustand'`.");
-                const t = "function" === typeof e ? Sz(e) : e,
-                    n = (e, n) => function(e, t = Az, n) {
-                        n && !Cz && (console.warn("[DEPRECATED] Use `createWithEqualityFn` instead of `create` or use `useStoreWithEqualityFn` instead of `useStore`. They can be imported from 'zustand/traditional'. https://github.com/pmndrs/zustand/discussions/1937"), Cz = !0);
-                        const r = Iz(e.subscribe, e.getState, e.getServerState || e.getInitialState, t, n);
-                        return Oz(r), r
+                const t = "function" === typeof e ? Az(e) : e,
+                    n = (e, n) => function(e, t = Lz, n) {
+                        n && !Dz && (console.warn("[DEPRECATED] Use `createWithEqualityFn` instead of `create` or use `useStoreWithEqualityFn` instead of `useStore`. They can be imported from 'zustand/traditional'. https://github.com/pmndrs/zustand/discussions/1937"), Dz = !0);
+                        const r = Rz(e.subscribe, e.getState, e.getServerState || e.getInitialState, t, n);
+                        return Tz(r), r
                     }(t, e, n);
                 return Object.assign(n, t), n
             },
-            Tz = e => e ? Pz(e) : Pz;
-        const Rz = new Map,
-            Dz = e => {
-                const t = Rz.get(e);
+            jz = e => e ? Nz(e) : Nz;
+        const Mz = new Map,
+            Fz = e => {
+                const t = Mz.get(e);
                 return t ? Object.fromEntries(Object.entries(t.stores).map((([e, t]) => [e, t.getState()]))) : {}
             },
-            Lz = (e, t = {}) => (n, r, i) => {
+            zz = (e, t = {}) => (n, r, i) => {
                 const {
                     enabled: a,
                     anonymousActionType: o,
@@ -71255,7 +71511,7 @@
                         type: "untracked",
                         connection: t.connect(n)
                     };
-                    const r = Rz.get(n.name);
+                    const r = Mz.get(n.name);
                     if (r) return {
                         type: "tracked",
                         store: e,
@@ -71265,7 +71521,7 @@
                         connection: t.connect(n),
                         stores: {}
                     };
-                    return Rz.set(n.name, i), {
+                    return Mz.set(n.name, i), {
                         type: "tracked",
                         store: e,
                         ...i
@@ -71284,7 +71540,7 @@
                         ...d,
                         type: `${s}/${d.type}`
                     }, {
-                        ...Dz(l.name),
+                        ...Fz(l.name),
                         [s]: i.getState()
                     }), c)
                 };
@@ -71304,7 +71560,7 @@
                     var t;
                     switch (e.type) {
                         case "ACTION":
-                            return "string" !== typeof e.payload ? void console.error("[zustand devtools middleware] Unsupported action format") : Nz(e.payload, (e => {
+                            return "string" !== typeof e.payload ? void console.error("[zustand devtools middleware] Unsupported action format") : Vz(e.payload, (e => {
                                 if ("__setState" !== e.type) i.dispatchFromDevtools && "function" === typeof i.dispatch && i.dispatch(e);
                                 else {
                                     if (void 0 === s) return void h(e.state);
@@ -71317,17 +71573,17 @@
                         case "DISPATCH":
                             switch (e.payload.type) {
                                 case "RESET":
-                                    return h(f), void 0 === s ? null == u ? void 0 : u.init(i.getState()) : null == u ? void 0 : u.init(Dz(l.name));
+                                    return h(f), void 0 === s ? null == u ? void 0 : u.init(i.getState()) : null == u ? void 0 : u.init(Fz(l.name));
                                 case "COMMIT":
-                                    return void 0 === s ? void(null == u || u.init(i.getState())) : null == u ? void 0 : u.init(Dz(l.name));
+                                    return void 0 === s ? void(null == u || u.init(i.getState())) : null == u ? void 0 : u.init(Fz(l.name));
                                 case "ROLLBACK":
-                                    return Nz(e.state, (e => {
+                                    return Vz(e.state, (e => {
                                         if (void 0 === s) return h(e), void(null == u || u.init(i.getState()));
-                                        h(e[s]), null == u || u.init(Dz(l.name))
+                                        h(e[s]), null == u || u.init(Fz(l.name))
                                     }));
                                 case "JUMP_TO_STATE":
                                 case "JUMP_TO_ACTION":
-                                    return Nz(e.state, (e => {
+                                    return Vz(e.state, (e => {
                                         void 0 !== s ? JSON.stringify(i.getState()) !== JSON.stringify(e[s]) && h(e[s]) : h(e)
                                     }));
                                 case "IMPORT_STATE": {
@@ -71344,7 +71600,7 @@
                     }
                 })), f
             },
-            Nz = (e, t) => {
+            Vz = (e, t) => {
                 let n;
                 try {
                     n = JSON.parse(e)
@@ -71353,31 +71609,31 @@
                 }
                 void 0 !== n && t(n)
             };
-        const jz = Tz()(Lz(((...e) => ({
+        const Uz = jz()(zz(((...e) => ({
                 ...Zj(...e),
                 ...xM(...e),
                 ...wM(...e),
-                ...iz(...e),
-                ...lz(...e),
+                ...cz(...e),
+                ...hz(...e),
                 ...LM(...e),
-                ...xz(...e),
+                ...Oz(...e),
                 ...IM(...e),
-                ...ZM(...e),
-                ...JF(...e),
-                ..._z(...e),
-                ...QM(...e),
-                ...wz(...e),
-                ...uz(...e)
+                ...JM(...e),
+                ...iz(...e),
+                ...Sz(...e),
+                ...XM(...e),
+                ...Iz(...e),
+                ...mz(...e)
             })), {
                 name: "launcher-store",
                 enabled: !0,
                 trace: !0
             })),
-            Mz = () => {
+            Bz = () => {
                 var e, t;
                 const {
                     t: n
-                } = bt("settingsPage"), r = jz((e => e.application)), i = null !== (e = r.launcherVersion.includes("rc")) && void 0 !== e && e;
+                } = bt("settingsPage"), r = Uz((e => e.application)), i = null !== (e = r.launcherVersion.includes("rc")) && void 0 !== e && e;
                 return (0, wR.jsx)(ty, {
                     title: n("settings_about_title"),
                     children: (0, wR.jsxs)(ds, {
@@ -71406,7 +71662,7 @@
                 })
             };
 
-        function Fz(e, t, n) {
+        function Gz(e, t, n) {
             var r = this,
                 i = (0, Ee.useRef)(null),
                 a = (0, Ee.useRef)(0),
@@ -71480,17 +71736,17 @@
             return _
         }
 
-        function zz(e, t, n) {
+        function $z(e, t, n) {
             var r = void 0 === n ? {} : n,
                 i = r.leading,
                 a = r.trailing;
-            return Fz(e, t, {
+            return Gz(e, t, {
                 maxWait: t,
                 leading: void 0 === i || i,
                 trailing: void 0 === a || a
             })
         }
-        const Vz = () => {
+        const qz = () => {
                 const [e, t] = (0, Ee.useState)(!1), [n, r] = (0, Ee.useState)([{
                     id: "backgroundVideoDisabled",
                     title: "settings_accessibility_reduce_motion_background_video_toggle_title",
@@ -71517,14 +71773,14 @@
                     dirty: null
                 }), {
                     t: o
-                } = bt("settingsPage"), s = jz((e => e.settings)), l = zz((async e => await s.actions.setAccessibilitySettingsToPersistentStore(e)), 400), c = (0, Ee.useCallback)((() => {
+                } = bt("settingsPage"), s = Uz((e => e.settings)), l = $z((async e => await s.actions.setAccessibilitySettingsToPersistentStore(e)), 400), c = (0, Ee.useCallback)((() => {
                     const e = n.some((e => e.dirty)),
                         t = i.dirty;
                     return e || t
                 }), [n, i]), u = (0, Ee.useCallback)((async () => {
                     var e;
                     const n = s.actions.getAccessibilitySettings(),
-                        i = null !== (e = await s.actions.getAccessibilitySettingsFromPersistentStore()) && void 0 !== e ? e : tz,
+                        i = null !== (e = await s.actions.getAccessibilitySettingsFromPersistentStore()) && void 0 !== e ? e : oz,
                         o = await s.actions.getAnimationSystemSettings();
                     t(o.prefersReducedMotion), a((e => {
                         const t = n.reduceMotion.syncWithSystem !== i.reduceMotion.syncWithSystem;
@@ -71641,18 +71897,18 @@
                     })]
                 })
             },
-            Uz = () => {
+            Wz = () => {
                 const {
                     t: e
                 } = bt("settingsPage");
                 return (0, wR.jsx)(ty, {
                     title: e("settings_accessibility_title"),
-                    children: (0, wR.jsx)(Vz, {})
+                    children: (0, wR.jsx)(qz, {})
                 })
             },
-            Bz = () => {
-                const e = jz((e => e.dialog)),
-                    t = jz((e => e.settings)),
+            Hz = () => {
+                const e = Uz((e => e.dialog)),
+                    t = Uz((e => e.settings)),
                     {
                         t: n
                     } = bt("settingsPage"),
@@ -71710,8 +71966,8 @@
                     })
                 })
             },
-            Gz = () => {
-                const e = jz((e => e.settings)),
+            Kz = () => {
+                const e = Uz((e => e.settings)),
                     [t, n] = (0, Ee.useState)(e.appSettings.quitOnWindowClose),
                     [r, i] = (0, Ee.useState)(!1),
                     [a, o] = (0, Ee.useState)(null),
@@ -71736,7 +71992,7 @@
                 }), []), (0, Ee.useEffect)((() => {
                     n(e.appSettings.quitOnWindowClose)
                 }), [e.appSettings.quitOnWindowClose]);
-                const l = zz((async t => await e.actions.saveApplicationSettings({
+                const l = $z((async t => await e.actions.saveApplicationSettings({
                         name: "quitOnWindowClose",
                         value: t
                     })), 400),
@@ -71759,19 +72015,19 @@
                     })
                 })
             },
-            $z = () => {
+            Yz = () => {
                 const {
                     t: e
                 } = bt("settingsPage");
                 return (0, wR.jsxs)(ty, {
                     title: e("settings_application_title"),
-                    children: [(0, wR.jsx)(Gz, {}), (0, wR.jsx)(sd, {
+                    children: [(0, wR.jsx)(Kz, {}), (0, wR.jsx)(sd, {
                         spacing: "250"
-                    }), (0, wR.jsx)(Bz, {})]
+                    }), (0, wR.jsx)(Hz, {})]
                 })
             },
-            qz = () => {
-                const e = jz((e => e.settings)),
+            Qz = () => {
+                const e = Uz((e => e.settings)),
                     [t, n] = (0, Ee.useState)(e.appSettings.isDiscoverDone),
                     [r, i] = (0, Ee.useState)(!1),
                     [a, o] = (0, Ee.useState)(null),
@@ -71796,7 +72052,7 @@
                 }), []), (0, Ee.useEffect)((() => {
                     n(e.appSettings.isDiscoverDone)
                 }), [e.appSettings.isDiscoverDone]);
-                const l = zz((async t => await e.actions.saveApplicationSettings({
+                const l = $z((async t => await e.actions.saveApplicationSettings({
                         name: "isDiscoverDone",
                         value: t
                     })), 400),
@@ -71822,10 +72078,10 @@
                     })
                 })
             },
-            Wz = () => {
+            Zz = () => {
                 const {
                     t: e
-                } = bt("settingsPage"), t = jz((e => e.settings)), [n, r] = (0, Ee.useState)({
+                } = bt("settingsPage"), t = Uz((e => e.settings)), [n, r] = (0, Ee.useState)({
                     state: !1
                 }), [i, a] = (0, Ee.useState)(t.appSettings.download.concurrentTransfers), {
                     value: o,
@@ -71886,7 +72142,7 @@
                             children: (0, wR.jsx)(ey, {
                                 onValueChange: e => l(e),
                                 value: i.toString(),
-                                children: ez.map((e => (0, wR.jsx)(Jv, {
+                                children: az.map((e => (0, wR.jsx)(Jv, {
                                     value: e.value.toString(),
                                     label: e.label
                                 }, e.label)))
@@ -71908,7 +72164,7 @@
                     })
                 })
             };
-        var Hz = class extends _j.l {
+        var Xz = class extends _j.l {
             constructor(e, t) {
                 super(), this.#R = void 0, this.#D = void 0, this.#u = void 0, this.#L = new Set, this.#d = e, this.options = t, this.#N = null, this.bindMethods(), this.setOptions(t)
             }
@@ -71930,16 +72186,16 @@
                 this.refetch = this.refetch.bind(this)
             }
             onSubscribe() {
-                1 === this.listeners.size && (this.#R.addObserver(this), Kz(this.#R, this.options) ? this.#$() : this.updateResult(), this.#q())
+                1 === this.listeners.size && (this.#R.addObserver(this), Jz(this.#R, this.options) ? this.#$() : this.updateResult(), this.#q())
             }
             onUnsubscribe() {
                 this.hasListeners() || this.destroy()
             }
             shouldFetchOnReconnect() {
-                return Yz(this.#R, this.options, this.options.refetchOnReconnect)
+                return eV(this.#R, this.options, this.options.refetchOnReconnect)
             }
             shouldFetchOnWindowFocus() {
-                return Yz(this.#R, this.options, this.options.refetchOnWindowFocus)
+                return eV(this.#R, this.options, this.options.refetchOnWindowFocus)
             }
             destroy() {
                 this.listeners = new Set, this.#W(), this.#H(), this.#R.removeObserver(this)
@@ -71954,7 +72210,7 @@
                 }), "undefined" !== typeof this.options.enabled && "boolean" !== typeof this.options.enabled) throw new Error("Expected enabled to be a boolean");
                 this.options.queryKey || (this.options.queryKey = n.queryKey), this.#K();
                 const i = this.hasListeners();
-                i && Qz(this.#R, r, this.options, n) && this.#$(), this.updateResult(t), !i || this.#R === r && this.options.enabled === n.enabled && this.options.staleTime === n.staleTime || this.#Y();
+                i && tV(this.#R, r, this.options, n) && this.#$(), this.updateResult(t), !i || this.#R === r && this.options.enabled === n.enabled && this.options.staleTime === n.staleTime || this.#Y();
                 const a = this.#Q();
                 !i || this.#R === r && this.options.enabled === n.enabled && a === this.#G || this.#Z(a)
             }
@@ -72048,8 +72304,8 @@
                     f = !1;
                 if (t._optimisticResults) {
                     const i = this.hasListeners(),
-                        a = !i && Kz(e, t),
-                        o = i && Qz(e, n, t, r);
+                        a = !i && Jz(e, t),
+                        o = i && tV(e, n, t, r);
                     (a || o) && (p = kj(e.options.networkMode) ? "fetching" : "paused", l.dataUpdatedAt || (h = "pending")), "isRestoring" === t._optimisticResults && (p = "idle")
                 }
                 if (t.select && "undefined" !== typeof l.data)
@@ -72097,7 +72353,7 @@
                     isPaused: "paused" === p,
                     isPlaceholderData: f,
                     isRefetchError: v && 0 !== l.dataUpdatedAt,
-                    isStale: Zz(e, t),
+                    isStale: nV(e, t),
                     refetch: this.refetch
                 }
             }
@@ -72144,29 +72400,29 @@
             }
         };
 
-        function Kz(e, t) {
+        function Jz(e, t) {
             return function(e, t) {
                 return !1 !== t.enabled && !e.state.dataUpdatedAt && !("error" === e.state.status && !1 === t.retryOnMount)
-            }(e, t) || e.state.dataUpdatedAt > 0 && Yz(e, t, t.refetchOnMount)
+            }(e, t) || e.state.dataUpdatedAt > 0 && eV(e, t, t.refetchOnMount)
         }
 
-        function Yz(e, t, n) {
+        function eV(e, t, n) {
             if (!1 !== t.enabled) {
                 const r = "function" === typeof n ? n(e) : n;
-                return "always" === r || !1 !== r && Zz(e, t)
+                return "always" === r || !1 !== r && nV(e, t)
             }
             return !1
         }
 
-        function Qz(e, t, n, r) {
-            return !1 !== n.enabled && (e !== t || !1 === r.enabled) && (!n.suspense || "error" !== e.state.status) && Zz(e, n)
+        function tV(e, t, n, r) {
+            return !1 !== n.enabled && (e !== t || !1 === r.enabled) && (!n.suspense || "error" !== e.state.status) && nV(e, n)
         }
 
-        function Zz(e, t) {
+        function nV(e, t) {
             return e.isStaleByTime(t.staleTime)
         }
 
-        function Xz() {
+        function rV() {
             let e = !1;
             return {
                 clearReset: () => {
@@ -72178,14 +72434,14 @@
                 isReset: () => e
             }
         }
-        var Jz = Ee.createContext(Xz()),
-            eV = Ee.createContext(!1);
-        eV.Provider;
+        var iV = Ee.createContext(rV()),
+            aV = Ee.createContext(!1);
+        aV.Provider;
 
-        function tV(e, t, n) {
+        function oV(e, t, n) {
             const r = (0, Aj.NL)(n),
-                i = Ee.useContext(eV),
-                a = Ee.useContext(Jz),
+                i = Ee.useContext(aV),
+                a = Ee.useContext(iV),
                 o = r.defaultQueryOptions(e);
             o._optimisticResults = i ? "isRestoring" : "optimistic", (e => {
                 e.suspense && "number" !== typeof e.staleTime && (e.staleTime = 1e3)
@@ -72221,33 +72477,33 @@
             return o.notifyOnChangeProps ? l : s.trackResult(l)
         }
 
-        function nV(e, t) {
-            return tV(e, Hz, t)
+        function sV(e, t) {
+            return oV(e, Xz, t)
         }
-        let rV;
+        let lV;
         ! function(e) {
             e.HOSTNAME = "hostname", e.PORT = "port", e.EXECUTABLE = "executable", e.LAUNCHOPTIONS = "launchOptions", e.EACSANDBOX = "eacSandbox"
-        }(rV || (rV = {}));
-        const iV = e => {
+        }(lV || (lV = {}));
+        const cV = e => {
                 var t, n, r, i, a, o;
                 const {
                     t: s
-                } = bt("settingsPage"), l = jz((e => e.settings)), c = e.gameSettings, u = {
-                    [rV.HOSTNAME]: null !== (t = c.hostname) && void 0 !== t ? t : "",
-                    [rV.PORT]: null !== (n = c.port) && void 0 !== n ? n : null,
-                    [rV.EXECUTABLE]: null !== (r = c.executable) && void 0 !== r ? r : "",
-                    [rV.LAUNCHOPTIONS]: null !== (i = c.launchOptions) && void 0 !== i ? i : "",
-                    [rV.EACSANDBOX]: null !== (a = c.eacSandbox) && void 0 !== a ? a : null
+                } = bt("settingsPage"), l = Uz((e => e.settings)), c = e.gameSettings, u = {
+                    [lV.HOSTNAME]: null !== (t = c.hostname) && void 0 !== t ? t : "",
+                    [lV.PORT]: null !== (n = c.port) && void 0 !== n ? n : null,
+                    [lV.EXECUTABLE]: null !== (r = c.executable) && void 0 !== r ? r : "",
+                    [lV.LAUNCHOPTIONS]: null !== (i = c.launchOptions) && void 0 !== i ? i : "",
+                    [lV.EACSANDBOX]: null !== (a = c.eacSandbox) && void 0 !== a ? a : null
                 }, [d, p] = (0, Ee.useState)(!1), [h, f] = (0, Ee.useState)(null), [m, g] = (0, Ee.useState)(u), v = null !== (o = (() => {
                     const {
                         data: e
-                    } = nV(Fj(c.gameId, c.channelId));
+                    } = sV(Fj(c.gameId, c.channelId));
                     return e
                 })()) && void 0 !== o ? o : {};
                 Lj((() => {
                     f(null), p(!1)
                 }), NR, d);
-                const y = Fz((async (e, t) => {
+                const y = Gz((async (e, t) => {
                         const n = Object.fromEntries(Object.entries({
                             ...m,
                             [e]: b(e, t)
@@ -72272,7 +72528,7 @@
                     }), [m, y, h]),
                     b = (e, t) => {
                         var n;
-                        return e === rV.PORT ? "" === t ? null : parseInt(t) : e === rV.EACSANDBOX ? !1 === t ? null : t : e !== rV.LAUNCHOPTIONS ? null !== (n = t.trim()) && void 0 !== n ? n : "" : null !== t && void 0 !== t ? t : ""
+                        return e === lV.PORT ? "" === t ? null : parseInt(t) : e === lV.EACSANDBOX ? !1 === t ? null : t : e !== lV.LAUNCHOPTIONS ? null !== (n = t.trim()) && void 0 !== n ? n : "" : null !== t && void 0 !== t ? t : ""
                     };
                 return (0, wR.jsxs)(wR.Fragment, {
                     children: [(0, wR.jsx)(sd, {
@@ -72292,10 +72548,10 @@
                                     children: v.universeHost
                                 })]
                             }) : void 0,
-                            success: h && h.id === rV.HOSTNAME ? s("settings_common_saved") : void 0,
+                            success: h && h.id === lV.HOSTNAME ? s("settings_common_saved") : void 0,
                             children: (0, wR.jsx)(Av, {
                                 value: null === m || void 0 === m ? void 0 : m.hostname,
-                                name: rV.HOSTNAME,
+                                name: lV.HOSTNAME,
                                 onChange: ({
                                                target: {
                                                    name: e,
@@ -72315,10 +72571,10 @@
                                     children: v.universePort
                                 })]
                             }) : void 0,
-                            success: h && h.id === rV.PORT ? s("settings_common_saved") : void 0,
+                            success: h && h.id === lV.PORT ? s("settings_common_saved") : void 0,
                             children: (0, wR.jsx)(Av, {
                                 value: null === (null === m || void 0 === m ? void 0 : m.port) ? "" : null === m || void 0 === m ? void 0 : m.port,
-                                name: rV.PORT,
+                                name: lV.PORT,
                                 type: "number",
                                 onChange: ({
                                                target: {
@@ -72339,10 +72595,10 @@
                                     children: v.executable
                                 })]
                             }) : void 0,
-                            success: h && h.id === rV.EXECUTABLE ? s("settings_common_saved") : void 0,
+                            success: h && h.id === lV.EXECUTABLE ? s("settings_common_saved") : void 0,
                             children: (0, wR.jsx)(Av, {
                                 value: null === m || void 0 === m ? void 0 : m.executable,
-                                name: rV.EXECUTABLE,
+                                name: lV.EXECUTABLE,
                                 onChange: ({
                                                target: {
                                                    name: e,
@@ -72364,11 +72620,11 @@
                                     children: v.launchOptions
                                 })]
                             }) : void 0,
-                            success: h && h.id === rV.LAUNCHOPTIONS ? s("settings_common_saved") : null,
+                            success: h && h.id === lV.LAUNCHOPTIONS ? s("settings_common_saved") : null,
                             children: (0, wR.jsx)(Av, {
                                 as: "textarea",
                                 value: null === m || void 0 === m ? void 0 : m.launchOptions,
-                                name: rV.LAUNCHOPTIONS,
+                                name: lV.LAUNCHOPTIONS,
                                 onChange: ({
                                                target: {
                                                    name: e,
@@ -72390,27 +72646,27 @@
                             checked: null !== (null === m || void 0 === m ? void 0 : m.eacSandbox),
                             disabled: !(null != (null === m || void 0 === m ? void 0 : m.executable) && "" !== (null === m || void 0 === m ? void 0 : m.executable)) && (null != (null === m || void 0 === m ? void 0 : m.eacSandbox) && g({
                                 ...m,
-                                [rV.EACSANDBOX]: null
+                                [lV.EACSANDBOX]: null
                             }), !0),
                             onChange: ({
                                            target: {
                                                checked: e
                                            }
-                                       }) => _(rV.EACSANDBOX, e),
-                            success: h && h.id === rV.EACSANDBOX ? s("settings_common_saved") : null,
+                                       }) => _(lV.EACSANDBOX, e),
+                            success: h && h.id === lV.EACSANDBOX ? s("settings_common_saved") : null,
                             children: s("settings_games_launch_eac_disable")
                         })]
                     })]
                 })
             },
-            aV = ({
+            uV = ({
                       open: e = !1,
                       ...t
                   }) => {
                 var n;
                 const {
                     t: r
-                } = bt("settingsPage"), i = OL(), a = jz((e => e.application)), o = jz((e => e.dialog)), s = jz((e => e.installer)), l = jz((e => e.library)), c = jz((e => e.settings)), u = jz((e => e.storage)), d = jz((e => e.user)), p = (0, Ee.useMemo)((() => [u.defaultLibraryFolder, ...u.additionalLibraries]), [u.defaultLibraryFolder, u.additionalLibraries]), h = t.item.libraryFolder, f = (0, Ee.useMemo)((() => p.find((e => e === h)) || u.defaultLibraryFolder), [h, p, u]), [m, g] = (0, Ee.useState)(f), v = (0, Ee.useMemo)((() => ({
+                } = bt("settingsPage"), i = OL(), a = Uz((e => e.application)), o = Uz((e => e.dialog)), s = Uz((e => e.installer)), l = Uz((e => e.library)), c = Uz((e => e.settings)), u = Uz((e => e.storage)), d = Uz((e => e.user)), p = (0, Ee.useMemo)((() => [u.defaultLibraryFolder, ...u.additionalLibraries]), [u.defaultLibraryFolder, u.additionalLibraries]), h = t.item.libraryFolder, f = (0, Ee.useMemo)((() => p.find((e => e === h)) || u.defaultLibraryFolder), [h, p, u]), [m, g] = (0, Ee.useState)(f), v = (0, Ee.useMemo)((() => ({
                     platformId: t.item.platformId,
                     gameId: t.item.gameId,
                     gameName: t.item.gameName,
@@ -72451,7 +72707,16 @@
                     uninstallButtonLabel: r(k ? "settings_games_game_files_uninstalling_files" : "settings_games_game_files_uninstall_files")
                 })), [null === y || void 0 === y ? void 0 : y.status, w, k, E, r]), T = (0, Ee.useMemo)((() => E && O || w && O ? oM : E || w ? TM : void 0), [O, E, w]), R = (0, Ee.useCallback)((async e => {
                     y && y.type === e && a.actions.setDownloadPopoverOpened(!0), "install" === e ? await o.actions.showGameStartInstallationDialog(v, m, !0) : s.actions.addInstallationToQueue(v, e)
-                }), [a.actions, v, y, s.actions, o.actions, m]), D = (0, Ee.useCallback)((() => s.actions.startUninstallation(t.item)), [s.actions, t.item]), L = (0, Ee.useCallback)((async e => {
+                }), [a.actions, v, y, s.actions, o.actions, m]), D = (0, Ee.useCallback)((async () => {
+                    const e = await o.actions.showDeleteLocalSettingsDialog();
+                    if (e.resolved && Object.values(e.results).length > 0) {
+                        const n = {
+                            directory: `${f}${t.item.installDir}\\${t.item.channelId}`,
+                            args: Object.keys(e.results)
+                        };
+                        RR().launcherSupport.deleteLocalSettings(n)
+                    }
+                }), [o.actions, t.item, f]), L = (0, Ee.useCallback)((() => s.actions.startUninstallation(t.item)), [s.actions, t.item]), N = (0, Ee.useCallback)((async e => {
                     if ("manage-library" === e) i("/settings/storage");
                     else {
                         await c.actions.setChannelLibraryFolder(v, e) && g(e)
@@ -72486,7 +72751,7 @@
                                                    target: {
                                                        value: e
                                                    }
-                                               }) => L(e),
+                                               }) => N(e),
                                     disabled: a.isGameRunning || w || E || k,
                                     defaultValue: f,
                                     value: m,
@@ -72549,22 +72814,36 @@
                             }), x && (0, wR.jsx)(gs, {
                                 variant: "plain",
                                 color: "negative",
-                                onClick: D,
+                                onClick: L,
                                 disabled: a.isGameRunning || E,
                                 loading: k,
                                 loadingIcon: T,
                                 children: P
                             })]
                         })
-                    }), S ? (0, wR.jsx)(iV, {
+                    }), (0, wR.jsx)(sd, {
+                        spacing: "250"
+                    }), (0, wR.jsx)(Ju, {
+                        title: r("settings_games_local_title"),
+                        description: r("settings_games_local_description"),
+                        children: (0, wR.jsx)(Es, {
+                            vertical: !1,
+                            gap: "100",
+                            children: (0, wR.jsx)(gs, {
+                                color: "negative",
+                                onClick: () => D(),
+                                children: r("settings_games_local_button")
+                            })
+                        })
+                    }), S ? (0, wR.jsx)(cV, {
                         gameSettings: t.item
                     }) : null]
                 }, `${v.gameName}${v.channelId}`)
             },
-            oV = () => {
+            dV = () => {
                 const {
                     t: e
-                } = bt("settingsPage"), t = jz((e => e.settings)), {
+                } = bt("settingsPage"), t = Uz((e => e.settings)), {
                     gameId: n,
                     channelId: r
                 } = CL(), {
@@ -72572,7 +72851,7 @@
                 } = (0, Ee.useMemo)((() => {
                     const e = t.gamesSettings.find((e => e.gameId === n && e.channelId === r));
                     return {
-                        items: t.gamesSettings.map((t => (0, wR.jsx)(aV, {
+                        items: t.gamesSettings.map((t => (0, wR.jsx)(uV, {
                             item: t,
                             open: t === e
                         }, `${t.gameName}${t.channelId}`)))
@@ -72588,10 +72867,10 @@
                     })
                 })
             },
-            sV = () => {
+            pV = () => {
                 const {
                     t: e
-                } = bt("settingsPage"), t = jz((e => e.storage)), [n, r] = (0, Ee.useState)(!1), [i, a] = (0, Ee.useState)(null), [o, s] = (0, Ee.useState)(null), l = jz((e => e.installer)), c = jz((e => e.application));
+                } = bt("settingsPage"), t = Uz((e => e.storage)), [n, r] = (0, Ee.useState)(!1), [i, a] = (0, Ee.useState)(null), [o, s] = (0, Ee.useState)(null), l = Uz((e => e.installer)), c = Uz((e => e.application));
                 Lj((() => {
                     a(null), s(null), r(!1)
                 }), NR, n);
@@ -72707,11 +72986,11 @@
                     })]
                 })
             },
-            lV = () => {
+            hV = () => {
                 var e;
                 const {
                     t: t
-                } = bt("form"), n = jz((e => e.application)), r = OL(), i = null !== (e = n.launcherVersion.includes("rc")) && void 0 !== e && e, {
+                } = bt("form"), n = Uz((e => e.application)), r = OL(), i = null !== (e = n.launcherVersion.includes("rc")) && void 0 !== e && e, {
                     isPending: a,
                     submitSignIn: o,
                     register: s,
@@ -72729,12 +73008,12 @@
                                 resetAuthentication: i,
                                 fetchCaptcha: a
                             }
-                        } = jz((e => e.authentication)),
-                        o = jz((e => e.user)),
+                        } = Uz((e => e.authentication)),
+                        o = Uz((e => e.user)),
                         {
                             launcherVersion: s,
                             platformMaster: l
-                        } = jz((e => e.application)),
+                        } = Uz((e => e.application)),
                         {
                             handleSubmit: c,
                             register: u,
@@ -72781,14 +73060,14 @@
                             } = r;
                             if (s && a(), t instanceof fT) {
                                 const e = await oR.authentication.getCaptcha();
-                                jz.setState((t => ({
+                                Uz.setState((t => ({
                                     authentication: {
                                         ...t.authentication,
                                         captcha: e
                                     }
                                 })))
                             } else {
-                                if (t instanceof _T) throw e(CV.SIGN_IN_GAME_PACKAGE_MISSING);
+                                if (t instanceof _T) throw e(DV.SIGN_IN_GAME_PACKAGE_MISSING);
                                 if (t instanceof mT) return d("captcha", {
                                     type: "custom",
                                     message: null === t || void 0 === t ? void 0 : t.message
@@ -72798,7 +73077,7 @@
                                     keepTouched: !0,
                                     defaultValue: ""
                                 });
-                                if (t instanceof lT) throw e(CV.SIGN_IN_MFA, {
+                                if (t instanceof lT) throw e(DV.SIGN_IN_MFA, {
                                     state: {
                                         remember: o,
                                         username: i
@@ -72831,7 +73110,7 @@
                                 accountName: t.username,
                                 trackingMetricsId: t.trackingMetricsId,
                                 heapAccountId: t.heapAccountId
-                            }), e(CV.HOME)
+                            }), e(DV.HOME)
                         };
                     return {
                         refreshCaptcha: y,
@@ -72853,7 +73132,7 @@
                     }
                 })();
                 (0, Ee.useEffect)((() => {
-                    n.connection.mode !== xP.ConnectionMode.ONLINE && r(`/${CV.OFFLINE}`)
+                    n.connection.mode !== xP.ConnectionMode.ONLINE && r(`/${DV.OFFLINE}`)
                 }), [n.connection, r]);
                 const h = (0, Ee.useMemo)((() => (0, wR.jsxs)(wR.Fragment, {
                     children: [(0, wR.jsxs)(ds, {
@@ -72888,7 +73167,7 @@
                     }), d && (0, wR.jsx)(qu, {
                         type: "negative",
                         children: d
-                    }), (0, wR.jsx)(XF, {
+                    }), (0, wR.jsx)(ez, {
                         control: p,
                         name: "username",
                         rules: {
@@ -72903,7 +73182,7 @@
                         inputProps: {
                             id: "email"
                         }
-                    }), (0, wR.jsx)(XF, {
+                    }), (0, wR.jsx)(ez, {
                         control: p,
                         name: "password",
                         rules: {
@@ -72939,7 +73218,7 @@
                             id: "captcha",
                             src: c,
                             alt: ""
-                        }), (0, wR.jsx)(XF, {
+                        }), (0, wR.jsx)(ez, {
                             control: p,
                             name: "captcha",
                             rules: {
@@ -72968,9 +73247,9 @@
                     })]
                 })
             },
-            cV = () => {
-                const e = jz((e => e.user)),
-                    t = jz((e => e.authentication)),
+            fV = () => {
+                const e = Uz((e => e.user)),
+                    t = Uz((e => e.authentication)),
                     {
                         t: n
                     } = bt("form"),
@@ -72987,7 +73266,7 @@
                             actions: {
                                 resetAuthentication: a
                             }
-                        } = jz((e => e.authentication)), o = jz((e => e.user)), {
+                        } = Uz((e => e.authentication)), o = Uz((e => e.user)), {
                             handleSubmit: s,
                             register: l,
                             formState: {
@@ -73018,7 +73297,7 @@
                         }), f = t => {
                             if (t instanceof cT) n(e("error_wrong_mfa_code"));
                             else {
-                                if (t instanceof _T) throw r(`../${CV.SIGN_IN_GAME_PACKAGE_MISSING}`);
+                                if (t instanceof _T) throw r(`../${DV.SIGN_IN_GAME_PACKAGE_MISSING}`);
                                 if (t instanceof QT) throw n((0, wR.jsx)(ft, {
                                     i18nKey: "error_sign_in_not_authorized",
                                     ns: "errors",
@@ -73050,7 +73329,7 @@
                                 accountName: e.username,
                                 trackingMetricsId: e.trackingMetricsId,
                                 heapAccountId: e.heapAccountId
-                            }), r(CV.HOME)
+                            }), r(DV.HOME)
                         };
                         return {
                             isPending: h,
@@ -73118,7 +73397,7 @@
                     children: [r && (0, wR.jsx)(qu, {
                         type: "negative",
                         children: r
-                    }), (0, wR.jsx)(XF, {
+                    }), (0, wR.jsx)(ez, {
                         control: s,
                         name: "codeMfa",
                         rules: {
@@ -73129,7 +73408,7 @@
                         },
                         help: n("sign_in_mfa_code_help"),
                         label: n("sign_in_mfa_code_label")
-                    }), (0, wR.jsx)(XF, {
+                    }), (0, wR.jsx)(ez, {
                         control: s,
                         name: "deviceName",
                         rules: {
@@ -73144,7 +73423,7 @@
                         },
                         help: n("sign_in_mfa_device_help"),
                         label: n("sign_in_mfa_device_label")
-                    }), (0, wR.jsx)(ZF, {
+                    }), (0, wR.jsx)(JF, {
                         control: s,
                         name: "duration",
                         label: n("sign_in_mfa_duration_label"),
@@ -73160,7 +73439,7 @@
                     })]
                 })
             },
-            uV = () => {
+            mV = () => {
                 const {
                     t: e
                 } = bt("errors");
@@ -73183,7 +73462,7 @@
                             size: "large",
                             children: e("error_game_package_missing_support")
                         }), (0, wR.jsx)(gs, {
-                            href: `/${CV.SIGN_IN}`,
+                            href: `/${DV.SIGN_IN}`,
                             size: "large",
                             children: e("error_game_package_missing_retry")
                         })]
@@ -73200,7 +73479,7 @@
                     })
                 })
             },
-            dV = ({
+            gV = ({
                       date: e
                   }) => (0, wR.jsx)(Gu, {
                 content: PR(e, "long"),
@@ -73211,12 +73490,12 @@
                     children: PR(e, "relative")
                 })
             }),
-            pV = () => {
+            vV = () => {
                 const {
                     t: e
                 } = bt("gamePage"), {
                     channelSelected: t
-                } = jz((e => e.library)), n = jz((e => e.application)), [r, i] = (0, Ee.useState)(FT.COMM_LINKS), {
+                } = Uz((e => e.library)), n = Uz((e => e.application)), [r, i] = (0, Ee.useState)(FT.COMM_LINKS), {
                     dynamicContentSections: a,
                     contents: o,
                     isLoading: s
@@ -73224,11 +73503,11 @@
                           channelId: e,
                           gameId: t
                       }) => {
-                    const n = jz((e => e.application)),
+                    const n = Uz((e => e.application)),
                         {
                             data: r,
                             isLoading: i
-                        } = nV({
+                        } = sV({
                             ...zj(t, e),
                             enabled: n.connection.mode === xP.ConnectionMode.ONLINE && !n.isWindowMinimized
                         });
@@ -73272,20 +73551,20 @@
                             active: r === t,
                             onClick: () => i(t)
                         }, t)))
-                    }), n.actions.isOffline() && (s || 0 === o[FT.COMM_LINKS].length) ? (0, wR.jsx)(hV, {}) : (0, wR.jsx)(fV, {
+                    }), n.actions.isOffline() && (s || 0 === o[FT.COMM_LINKS].length) ? (0, wR.jsx)(yV, {}) : (0, wR.jsx)(_V, {
                         contents: o,
                         activeTab: r
                     })]
                 })
             },
-            hV = () => (0, wR.jsx)(Kh, {
+            yV = () => (0, wR.jsx)(Kh, {
                 children: (0, wR.jsx)($u, {
                     title: "No Connection",
                     href: "#",
                     isOffline: !0
                 }, "Card-no-connection")
             }),
-            fV = ({
+            _V = ({
                       contents: e,
                       activeTab: t
                   }) => {
@@ -73312,7 +73591,7 @@
                             title: e.title,
                             excerpt: e.excerpt,
                             external: !0,
-                            subtitle: null !== e && void 0 !== e && e.publish_start ? (0, wR.jsx)(dV, {
+                            subtitle: null !== e && void 0 !== e && e.publish_start ? (0, wR.jsx)(gV, {
                                 date: e.publish_start
                             }) : void 0,
                             image: i(e),
@@ -73323,17 +73602,17 @@
                     })
                 })
             },
-            mV = (e, t, n) => {
+            bV = (e, t, n) => {
                 return n ? xP.GameChannelStatus.UNINSTALLING : t && t.status !== xP.InstallationStatus.COMPLETED ? t.status : null !== (r = null === e || void 0 === e ? void 0 : e.status) && void 0 !== r ? r : xP.GameChannelStatus.AVAILABLE;
                 var r
             },
-            gV = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"install","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Light","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":0,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":12,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":24,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":36,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":48,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":60,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":72,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":84,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":96,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":108,"s":[0]},{"t":120,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[11.75,11.75,0],"ix":2,"l":2},"a":{"a":0,"k":[1,1,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-0.414,0],[0,-0.414],[0.414,0],[0,0.414]],"o":[[0.414,0],[0,0.414],[-0.414,0],[0,-0.414]],"v":[[0,-0.75],[0.75,0],[0,0.75],[-0.75,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[1,1],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Arrow","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":0,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":2.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":4.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":6.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":8.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":10.01,"s":[10]},{"t":12.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.925,4.036,0],"ix":2,"l":2},"a":{"a":0,"k":[2.981,3.287,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0.221,0],[0,-0.414],[-0.164,-0.138],[0,0],[-0.206,0],[-0.136,0.134],[0,0],[0,0.232],[0.414,0],[0.137,-0.151],[0,0]],"o":[[0,0],[0,0],[0,0],[-0.137,-0.151],[-0.414,0],[0,0.232],[0,0],[0.136,0.134],[0.206,0],[0,0],[0.164,-0.138],[0,-0.414],[-0.22,0],[0,0],[0,0]],"v":[[0.825,-3.036],[-0.675,-3.036],[-0.675,0.482],[-1.425,-0.115],[-1.981,-0.363],[-2.731,0.387],[-2.462,0.964],[-0.453,2.82],[0.075,3.036],[0.603,2.82],[2.462,0.964],[2.731,0.387],[1.981,-0.363],[1.425,-0.115],[0.825,0.482]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[2.981,3.287],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"Base","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.25,7.25,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0.69,0],[0,0],[0,0.69],[0,0],[0,0]],"o":[[0,0.69],[0,0],[-0.69,0],[0,0],[0,0],[0,0]],"v":[[5.5,4.25],[4.25,5.5],[-4.25,5.5],[-5.5,4.25],[-5.5,2],[5.5,2]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[1.519,0],[0,0],[0,0],[0,0],[0,-0.69],[0,0],[0,0],[0,0],[-0.69,0],[0,0],[0,0],[0,0],[0,-1.519],[0,0],[-1.519,0],[0,0],[0,1.519],[0,0]],"o":[[0,0],[0,0],[0,0],[0.69,0],[0,0],[0,0],[0,0],[0,-0.69],[0,0],[0,0],[0,0],[-1.519,0],[0,0],[0,1.519],[0,0],[1.519,0],[0,0],[0,-1.519]],"v":[[4.25,-7],[2,-7],[2,-5.5],[4.25,-5.5],[5.5,-4.25],[5.5,0.5],[-5.5,0.5],[-5.5,-4.25],[-4.25,-5.5],[-2,-5.5],[-2,-7],[-4.25,-7],[-7,-4.25],[-7,4.25],[-4.25,7],[4.25,7],[7,4.25],[7,-4.25]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[7.25,7.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0}],"markers":[]}'),
-            vV = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"play - option 5","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"play-2 Outlines","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":20.021,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":22.022,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":24.024,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":26.026,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":28.028,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":30.03,"s":[10]},{"t":32.0322265625,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8.086,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.236,7.911,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0.685,0.383],[0,0],[0,-0.765],[0,0],[-0.685,0.382]],"o":[[0.685,-0.383],[0,0],[-0.685,-0.383],[0,0],[0,0.766],[0,0]],"v":[[5.051,0.861],[5.051,-0.861],[-4.195,-6.029],[-5.736,-5.167],[-5.736,5.167],[-4.195,6.029]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":1,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.236,7.911],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.985],"y":[2.857]},"o":{"x":[0.159],"y":[0]},"t":0,"s":[100]},{"i":{"x":[0.735],"y":[3.042]},"o":{"x":[0.143],"y":[3.552]},"t":30.03,"s":[100]},{"t":60.060546875,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.709],"y":[1.164]},"o":{"x":[0.474],"y":[0.066]},"t":0,"s":[0]},{"i":{"x":[0.602],"y":[0.921]},"o":{"x":[0.314],"y":[0.13]},"t":30.03,"s":[78.782]},{"t":52,"s":[0]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.472],"y":[0.887]},"o":{"x":[0.51],"y":[0.095]},"t":0,"s":[-360]},{"t":60.060546875,"s":[720]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":1261.26126126126,"st":0,"bm":0}],"markers":[]}'),
-            yV = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"update","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Circle 2","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":27,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":29.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":31.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":33.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":35.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":37.01,"s":[10]},{"t":39.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.7,7.7,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[3.1,0],[0,3.4],[-3.5,0],[-1,-2.1]],"o":[[-0.5,3],[-3.5,0],[0,-3.4],[2.5,0],[0,0]],"v":[[6.2,1],[0,6.2],[-6.2,0],[0,-6.2],[5.6,-2.7]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.7,7.7],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[0]},{"t":146,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":30,"s":[0]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":45,"s":[100]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[100]},{"t":146,"s":[100]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[0]},{"t":146,"s":[360]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":27,"op":147,"st":27,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Circle","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-84.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-82.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-80.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-78.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-76,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-73.998,"s":[10]},{"t":-71.99609375,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.7,7.7,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[3.1,0],[0,3.4],[-3.5,0],[-1,-2.1]],"o":[[-0.5,3],[-3.5,0],[0,-3.4],[2.5,0],[0,0]],"v":[[6.2,1],[0,6.2],[-6.2,0],[0,-6.2],[5.6,-2.7]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.7,7.7],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[0]},{"t":26,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":-90,"s":[0]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":-75,"s":[100]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[100]},{"t":26,"s":[100]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[0]},{"t":26,"s":[360]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":-93,"op":27,"st":-93,"bm":0},{"ddd":0,"ind":4,"ty":4,"nm":"Arrow 2","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":27,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":29.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":31.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":33.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":35.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":37.01,"s":[10]},{"t":39.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[12.7,4,0],"ix":2,"l":2},"a":{"a":0,"k":[3,3,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":1,"k":[{"i":{"x":0.5,"y":1},"o":{"x":0.5,"y":0},"t":43,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":46,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":130,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"t":133,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]}],"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":2,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[3,3],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":43,"op":133,"st":25,"bm":0},{"ddd":0,"ind":5,"ty":4,"nm":"Arrow","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-84.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-82.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-80.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-78.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-76,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-73.998,"s":[10]},{"t":-71.99609375,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[12.7,4,0],"ix":2,"l":2},"a":{"a":0,"k":[3,3,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":1,"k":[{"i":{"x":0.5,"y":1},"o":{"x":0.5,"y":0},"t":-77,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":-74,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":10,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"t":13,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]}],"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":2,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[3,3],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":-77,"op":13,"st":-95,"bm":0}],"markers":[]}'),
-            _V = e => {
+            xV = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"install","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Light","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":0,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":12,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":24,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":36,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":48,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":60,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":72,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":84,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":96,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":108,"s":[0]},{"t":120,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[11.75,11.75,0],"ix":2,"l":2},"a":{"a":0,"k":[1,1,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-0.414,0],[0,-0.414],[0.414,0],[0,0.414]],"o":[[0.414,0],[0,0.414],[-0.414,0],[0,-0.414]],"v":[[0,-0.75],[0.75,0],[0,0.75],[-0.75,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[1,1],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Arrow","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":0,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":2.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":4.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":6.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":8.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":10.01,"s":[10]},{"t":12.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.925,4.036,0],"ix":2,"l":2},"a":{"a":0,"k":[2.981,3.287,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0.221,0],[0,-0.414],[-0.164,-0.138],[0,0],[-0.206,0],[-0.136,0.134],[0,0],[0,0.232],[0.414,0],[0.137,-0.151],[0,0]],"o":[[0,0],[0,0],[0,0],[-0.137,-0.151],[-0.414,0],[0,0.232],[0,0],[0.136,0.134],[0.206,0],[0,0],[0.164,-0.138],[0,-0.414],[-0.22,0],[0,0],[0,0]],"v":[[0.825,-3.036],[-0.675,-3.036],[-0.675,0.482],[-1.425,-0.115],[-1.981,-0.363],[-2.731,0.387],[-2.462,0.964],[-0.453,2.82],[0.075,3.036],[0.603,2.82],[2.462,0.964],[2.731,0.387],[1.981,-0.363],[1.425,-0.115],[0.825,0.482]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[2.981,3.287],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"Base","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.25,7.25,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0.69,0],[0,0],[0,0.69],[0,0],[0,0]],"o":[[0,0.69],[0,0],[-0.69,0],[0,0],[0,0],[0,0]],"v":[[5.5,4.25],[4.25,5.5],[-4.25,5.5],[-5.5,4.25],[-5.5,2],[5.5,2]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[1.519,0],[0,0],[0,0],[0,0],[0,-0.69],[0,0],[0,0],[0,0],[-0.69,0],[0,0],[0,0],[0,0],[0,-1.519],[0,0],[-1.519,0],[0,0],[0,1.519],[0,0]],"o":[[0,0],[0,0],[0,0],[0.69,0],[0,0],[0,0],[0,0],[0,-0.69],[0,0],[0,0],[0,0],[-1.519,0],[0,0],[0,1.519],[0,0],[1.519,0],[0,0],[0,-1.519]],"v":[[4.25,-7],[2,-7],[2,-5.5],[4.25,-5.5],[5.5,-4.25],[5.5,0.5],[-5.5,0.5],[-5.5,-4.25],[-4.25,-5.5],[-2,-5.5],[-2,-7],[-4.25,-7],[-7,-4.25],[-7,4.25],[-4.25,7],[4.25,7],[7,4.25],[7,-4.25]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[7.25,7.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0}],"markers":[]}'),
+            wV = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"play - option 5","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"play-2 Outlines","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":20.021,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":22.022,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":24.024,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":26.026,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":28.028,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":30.03,"s":[10]},{"t":32.0322265625,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8.086,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.236,7.911,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0.685,0.383],[0,0],[0,-0.765],[0,0],[-0.685,0.382]],"o":[[0.685,-0.383],[0,0],[-0.685,-0.383],[0,0],[0,0.766],[0,0]],"v":[[5.051,0.861],[5.051,-0.861],[-4.195,-6.029],[-5.736,-5.167],[-5.736,5.167],[-4.195,6.029]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":1,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.236,7.911],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.985],"y":[2.857]},"o":{"x":[0.159],"y":[0]},"t":0,"s":[100]},{"i":{"x":[0.735],"y":[3.042]},"o":{"x":[0.143],"y":[3.552]},"t":30.03,"s":[100]},{"t":60.060546875,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.709],"y":[1.164]},"o":{"x":[0.474],"y":[0.066]},"t":0,"s":[0]},{"i":{"x":[0.602],"y":[0.921]},"o":{"x":[0.314],"y":[0.13]},"t":30.03,"s":[78.782]},{"t":52,"s":[0]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.472],"y":[0.887]},"o":{"x":[0.51],"y":[0.095]},"t":0,"s":[-360]},{"t":60.060546875,"s":[720]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":1261.26126126126,"st":0,"bm":0}],"markers":[]}'),
+            kV = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"update","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Circle 2","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":27,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":29.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":31.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":33.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":35.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":37.01,"s":[10]},{"t":39.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.7,7.7,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[3.1,0],[0,3.4],[-3.5,0],[-1,-2.1]],"o":[[-0.5,3],[-3.5,0],[0,-3.4],[2.5,0],[0,0]],"v":[[6.2,1],[0,6.2],[-6.2,0],[0,-6.2],[5.6,-2.7]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.7,7.7],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[0]},{"t":146,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":30,"s":[0]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":45,"s":[100]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[100]},{"t":146,"s":[100]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[0]},{"t":146,"s":[360]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":27,"op":147,"st":27,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Circle","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-84.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-82.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-80.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-78.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-76,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-73.998,"s":[10]},{"t":-71.99609375,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.7,7.7,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[3.1,0],[0,3.4],[-3.5,0],[-1,-2.1]],"o":[[-0.5,3],[-3.5,0],[0,-3.4],[2.5,0],[0,0]],"v":[[6.2,1],[0,6.2],[-6.2,0],[0,-6.2],[5.6,-2.7]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.7,7.7],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[0]},{"t":26,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":-90,"s":[0]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":-75,"s":[100]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[100]},{"t":26,"s":[100]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[0]},{"t":26,"s":[360]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":-93,"op":27,"st":-93,"bm":0},{"ddd":0,"ind":4,"ty":4,"nm":"Arrow 2","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":27,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":29.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":31.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":33.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":35.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":37.01,"s":[10]},{"t":39.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[12.7,4,0],"ix":2,"l":2},"a":{"a":0,"k":[3,3,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":1,"k":[{"i":{"x":0.5,"y":1},"o":{"x":0.5,"y":0},"t":43,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":46,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":130,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"t":133,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]}],"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":2,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[3,3],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":43,"op":133,"st":25,"bm":0},{"ddd":0,"ind":5,"ty":4,"nm":"Arrow","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-84.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-82.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-80.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-78.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-76,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-73.998,"s":[10]},{"t":-71.99609375,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[12.7,4,0],"ix":2,"l":2},"a":{"a":0,"k":[3,3,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":1,"k":[{"i":{"x":0.5,"y":1},"o":{"x":0.5,"y":0},"t":-77,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":-74,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":10,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"t":13,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]}],"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":2,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[3,3],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":-77,"op":13,"st":-95,"bm":0}],"markers":[]}'),
+            SV = e => {
                 var t, n, r, i, a, o, s;
-                const l = jz((e => e.installer)),
-                    c = jz((e => e.library)),
+                const l = Uz((e => e.installer)),
+                    c = Uz((e => e.library)),
                     {
                         status: u
                     } = (0, Ee.useMemo)((() => {
@@ -73343,7 +73622,7 @@
                             i = mR(l.uninstallations, e);
                         return {
                             channel: n,
-                            status: mV(n, r, i)
+                            status: bV(n, r, i)
                         }
                     }), [e, l.installations, l.uninstallations, c.installedGames]);
                 return {
@@ -73365,13 +73644,13 @@
                     })
                 }
             },
-            bV = () => {
+            EV = () => {
                 var e, t;
                 const {
                     t: n
                 } = bt("gamePage"), {
                     gameId: r
-                } = CL(), i = jz((e => e.library)), a = jz((e => e.application)), {
+                } = CL(), i = Uz((e => e.library)), a = Uz((e => e.application)), {
                     reduceMotion: {
                         backgroundVideoDisabled: o,
                         unessentialAnimationsDisabled: s,
@@ -73391,12 +73670,12 @@
                     }
                 }), [r, i.actions, i.availableGames, i.channelSelected.channelId, i.channelSelected.gameId]), p = (e => {
                     var t;
-                    const n = jz((e => e.application)),
-                        r = jz((e => e.installer)),
-                        i = jz((e => e.library)),
-                        a = jz((e => e.dialog)),
-                        o = jz((e => e.storage)),
-                        s = jz((e => e.settings)),
+                    const n = Uz((e => e.application)),
+                        r = Uz((e => e.installer)),
+                        i = Uz((e => e.library)),
+                        a = Uz((e => e.dialog)),
+                        o = Uz((e => e.storage)),
+                        s = Uz((e => e.settings)),
                         l = RR(),
                         {
                             reduceMotion: {
@@ -73415,7 +73694,7 @@
                                 l = mR(r.uninstallations, e);
                             return {
                                 installation: o,
-                                status: mV(n, o, l),
+                                status: bV(n, o, l),
                                 channelSettings: a
                             }
                         }), [e, i.installedGames, r.installations, r.uninstallations, s.gamesSettings]),
@@ -73465,7 +73744,7 @@
                                         ns: "gamePage"
                                     }),
                                     disabled: h || n.isGameRunning,
-                                    icon: c ? fM : vV
+                                    icon: c ? fM : wV
                                 }, action: () => {
                                     i.actions.launchGame(e)
                                 }
@@ -73498,7 +73777,7 @@
                                     children: xt.t("game_page_update_game", {
                                         ns: "gamePage"
                                     }),
-                                    icon: c ? mM : yV,
+                                    icon: c ? mM : kV,
                                     disabled: h
                                 }, action: async () => {
                                     r.actions.addInstallationToQueue(e, xP.InstallationType.UPDATE)
@@ -73523,7 +73802,7 @@
                                     children: xt.t("game_page_install_game", {
                                         ns: "gamePage"
                                     }),
-                                    icon: c ? cM : gV,
+                                    icon: c ? cM : xV,
                                     disabled: h
                                 }, action: async () => {
                                     await a.actions.showGameStartInstallationDialog(e, (null === p || void 0 === p ? void 0 : p.libraryFolder) || o.defaultLibraryFolder, !1)
@@ -73534,9 +73813,9 @@
                     GameNotAvailableOfflineMessageComponent: h,
                     UpdateAvailableMessageComponent: f
                 } = (e => {
-                    const t = jz((e => e.library)),
-                        n = jz((e => e.application)),
-                        r = jz((e => e.installer)),
+                    const t = Uz((e => e.library)),
+                        n = Uz((e => e.application)),
+                        r = Uz((e => e.installer)),
                         {
                             channel: i,
                             status: a
@@ -73547,7 +73826,7 @@
                                 o = mR(r.uninstallations, e);
                             return {
                                 channel: i,
-                                status: mV(i, a, o)
+                                status: bV(i, a, o)
                             }
                         }), [e, t.installedGames, r.installations, r.uninstallations]),
                         o = n.actions.isOffline();
@@ -73578,7 +73857,7 @@
                 } = (e => {
                     const {
                         t: t
-                    } = bt("gamePage"), [n, r] = (0, Ee.useState)(null), i = jz((e => e.application)), a = jz((e => e.installer)), o = jz((e => e.library)), s = OL(), {
+                    } = bt("gamePage"), [n, r] = (0, Ee.useState)(null), i = Uz((e => e.application)), a = Uz((e => e.installer)), o = Uz((e => e.library)), s = OL(), {
                         reduceMotion: {
                             wipeAnimationsDisabled: l
                         }
@@ -73596,7 +73875,7 @@
                             isGameChannelInstalled: r,
                             isGameChannelInstalling: void 0 !== fR(a.installations, e),
                             isGameChannelUninstalling: i,
-                            settingsUrl: cD(`/${CV.SETTINGS}/${CV.SETTINGS_GAMES}`, {
+                            settingsUrl: cD(`/${DV.SETTINGS}/${DV.SETTINGS_GAMES}`, {
                                 gameId: null !== (t = e.gameId) && void 0 !== t ? t : o.channelSelected.gameId,
                                 channelId: o.channelSelected.channelId
                             })
@@ -73653,7 +73932,7 @@
                 })(i.channelSelected), {
                     displayProgressBar: y,
                     ProgressBarComponent: _
-                } = _V(i.channelSelected), b = null === (e = a.animations.gamePageEntering) || void 0 === e ? void 0 : e.isAnimating, x = null === (t = a.animations.gamePageEntering) || void 0 === t ? void 0 : t.animState, w = a.actions.isOffline(), k = "SC" === (null === c || void 0 === c ? void 0 : c.id) && (null === u || void 0 === u ? void 0 : u.id) === HM && a.nonOperationalStatus;
+                } = SV(i.channelSelected), b = null === (e = a.animations.gamePageEntering) || void 0 === e ? void 0 : e.isAnimating, x = null === (t = a.animations.gamePageEntering) || void 0 === t ? void 0 : t.animState, w = a.actions.isOffline(), k = "SC" === (null === c || void 0 === c ? void 0 : c.id) && (null === u || void 0 === u ? void 0 : u.id) === YM && a.nonOperationalStatus;
                 return (0, wR.jsxs)(wR.Fragment, {
                     children: [(0, wR.jsx)(Hh, {
                         image: null === c || void 0 === c ? void 0 : c.bgImage,
@@ -73701,23 +73980,23 @@
                             children: h
                         }), !y && f && (0, wR.jsx)(Zh, {
                             children: f
-                        }), !w && k && a.nonOperationalStatus && (0, wR.jsx)(TF, {
+                        }), !w && k && a.nonOperationalStatus && (0, wR.jsx)(DF, {
                             status: a.nonOperationalStatus
                         })]
-                    }), (0, wR.jsx)(pV, {})]
+                    }), (0, wR.jsx)(vV, {})]
                 })
             },
-            xV = () => {
+            OV = () => {
                 const {
                     t: e
-                } = bt("errors"), t = jz((e => e.window)), n = jz((e => e.application)), r = OL(), [i, a] = (0, Ee.useState)(!1), o = (0, Ee.useCallback)((() => t.actions.exitLauncher()), [t]), s = (0, Ee.useCallback)((() => {
+                } = bt("errors"), t = Uz((e => e.window)), n = Uz((e => e.application)), r = OL(), [i, a] = (0, Ee.useState)(!1), o = (0, Ee.useCallback)((() => t.actions.exitLauncher()), [t]), s = (0, Ee.useCallback)((() => {
                     a(!0);
                     const e = setTimeout((() => {
-                        a(!1), r(`/${CV.SIGN_IN}`), clearTimeout(e)
+                        a(!1), r(`/${DV.SIGN_IN}`), clearTimeout(e)
                     }), 3 * GT.second)
                 }), [a, r]);
                 return (0, Ee.useEffect)((() => {
-                    n.connection.mode === xP.ConnectionMode.ONLINE && r(`/${CV.SIGN_IN}`)
+                    n.connection.mode === xP.ConnectionMode.ONLINE && r(`/${DV.SIGN_IN}`)
                 }), [n.connection, r]), (0, wR.jsx)(oy, {
                     children: (0, wR.jsx)(ay, {
                         title: e("error_sign_in_offline_header_title"),
@@ -73767,15 +74046,15 @@
                     })
                 })
             },
-            wV = () => {
-                const e = jz((e => e.toasts)),
-                    t = jz((e => e.application)),
+            IV = () => {
+                const e = Uz((e => e.toasts)),
+                    t = Uz((e => e.application)),
                     {
                         wipeAnimType: n,
                         isHeaderVisible: r
                     } = (() => {
                         var e, t;
-                        const n = jz((e => e.application)),
+                        const n = Uz((e => e.application)),
                             r = null === (e = n.animations.appLayoutWipe) || void 0 === e ? void 0 : e.isAnimating,
                             i = null === (t = n.animations.appLayoutWipe) || void 0 === t ? void 0 : t.animType,
                             a = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/)),
@@ -73821,7 +74100,7 @@
                             onLaunchGameFailed: t,
                             onLaunchGameStopped: n
                         }
-                    } = window.launcherAPI, r = jz((e => e.library));
+                    } = window.launcherAPI, r = Uz((e => e.library));
                     (0, Ee.useEffect)((() => e((e => {
                         r.actions.setLaunchGameSuccessfull(e)
                     }))), [r.actions, e]), (0, Ee.useEffect)((() => t((e => {
@@ -73842,7 +74121,7 @@
                             onFixPermissionsSuccess: s,
                             onFixPermissionsFailed: l
                         }
-                    } = window.launcherAPI, c = jz((e => e.installer));
+                    } = window.launcherAPI, c = Uz((e => e.installer));
                     (0, Ee.useEffect)((() => n((e => {
                         c.actions.setInstallationProgress(e)
                     }))), [c.actions, n]), (0, Ee.useEffect)((() => t((e => {
@@ -73868,7 +74147,7 @@
                             onConnectionAvailable: e,
                             onConnectionUnavailable: t
                         }
-                    } = window.launcherAPI, n = jz((e => e.application));
+                    } = window.launcherAPI, n = Uz((e => e.application));
                     (0, Ee.useEffect)((() => e((() => {
                         n.actions.setConnectionAvailable()
                     }))), [n.actions, e]), (0, Ee.useEffect)((() => t((() => {
@@ -73884,6 +74163,37 @@
                             window.removeEventListener("offline", e), window.removeEventListener("online", t)
                         }
                     }), [n.actions])
+                })(), (() => {
+                    const {
+                        launcherSupport: {
+                            onDeleteLocalSettingsSuccess: e,
+                            onDeleteLocalSettingsError: t
+                        }
+                    } = window.launcherAPI, n = Uz((e => e.toasts)), {
+                        t: r
+                    } = bt("settingsPage");
+                    (0, Ee.useEffect)((() => e((() => {
+                        n.actions.add({
+                            title: r("settings_games_local_delete_success", {
+                                ns: "settingsPage"
+                            }),
+                            type: "positive",
+                            icon: lM,
+                            closeOnClick: !0
+                        })
+                    }))), [e, r, n.actions]), (0, Ee.useEffect)((() => t((() => {
+                        n.actions.add({
+                            title: r("settings_games_local_delete_error", {
+                                ns: "settingsPage"
+                            }),
+                            children: r("settings_games_local_delete_error_message", {
+                                ns: "settingsPage"
+                            }),
+                            type: "negative",
+                            icon: sM,
+                            closeOnClick: !0
+                        })
+                    }))), [t, r, n.actions])
                 })(), (0, Ee.useEffect)((() => {
                     if (!a.current) {
                         var e;
@@ -73898,15 +74208,15 @@
                         children: (0, wR.jsxs)(Ps, {
                             className: "sol-u-animation-wipe",
                             "data-sol-animation-wipe": n,
-                            header: r ? (0, wR.jsx)(XM, {}) : void 0,
-                            children: [(0, wR.jsx)(BL, {}), (0, wR.jsx)(eF, {}), (0, wR.jsx)(dy, {
+                            header: r ? (0, wR.jsx)(eF, {}) : void 0,
+                            children: [(0, wR.jsx)(BL, {}), (0, wR.jsx)(nF, {}), (0, wR.jsx)(dy, {
                                 toasts: e.list
                             })]
                         })
                     })
                 })
             },
-            kV = () => {
+            CV = () => {
                 const e = (0, Ee.useCallback)((() => {
                     RR().window.setLargeWindow()
                 }), []);
@@ -73914,8 +74224,8 @@
                     e()
                 }), [e])
             },
-            SV = () => {
-                const e = jz((e => e.application)),
+            AV = () => {
+                const e = Uz((e => e.application)),
                     {
                         wipeAnimationsDisabled: t
                     } = Qo().reduceMotion,
@@ -73942,15 +74252,15 @@
                     children: (0, wR.jsx)(BL, {})
                 })
             },
-            EV = () => {
+            PV = () => {
                 var e;
-                const t = jz((e => e.library)),
-                    n = jz((e => e.application)),
+                const t = Uz((e => e.library)),
+                    n = Uz((e => e.application)),
                     r = null === (e = n.animations.appLayoutWipe) || void 0 === e ? void 0 : e.isAnimating,
                     {
                         wipeAnimationsDisabled: i
                     } = Qo().reduceMotion;
-                kV();
+                CV();
                 const a = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/)),
                     [o, s] = (0, Ee.useState)("is-init"),
                     l = (0, Ee.useCallback)((async () => {
@@ -73984,14 +74294,14 @@
                 return (0, Ee.useEffect)((() => {
                     u()
                 }), [u]), (0, wR.jsx)(xv, {
-                    navigation: (0, wR.jsx)(PF, {}),
+                    navigation: (0, wR.jsx)(RF, {}),
                     "data-sol-animation-gamepage": o,
                     children: (0, wR.jsx)(BL, {})
                 })
             },
-            OV = () => {
-                const e = jz((e => e.application)),
-                    t = jz((e => e.user)),
+            TV = () => {
+                const e = Uz((e => e.application)),
+                    t = Uz((e => e.user)),
                     n = OL(),
                     {
                         pathname: r
@@ -73999,7 +74309,7 @@
                     {
                         t: i
                     } = bt("settingsPage");
-                kV();
+                CV();
                 const {
                     wipeAnimationsDisabled: a
                 } = Qo().reduceMotion, o = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/)), s = [{
@@ -74033,17 +74343,17 @@
                         },
                         title: "Settings",
                         backCallback: () => {
-                            if (a) return void n(CV.HOME);
+                            if (a) return void n(DV.HOME);
                             e.actions.setAnimatingAppLayoutWipe("full-rtl", !0);
                             const t = setTimeout((() => {
-                                n(CV.HOME)
+                                n(DV.HOME)
                             }), o / 2);
                             return () => clearTimeout(t)
                         },
                         children: s.map((e => {
                             const n = t.identity && t.identity.privileged,
                                 i = uD({
-                                    path: `/${CV.SETTINGS}/${e.path}`,
+                                    path: `/${DV.SETTINGS}/${e.path}`,
                                     end: !1
                                 }, r);
                             return (!e.staff || e.staff && n) && (0, wR.jsx)(ry, {
@@ -74055,9 +74365,9 @@
                     }), (0, wR.jsx)(BL, {})]
                 })
             };
-        const IV = () => {
+        const RV = () => {
                 const e = SL();
-                return jz((e => e.user)).actions.isLoggedIn() ? (0, wR.jsx)(BL, {}) : (0, wR.jsx)(UL, {
+                return Uz((e => e.user)).actions.isLoggedIn() ? (0, wR.jsx)(BL, {}) : (0, wR.jsx)(UL, {
                     to: "sign-in",
                     replace: !0,
                     state: {
@@ -74065,7 +74375,7 @@
                     }
                 })
             },
-            CV = {
+            DV = {
                 HOME: "/",
                 SIGN_IN: "sign-in",
                 SIGN_IN_MFA: "mfa",
@@ -74081,10 +74391,10 @@
                 SETTINGS_STORAGE: "storage",
                 OFFLINE: "offline"
             },
-            AV = function(e, t) {
+            LV = function(e, t) {
                 return jD({
                     basename: null == t ? void 0 : t.basename,
-                    future: RF({}, null == t ? void 0 : t.future, {
+                    future: LF({}, null == t ? void 0 : t.future, {
                         v7_prependBasename: !0
                     }),
                     history: (n = {
@@ -74112,18 +74422,18 @@
                     }), (function(e, t) {
                         HR("/" === e.pathname.charAt(0), "relative pathnames are not supported in hash history.push(" + JSON.stringify(t) + ")")
                     }), n)),
-                    hydrationData: (null == t ? void 0 : t.hydrationData) || NF(),
+                    hydrationData: (null == t ? void 0 : t.hydrationData) || MF(),
                     routes: e,
                     mapRouteProperties: qL,
                     window: null == t ? void 0 : t.window
                 }).initialize();
                 var n
             }([{
-                element: (0, wR.jsx)(wV, {}),
+                element: (0, wR.jsx)(IV, {}),
                 loader: async () => {
                     const e = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
                     try {
-                        const t = jz.getState().application;
+                        const t = Uz.getState().application;
                         if (t.isAppInitialized) return void t.actions.checkConnection();
                         await new Promise((t => setTimeout(t, xP.configuration.appLayoutLoaderWipeTrigger + e / 2)))
                     } finally {
@@ -74131,47 +74441,47 @@
                     }
                 },
                 children: [{
-                    path: CV.HOME,
-                    element: (0, wR.jsx)(IV, {}),
+                    path: DV.HOME,
+                    element: (0, wR.jsx)(RV, {}),
                     children: [{
-                        element: (0, wR.jsx)(EV, {}),
+                        element: (0, wR.jsx)(PV, {}),
                         children: [{
                             index: !0,
                             loader: async () => {
-                                const e = `/game-page/${jz.getState().library.gameSelected}`;
+                                const e = `/game-page/${Uz.getState().library.gameSelected}`;
                                 throw xD(e)
                             }
                         }, {
-                            path: CV.GAME_PAGE,
-                            element: (0, wR.jsx)(bV, {}),
+                            path: DV.GAME_PAGE,
+                            element: (0, wR.jsx)(EV, {}),
                             loader: async ({
                                                params: e
                                            }) => {
                                 try {
                                     var t;
-                                    if (await async function(e = CV.SIGN_IN) {
-                                        const t = jz.getState().user,
-                                            n = jz.getState().application;
+                                    if (await async function(e = DV.SIGN_IN) {
+                                        const t = Uz.getState().user,
+                                            n = Uz.getState().application;
                                         if (n.actions.isOffline() && !n.actions.isOfflineSessionValid() && await Kj(), !t.actions.isLoggedIn()) throw xD(e);
                                         return t.identity
                                     }(), !e.gameId) return null;
-                                    const n = jz.getState().library,
-                                        r = jz.getState().settings;
+                                    const n = Uz.getState().library,
+                                        r = Uz.getState().settings;
                                     n.gameSelected !== e.gameId && n.actions.setGameSelected(e.gameId);
                                     const i = null !== (t = Qj.getQueryData(Mj().queryKey)) && void 0 !== t ? t : await Qj.fetchQuery(Mj());
                                     if (!i) return null;
                                     n.actions.setAvailableGames(i), r.actions.initializeGameSettings();
                                     const a = null === i || void 0 === i ? void 0 : i.find((({
-                                                                                                 id: e
-                                                                                             }) => n.gameSelected === e));
+                                                                                                 id: t
+                                                                                             }) => e.gameId === t));
                                     if (!a) return null;
                                     const o = (await window.launcherAPI.store.getValueFromStore("library.defaults")).find((t => t.gameId === e.gameId));
                                     if (o) n.actions.setGameChannelSelected(o);
                                     else {
                                         const t = a.channels[0],
                                             r = e.gameId === n.channelSelected.gameId ? n.channelSelected : {
-                                                gameId: t.id,
-                                                gameName: t.name,
+                                                gameId: a.id,
+                                                gameName: a.name,
                                                 channelId: t.id,
                                                 platformId: t.platformId,
                                                 channelName: t.name
@@ -74184,76 +74494,76 @@
                                 } catch (n) {
                                     return window.launcherAPI.log.error(`Not able to load game layout : ${n}`), null
                                 } finally {
-                                    jz.getState().status.actions.checkStatus()
+                                    Uz.getState().status.actions.checkStatus()
                                 }
                             }
                         }]
                     }, {
-                        element: (0, wR.jsx)(OV, {}),
-                        path: CV.SETTINGS,
+                        element: (0, wR.jsx)(TV, {}),
+                        path: DV.SETTINGS,
                         children: [{
                             index: !0,
                             loader: async () => {
-                                throw xD(CV.SETTINGS_APPLICATION)
+                                throw xD(DV.SETTINGS_APPLICATION)
                             }
                         }, {
-                            path: CV.SETTINGS_APPLICATION,
-                            element: (0, wR.jsx)($z, {})
+                            path: DV.SETTINGS_APPLICATION,
+                            element: (0, wR.jsx)(Yz, {})
                         }, {
-                            path: CV.SETTINGS_ACCESSIBILITY,
-                            element: (0, wR.jsx)(Uz, {})
-                        }, {
-                            path: CV.SETTINGS_GAMES,
-                            element: (0, wR.jsx)(oV, {})
-                        }, {
-                            path: CV.SETTINGS_STORAGE,
-                            element: (0, wR.jsx)(sV, {})
-                        }, {
-                            path: CV.SETTINGS_DOWNLOAD,
+                            path: DV.SETTINGS_ACCESSIBILITY,
                             element: (0, wR.jsx)(Wz, {})
                         }, {
-                            path: CV.SETTINGS_ABOUT,
-                            element: (0, wR.jsx)(Mz, {})
+                            path: DV.SETTINGS_GAMES,
+                            element: (0, wR.jsx)(dV, {})
                         }, {
-                            path: CV.SETTINGS_DEV,
-                            element: (0, wR.jsx)(qz, {})
+                            path: DV.SETTINGS_STORAGE,
+                            element: (0, wR.jsx)(pV, {})
+                        }, {
+                            path: DV.SETTINGS_DOWNLOAD,
+                            element: (0, wR.jsx)(Zz, {})
+                        }, {
+                            path: DV.SETTINGS_ABOUT,
+                            element: (0, wR.jsx)(Bz, {})
+                        }, {
+                            path: DV.SETTINGS_DEV,
+                            element: (0, wR.jsx)(Qz, {})
                         }]
                     }]
                 }, {
-                    path: CV.SIGN_IN,
-                    element: (0, wR.jsx)(SV, {}),
+                    path: DV.SIGN_IN,
+                    element: (0, wR.jsx)(AV, {}),
                     loader: async () => {
-                        const e = jz.getState().user,
-                            t = jz.getState().library,
-                            n = jz.getState().application,
+                        const e = Uz.getState().user,
+                            t = Uz.getState().library,
+                            n = Uz.getState().application,
                             r = `/game-page/${t.gameSelected}`,
-                            i = `/${CV.OFFLINE}`;
+                            i = `/${DV.OFFLINE}`;
                         return e.actions.isLoggedIn() ? xD(r) : n.actions.isOffline() ? xD(i) : null
                     },
                     children: [{
                         index: !0,
-                        element: (0, wR.jsx)(lV, {})
+                        element: (0, wR.jsx)(hV, {})
                     }, {
-                        path: CV.SIGN_IN_MFA,
-                        element: (0, wR.jsx)(cV, {})
+                        path: DV.SIGN_IN_MFA,
+                        element: (0, wR.jsx)(fV, {})
                     }, {
-                        path: CV.SIGN_IN_GAME_PACKAGE_MISSING,
-                        element: (0, wR.jsx)(uV, {})
+                        path: DV.SIGN_IN_GAME_PACKAGE_MISSING,
+                        element: (0, wR.jsx)(mV, {})
                     }]
                 }, {
-                    path: CV.OFFLINE,
-                    element: (0, wR.jsx)(xV, {})
+                    path: DV.OFFLINE,
+                    element: (0, wR.jsx)(OV, {})
                 }]
             }]),
-            PV = () => (0, wR.jsx)(GF, {
-                router: AV,
-                fallbackElement: (0, wR.jsx)(JM, {})
+            NV = () => (0, wR.jsx)(qF, {
+                router: LV,
+                fallbackElement: (0, wR.jsx)(tF, {})
             });
-        var TV = n(95),
-            RV = function() {
+        var jV = n(95),
+            MV = function() {
                 return null
             };
-        const DV = e => {
+        const FV = e => {
             e && e instanceof Function && n.e(496).then(n.bind(n, 1496)).then((({
                                                                                     getCLS: t,
                                                                                     getFID: n,
@@ -74264,7 +74574,7 @@
                 t(e), n(e), r(e), i(e), a(e)
             }))
         };
-        var LV;
+        var zV;
         ! function(e = {}, t = hP) {
             window?.__SENTRY__RENDERER_INIT__ ? E_.warn("The browser SDK has already been initialized.\nIf init has been called in the preload and contextIsolation is disabled, is not required to call init in the renderer") : (window.__SENTRY__RENDERER_INIT__ = !0, void 0 === e.autoSessionTracking && (e.autoSessionTracking = !1), e.sendClientReports = !1, void 0 === e.defaultIntegrations && (e.defaultIntegrations = [...pP(), rA()]), void 0 === e.stackParser && (e.stackParser = bP), void 0 === e.dsn && (e.dsn = "https://12345@dummy.dsn/12345"), void 0 === e.transport && (e.transport = lA), e.anrDetection && function(e) {
                 const t = {
@@ -74538,7 +74848,7 @@
                         })
                     }
                 }
-            })(), new qC(LV)]
+            })(), new qC(zV)]
         }, (function(e) {
             const t = {
                 ...e
@@ -74548,25 +74858,25 @@
                 version: Ee.version
             }, Ln().setContext(n, r), Wa(t)
         }));
-        const NV = Ee.lazy((() => n.e(803).then(n.bind(n, 803)).then((e => ({
+        const VV = Ee.lazy((() => n.e(803).then(n.bind(n, 803)).then((e => ({
                 default: e.ReactQueryDevtools
             }))))),
-            jV = () => {
+            UV = () => {
                 const [e, t] = Ee.useState(!1), {
                     reduceMotion: n
-                } = jz((e => e.settings.appSettings.accessibility));
+                } = Uz((e => e.settings.appSettings.accessibility));
                 return (0, Ee.useEffect)((() => {
                     window.toggleDevtools = () => t((e => !e))
                 }), []), (async () => {
-                    const e = jz.getState().application,
-                        t = jz.getState().library,
-                        n = jz.getState().soundSystem,
-                        r = jz.getState().authentication,
-                        i = jz.getState().settings,
-                        a = jz.getState().installer,
-                        o = jz.getState().status,
-                        s = jz.getState().user,
-                        l = jz.getState().storage;
+                    const e = Uz.getState().application,
+                        t = Uz.getState().library,
+                        n = Uz.getState().soundSystem,
+                        r = Uz.getState().authentication,
+                        i = Uz.getState().settings,
+                        a = Uz.getState().installer,
+                        o = Uz.getState().status,
+                        s = Uz.getState().user,
+                        l = Uz.getState().storage;
                     e.isAppInitialized || (await e.actions.initializeApplication(), await n.actions.initializeSoundContext(), await r.actions.initializeAuthentication(), await s.actions.initializeUser(), await t.actions.initializeLibrary(), await i.actions.initializeApplicationSettings(), await i.actions.initializeGameSettings(), await a.actions.initializeInstaller(), await o.actions.initializeStatus(), await l.actions.initializeStorageSettings())
                 })(), (0, wR.jsx)(Ee.StrictMode, {
                     children: (0, wR.jsx)(Za, {
@@ -74577,26 +74887,26 @@
                             children: (0, wR.jsx)(Aj.aH, {
                                 client: Qj,
                                 children: (0, wR.jsxs)(Yo, {
-                                    reduceMotion: null !== n && void 0 !== n ? n : tz.reduceMotion,
+                                    reduceMotion: null !== n && void 0 !== n ? n : oz.reduceMotion,
                                     children: [(0, wR.jsx)(qo, {
-                                        value: QF,
-                                        children: (0, wR.jsx)(OF.Provider, {
-                                            children: (0, wR.jsx)(PV, {})
+                                        value: XF,
+                                        children: (0, wR.jsx)(CF.Provider, {
+                                            children: (0, wR.jsx)(NV, {})
                                         })
-                                    }), (0, wR.jsx)(RV, {
+                                    }), (0, wR.jsx)(MV, {
                                         initialIsOpen: !0
                                     }), e && (0, wR.jsx)(Ee.Suspense, {
                                         fallback: null,
-                                        children: (0, wR.jsx)(NV, {})
+                                        children: (0, wR.jsx)(VV, {})
                                     })]
                                 })
                             })
                         })
-                    }, vz())
+                    }, wz())
                 })
             };
-        TV.createRoot(document.getElementById("root")).render((0, wR.jsx)(jV, {})), DV()
+        jV.createRoot(document.getElementById("root")).render((0, wR.jsx)(UV, {})), FV()
     })()
 })();
-//# sourceMappingURL=main.f0354cce.js.map
-//# debugId=032c1ac3-6566-59d2-b43b-c485cfb20905
+//# sourceMappingURL=main.b2b18aa1.js.map
+//# debugId=1283a101-a29f-523a-a22d-fda06ac74a44
