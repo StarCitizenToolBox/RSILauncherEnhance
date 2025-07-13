@@ -6423,7 +6423,7 @@
                     gamePageContent: {base: 6e5, window: 1e4},
                     status: {base: 6e4, window: 1e3}
                 },
-                language: {defaultLanguage: {code: "en"}}
+                language: {defaultLanguage: {code: SC_TOOLBOX_ENABLED_LOCALIZATION}}
             };
             t.default = n
         }, 2222: function (e, t, n) {
