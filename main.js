@@ -1,10 +1,10 @@
-/*! For license information please see main.ada23334.js.LICENSE.txt */
+/*! For license information please see main.27c346b9.js.LICENSE.txt */
 
 !function () {
     try {
         var e = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : {},
             n = (new e.Error).stack;
-        n && (e._sentryDebugIds = e._sentryDebugIds || {}, e._sentryDebugIds[n] = "83185437-0682-5618-b069-edef3e3cc601")
+        n && (e._sentryDebugIds = e._sentryDebugIds || {}, e._sentryDebugIds[n] = "7e5e9aa7-48b1-5119-92ea-ef03fe6716c1")
     } catch (e) {
     }
 }();
@@ -8300,12 +8300,16 @@
                 dialog_debug_cache_clear_content: "此操作将清除启动器缓存并退出登录，你确定要继续吗？",
                 dialog_debug_cache_clear_button: "继续",
                 dialog_warning_change_game_title_dialog: "更改游戏位置",
-                dialog_warning_change_game_question_dialog: "{{game}} - {{channel}} 已安装至当前位置。你想要更改游戏库吗？is already installed at the current location. Do you want to change the game library?",
+                dialog_warning_change_game_question_dialog: "{{game}} - {{channel}} 已安装至当前位置。你想要更改游戏库吗？",
                 dialog_warning_change_installed_game_question_dialog: "你确定要更改此游戏库的位置？",
                 dialog_warning_change_game_current_dialog: "当前：",
                 dialog_warning_change_game_new_dialog: "新：",
                 dialog_warning_change_game_warn_dialog: "如要继续，请确保将文件移动到新位置，并在新位置验证文件或重新安装游戏。",
-                dialog_settings_delete_local_title: "管理本地配置"
+                dialog_settings_delete_local_title: "管理本地配置",
+                dialog_promotion_logout_title: "促销活动已应用",
+                dialog_promotion_logout_message: "恭喜！您的账户已可以加入免费试飞活动。请重新登录以进入游戏。",
+                dialog_promotion_error_title: "无法应用促销活动",
+                dialog_promotion_error_message: "此促销活动无法应用于您的账户。请访问<0>促销活动页面</0>并使用以下代码激活："
             },
             discover: {
                 step_done_label: "立即进入",
@@ -8501,7 +8505,7 @@
                 sign_in_third_party_timeout: "服务器已终止你的连接请求。可能由于Web服务器不可用或负载过高导致。请取消当前操作并重新尝试。",
                 sign_in_third_party_back: "返回",
                 sign_in_third_party_cancel: "取消",
-                sign_in_loading_entering_the_verse: "正在进入宇宙...",
+                sign_in_loading_entering_the_verse: "正在进入“宇宙”...",
                 error_field_is_required: "必须输入该字段",
                 error_email_field_is_required: "需要输入一个邮箱地址",
                 error_password_field_is_required: "需要输入密码",
@@ -8550,7 +8554,10 @@
                 "game_page_cards_tab_patch-notes": "补丁说明",
                 game_page_card_button_label: "查看更多",
                 game_page_discover_button_label: "探索",
-                game_page_buy_game_package_button_label: "购买一个游戏资格包"
+                game_page_buy_game_package_button_label: "购买一个游戏资格包",
+                game_page_access_free_fly_button_label: "进入免费试飞",
+                game_page_access_free_fly_preparing_label: "正在准备进入",
+                game_page_access_free_fly_remaining_message: "此免费试飞活动剩余时间：{{remainingTime}}"
             },
             settingsPage: {
                 settings_main_title: "设置",
@@ -8675,7 +8682,7 @@
                 settings_games_local_delete_success: "本地配置已删除。",
                 settings_games_local_delete_error: "删除本地配置失败",
                 settings_games_local_delete_error_message: "发生错误，请确保你尝试删除的文件未被占用后再试。",
-                settings_about_powered_by: "Powered by"
+                settings_about_powered_by: "技术支持来自"
             },
             status: {
                 status_title: "RSI 状态",
@@ -9333,7 +9340,11 @@
                     dialog_warning_change_game_current_dialog: "Current:",
                     dialog_warning_change_game_new_dialog: "New:",
                     dialog_warning_change_game_warn_dialog: "If you wish to proceed, make sure to move your files to the new location and verify or reinstall the game at the new location.",
-                    dialog_settings_delete_local_title: "Manage Local Settings"
+                    dialog_settings_delete_local_title: "Manage Local Settings",
+                    dialog_promotion_logout_title: "Promotion Applied",
+                    dialog_promotion_logout_message: "Congrats! Your account now has access to the Free Fly event. Please sign in again to access the game.",
+                    dialog_promotion_error_title: "Promotion Can Not Be Applied",
+                    dialog_promotion_error_message: "This promotion can not be applied to your account. Visit <0>the promotion page</0> and use the code below to activate it:"
                 },
                 discover: {
                     step_done_label: "Enter Now",
@@ -9577,7 +9588,10 @@
                     "game_page_cards_tab_patch-notes": "Patch Notes",
                     game_page_card_button_label: "Read More",
                     game_page_discover_button_label: "Discover",
-                    game_page_buy_game_package_button_label: "Buy a Game Package"
+                    game_page_buy_game_package_button_label: "Buy a Game Package",
+                    game_page_access_free_fly_button_label: "Access the Free Fly",
+                    game_page_access_free_fly_preparing_label: "Preparing Access",
+                    game_page_access_free_fly_remaining_message: "{{remainingTime}} remaining until this Free Fly ends."
                 },
                 settingsPage: {
                     settings_main_title: "Settings",
@@ -12063,7 +12077,13 @@
             }))
         }
 
-        ve.use(st).init({lng: SC_TOOLBOX_ENABLED_LOCALIZATION, fallbackLng: "en", resources: e, interpolation: {escapeValue: !1}, returnNull: !1});
+        ve.use(st).init({
+            lng: SC_TOOLBOX_ENABLED_LOCALIZATION,
+            fallbackLng: "en",
+            resources: e,
+            interpolation: {escapeValue: !1},
+            returnNull: !1
+        });
         const bt = ve;
         const _t = Object.prototype.toString;
 
@@ -12336,7 +12356,7 @@
                     const t = new Uint8Array(1);
                     return e.getRandomValues(t), t[0]
                 })
-            } catch (ek) {
+            } catch (sk) {
             }
             return ([1e7] + 1e3 + 4e3 + 8e3 + 1e11).replace(/[018]/g, (e => (e ^ (15 & t()) >> e / 4).toString(16)))
         }
@@ -13307,7 +13327,7 @@
                     const t = new Uint8Array(1);
                     return e.getRandomValues(t), t[0]
                 })
-            } catch (ek) {
+            } catch (sk) {
             }
             return ([1e7] + 1e3 + 4e3 + 8e3 + 1e11).replace(/[018]/g, (e => (e ^ (15 & t()) >> e / 4).toString(16)))
         }
@@ -15489,7 +15509,7 @@
                     const t = new Uint8Array(1);
                     return e.getRandomValues(t), t[0]
                 })
-            } catch (ek) {
+            } catch (sk) {
             }
             return ([1e7] + 1e3 + 4e3 + 8e3 + 1e11).replace(/[018]/g, (e => (e ^ (15 & t()) >> e / 4).toString(16)))
         }
@@ -36125,52 +36145,164 @@
                 time_created: e.time_created ? e.time_created + " UTC" : void 0
             }), _w = (e, t = "div") => (0, ke.createElement)(t, {dangerouslySetInnerHTML: {__html: e}}),
             xw = {year: 31536e6, month: 2628e6, day: 864e5, hour: 36e5, minute: 6e4, second: 1e3},
-            ww = (e, t) => e + (Math.floor(Math.random() * t) + 1),
-            kw = (e, t = "short", {showTime: n = !0, ...r} = {}) => {
-                const a = new Date(e);
-                switch (t) {
-                    case"short":
-                    case"long":
-                        return new Intl.DateTimeFormat("default", {dateStyle: t, ...r, ...n && {timeStyle: "short"}}).format(a);
-                    case"relative":
-                        return ((e, t = new Date, n = {}) => {
-                            const r = e.getTime() - t.getTime();
-                            for (const [a, i] of Object.entries(xw)) if (Math.abs(r) > i || "second" === a) return new Intl.RelativeTimeFormat("default", {
-                                numeric: "auto",
-                                localeMatcher: "lookup", ...n
-                            }).format(Math.round(r / i), a)
-                        })(a, new Date, r)
-                }
-            }, Ew = e => {
-                if ("string" === typeof e || "number" === typeof e) return e.toString();
-                if (!(0, ke.isValidElement)(e)) return "";
-                if ("function" === typeof e.type && e.type.prototype instanceof ke.Component) {
-                    const t = new e.type(e.props).render();
-                    return Ew(t)
-                }
-                if ("function" === typeof e.type) {
-                    const t = e.type(e.props);
-                    return Ew(t)
-                }
-                const {children: t} = e.props;
-                return Array.isArray(t) ? t.map((e => Ew(e))).join("") : Ew(t)
-            }, Sw = () => window.launcherAPI, Ow = (e, t) => t.find((({id: t}) => t === e)), Pw = e => {
-                let t = e;
-                return t.includes("\\\\") && (t = t.replace("\\\\", "\\")), t.endsWith("\\") || (t = `${t}\\`), t
-            };
+            ww = (e, t) => e + (Math.floor(Math.random() * t) + 1);
+        const kw = (e, t = "short", {showTime: n = !0, ...r} = {}) => {
+            const a = new Date(e);
+            switch (t) {
+                case"short":
+                case"long":
+                    return new Intl.DateTimeFormat("default", {dateStyle: t, ...r, ...n && {timeStyle: "short"}}).format(a);
+                case"relative":
+                    return ((e, t = new Date, n = {}) => {
+                        const r = e.getTime() - t.getTime();
+                        for (const [a, i] of Object.entries(xw)) if (Math.abs(r) > i || "second" === a) return new Intl.RelativeTimeFormat("default", {
+                            numeric: "auto",
+                            localeMatcher: "lookup", ...n
+                        }).format(Math.round(r / i), a)
+                    })(a, new Date, r);
+                case"duration":
+                    return function (e, t = new Date) {
+                        const n = e.getTime() - t.getTime();
+                        let r = Math.abs(n);
+                        const a = [];
+                        for (const [i, o] of Object.entries(xw)) {
+                            if (r >= o || "second" === i) {
+                                const e = Math.floor(r / o);
+                                (e > 0 || "second" === i) && a.push("<0>" + e + "</0> " + i + (e > 1 ? "s" : "")), r -= e * o
+                            }
+                            if (3 === a.length) break
+                        }
+                        return a.join(" ")
+                    }(a, new Date)
+            }
+        }, Ew = e => {
+            if ("string" === typeof e || "number" === typeof e) return e.toString();
+            if (!(0, ke.isValidElement)(e)) return "";
+            if ("function" === typeof e.type && e.type.prototype instanceof ke.Component) {
+                const t = new e.type(e.props).render();
+                return Ew(t)
+            }
+            if ("function" === typeof e.type) {
+                const t = e.type(e.props);
+                return Ew(t)
+            }
+            const {children: t} = e.props;
+            return Array.isArray(t) ? t.map((e => Ew(e))).join("") : Ew(t)
+        }, Sw = () => window.launcherAPI, Ow = (e, t) => t.find((({id: t}) => t === e)), Pw = e => {
+            let t = e;
+            return t.includes("\\\\") && (t = t.replace("\\\\", "\\")), t.endsWith("\\") || (t = `${t}\\`), t
+        };
         var Cw = n(5982), Iw = n.n(Cw);
         const Aw = 2e3, Dw = {
-            [dw.RSISystemStatus.MAJOR]: "negative",
-            [dw.RSISystemStatus.PARTIAL]: "notice",
-            [dw.RSISystemStatus.DEGRADED]: "highlight",
-            [dw.RSISystemStatus.MAINTENANCE]: "neutral",
-            [dw.RSISystemStatus.OPERATIONAL]: "positive"
-        }, Rw = e => Dw[e];
-        let Tw;
+                [dw.RSISystemStatus.MAJOR]: "negative",
+                [dw.RSISystemStatus.PARTIAL]: "notice",
+                [dw.RSISystemStatus.DEGRADED]: "highlight",
+                [dw.RSISystemStatus.MAINTENANCE]: "neutral",
+                [dw.RSISystemStatus.OPERATIONAL]: "positive"
+            }, Rw = e => Dw[e],
+            Tw = ["syncWithSystem", "backgroundVideoDisabled", "unessentialAnimationsDisabled", "wipeAnimationsDisabled"];
+
+        function jw(e) {
+            const t = {};
+            for (const {
+                id: n,
+                value: r
+            } of e) Tw.includes(n) ? t[n] = Boolean(r) : console.warn(`[accessibility] Ignoring unknown reduceMotion key: ${String(n)}`);
+            return t
+        }
+
+        const Lw = new class {
+            async getSettingsFromPersistentStore() {
+                var e, t, n, r, a, i, o, s, l, c;
+                const u = null !== (e = null !== (t = await window.launcherAPI.store.getValueFromStore("accessibility.options")) && void 0 !== t ? t : await window.launcherAPI.store.getValueFromStore("application.settings.accessibility")) && void 0 !== e ? e : {},
+                    d = nI.getState().accessibility.options;
+                return {
+                    reduceMotion: {
+                        syncWithSystem: null !== (n = null === (r = u.reduceMotion) || void 0 === r ? void 0 : r.syncWithSystem) && void 0 !== n ? n : d.reduceMotion.syncWithSystem,
+                        backgroundVideoDisabled: null !== (a = null === (i = u.reduceMotion) || void 0 === i ? void 0 : i.backgroundVideoDisabled) && void 0 !== a ? a : d.reduceMotion.backgroundVideoDisabled,
+                        unessentialAnimationsDisabled: null !== (o = null === (s = u.reduceMotion) || void 0 === s ? void 0 : s.unessentialAnimationsDisabled) && void 0 !== o ? o : d.reduceMotion.unessentialAnimationsDisabled,
+                        wipeAnimationsDisabled: null !== (l = null === (c = u.reduceMotion) || void 0 === c ? void 0 : c.wipeAnimationsDisabled) && void 0 !== l ? l : d.reduceMotion.wipeAnimationsDisabled
+                    }
+                }
+            }
+
+            async setSettingsToPersistentStore(e) {
+                var t, n, r, a, i, o, s, l, c;
+                const u = null !== (t = await window.launcherAPI.store.getValueFromStore("accessibility.options")) && void 0 !== t ? t : {},
+                    d = nI.getState().accessibility.options, h = {
+                        reduceMotion: {
+                            syncWithSystem: null !== (n = null === (r = u.reduceMotion) || void 0 === r ? void 0 : r.syncWithSystem) && void 0 !== n ? n : d.reduceMotion.syncWithSystem,
+                            backgroundVideoDisabled: null !== (a = null === (i = u.reduceMotion) || void 0 === i ? void 0 : i.backgroundVideoDisabled) && void 0 !== a ? a : d.reduceMotion.backgroundVideoDisabled,
+                            unessentialAnimationsDisabled: null !== (o = null === (s = u.reduceMotion) || void 0 === s ? void 0 : s.unessentialAnimationsDisabled) && void 0 !== o ? o : d.reduceMotion.unessentialAnimationsDisabled,
+                            wipeAnimationsDisabled: null !== (l = null === (c = u.reduceMotion) || void 0 === c ? void 0 : c.wipeAnimationsDisabled) && void 0 !== l ? l : d.reduceMotion.wipeAnimationsDisabled
+                        }
+                    }, p = jw(e), f = {...h, reduceMotion: {...h.reduceMotion, ...p}};
+                await window.launcherAPI.store.setValueToStore("accessibility.options", f);
+                for (const {
+                    id: m,
+                    value: g
+                } of e) await window.launcherAPI.store.setValueToStore(`application.settings.accessibility.reduceMotion.${m}`, g)
+            }
+
+            async changeSettings(e) {
+                const t = nI.getState(), n = t.accessibility.options, r = jw(e),
+                    a = {...n, reduceMotion: {...n.reduceMotion, ...r}};
+                await t.accessibility.actions.setOptions(a)
+            }
+        }, Nw = {
+            reduceMotion: {
+                syncWithSystem: !1,
+                backgroundVideoDisabled: !1,
+                unessentialAnimationsDisabled: !1,
+                wipeAnimationsDisabled: !1
+            }
+        };
+        const Mw = e => ({
+            accessibility: {
+                options: Nw, actions: {
+                    initialize: async () => {
+                        var t, n;
+                        const r = function (e) {
+                            var t, n, r, a, i, o, s, l;
+                            const c = null !== e && void 0 !== e ? e : {};
+                            return {
+                                reduceMotion: {
+                                    syncWithSystem: null !== (t = null === (n = c.reduceMotion) || void 0 === n ? void 0 : n.syncWithSystem) && void 0 !== t ? t : Nw.reduceMotion.syncWithSystem,
+                                    backgroundVideoDisabled: null !== (r = null === (a = c.reduceMotion) || void 0 === a ? void 0 : a.backgroundVideoDisabled) && void 0 !== r ? r : Nw.reduceMotion.backgroundVideoDisabled,
+                                    unessentialAnimationsDisabled: null !== (i = null === (o = c.reduceMotion) || void 0 === o ? void 0 : o.unessentialAnimationsDisabled) && void 0 !== i ? i : Nw.reduceMotion.unessentialAnimationsDisabled,
+                                    wipeAnimationsDisabled: null !== (s = null === (l = c.reduceMotion) || void 0 === l ? void 0 : l.wipeAnimationsDisabled) && void 0 !== s ? s : Nw.reduceMotion.wipeAnimationsDisabled
+                                }
+                            }
+                        }(null !== (t = null !== (n = await window.launcherAPI.store.getValueFromStore("accessibility.options")) && void 0 !== n ? n : await window.launcherAPI.store.getValueFromStore("application.settings.accessibility")) && void 0 !== t ? t : {});
+                        e((e => ({
+                            accessibility: {
+                                ...e.accessibility,
+                                options: r
+                            }
+                        }))), await window.launcherAPI.store.setValueToStore("accessibility.options", r)
+                    }, setOptions: async t => {
+                        e((e => ({
+                            accessibility: {
+                                ...e.accessibility,
+                                options: t
+                            }
+                        }))), await window.launcherAPI.store.setValueToStore("accessibility.options", t)
+                    }
+                }
+            }
+        }), Fw = {
+            reduceMotion: {
+                syncWithSystem: !1,
+                backgroundVideoDisabled: !1,
+                unessentialAnimationsDisabled: !1,
+                wipeAnimationsDisabled: !1
+            }
+        };
+        let zw;
         !function (e) {
             e.SESSION = "session", e.DAY = "day", e.WEEK = "week", e.MONTH = "month", e.YEAR = "year"
-        }(Tw || (Tw = {}));
-        const jw = {
+        }(zw || (zw = {}));
+        const Vw = {
             1: "Staff",
             4: "Backer",
             5: "Subscriber",
@@ -36183,13 +36315,13 @@
             2028: "PTU - Wave 1 - 3.20",
             2282: "EAC_BYPASS"
         };
-        let Lw, Nw;
+        let Uw, Gw;
         !function (e) {
             e.COMM_LINKS = "Comm-Links", e.PATCH_NOTES = "Patch-Notes"
-        }(Lw || (Lw = {})), function (e) {
+        }(Uw || (Uw = {})), function (e) {
             e.EULA = "eula", e.TOS = "tos", e.DISCLAIMER = "disclaimer"
-        }(Nw || (Nw = {}));
-        let Mw = e => {
+        }(Gw || (Gw = {}));
+        let Bw = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36229,7 +36361,7 @@
                 focusable: !1,
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "M8.75 1.75V7h5.594v.006a.75.75 0 0 1 0 1.488V8.5H8.75v5.875h-.01a.75.75 0 0 1-1.48 0h-.01V8.5h-5.5c.001 0 0 0 0 0h-.094v-.006a.75.75 0 0 1 0-1.488V7H7.25V1.75a.75.75 0 0 1 1.5 0Z"}))
-        }, Fw = e => {
+        }, $w = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36269,7 +36401,7 @@
                 focusable: !1,
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "m1.216 8.511 2.936 2.936a.748.748 0 0 0 1.326-.48.748.748 0 0 0-.247-.557L3.554 8.733h10.821v-.01a.75.75 0 0 0 0-1.48v-.01H3.555L5.23 5.556a.75.75 0 1 0-1.08-1.037L1.217 7.455a.748.748 0 0 0 0 1.056Z"}))
-        }, zw = e => {
+        }, Ww = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36309,7 +36441,7 @@
                 focusable: !1,
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "M8.782 11.124a1.002 1.002 0 0 1-1.564 0L3.226 6.15c-.532-.663-.064-1.65.782-1.65h7.984c.846 0 1.314.987.782 1.65l-3.992 4.974Z"}))
-        }, Vw = e => {
+        }, Hw = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36349,7 +36481,7 @@
                 focusable: !1,
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "M8.782 4.876a1.002 1.002 0 0 0-1.564 0L3.226 9.85c-.532.662-.064 1.65.782 1.65h7.984c.846 0 1.314-.988.782-1.65L8.782 4.876Z"}))
-        }, Uw = e => {
+        }, qw = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36389,7 +36521,7 @@
                 focusable: !1,
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "m8.182 1.444 2.23 2.35a.749.749 0 0 1-.002 1.145l-2.4 2.278a.748.748 0 0 1-1.312-.515.748.748 0 0 1 .26-.55l1.177-1.116c-2.425.182-3.462 1.14-3.945 2.018-.523.95-.504 1.968-.494 2.512a17.117 17.117 0 0 1 .002.143v.013a.18.18 0 0 1 0 .01v.009a.75.75 0 0 1-1.5 0l-.003-.13c-.014-.514-.053-1.946.68-3.28.784-1.424 2.347-2.598 5.229-2.796L7.076 2.452a.75.75 0 1 1 1.106-1.008ZM7.829 14.56l-2.23-2.35a.749.749 0 0 1-.064-1.082l.001-.001a.778.778 0 0 1 .065-.062L8 8.787a.748.748 0 0 1 1.312.515.748.748 0 0 1-.26.55l-1.177 1.117c2.425-.183 3.462-1.14 3.945-2.019.523-.95.504-1.968.494-2.511a15.313 15.313 0 0 1-.002-.144v-.013a.306.306 0 0 1 0-.018.75.75 0 0 1 1.5 0c0 .032 0 .076.002.13.014.514.054 1.945-.68 3.28-.783 1.423-2.347 2.597-5.228 2.796l1.028 1.082a.75.75 0 1 1-1.106 1.008Z"}))
-        }, Gw = e => {
+        }, Kw = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36433,7 +36565,7 @@
                 d: "M3.068 12.967a7 7 0 1 0 9.864-9.934 7 7 0 0 0-9.864 9.934Zm.549-1.644a5.5 5.5 0 0 1 7.706-7.706l-7.706 7.706Zm1.06 1.06 7.707-7.705a5.5 5.5 0 0 1-7.706 7.706Z",
                 clipRule: "evenodd"
             }))
-        }, Bw = e => {
+        }, Yw = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36473,7 +36605,53 @@
                 focusable: !1,
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "m1.186 2.288.002-.001a.78.78 0 0 1 1.1-1.1l.001-.002.035.035a.772.772 0 0 1 .017.017l5.66 5.66 5.71-5.711.002.002a.78.78 0 0 1 1.1 1.1l.002.001-.035.035a.973.973 0 0 1-.017.017L9.104 8l5.69 5.69h-.002a.78.78 0 1 1-1.155 1.05L8.002 9.103l-5.69 5.69H2.31a.78.78 0 1 1-1.05-1.155L6.898 8 1.186 2.288Z"}))
-        }, $w = e => {
+        }, Zw = e => {
+            var {title: t, titleId: n} = e, r = function (e, t) {
+                if (null == e) return {};
+                var n, r, a = function (e, t) {
+                    if (null == e) return {};
+                    var n, r, a = {}, i = Object.keys(e);
+                    for (r = 0; r < i.length; r++) n = i[r], t.indexOf(n) >= 0 || (a[n] = e[n]);
+                    return a
+                }(e, t);
+                if (Object.getOwnPropertySymbols) {
+                    var i = Object.getOwnPropertySymbols(e);
+                    for (r = 0; r < i.length; r++) n = i[r], !(t.indexOf(n) >= 0) && Object.prototype.propertyIsEnumerable.call(e, n) && (a[n] = e[n])
+                }
+                return a
+            }(e, ["title", "titleId"]);
+            return ke.createElement("svg", function (e) {
+                for (var t = 1; t < arguments.length; t++) {
+                    var n = null != arguments[t] ? arguments[t] : {}, r = Object.keys(n);
+                    "function" == typeof Object.getOwnPropertySymbols && (r = r.concat(Object.getOwnPropertySymbols(n).filter((function (e) {
+                        return Object.getOwnPropertyDescriptor(n, e).enumerable
+                    })))), r.forEach((function (t) {
+                        var r;
+                        r = n[t], t in e ? Object.defineProperty(e, t, {
+                            value: r,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : e[t] = r
+                    }))
+                }
+                return e
+            }({
+                xmlns: "http://www.w3.org/2000/svg",
+                width: 16,
+                height: 16,
+                fill: "none",
+                viewBox: "0 0 16 16",
+                focusable: !1,
+                "aria-labelledby": n
+            }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {
+                fill: "currentColor",
+                d: "M5.5 1a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-9Z"
+            }), ke.createElement("path", {
+                fill: "currentColor",
+                d: "M2.5 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 0 .5.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h1Z"
+            }))
+        }, Qw = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36513,7 +36691,7 @@
                 focusable: !1,
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "M14.25 15a.75.75 0 0 0 0-1.5H1.75a.75.75 0 0 0 0 1.5h12.5ZM8 1a.75.75 0 0 1 .749.703h.001v7.712l1.677-1.678a.75.75 0 1 1 1.037 1.08l-2.936 2.935a.748.748 0 0 1-1.055 0L4.536 8.816a.748.748 0 0 1 .48-1.325.75.75 0 0 1 .557.246L7.25 9.415V1.703h.001A.75.75 0 0 1 8 1Z"}))
-        }, Ww = e => {
+        }, Xw = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36557,7 +36735,7 @@
                 d: "M8 13.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11ZM8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Z",
                 clipRule: "evenodd"
             }), ke.createElement("path", {d: "M8.75 11a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm-1.5-6a.75.75 0 0 1 1.5 0v3.75a.75.75 0 0 1-1.5 0V5Z"}))
-        }, Hw = e => {
+        }, Jw = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36601,7 +36779,7 @@
                 d: "M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Zm0-1.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z",
                 clipRule: "evenodd"
             }))
-        }, qw = e => {
+        }, ek = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36645,7 +36823,7 @@
                 d: "M2.5 3.75c0-.69.56-1.25 1.25-1.25H6V1H3.75A2.75 2.75 0 0 0 1 3.75v8.5A2.75 2.75 0 0 0 3.75 15h8.5A2.75 2.75 0 0 0 15 12.25v-8.5A2.75 2.75 0 0 0 12.25 1H10v1.5h2.25c.69 0 1.25.56 1.25 1.25V8.5h-11V3.75Zm0 6.25v2.25c0 .69.56 1.25 1.25 1.25h8.5c.69 0 1.25-.56 1.25-1.25V10h-11Z",
                 clipRule: "evenodd"
             }))
-        }, Kw = e => {
+        }, tk = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36685,7 +36863,7 @@
                 focusable: !1,
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "M1.716 13.5a.75.75 0 0 0 0 1.5H14.25a.75.75 0 1 0-.023-1.5H1.716Z"}))
-        }, Yw = e => {
+        }, nk = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36728,7 +36906,7 @@
                 fill: "currentColor",
                 d: "M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM4 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM15 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
             }))
-        }, Zw = e => {
+        }, rk = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36768,7 +36946,7 @@
                 focusable: !1,
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "M2.475 3.137a.974.974 0 0 0-.975.971v9.23c0 .537.437.972.975.972h9.267a.974.974 0 0 0 .976-.972V8.45a.73.73 0 0 0-.732-.729.73.73 0 0 0-.73.76l-.001 4.372H2.963V4.594h3.902v-.002a.73.73 0 0 0 .67-.727.73.73 0 0 0-.67-.726v-.002h-4.39Z"}), ke.createElement("path", {d: "M13.769 1.313h-4.05a.732.732 0 0 0-.583.21.727.727 0 0 0 .553 1.243h2.314L7.822 6.931v.001a.727.727 0 0 0 .03 1 .734.734 0 0 0 1.003.029h.001l4.182-4.164v2.305a.72.72 0 0 0 .213.55.734.734 0 0 0 1.246-.58V2.039a.732.732 0 0 0-.728-.725Z"}))
-        }, Qw = e => {
+        }, ak = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36808,7 +36986,7 @@
                 focusable: !1,
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "M3 2a1 1 0 0 1 2 0v12a1 1 0 1 1-2 0V2Zm8 0a1 1 0 1 1 2 0v12a1 1 0 1 1-2 0V2Z"}))
-        }, Xw = e => {
+        }, ik = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36852,7 +37030,7 @@
                 d: "M3.01 2.715v10.57L12.588 8 3.01 2.715Zm10.9 4.307a1.105 1.105 0 0 1 0 1.956L3.272 14.847c-.788.435-1.773-.109-1.773-.978V2.13c0-.87.985-1.413 1.773-.978l10.636 5.869Z",
                 clipRule: "evenodd"
             }))
-        }, Jw = e => {
+        }, ok = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36901,7 +37079,7 @@
                 to: 360,
                 type: "rotate"
             })))
-        }, ek = e => {
+        }, sk = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36941,7 +37119,7 @@
                 focusable: !1,
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "M2.5 8a5.5 5.5 0 0 1 9.938-3.25H11.25a.75.75 0 0 0 0 1.5h3A.75.75 0 0 0 15 5.5v-3a.75.75 0 0 0-1.5 0v1.17a7 7 0 1 0 1.41 5.45.75.75 0 1 0-1.48-.24A5.502 5.502 0 0 1 2.5 8Z"}))
-        }, tk = e => {
+        }, lk = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -36995,7 +37173,7 @@
                 fill: "currentColor",
                 d: "M38.462 48.456h1.28l-1.83 7.044H36.62l1.843-7.044ZM65.005 31.55l1.829-7.044h-1.196l-1.843 7.044h1.21ZM64.386 24.506l-1.828 7.044h-1.21l1.843-7.044h1.195ZM76.52 26.376c0-1.29.584-1.876 1.865-1.876 1.281 0 1.865.59 1.865 1.876 0 1.29-.584 1.88-1.865 1.88-1.28 0-1.864-.59-1.864-1.88Zm3.448 0c0-1.099-.496-1.598-1.586-1.598s-1.586.496-1.586 1.598c0 1.099.496 1.598 1.586 1.598 1.093 0 1.586-.5 1.586-1.598Zm-.831-.318c0 .368-.098.519-.38.573l.423.673c.02.02.01.04-.02.04h-.349c-.043 0-.06-.01-.077-.044l-.412-.643h-.208v.65c0 .03-.004.034-.03.034h-.34c-.03 0-.033-.007-.033-.034v-1.829c0-.02.007-.03.03-.03a7.76 7.76 0 0 1 .678-.023c.533 0 .718.144.718.633Zm-1.023-.285v.583h.261c.269 0 .35-.05.35-.285 0-.241-.081-.298-.35-.298h-.261Z"
             }))
-        }, nk = e => {
+        }, ck = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -37043,7 +37221,52 @@
                 d: "M9 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm1.5 0a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z",
                 clipRule: "evenodd"
             }))
-        }, rk = e => {
+        }, uk = e => {
+            var {title: t, titleId: n} = e, r = function (e, t) {
+                if (null == e) return {};
+                var n, r, a = function (e, t) {
+                    if (null == e) return {};
+                    var n, r, a = {}, i = Object.keys(e);
+                    for (r = 0; r < i.length; r++) n = i[r], t.indexOf(n) >= 0 || (a[n] = e[n]);
+                    return a
+                }(e, t);
+                if (Object.getOwnPropertySymbols) {
+                    var i = Object.getOwnPropertySymbols(e);
+                    for (r = 0; r < i.length; r++) n = i[r], !(t.indexOf(n) >= 0) && Object.prototype.propertyIsEnumerable.call(e, n) && (a[n] = e[n])
+                }
+                return a
+            }(e, ["title", "titleId"]);
+            return ke.createElement("svg", function (e) {
+                for (var t = 1; t < arguments.length; t++) {
+                    var n = null != arguments[t] ? arguments[t] : {}, r = Object.keys(n);
+                    "function" == typeof Object.getOwnPropertySymbols && (r = r.concat(Object.getOwnPropertySymbols(n).filter((function (e) {
+                        return Object.getOwnPropertyDescriptor(n, e).enumerable
+                    })))), r.forEach((function (t) {
+                        var r;
+                        r = n[t], t in e ? Object.defineProperty(e, t, {
+                            value: r,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }) : e[t] = r
+                    }))
+                }
+                return e
+            }({
+                xmlns: "http://www.w3.org/2000/svg",
+                width: 16,
+                height: 16,
+                fill: "none",
+                viewBox: "0 0 16 16",
+                focusable: !1,
+                "aria-labelledby": n
+            }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {
+                fill: "currentColor",
+                fillRule: "evenodd",
+                d: "M7.52 1a.324.324 0 0 0-.322.27l-.264 1.598a.322.322 0 0 1-.199.246l-.927.372a.32.32 0 0 0-.197.354l.208 1.147a.312.312 0 0 1-.161.333l-3.99 2.178a.318.318 0 0 0-.058.521l1.312 1.14a.33.33 0 0 0 .288.073l1.796-.406c.217-.049.419.127.397.345l-.56 5.475c-.038.368.48.497.624.155l.505-1.2c.05-.12.17-.198.3-.198h3.455c.132 0 .25.078.3.198l.506 1.2c.144.342.662.213.625-.155l-.56-5.475a.324.324 0 0 1 .396-.345l1.796.406a.33.33 0 0 0 .288-.072l1.312-1.14a.318.318 0 0 0-.058-.522l-3.99-2.178a.317.317 0 0 1-.16-.333l.207-1.147a.32.32 0 0 0-.197-.354l-.927-.372a.322.322 0 0 1-.199-.246L8.802 1.27A.324.324 0 0 0 8.481 1h-.962ZM8.8 9.889c.155 0 .29.109.32.26l.34 1.735a.322.322 0 0 1-.32.382H6.86a.322.322 0 0 1-.32-.382l.34-1.735c.03-.151.165-.26.32-.26h1.6Z",
+                clipRule: "evenodd"
+            }))
+        }, dk = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -37088,7 +37311,7 @@
                 d: "M3.5 3.5v2h9v-2h-9ZM3 2a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3ZM3.5 10.5v2h9v-2h-9ZM3 9a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3Z",
                 clipRule: "evenodd"
             }))
-        }, ak = e => {
+        }, hk = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -37139,7 +37362,7 @@
                 d: "M10.5 6a4.5 4.5 0 0 1 3.792 6.919l1.364 1.364a.75.75 0 0 1-1.06 1.06l-1.31-1.31A4.5 4.5 0 1 1 10.5 6Zm0 1.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z",
                 clipRule: "evenodd"
             }))
-        }, ik = e => {
+        }, pk = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -37183,7 +37406,7 @@
                 d: "M8 3.184 2.675 13.431h10.65L8 3.184Zm.887-1.545a1 1 0 0 0-1.775 0L.965 13.47a1 1 0 0 0 .887 1.461h12.296a1 1 0 0 0 .887-1.46L8.887 1.638Z",
                 clipRule: "evenodd"
             }), ke.createElement("path", {d: "M8.75 12.181a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm-1.5-5.5a.75.75 0 1 1 1.5 0v3.25a.75.75 0 0 1-1.5 0v-3.25Z"}))
-        }, ok = e => {
+        }, fk = e => {
             var {title: t, titleId: n} = e, r = function (e, t) {
                 if (null == e) return {};
                 var n, r, a = function (e, t) {
@@ -37224,23 +37447,52 @@
                 "aria-labelledby": n
             }, r), t ? ke.createElement("title", {id: n}, t) : null, ke.createElement("path", {d: "M4.276 1.623a.75.75 0 0 1 1.053.13l.413.53a10.692 10.692 0 0 1 2.31-.251c2.531 0 4.857.883 6.685 2.357a.709.709 0 0 1 .088 1.003c-.273.336-.773.367-1.113.099a9.115 9.115 0 0 0-5.66-1.96c-.43 0-.853.03-1.267.088l1.202 1.54h.078c1.792 0 3.437.626 4.73 1.672.299.242.322.68.08.978-.279.343-.792.364-1.142.095a5.999 5.999 0 0 0-2.486-1.129l2.937 3.764A.75.75 0 0 1 11 11.46L4.146 2.676a.75.75 0 0 1 .13-1.053ZM1.257 4.48a10.672 10.672 0 0 1 1.79-1.201l.939 1.203c-.605.3-1.17.665-1.69 1.086-.337.273-.838.248-1.115-.085a.709.709 0 0 1 .076-1.003Zm3.759 1.323a7.529 7.529 0 0 0-1.761 1.094c-.296.246-.313.683-.067.978.283.34.796.354 1.143.08a6.017 6.017 0 0 1 1.644-.923l-.96-1.23Zm2.036 2.609a4.386 4.386 0 0 0-1.808.928c-.27.23-.273.634-.045.908.297.356.852.335 1.232.067A2.886 2.886 0 0 1 8.1 9.787h.024L7.052 8.412ZM8 13.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"}))
         };
-        const sk = (e, t) => ({
+        const mk = SC_TOOLBOX_ENABLE_DOWNLOADER_BOOST ? [{
+            label: "!1024",
+            value: 1024
+        }, {
+            label: "!512",
+            value: 512
+        }, {
+            label: "!256",
+            value: 256
+        }, {
+            label: "!128",
+            value: 128
+        }, {
+            label: "CIG-MAX (25)",
+            value: 25
+        }, {
+            label: "20",
+            value: 20
+        }, {
+            label: "15",
+            value: 15
+        }, {
+            label: "10",
+            value: 10
+        }, {
+            label: "5",
+            value: 5
+        }, {
+            label: "1",
+            value: 1
+        }] : [{label: "Max", value: 25}, {label: "20", value: 20}, {label: "15", value: 15}, {
+            label: "10",
+            value: 10
+        }, {label: "5", value: 5}], gk = () => ({
+            current: void 0,
+            queue: [],
+            finished: [],
+            uninstallations: [],
+            downloadOptions: {concurrentTransfers: mk[0].value, maximumDownloadBandwidth: 0, forceDataPatcher: !1}
+        }), vk = (e, t) => ({
             installer: {
-                current: void 0,
-                queue: [],
-                finished: [],
-                uninstallations: [],
-                actions: {
+                ...gk(), actions: {
                     initialize: async () => {
-                        e((e => ({
-                            installer: {
-                                ...e.installer,
-                                current: void 0,
-                                queue: [],
-                                finished: [],
-                                uninstallations: []
-                            }
-                        })))
+                        var t;
+                        const n = null !== (t = await window.launcherAPI.store.getValueFromStore("application.download")) && void 0 !== t ? t : gk().downloadOptions;
+                        e((e => ({installer: {...e.installer, downloadOptions: {...n, forceDataPatcher: !1}}})))
                     }, setRequirementsValidated: t => {
                         e((e => ({installer: {...e.installer, requirementsValidated: t}})))
                     }, setCurrent: t => {
@@ -37251,46 +37503,55 @@
                         e((e => ({installer: {...e.installer, finished: t}})))
                     }, setUninstallations: t => {
                         e((e => ({installer: {...e.installer, uninstallations: t}})))
+                    }, setDownloadOptions: t => {
+                        e((e => ({
+                            installer: {
+                                ...e.installer,
+                                downloadOptions: t
+                            }
+                        }))), window.launcherAPI.store.setValueToStore("application.download", {
+                            concurrentTransfers: t.concurrentTransfers,
+                            maximumDownloadBandwidth: t.maximumDownloadBandwidth
+                        })
                     }
                 }
             }
         });
-        var lk = n(1438), ck = n.n(lk);
-        const uk = e => {
+        var yk = n(1438), bk = n.n(yk);
+        const _k = e => {
                 switch (e.phase) {
                     case dw.InstallerPhases.InitialDownloadProgress:
                     case dw.InstallerPhases.PatcherUpdateLooseFileProgress:
                     case dw.InstallerPhases.PatcherUpdateP4kProgress:
-                    case dw.InstallerPhases.PatcherVerificationP4kProgress:
                         return !0;
                     default:
                         return !1
                 }
-            }, dk = (e, t) => e.find((e => e.game.gameId === t.gameId && e.game.channelId === t.channelId)),
-            hk = (e, t) => e.find((e => e.gameId === t.gameId && e.channelId === t.channelId)),
-            pk = (e, t) => `${e.gameId}-${e.channelId}` === `${t.gameId}-${t.channelId}`, fk = (e, t, n) => {
+            }, xk = (e, t) => e.find((e => e.game.gameId === t.gameId && e.game.channelId === t.channelId)),
+            wk = (e, t) => e.find((e => e.gameId === t.gameId && e.channelId === t.channelId)),
+            kk = (e, t) => `${e.gameId}-${e.channelId}` === `${t.gameId}-${t.channelId}`, Ek = (e, t, n) => {
                 return n ? dw.GameChannelStatus.UNINSTALLING : t && t.status !== dw.InstallationStatus.COMPLETED ? t.status : null !== (r = null === e || void 0 === e ? void 0 : e.status) && void 0 !== r ? r : dw.GameChannelStatus.AVAILABLE;
                 var r
             };
 
-        class mk extends Error {
+        class Sk extends Error {
         }
 
-        const gk = "SC", vk = "LIVE",
-            yk = {platformId: "prod", gameId: gk, gameName: "Star Citizen", channelId: vk, channelName: "Live Release"},
-            bk = (e, t) => ({
+        const Ok = "SC", Pk = "LIVE",
+            Ck = {platformId: "prod", gameId: Ok, gameName: "Star Citizen", channelId: Pk, channelName: "Live Release"},
+            Ik = (e, t) => ({
                 library: {
                     availableGames: [],
                     installedGames: [],
-                    gameSelected: gk,
-                    gameChannelSelected: yk,
+                    gameSelected: Ok,
+                    gameChannelSelected: Ck,
                     gameChannelRunning: void 0,
                     actions: {
                         initialize: async () => {
                             var t, n;
                             const r = null !== (t = await window.launcherAPI.store.getValueFromStore("library.installed")) && void 0 !== t ? t : [],
                                 a = null !== (n = await window.launcherAPI.store.getValueFromStore("library.available")) && void 0 !== n ? n : [],
-                                i = (await window.launcherAPI.store.getValueFromStore("library.defaults")).find((e => e.gameId === yk.gameId));
+                                i = (await window.launcherAPI.store.getValueFromStore("library.defaults")).find((e => e.gameId === Ck.gameId));
                             e((e => {
                                 var t;
                                 return {
@@ -37298,8 +37559,8 @@
                                         ...e.library,
                                         availableGames: a,
                                         installedGames: r,
-                                        gameSelected: null !== (t = null === i || void 0 === i ? void 0 : i.gameId) && void 0 !== t ? t : gk,
-                                        gameChannelSelected: null !== i && void 0 !== i ? i : yk
+                                        gameSelected: null !== (t = null === i || void 0 === i ? void 0 : i.gameId) && void 0 !== t ? t : Ok,
+                                        gameChannelSelected: null !== i && void 0 !== i ? i : Ck
                                     }
                                 }
                             }))
@@ -37344,7 +37605,7 @@
                         }
                     }
                 }
-            }), _k = {
+            }), Ak = {
                 LIVE: 20,
                 PTU: 19,
                 SHADOW: 18,
@@ -37356,148 +37617,155 @@
                 THE_OCHO: 12,
                 STARBASE: 11,
                 SQ42: 10
-            }, xk = "1000", wk = "1001", kk = "1002", Ek = "1003", Sk = "1004", Ok = "1005", Pk = "1006", Ck = "1007",
-            Ik = "1008", Ak = "1009", Dk = "1010", Rk = "1011", Tk = "1012", jk = "1013", Lk = "1014", Nk = "1015",
-            Mk = "1016", Fk = "1017", zk = "1018", Vk = "1019", Uk = "1020", Gk = "1021", Bk = "1022",
-            $k = "ErrWrongPassword_email", Wk = "ErrMultiStepRequired", Hk = "ErrMultiStepWrongCode",
-            qk = "ErrNotAuthenticated", Kk = "ErrClaimsInvalid", Yk = "ErrMaxThrottleLogin", Zk = "errAuthExpired",
-            Qk = "ErrCaptchaRequiredLauncher", Xk = "ErrInvalidChallengeCode", Jk = "ErrDeprecatedApi",
-            eE = "ErrAgreementsRequired", tE = "ErrExpiredToken", nE = "ErrToken", rE = "ErrNoGamePackage",
-            aE = "ErrServiceUnavailable", iE = "ErrValidationFailed", oE = "ErrAccountNotFound";
+            }, Dk = (e, t) => (Ak[t] || 0) - (Ak[e] || 0), Rk = "1000", Tk = "1001", jk = "1002", Lk = "1003", Nk = "1004",
+            Mk = "1005", Fk = "1006", zk = "1007", Vk = "1008", Uk = "1009", Gk = "1010", Bk = "1011", $k = "1012",
+            Wk = "1013", Hk = "1014", qk = "1015", Kk = "1016", Yk = "1017", Zk = "1018", Qk = "1019", Xk = "1020",
+            Jk = "1021", eE = "1022", tE = "ErrWrongPassword_email", nE = "ErrMultiStepRequired",
+            rE = "ErrMultiStepWrongCode", aE = "ErrNotAuthenticated", iE = "ErrClaimsInvalid",
+            oE = "ErrMaxThrottleLogin", sE = "errAuthExpired", lE = "ErrCaptchaRequiredLauncher",
+            cE = "ErrInvalidChallengeCode", uE = "ErrDeprecatedApi", dE = "ErrAgreementsRequired",
+            hE = "ErrExpiredToken", pE = "ErrToken", fE = "ErrNoGamePackage", mE = "ErrServiceUnavailable",
+            gE = "ErrValidationFailed", vE = "ErrAccountNotFound";
 
-        class sE extends Error {
-            constructor({message: e = "Unknown Error", code: t = xk, payload: n, environment: r}) {
-                super(e), this.code = void 0, this.payload = void 0, this.environment = void 0, Object.setPrototypeOf(this, sE.prototype), this.code = t, this.payload = n, this.environment = r
+        class yE extends Error {
+            constructor({message: e = "Unknown Error", code: t = Rk, payload: n, environment: r}) {
+                super(e), this.code = void 0, this.payload = void 0, this.environment = void 0, Object.setPrototypeOf(this, yE.prototype), this.code = t, this.payload = n, this.environment = r
             }
         }
 
-        class lE extends sE {
+        class bE extends yE {
             constructor(e, t, n) {
-                super({message: e, code: Ek, payload: t, environment: n}), Object.setPrototypeOf(this, lE.prototype)
+                super({message: e, code: Rk, payload: t, environment: n}), Object.setPrototypeOf(this, bE.prototype)
             }
         }
 
-        class cE extends sE {
+        class _E extends yE {
             constructor(e, t, n) {
-                super({message: e, code: Sk, payload: t, environment: n}), Object.setPrototypeOf(this, cE.prototype)
+                super({message: e, code: Lk, payload: t, environment: n}), Object.setPrototypeOf(this, _E.prototype)
             }
         }
 
-        class uE extends sE {
+        class xE extends yE {
             constructor(e, t, n) {
-                super({message: e, code: Ak, payload: t, environment: n}), Object.setPrototypeOf(this, uE.prototype)
+                super({message: e, code: Nk, payload: t, environment: n}), Object.setPrototypeOf(this, xE.prototype)
             }
         }
 
-        class dE extends sE {
+        class wE extends yE {
             constructor(e, t, n) {
-                super({message: e, code: Ck, payload: t, environment: n}), Object.setPrototypeOf(this, dE.prototype)
+                super({message: e, code: Uk, payload: t, environment: n}), Object.setPrototypeOf(this, wE.prototype)
             }
         }
 
-        class hE extends sE {
+        class kE extends yE {
             constructor(e, t, n) {
-                super({message: e, code: Pk, payload: t, environment: n}), Object.setPrototypeOf(this, hE.prototype)
+                super({message: e, code: zk, payload: t, environment: n}), Object.setPrototypeOf(this, kE.prototype)
             }
         }
 
-        class pE extends sE {
+        class EE extends yE {
             constructor(e, t, n) {
-                super({message: e, code: Ik, payload: t, environment: n}), Object.setPrototypeOf(this, pE.prototype)
+                super({message: e, code: Fk, payload: t, environment: n}), Object.setPrototypeOf(this, EE.prototype)
             }
         }
 
-        class fE extends sE {
-            constructor(e, t, n) {
-                super({message: e, code: Dk, payload: t, environment: n}), Object.setPrototypeOf(this, fE.prototype)
-            }
-        }
-
-        class mE extends sE {
-            constructor(e, t, n) {
-                super({message: e, code: Rk, payload: t, environment: n}), Object.setPrototypeOf(this, mE.prototype)
-            }
-        }
-
-        class gE extends sE {
-            constructor(e, t, n) {
-                super({message: e, code: jk, payload: t, environment: n}), Object.setPrototypeOf(this, gE.prototype)
-            }
-        }
-
-        class vE extends sE {
-            constructor(e, t, n) {
-                super({message: e, code: Lk, payload: t, environment: n}), Object.setPrototypeOf(this, vE.prototype)
-            }
-        }
-
-        class yE extends sE {
-            constructor(e, t, n) {
-                super({message: e, code: Nk, payload: t, environment: n}), Object.setPrototypeOf(this, yE.prototype)
-            }
-        }
-
-        class bE extends sE {
-            constructor(e, t, n) {
-                super({message: e, code: Mk, payload: t, environment: n}), Object.setPrototypeOf(this, bE.prototype)
-            }
-        }
-
-        class _E extends sE {
-            constructor(e, t, n) {
-                super({message: e, code: kk, payload: t, environment: n}), Object.setPrototypeOf(this, _E.prototype)
-            }
-        }
-
-        class xE extends sE {
-            constructor(e, t, n) {
-                super({message: e, code: Gk, payload: t, environment: n}), Object.setPrototypeOf(this, xE.prototype)
-            }
-        }
-
-        class wE extends sE {
-            constructor(e, t, n) {
-                super({message: e, code: Bk, payload: t, environment: n}), Object.setPrototypeOf(this, wE.prototype)
-            }
-        }
-
-        class kE extends sE {
-            constructor(e, t, n) {
-                super({message: e, code: Fk, payload: t, environment: n}), Object.setPrototypeOf(this, kE.prototype)
-            }
-        }
-
-        class EE extends sE {
-            constructor(e, t, n) {
-                super({message: e, code: zk, payload: t, environment: n}), Object.setPrototypeOf(this, EE.prototype)
-            }
-        }
-
-        class SE extends sE {
+        class SE extends yE {
             constructor(e, t, n) {
                 super({message: e, code: Vk, payload: t, environment: n}), Object.setPrototypeOf(this, SE.prototype)
             }
         }
 
-        class OE extends sE {
+        class OE extends yE {
             constructor(e, t, n) {
-                super({message: e, code: Tk, payload: t, environment: n}), Object.setPrototypeOf(this, OE.prototype)
+                super({message: e, code: Gk, payload: t, environment: n}), Object.setPrototypeOf(this, OE.prototype)
             }
         }
 
-        class PE extends sE {
+        class PE extends yE {
             constructor(e, t, n) {
-                super({message: e, code: Uk, payload: t, environment: n}), Object.setPrototypeOf(this, PE.prototype)
+                super({message: e, code: Bk, payload: t, environment: n}), Object.setPrototypeOf(this, PE.prototype)
             }
         }
 
-        class CE extends sE {
+        class CE extends yE {
             constructor(e, t, n) {
-                super({message: e, code: Ok, payload: t, environment: n}), Object.setPrototypeOf(this, CE.prototype)
+                super({message: e, code: Wk, payload: t, environment: n}), Object.setPrototypeOf(this, CE.prototype)
             }
         }
 
-        class IE {
+        class IE extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: Hk, payload: t, environment: n}), Object.setPrototypeOf(this, IE.prototype)
+            }
+        }
+
+        class AE extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: qk, payload: t, environment: n}), Object.setPrototypeOf(this, AE.prototype)
+            }
+        }
+
+        class DE extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: Kk, payload: t, environment: n}), Object.setPrototypeOf(this, DE.prototype)
+            }
+        }
+
+        class RE extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: jk, payload: t, environment: n}), Object.setPrototypeOf(this, RE.prototype)
+            }
+        }
+
+        class TE extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: Jk, payload: t, environment: n}), Object.setPrototypeOf(this, TE.prototype)
+            }
+        }
+
+        class jE extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: eE, payload: t, environment: n}), Object.setPrototypeOf(this, jE.prototype)
+            }
+        }
+
+        class LE extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: Yk, payload: t, environment: n}), Object.setPrototypeOf(this, LE.prototype)
+            }
+        }
+
+        class NE extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: Zk, payload: t, environment: n}), Object.setPrototypeOf(this, NE.prototype)
+            }
+        }
+
+        class ME extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: Qk, payload: t, environment: n}), Object.setPrototypeOf(this, ME.prototype)
+            }
+        }
+
+        class FE extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: $k, payload: t, environment: n}), Object.setPrototypeOf(this, FE.prototype)
+            }
+        }
+
+        class zE extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: Xk, payload: t, environment: n}), Object.setPrototypeOf(this, zE.prototype)
+            }
+        }
+
+        class VE extends yE {
+            constructor(e, t, n) {
+                super({message: e, code: Mk, payload: t, environment: n}), Object.setPrototypeOf(this, VE.prototype)
+            }
+        }
+
+        class UE {
             constructor(e) {
                 this.baseUrl = void 0, this.baseUrl = e
             }
@@ -37515,7 +37783,7 @@
                         msg: "Too many requests",
                         data: e
                     };
-                    throw new EE(bt.t("error_api_too_many_requests_content", {ns: "errors"}), n, null)
+                    throw new NE(bt.t("error_api_too_many_requests_content", {ns: "errors"}), n, null)
                 }
                 if (503 === e.status) {
                     var n;
@@ -37525,7 +37793,7 @@
                         msg: "Server unavailable",
                         data: e
                     };
-                    throw new SE(bt.t("error_api_unavailable", {ns: "errors"}), t, null)
+                    throw new ME(bt.t("error_api_unavailable", {ns: "errors"}), t, null)
                 }
                 if (e.status >= 500 && e.status < 600) {
                     var r;
@@ -37535,7 +37803,7 @@
                         msg: "Internal server error",
                         data: e
                     };
-                    throw new PE(bt.t("error_api_internal_server_error", {ns: "errors"}), t, null)
+                    throw new zE(bt.t("error_api_internal_server_error", {ns: "errors"}), t, null)
                 }
                 if (403 === e.status || 401 === e.status) {
                     var a;
@@ -37545,13 +37813,22 @@
                         msg: "Access denied",
                         data: e
                     };
-                    throw new kE(bt.t("error_api_denied_request_content", {ns: "errors"}), t, null)
+                    throw new LE(bt.t("error_api_denied_request_content", {ns: "errors"}), t, null)
                 }
-                if (!e.ok) throw new Error(`Request failed with status: ${e.status}`);
+                if (!e.ok) {
+                    var i;
+                    const t = null !== (i = await this.safeParseJson(e)) && void 0 !== i ? i : {
+                        code: `${e.status}`,
+                        success: 0,
+                        msg: `Request failed on ${e.url} with status: ${e.status}`,
+                        data: e
+                    };
+                    throw new bE(`Request failed with status: ${e.status}`, t, null)
+                }
                 if (this.isMediaResponse(e)) return e;
-                const i = await this.safeParseJson(e);
-                if (!i) throw window.launcherAPI.log.error(`[API] response could not be parsed from "${e.url}"`), new Error("Response failed to be parsed");
-                return i
+                const o = await this.safeParseJson(e);
+                if (!o) throw window.launcherAPI.log.error(`[API] response could not be parsed from "${e.url}"`), new Error("Response failed to be parsed");
+                return o
             }
 
             async handleRequest(e, t, n, r, a) {
@@ -37565,8 +37842,8 @@
                 try {
                     l = await fetch(i, s)
                 } catch (c) {
-                    throw new CE("Could not connect to server", {
-                        code: aE,
+                    throw new VE("Could not connect to server", {
+                        code: mE,
                         success: 0,
                         msg: "Could not connect to server",
                         data: c
@@ -37596,42 +37873,42 @@
             }
         }
 
-        const AE = ({rsiApiResult: e, environment: t}) => {
+        const GE = ({rsiApiResult: e, environment: t}) => {
             switch (e.code) {
-                case qk:
-                    return new hE(bt.t("error_not_authenticated", {ns: "errors"}), e, t);
-                case Yk:
-                    return new pE(bt.t("error_max_login_attempt", {ns: "errors"}), e, t);
-                case Kk:
-                    return new dE(bt.t("error_invalid_claims", {ns: "errors"}), e, t);
-                case Wk:
-                    return new lE(bt.t("error_authentication_mfa", {ns: "errors"}), e, t);
-                case Hk:
-                    return new cE(bt.t("error_wrong_mfa_code", {ns: "errors"}), e, t);
-                case Qk:
-                    return new fE(bt.t("error_captcha_required", {ns: "errors"}), e, t);
-                case Xk:
-                    return new mE(bt.t("error_captcha_invalid", {ns: "errors"}), e, t);
-                case Zk:
-                    return new uE(bt.t("error_session_expired", {ns: "errors"}), e, t);
-                case eE:
-                    return new gE(e.msg, e, t);
-                case tE:
-                    return new vE(e.msg, e, t);
-                case nE:
-                    return new yE(e.msg, e, t);
-                case rE:
-                    return new bE(e.msg, e, t);
-                case $k:
-                    return new _E(bt.t("error_wrong_credentials", {ns: "errors"}), e, t);
-                case iE:
-                    return new xE(bt.t("error_api_validation_failed", {ns: "errors"}), e, t);
+                case aE:
+                    return new EE(bt.t("error_not_authenticated", {ns: "errors"}), e, t);
                 case oE:
-                    return new wE(bt.t("error_api_validation_failed", {ns: "errors"}), e, t);
+                    return new SE(bt.t("error_max_login_attempt", {ns: "errors"}), e, t);
+                case iE:
+                    return new kE(bt.t("error_invalid_claims", {ns: "errors"}), e, t);
+                case nE:
+                    return new _E(bt.t("error_authentication_mfa", {ns: "errors"}), e, t);
+                case rE:
+                    return new xE(bt.t("error_wrong_mfa_code", {ns: "errors"}), e, t);
+                case lE:
+                    return new OE(bt.t("error_captcha_required", {ns: "errors"}), e, t);
+                case cE:
+                    return new PE(bt.t("error_captcha_invalid", {ns: "errors"}), e, t);
+                case sE:
+                    return new wE(bt.t("error_session_expired", {ns: "errors"}), e, t);
+                case dE:
+                    return new CE(e.msg, e, t);
+                case hE:
+                    return new IE(e.msg, e, t);
+                case pE:
+                    return new AE(e.msg, e, t);
+                case fE:
+                    return new DE(e.msg, e, t);
+                case tE:
+                    return new RE(bt.t("error_wrong_credentials", {ns: "errors"}), e, t);
+                case gE:
+                    return new TE(bt.t("error_api_validation_failed", {ns: "errors"}), e, t);
+                case vE:
+                    return new jE(bt.t("error_api_validation_failed", {ns: "errors"}), e, t);
                 default:
-                    return new sE({message: e.msg, code: e.code, payload: e, environment: t})
+                    return new yE({message: e.msg, code: e.code, payload: e, environment: t})
             }
-        }, DE = {
+        }, BE = {
             ACCOUNT_CHECK: "account/check",
             ACCOUNT_CLAIMS: "account/claims",
             AGREEMENTS_ACCEPT: "agreements/accept",
@@ -37650,10 +37927,12 @@
             SIGN_IN: "signin",
             SIGN_OUT: "signout",
             WARNINGS_GET: "warnings/get",
-            WARNINGS: "warnings"
-        }, RE = {INDEX: "index"}, TE = {CONNECTION_FLOW: "connection-flow", AVAILABLE_PROVIDERS: "api/oauth/providers"};
+            WARNINGS: "warnings",
+            PROMOTIONS: "promotions",
+            PROMOTIONS_VALIDATE: "promotions/validate"
+        }, $E = {INDEX: "index"}, WE = {CONNECTION_FLOW: "connection-flow", AVAILABLE_PROVIDERS: "api/oauth/providers"};
 
-        class jE extends IE {
+        class HE extends UE {
             set session(e) {
                 this._session = e
             }
@@ -37683,7 +37962,7 @@
             }
 
             constructor() {
-                super(jE.BASE_URL), this._platformEnv = null, this._session = null, this._device = null, this._endpoints = void 0, this._endpoints = DE, this.init()
+                super(HE.BASE_URL), this._platformEnv = null, this._session = null, this._device = null, this._endpoints = void 0, this._endpoints = BE, this.init()
             }
 
             async init() {
@@ -37692,7 +37971,7 @@
             }
 
             static getInstance() {
-                return jE.instance || (jE.instance = new jE), jE.instance
+                return HE.instance || (HE.instance = new HE), HE.instance
             }
 
             async call({
@@ -37707,16 +37986,16 @@
                 this.handleUrl(e);
                 try {
                     const r = await this.post(t, n, o, i);
-                    if (r.code === Jk) throw new OE("Launcher update required.", {
-                        code: Jk,
+                    if (r.code === uE) throw new FE("Launcher update required.", {
+                        code: uE,
                         success: 0,
                         msg: `API Endpoint deprecated : ${t}`,
                         data: {}
                     }, e);
                     if (r.success) return r;
-                    throw AE({rsiApiResult: r, environment: e})
+                    throw GE({rsiApiResult: r, environment: e})
                 } catch (s) {
-                    throw s instanceof uE && (this._session = null, this._device = null), s
+                    throw s instanceof wE && (this._session = null, this._device = null), s
                 }
             }
 
@@ -37726,7 +38005,7 @@
             }
 
             handleUrl(e) {
-                this.baseUrl = `${jE.BASE_URL}${e ? `+${e}` : ""}`
+                this.baseUrl = `${HE.BASE_URL}${e ? `+${e}` : ""}`
             }
 
             async callImage({
@@ -37745,9 +38024,9 @@
             }
         }
 
-        jE.instance = void 0, jE.BASE_URL = "launcher";
+        HE.instance = void 0, HE.BASE_URL = "launcher";
 
-        class LE {
+        class qE {
             constructor() {
                 this.retryCount = 3
             }
@@ -37759,7 +38038,7 @@
                         return await e()
                     } catch (a) {
                         var r;
-                        if (console.error(`[ApiRequester] request number ${n} failed`, a), n++, (a instanceof vE || a instanceof yE) && null !== t && void 0 !== t && t.refreshClaims && (console.error("[ApiRequester] claims expired - refresh engaged", a), await t.refreshClaims()), n > (null !== (r = null === t || void 0 === t ? void 0 : t.numberOfRetry) && void 0 !== r ? r : this.retryCount) || this.isUnsafeError(a)) throw a
+                        if (console.error(`[ApiRequester] request number ${n} failed`, a), n++, (a instanceof IE || a instanceof AE) && null !== t && void 0 !== t && t.refreshClaims && (console.error("[ApiRequester] claims expired - refresh engaged", a), await t.refreshClaims()), n > (null !== (r = null === t || void 0 === t ? void 0 : t.numberOfRetry) && void 0 !== r ? r : this.retryCount) || this.isUnsafeError(a)) throw a
                     }
                     await this.delay(500 * n)
                 }
@@ -37770,11 +38049,11 @@
             }
 
             isUnsafeError(e) {
-                return e instanceof EE || e instanceof kE || e instanceof OE || e instanceof CE
+                return e instanceof NE || e instanceof LE || e instanceof FE || e instanceof VE
             }
         }
 
-        class NE extends LE {
+        class KE extends qE {
             constructor(e) {
                 super(), this.client = e
             }
@@ -37819,29 +38098,29 @@
             }
         }
 
-        function ME(e) {
-            return Object.keys(jw).find((t => jw[t] === e))
+        function YE(e) {
+            return Object.keys(Vw).find((t => Vw[t] === e))
         }
 
-        function FE({badges: e}, t) {
-            const n = Object.values(e).map(ME).filter((e => void 0 !== e));
+        function ZE({badges: e}, t) {
+            const n = Object.values(e).map(YE).filter((e => void 0 !== e));
             for (const r of t) {
-                const e = ME(r);
+                const e = YE(r);
                 if (void 0 === e || !n.includes(e)) return !1
             }
             return !0
         }
 
-        function zE({badges: e}, t) {
-            const n = Object.values(e).map(ME).filter((e => void 0 !== e));
+        function QE({badges: e}, t) {
+            const n = Object.values(e).map(YE).filter((e => void 0 !== e));
             for (const r of t) {
-                const e = ME(r);
+                const e = YE(r);
                 if (void 0 !== e && n.includes(e)) return !0
             }
             return !1
         }
 
-        const VE = ({session_name: e, session_id: t}) => ({cookie: e, key: `X-${e}`, value: t}), UE = (e, t) => {
+        const XE = ({session_name: e, session_id: t}) => ({cookie: e, key: `X-${e}`, value: t}), JE = (e, t) => {
             return {
                 username: t,
                 heapAccountId: e.account_id,
@@ -37849,46 +38128,46 @@
                 displayName: e.displayname,
                 nickname: e.nickname,
                 avatar: e.avatar,
-                privileged: (n = e, zE(n, ["Staff", "QA", "Game Master", "EAC_BYPASS"]))
+                privileged: (n = e, QE(n, ["Staff", "QA", "Game Master", "EAC_BYPASS"]))
             };
             var n
-        }, GE = ({device_header: e, device_id: t, duration: n, new_device: r}, a) => {
+        }, eS = ({device_header: e, device_id: t, duration: n, new_device: r}, a) => {
             if (!r && null === a) throw new Error("No previous device id passed to device mapper");
             if (r && null === t) throw new Error("No device id passed to device mapper");
-            const i = BE(n);
+            const i = tS(n);
             return {cookie: "_rsi_device", key: e, value: r ? t : a, duration: n, expires: i ? Date.now() + i : void 0}
-        }, BE = e => ({
-            [Tw.SESSION]: void 0,
-            [Tw.DAY]: xw.day,
-            [Tw.WEEK]: 7 * xw.day,
-            [Tw.MONTH]: xw.month,
-            [Tw.YEAR]: xw.year
+        }, tS = e => ({
+            [zw.SESSION]: void 0,
+            [zw.DAY]: xw.day,
+            [zw.WEEK]: 7 * xw.day,
+            [zw.MONTH]: xw.month,
+            [zw.YEAR]: xw.year
         }[e]);
 
-        class $E {
+        class nS {
             constructor(e) {
                 this.success = void 0, this.message = void 0, this.success = e.success, this.message = e.message || null
             }
 
             static success() {
-                return new $E({success: !0})
+                return new nS({success: !0})
             }
 
             static fail(e) {
-                return new $E({success: !1, message: e})
+                return new nS({success: !1, message: e})
             }
         }
 
-        class WE extends Error {
+        class rS extends Error {
             constructor(e, t) {
                 super(e), this.result = void 0, Object.defineProperty(this, "name", {
                     value: "AuthorizationError",
                     writable: !0
-                }), Error.captureStackTrace(this, WE), this.result = t
+                }), Error.captureStackTrace(this, rS), this.result = t
             }
         }
 
-        class HE extends LE {
+        class aS extends qE {
             constructor(e, t) {
                 super(), this.client = e, this.policy = t
             }
@@ -37913,20 +38192,20 @@
                     });
                     if (i.success) {
                         await this.verifyPolicy(i.data);
-                        const t = UE(i.data, e), n = VE(i.data);
+                        const t = JE(i.data, e), n = XE(i.data);
                         return this.client.session = n, {identity: t, session: n}
                     }
-                    throw AE({rsiApiResult: i, environment: this.client.platformEnv})
+                    throw GE({rsiApiResult: i, environment: this.client.platformEnv})
                 } catch (l) {
                     var i, o, s;
-                    if (l instanceof fE && (this.client.session = VE(l.payload.data)), l instanceof lE) this.client.session = VE(l.payload.data), this.client.device = GE(l.payload.data, null !== (i = null !== (o = null === (s = this.client.device) || void 0 === s ? void 0 : s.value) && void 0 !== o ? o : l.payload.data.device_id) && void 0 !== i ? i : null);
-                    throw l instanceof WE && (this.client.session = null, this.client.device = null), l
+                    if (l instanceof OE && (this.client.session = XE(l.payload.data)), l instanceof _E) this.client.session = XE(l.payload.data), this.client.device = eS(l.payload.data, null !== (i = null !== (o = null === (s = this.client.device) || void 0 === s ? void 0 : s.value) && void 0 !== o ? o : l.payload.data.device_id) && void 0 !== i ? i : null);
+                    throw l instanceof rS && (this.client.session = null, this.client.device = null), l
                 }
             }
 
             async signInThirdParty(e) {
                 await this.verifyPolicy(e);
-                const t = UE(e, e.displayname), n = VE(e), r = GE({new_device: !0, ...e}, null);
+                const t = JE(e, e.displayname), n = XE(e), r = eS({new_device: !0, ...e}, null);
                 return this.client.session = n, this.client.device = r, {identity: t, session: n, device: r}
             }
 
@@ -37938,7 +38217,7 @@
                 if (a.success) {
                     var i, o;
                     await this.verifyPolicy(a.data);
-                    const t = UE(a.data, e), n = VE(a.data), s = GE({
+                    const t = JE(a.data, e), n = XE(a.data), s = eS({
                         device_id: null === (i = this.client.device) || void 0 === i ? void 0 : i.value,
                         device_header: null === (o = this.client.device) || void 0 === o ? void 0 : o.key,
                         duration: r,
@@ -37946,7 +38225,7 @@
                     }, null);
                     return this.client.session = n, this.client.device = s, {identity: t, session: n, device: s}
                 }
-                throw AE({rsiApiResult: a, environment: this.client.platformEnv})
+                throw GE({rsiApiResult: a, environment: this.client.platformEnv})
             }
 
             async getSignInSession(e) {
@@ -37955,7 +38234,7 @@
                     endpoint: this.client.endpoints.SIGN_IN_CLAIMS,
                     payload: {claims: await this.getAccountClaims()}
                 });
-                return VE(t.data)
+                return XE(t.data)
             }
 
             async getAccountClaims() {
@@ -37968,7 +38247,7 @@
             }
         }
 
-        class qE extends LE {
+        class iS extends qE {
             constructor(e) {
                 super(), this.client = e
             }
@@ -38000,7 +38279,7 @@
             }
         }
 
-        class KE extends LE {
+        class oS extends qE {
             set gameClaims(e) {
                 this._gameClaims = e
             }
@@ -38027,8 +38306,9 @@
                         channels: a,
                         playableOffline: i,
                         hasGamePackage: o,
-                        status: s
-                    } = e, l = Object.values(a).map((({
+                        isPromoted: s,
+                        status: l
+                    } = e, c = Object.values(a).map((({
                                                           id: e,
                                                           name: t,
                                                           version: n,
@@ -38052,15 +38332,16 @@
                         status: dw.GameChannelStatus.AVAILABLE,
                         weight: Number(c || 0)
                     })));
-                    let c = this.getGameStatus(s);
+                    let u = this.getGameStatus(l);
                     return {
                         id: t,
                         name: n,
                         weight: Number(r || 0),
                         playableOffline: i,
                         hasGamePackage: o,
-                        status: c,
-                        channels: l
+                        isPromoted: s,
+                        status: u,
+                        channels: c
                     }
                 }));
                 return e
@@ -38107,7 +38388,7 @@
             }
         }
 
-        class YE extends LE {
+        class sS extends qE {
             constructor(e) {
                 super(), this.client = e
             }
@@ -38118,9 +38399,9 @@
             }
         }
 
-        class ZE extends IE {
+        class lS extends UE {
             constructor() {
-                super(ZE.BASE_URL), this._endpoints = void 0, this._endpoints = RE
+                super(lS.BASE_URL), this._endpoints = void 0, this._endpoints = $E
             }
 
             async getStatus() {
@@ -38128,9 +38409,9 @@
             }
         }
 
-        ZE.BASE_URL = "status";
+        lS.BASE_URL = "status";
 
-        class QE {
+        class cS {
             constructor(...e) {
                 this.handlers = void 0, this.name = "AnyPermissionEvaluator", this.handlers = (null !== e && void 0 !== e ? e : []).slice()
             }
@@ -38144,47 +38425,47 @@
                 const r = n.find((e => e.result.success));
                 if (r) return r.result;
                 const a = n.map((e => `[${e.handlerName}] ${e.result.message}`)).join("\n");
-                return $E.fail(`At least one permission evaluator must succeed. Evaluation results:\n${a}`)
+                return nS.fail(`At least one permission evaluator must succeed. Evaluation results:\n${a}`)
             }
         }
 
-        class XE {
+        class uS {
             constructor() {
                 this.name = "IsStaffPermissionEvaluator"
             }
 
             evaluate(e) {
                 return e.badges && function (e) {
-                    return FE(e, ["Staff"])
-                }(e) ? $E.success() : $E.fail()
+                    return ZE(e, ["Staff"])
+                }(e) ? nS.success() : nS.fail()
             }
         }
 
-        class JE {
+        class dS {
             constructor() {
                 this.name = "IsQAPermissionEvaluator"
             }
 
             evaluate(e) {
                 return e.badges && function (e) {
-                    return FE(e, ["QA"])
-                }(e) ? $E.success() : $E.fail()
+                    return ZE(e, ["QA"])
+                }(e) ? nS.success() : nS.fail()
             }
         }
 
-        class eS {
+        class hS {
             constructor() {
                 this.name = "IsEvocatiPermissionEvaluator"
             }
 
             evaluate(e) {
                 return e.badges && function (e) {
-                    return FE(e, ["Evocati Test Flight"])
-                }(e) ? $E.success() : $E.fail()
+                    return ZE(e, ["Evocati Test Flight"])
+                }(e) ? nS.success() : nS.fail()
             }
         }
 
-        class tS {
+        class pS {
             constructor(e) {
                 this.evaluators = new Map;
                 for (const t of e) this.evaluators.set(t[0], t[1])
@@ -38197,7 +38478,7 @@
 
             async verify(e, t) {
                 const n = await this.evaluate(e, t);
-                if (!n.success) throw new WE(`Permission '${e}' verification failed`, n)
+                if (!n.success) throw new rS(`Permission '${e}' verification failed`, n)
             }
 
             notNullEvaluator(e) {
@@ -38207,13 +38488,13 @@
             }
         }
 
-        class nS extends IE {
+        class fS extends UE {
             constructor() {
-                super(nS.BASE_URL), this._endpoints = void 0, this._endpoints = TE
+                super(fS.BASE_URL), this._endpoints = void 0, this._endpoints = WE
             }
 
             handleUrl(e) {
-                this.baseUrl = `${nS.BASE_URL}${e ? `+${e}` : ""}`
+                this.baseUrl = `${fS.BASE_URL}${e ? `+${e}` : ""}`
             }
 
             async getConnectionToken(e) {
@@ -38234,29 +38515,59 @@
             }
         }
 
-        nS.BASE_URL = "rsi";
-        const rS = new class {
+        fS.BASE_URL = "rsi";
+
+        class mS extends qE {
+            constructor(e) {
+                super(), this.client = e
+            }
+
+            async getAvailablePromotion(e, t) {
+                return (await this.client.call({
+                    endpoint: this.client.endpoints.PROMOTIONS,
+                    payload: {game_id: e, channel_id: t}
+                })).data
+            }
+
+            async promotionValidate(e, t) {
+                return (await this.client.call({
+                    endpoint: this.client.endpoints.PROMOTIONS_VALIDATE,
+                    payload: {id: e, code: t}
+                })).success
+            }
+        }
+
+        const gS = new class {
                 constructor() {
-                    this.authentication = void 0, this.content = void 0, this.policy = void 0, this.games = void 0, this.agreements = void 0, this.language = void 0, this.launcherClient = void 0, this.rsiClient = void 0, this.statusClient = void 0, this.launcherClient = jE.getInstance(), this.content = new qE(this.launcherClient), this.policy = function () {
-                        const e = new XE, t = new JE, n = new eS, r = new QE(e, t),
-                            a = new Map([["signin:release-candidate", new QE(r, n)]]);
-                        return new tS(a)
-                    }(), this.language = new YE(this.launcherClient), this.authentication = new HE(this.launcherClient, this.policy), this.games = new KE(this.launcherClient), this.agreements = new NE(this.launcherClient), this.statusClient = new ZE, this.rsiClient = new nS
+                    this.authentication = void 0, this.content = void 0, this.policy = void 0, this.games = void 0, this.agreements = void 0, this.language = void 0, this.promotions = void 0, this.launcherClient = void 0, this.rsiClient = void 0, this.statusClient = void 0, this.launcherClient = HE.getInstance(), this.content = new iS(this.launcherClient), this.policy = function () {
+                        const e = new uS, t = new dS, n = new hS, r = new cS(e, t),
+                            a = new Map([["signin:release-candidate", new cS(r, n)]]);
+                        return new pS(a)
+                    }(), this.language = new sS(this.launcherClient), this.promotions = new mS(this.launcherClient), this.authentication = new aS(this.launcherClient, this.policy), this.games = new oS(this.launcherClient), this.agreements = new KE(this.launcherClient), this.statusClient = new lS, this.rsiClient = new fS
                 }
-            }, aS = (e, t) => ({
+            }, vS = (e, t) => ({
                 queryKey: ["games", e, t],
-                queryFn: async () => rS.games.getRelease({gameId: e, channelId: t})
-            }), iS = (e, t, n) => ({
-                queryKey: ["warningsFiltered", e, null !== t && void 0 !== t ? t : null, null !== n && void 0 !== n ? n : null],
-                queryFn: async () => rS.agreements.getWarningsFiltered(t, n)
-            }), oS = e => ({queryKey: ["warningInfo", e], queryFn: async () => rS.agreements.getWarningInfo(e)}),
-            sS = (e, t) => ({
+                queryFn: async () => gS.games.getRelease({gameId: e, channelId: t})
+            }), yS = (e, t, n) => ({
+                queryKey: ["warningsFiltered", e, t, n],
+                queryFn: async () => gS.agreements.getWarningsFiltered(t, n)
+            }), bS = e => ({queryKey: ["warningInfo", e], queryFn: async () => gS.agreements.getWarningInfo(e)}),
+            _S = (e, t) => ({
                 queryKey: ["agreementAccept", e, t],
-                queryFn: async () => rS.agreements.acceptAgreement(e, t)
-            }), lS = (e, t) => ({
+                queryFn: async () => gS.agreements.acceptAgreement(e, t)
+            }), xS = (e, t) => ({
+                queryKey: [`promotionAvailable-${e}-${t}`],
+                queryFn: async () => gS.promotions.getAvailablePromotion(e, t),
+                enabled: SS(),
+                refetchOnReconnect: !0,
+                staleTime: 30 * xw.minute
+            }), wS = (e, t) => ({
+                queryKey: ["promotionValidate"],
+                queryFn: async () => gS.promotions.promotionValidate(e, t)
+            }), kS = (e, t) => ({
                 queryKey: [`platformContent-${e}-${t}`],
-                queryFn: async () => rS.content.getContent(e, t),
-                enabled: uS(),
+                queryFn: async () => gS.content.getContent(e, t),
+                enabled: SS(),
                 select: e => ({
                     commLinks: e.commLinks.map(bw),
                     patchNotes: e.patchNotes.map(bw),
@@ -38266,30 +38577,30 @@
                 refetchOnWindowFocus: !1,
                 staleTime: 0,
                 gcTime: 0
-            }), cS = () => ({
+            }), ES = () => ({
                 queryKey: ["rsiLanguage"],
-                queryFn: async () => rS.language.getAvailableLanguages(),
+                queryFn: async () => gS.language.getAvailableLanguages(),
                 staleTime: 30 * xw.minute
             });
 
-        function uS() {
-            return !kC.getState().application.isWindowMinimized || !kC.getState().application.actions.isOffline()
+        function SS() {
+            return !nI.getState().application.isWindowMinimized || !nI.getState().application.actions.isOffline()
         }
 
-        var dS = n(5391);
-        var hS = function () {
+        var OS = n(5391);
+        var PS = function () {
             let e = [], t = 0, n = e => {
                 e()
             }, r = e => {
                 e()
             };
             const a = r => {
-                t ? e.push(r) : (0, dS.A4)((() => {
+                t ? e.push(r) : (0, OS.A4)((() => {
                     n(r)
                 }))
             }, i = () => {
                 const t = e;
-                e = [], t.length && (0, dS.A4)((() => {
+                e = [], t.length && (0, OS.A4)((() => {
                     r((() => {
                         t.forEach((e => {
                             n(e)
@@ -38317,14 +38628,14 @@
                     r = e
                 }
             }
-        }(), pS = n(8974), fS = new class extends pS.l {
+        }(), CS = n(8974), IS = new class extends CS.l {
             #r;
             #t;
             #n;
 
             constructor() {
                 super(), this.#n = e => {
-                    if (!dS.sk && window.addEventListener) {
+                    if (!OS.sk && window.addEventListener) {
                         const t = () => e();
                         return window.addEventListener("visibilitychange", t, !1), () => {
                             window.removeEventListener("visibilitychange", t)
@@ -38360,31 +38671,31 @@
             isFocused() {
                 return "boolean" === typeof this.#r ? this.#r : "hidden" !== globalThis.document?.visibilityState
             }
-        }, mS = n(1901);
+        }, AS = n(1901);
 
-        function gS(e) {
+        function DS(e) {
             return Math.min(1e3 * 2 ** e, 3e4)
         }
 
-        function vS(e) {
-            return "online" !== (e ?? "online") || mS.N.isOnline()
+        function RS(e) {
+            return "online" !== (e ?? "online") || AS.N.isOnline()
         }
 
-        var yS = class {
+        var TS = class {
             constructor(e) {
                 this.revert = e?.revert, this.silent = e?.silent
             }
         };
 
-        function bS(e) {
-            return e instanceof yS
+        function jS(e) {
+            return e instanceof TS
         }
 
-        function _S(e) {
+        function LS(e) {
             let t, n, r, a = !1, i = 0, o = !1;
             const s = new Promise(((e, t) => {
                 n = e, r = t
-            })), l = () => !fS.isFocused() || "always" !== e.networkMode && !mS.N.isOnline(), c = r => {
+            })), l = () => !IS.isFocused() || "always" !== e.networkMode && !AS.N.isOnline(), c = r => {
                 o || (o = !0, e.onSuccess?.(r), t?.(), n(r))
             }, u = n => {
                 o || (o = !0, e.onError?.(n), t?.(), r(n))
@@ -38405,19 +38716,19 @@
                 }
                 Promise.resolve(t).then(c).catch((t => {
                     if (o) return;
-                    const n = e.retry ?? (dS.sk ? 0 : 3), r = e.retryDelay ?? gS,
+                    const n = e.retry ?? (OS.sk ? 0 : 3), r = e.retryDelay ?? DS,
                         s = "function" === typeof r ? r(i, t) : r,
                         c = !0 === n || "number" === typeof n && i < n || "function" === typeof n && n(i, t);
-                    !a && c ? (i++, e.onFail?.(i, t), (0, dS._v)(s).then((() => {
+                    !a && c ? (i++, e.onFail?.(i, t), (0, OS._v)(s).then((() => {
                         if (l()) return d()
                     })).then((() => {
                         a ? u(t) : h()
                     }))) : u(t)
                 }))
             };
-            return vS(e.networkMode) ? h() : d().then(h), {
+            return RS(e.networkMode) ? h() : d().then(h), {
                 promise: s, cancel: t => {
-                    o || (u(new yS(t)), e.abort?.())
+                    o || (u(new TS(t)), e.abort?.())
                 }, continue: () => {
                     const e = t?.();
                     return e ? s : Promise.resolve()
@@ -38429,7 +38740,7 @@
             }
         }
 
-        var xS = class {
+        var NS = class {
             #a;
 
             destroy() {
@@ -38437,19 +38748,19 @@
             }
 
             scheduleGc() {
-                this.clearGcTimeout(), (0, dS.PN)(this.gcTime) && (this.#a = setTimeout((() => {
+                this.clearGcTimeout(), (0, OS.PN)(this.gcTime) && (this.#a = setTimeout((() => {
                     this.optionalRemove()
                 }), this.gcTime))
             }
 
             updateGcTime(e) {
-                this.gcTime = Math.max(this.gcTime || 0, e ?? (dS.sk ? 1 / 0 : 3e5))
+                this.gcTime = Math.max(this.gcTime || 0, e ?? (OS.sk ? 1 / 0 : 3e5))
             }
 
             clearGcTimeout() {
                 this.#a && (clearTimeout(this.#a), this.#a = void 0)
             }
-        }, wS = class extends xS {
+        }, MS = class extends NS {
             constructor(e) {
                 super(), this.#i = !1, this.#o = e.defaultOptions, this.#s(e.options), this.#l = [], this.#c = e.cache, this.queryKey = e.queryKey, this.queryHash = e.queryHash, this.#u = e.state || function (e) {
                     const t = "function" === typeof e.initialData ? e.initialData() : e.initialData,
@@ -38494,7 +38805,7 @@
             }
 
             setData(e, t) {
-                const n = (0, dS.oE)(this.state.data, e, this.options);
+                const n = (0, OS.oE)(this.state.data, e, this.options);
                 return this.#f({data: n, type: "success", dataUpdatedAt: t?.updatedAt, manual: t?.manual}), n
             }
 
@@ -38504,7 +38815,7 @@
 
             cancel(e) {
                 const t = this.#h;
-                return this.#p?.cancel(e), t ? t.then(dS.ZT).catch(dS.ZT) : Promise.resolve()
+                return this.#p?.cancel(e), t ? t.then(OS.ZT).catch(OS.ZT) : Promise.resolve()
             }
 
             destroy() {
@@ -38528,7 +38839,7 @@
             }
 
             isStaleByTime(e = 0) {
-                return this.state.isInvalidated || !this.state.dataUpdatedAt || !(0, dS.Kp)(this.state.dataUpdatedAt, e)
+                return this.state.isInvalidated || !this.state.dataUpdatedAt || !(0, OS.Kp)(this.state.dataUpdatedAt, e)
             }
 
             onFocus() {
@@ -38587,12 +38898,12 @@
                     meta: i.fetchOptions?.meta
                 });
                 const o = e => {
-                    bS(e) && e.silent || this.#f({
+                    jS(e) && e.silent || this.#f({
                         type: "error",
                         error: e
-                    }), bS(e) || (this.#c.config.onError?.(e, this), this.#c.config.onSettled?.(this.state.data, e, this)), this.isFetchingOptimistic || this.scheduleGc(), this.isFetchingOptimistic = !1
+                    }), jS(e) || (this.#c.config.onError?.(e, this), this.#c.config.onSettled?.(this.state.data, e, this)), this.isFetchingOptimistic || this.scheduleGc(), this.isFetchingOptimistic = !1
                 };
-                return this.#p = _S({
+                return this.#p = LS({
                     fn: i.fetchFn, abort: n.abort.bind(n), onSuccess: e => {
                         "undefined" !== typeof e ? (this.setData(e), this.#c.config.onSuccess?.(e, this), this.#c.config.onSettled?.(e, this.state.error, this), this.isFetchingOptimistic || this.scheduleGc(), this.isFetchingOptimistic = !1) : o(new Error(`${this.queryHash} data is undefined`))
                     }, onError: o, onFail: (e, t) => {
@@ -38620,7 +38931,7 @@
                                 fetchFailureCount: 0,
                                 fetchFailureReason: null,
                                 fetchMeta: e.meta ?? null,
-                                fetchStatus: vS(this.options.networkMode) ? "fetching" : "paused", ...!t.dataUpdatedAt && {
+                                fetchStatus: RS(this.options.networkMode) ? "fetching" : "paused", ...!t.dataUpdatedAt && {
                                     error: null,
                                     status: "pending"
                                 }
@@ -38641,7 +38952,7 @@
                             };
                         case"error":
                             const n = e.error;
-                            return bS(n) && n.revert && this.#d ? {...this.#d, fetchStatus: "idle"} : {
+                            return jS(n) && n.revert && this.#d ? {...this.#d, fetchStatus: "idle"} : {
                                 ...t,
                                 error: n,
                                 errorUpdateCount: t.errorUpdateCount + 1,
@@ -38656,14 +38967,14 @@
                         case"setState":
                             return {...t, ...e.state}
                     }
-                })(this.state), hS.batch((() => {
+                })(this.state), PS.batch((() => {
                     this.#l.forEach((e => {
                         e.onQueryUpdate()
                     })), this.#c.notify({query: this, type: "updated", action: e})
                 }))
             }
         };
-        var kS = class extends pS.l {
+        var FS = class extends CS.l {
             constructor(e = {}) {
                 super(), this.config = e, this.#m = new Map
             }
@@ -38671,9 +38982,9 @@
             #m;
 
             build(e, t, n) {
-                const r = t.queryKey, a = t.queryHash ?? (0, dS.Rm)(r, t);
+                const r = t.queryKey, a = t.queryHash ?? (0, OS.Rm)(r, t);
                 let i = this.get(a);
-                return i || (i = new wS({
+                return i || (i = new MS({
                     cache: this,
                     queryKey: r,
                     queryHash: a,
@@ -38693,7 +39004,7 @@
             }
 
             clear() {
-                hS.batch((() => {
+                PS.batch((() => {
                     this.getAll().forEach((e => {
                         this.remove(e)
                     }))
@@ -38710,16 +39021,16 @@
 
             find(e) {
                 const t = {exact: !0, ...e};
-                return this.getAll().find((e => (0, dS._x)(t, e)))
+                return this.getAll().find((e => (0, OS._x)(t, e)))
             }
 
             findAll(e = {}) {
                 const t = this.getAll();
-                return Object.keys(e).length > 0 ? t.filter((t => (0, dS._x)(e, t))) : t
+                return Object.keys(e).length > 0 ? t.filter((t => (0, OS._x)(e, t))) : t
             }
 
             notify(e) {
-                hS.batch((() => {
+                PS.batch((() => {
                     this.listeners.forEach((t => {
                         t(e)
                     }))
@@ -38727,7 +39038,7 @@
             }
 
             onFocus() {
-                hS.batch((() => {
+                PS.batch((() => {
                     this.getAll().forEach((e => {
                         e.onFocus()
                     }))
@@ -38735,13 +39046,13 @@
             }
 
             onOnline() {
-                hS.batch((() => {
+                PS.batch((() => {
                     this.getAll().forEach((e => {
                         e.onOnline()
                     }))
                 }))
             }
-        }, ES = class extends xS {
+        }, zS = class extends NS {
             constructor(e) {
                 super(), this.mutationId = e.mutationId, this.#o = e.defaultOptions, this.#g = e.mutationCache, this.#l = [], this.state = e.state || {
                     context: void 0,
@@ -38794,7 +39105,7 @@
             }
 
             async execute(e) {
-                const t = () => (this.#p = _S({
+                const t = () => (this.#p = LS({
                     fn: () => this.options.mutationFn ? this.options.mutationFn(e) : Promise.reject(new Error("No mutationFn found")),
                     onFail: (e, t) => {
                         this.#f({type: "failed", failureCount: e, error: t})
@@ -38846,7 +39157,7 @@
                                 failureCount: 0,
                                 failureReason: null,
                                 error: null,
-                                isPaused: !vS(this.options.networkMode),
+                                isPaused: !RS(this.options.networkMode),
                                 status: "pending",
                                 variables: e.variables,
                                 submittedAt: Date.now()
@@ -38872,14 +39183,14 @@
                                 status: "error"
                             }
                     }
-                })(this.state), hS.batch((() => {
+                })(this.state), PS.batch((() => {
                     this.#l.forEach((t => {
                         t.onMutationUpdate(e)
                     })), this.#g.notify({mutation: this, type: "updated", action: e})
                 }))
             }
         };
-        var SS = class extends pS.l {
+        var VS = class extends CS.l {
             constructor(e = {}) {
                 super(), this.config = e, this.#v = [], this.#y = 0
             }
@@ -38889,7 +39200,7 @@
             #b;
 
             build(e, t, n) {
-                const r = new ES({
+                const r = new zS({
                     mutationCache: this,
                     mutationId: ++this.#y,
                     options: e.defaultMutationOptions(t),
@@ -38907,7 +39218,7 @@
             }
 
             clear() {
-                hS.batch((() => {
+                PS.batch((() => {
                     this.#v.forEach((e => {
                         this.remove(e)
                     }))
@@ -38920,15 +39231,15 @@
 
             find(e) {
                 const t = {exact: !0, ...e};
-                return this.#v.find((e => (0, dS.X7)(t, e)))
+                return this.#v.find((e => (0, OS.X7)(t, e)))
             }
 
             findAll(e = {}) {
-                return this.#v.filter((t => (0, dS.X7)(e, t)))
+                return this.#v.filter((t => (0, OS.X7)(e, t)))
             }
 
             notify(e) {
-                hS.batch((() => {
+                PS.batch((() => {
                     this.listeners.forEach((t => {
                         t(e)
                     }))
@@ -38938,14 +39249,14 @@
             resumePausedMutations() {
                 return this.#b = (this.#b ?? Promise.resolve()).then((() => {
                     const e = this.#v.filter((e => e.state.isPaused));
-                    return hS.batch((() => e.reduce(((e, t) => e.then((() => t.continue().catch(dS.ZT)))), Promise.resolve())))
+                    return PS.batch((() => e.reduce(((e, t) => e.then((() => t.continue().catch(OS.ZT)))), Promise.resolve())))
                 })).then((() => {
                     this.#b = void 0
                 })), this.#b
             }
         };
 
-        function OS(e) {
+        function US(e) {
             return {
                 onFetch: (t, n) => {
                     const r = async () => {
@@ -38970,18 +39281,18 @@
                                         s = !0
                                     })), t.signal)
                                 });
-                                const o = await l(a), {maxPages: c} = t.options, u = r ? dS.Ht : dS.VX;
+                                const o = await l(a), {maxPages: c} = t.options, u = r ? OS.Ht : OS.VX;
                                 return {pages: u(e.pages, o, c), pageParams: u(e.pageParams, n, c)}
                             };
                         let u;
                         if (r && a.length) {
-                            const e = "backward" === r, t = {pages: a, pageParams: i}, o = (e ? CS : PS)(n, t);
+                            const e = "backward" === r, t = {pages: a, pageParams: i}, o = (e ? BS : GS)(n, t);
                             u = await c(t, o, e)
                         } else {
                             u = await c(o, i[0] ?? n.initialPageParam);
                             const t = e ?? a.length;
                             for (let e = 1; e < t; e++) {
-                                const e = PS(n, u);
+                                const e = GS(n, u);
                                 u = await c(u, e)
                             }
                         }
@@ -38996,39 +39307,39 @@
             }
         }
 
-        function PS(e, {pages: t, pageParams: n}) {
+        function GS(e, {pages: t, pageParams: n}) {
             const r = t.length - 1;
             return e.getNextPageParam(t[r], t, n[r], n)
         }
 
-        function CS(e, {pages: t, pageParams: n}) {
+        function BS(e, {pages: t, pageParams: n}) {
             return e.getPreviousPageParam?.(t[0], t, n[0], n)
         }
 
-        const IS = async e => {
+        const $S = async e => {
             var t;
-            if (!(e instanceof sE || e instanceof WE)) return;
-            if (!AS(e)) return;
-            const {application: {platformMaster: n}, user: {identity: r}} = kC.getState(),
-                a = e instanceof WE ? wk : e.code, i = e instanceof WE ? e.message : e.payload.msg,
-                o = e instanceof WE ? n : null !== (t = e.environment) && void 0 !== t ? t : n;
+            if (!(e instanceof yE || e instanceof rS)) return;
+            if (!WS(e)) return;
+            const {platformMaster: n} = nI.getState().application, {identity: r} = nI.getState().user,
+                a = e instanceof rS ? Tk : e.code, i = e instanceof rS ? e.message : e.payload.msg,
+                o = e instanceof rS ? n : null !== (t = e.environment) && void 0 !== t ? t : n;
             window.launcherAPI.analytics.setAnalyticsEvent(dw.AnalyticsEventName.APP_API_ERROR, {
                 ErrorCode: a,
                 ErrorMessage: i, ...r,
                 Environment: o
             })
-        }, AS = e => {
-            if (e instanceof kE || e instanceof EE || e instanceof uE || e instanceof bE || e instanceof WE) return !0;
-            const {application: {connection: t}} = kC.getState();
-            return e instanceof CE && t.mode === dw.ConnectionMode.ONLINE
-        }, DS = (e = null, t = null, n = {}) => ({identity: e, device: t, sessions: n}), RS = (e, t) => ({
+        }, WS = e => {
+            if (e instanceof LE || e instanceof NE || e instanceof wE || e instanceof DE || e instanceof rS || e instanceof bE) return !0;
+            const {connection: t} = nI.getState().application;
+            return e instanceof VE && t.mode === dw.ConnectionMode.ONLINE
+        }, HS = (e = null, t = null, n = {}) => ({identity: e, device: t, sessions: n}), qS = (e, t) => ({
             user: {
-                ...DS(), actions: {
+                ...HS(), actions: {
                     initialize: async () => {
                         const {environment: t} = await window.launcherAPI.game.getGlobalConfig(),
                             n = await window.launcherAPI.user.getIdentity(),
                             r = await window.launcherAPI.user.getDevice(),
-                            a = await window.launcherAPI.user.getSession(), i = DS(n, r, a ? {[t]: a} : {});
+                            a = await window.launcherAPI.user.getSession(), i = HS(n, r, a ? {[t]: a} : {});
                         var o, s, l;
                         n && Sw().authentication.onSignInSuccess({
                             accountName: null !== (o = n.username) && void 0 !== o ? o : "",
@@ -39051,7 +39362,7 @@
                     }, resetUser: t => {
                         window.launcherAPI.user.setSession(null), window.launcherAPI.user.setIdentity(null), t && window.launcherAPI.user.setDevice(null), e((e => ({
                             user: {
-                                ...e.user, ...DS(),
+                                ...e.user, ...HS(),
                                 device: t ? null : e.user.device
                             }
                         })))
@@ -39062,7 +39373,7 @@
             }
         });
 
-        class TS {
+        class KS {
             constructor(e) {
                 this.isMuted = void 0, this.gain = void 0, this.gainNode = void 0, this.soundList = void 0, this.trackList = void 0, this.soundMap = void 0, this.trackMap = void 0, this.trackTitleList = void 0, this.soundRoot = void 0, this.currentBgTrack = void 0, this.audioContext = new AudioContext, this.isMuted = !1, this.gain = e.volume / 100, this.soundList = e.sounds, this.trackList = e.musics, this.soundMap = new Map(Object.entries(e.sounds)), this.trackMap = new Map(Object.entries(e.musics)), this.trackTitleList = Object.keys(e.musics), this.currentBgTrack = null, this.gainNode = this.audioContext.createGain(), this.gainNode.connect(this.audioContext.destination), this.gainNode.gain.value = e.volume / 100;
                 const t = document.getElementById("SoundRoot");
@@ -39124,26 +39435,26 @@
             }
         }
 
-        let jS;
+        let YS;
         !function (e) {
             e.DISPLAY_WARNING_DIALOG = "displayWarningDialog", e.DISPLAY_ACKNOWLEDGE_DIALOG = "displayAcknowledgeDialog", e.DISPLAY_INLINE_MESSAGE = "displayInlineMessage", e.EXECUTE_CALLBACK = "executeCallback"
-        }(jS || (jS = {}));
-        const LS = async e => {
-            const t = kC.getState().dialog, n = Array.isArray(e) ? e : [e];
+        }(YS || (YS = {}));
+        const ZS = async e => {
+            const t = nI.getState().dialog, n = Array.isArray(e) ? e : [e];
             for (const {handler: r, error: a} of n) {
                 if (r.skip) return;
                 switch (r.type) {
-                    case jS.DISPLAY_WARNING_DIALOG:
+                    case YS.DISPLAY_WARNING_DIALOG:
                         return void await t.actions.showWarningDialogErrorOccured(r.args);
-                    case jS.DISPLAY_ACKNOWLEDGE_DIALOG:
+                    case YS.DISPLAY_ACKNOWLEDGE_DIALOG:
                         return void await t.actions.showAcknowledgeDialogErrorOccured(r.args);
-                    case jS.EXECUTE_CALLBACK:
+                    case YS.EXECUTE_CALLBACK:
                         return void await r.args.callback();
                     default:
                         console.error("error", a.message)
                 }
             }
-        }, NS = (e, t) => ({
+        }, QS = (e, t) => ({
             authentication: {
                 captcha: null,
                 connectionId: null,
@@ -39173,27 +39484,27 @@
             }
         });
 
-        function MS() {
-            return MS = Object.assign ? Object.assign.bind() : function (e) {
+        function XS() {
+            return XS = Object.assign ? Object.assign.bind() : function (e) {
                 for (var t = 1; t < arguments.length; t++) {
                     var n = arguments[t];
                     for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r])
                 }
                 return e
-            }, MS.apply(this, arguments)
+            }, XS.apply(this, arguments)
         }
 
-        var FS;
+        var JS;
         !function (e) {
             e.Pop = "POP", e.Push = "PUSH", e.Replace = "REPLACE"
-        }(FS || (FS = {}));
-        const zS = "popstate";
+        }(JS || (JS = {}));
+        const eO = "popstate";
 
-        function VS(e, t) {
+        function tO(e, t) {
             if (!1 === e || null === e || "undefined" === typeof e) throw new Error(t)
         }
 
-        function US(e, t) {
+        function nO(e, t) {
             if (!e) {
                 "undefined" !== typeof console && console.warn(t);
                 try {
@@ -39203,27 +39514,27 @@
             }
         }
 
-        function GS(e, t) {
+        function rO(e, t) {
             return {usr: e.state, key: e.key, idx: t}
         }
 
-        function BS(e, t, n, r) {
-            return void 0 === n && (n = null), MS({
+        function aO(e, t, n, r) {
+            return void 0 === n && (n = null), XS({
                 pathname: "string" === typeof e ? e : e.pathname,
                 search: "",
                 hash: ""
-            }, "string" === typeof t ? WS(t) : t, {
+            }, "string" === typeof t ? oO(t) : t, {
                 state: n,
                 key: t && t.key || r || Math.random().toString(36).substr(2, 8)
             })
         }
 
-        function $S(e) {
+        function iO(e) {
             let {pathname: t = "/", search: n = "", hash: r = ""} = e;
             return n && "?" !== n && (t += "?" === n.charAt(0) ? n : "?" + n), r && "#" !== r && (t += "#" === r.charAt(0) ? r : "#" + r), t
         }
 
-        function WS(e) {
+        function oO(e) {
             let t = {};
             if (e) {
                 let n = e.indexOf("#");
@@ -39234,27 +39545,27 @@
             return t
         }
 
-        function HS(e, t, n, r) {
+        function sO(e, t, n, r) {
             void 0 === r && (r = {});
-            let {window: a = document.defaultView, v5Compat: i = !1} = r, o = a.history, s = FS.Pop, l = null, c = u();
+            let {window: a = document.defaultView, v5Compat: i = !1} = r, o = a.history, s = JS.Pop, l = null, c = u();
 
             function u() {
                 return (o.state || {idx: null}).idx
             }
 
             function d() {
-                s = FS.Pop;
+                s = JS.Pop;
                 let e = u(), t = null == e ? null : e - c;
                 c = e, l && l({action: s, location: p.location, delta: t})
             }
 
             function h(e) {
                 let t = "null" !== a.location.origin ? a.location.origin : a.location.href,
-                    n = "string" === typeof e ? e : $S(e);
-                return VS(t, "No window.location.(origin|href) available to create URL for href: " + n), new URL(n, t)
+                    n = "string" === typeof e ? e : iO(e);
+                return n = n.replace(/ $/, "%20"), tO(t, "No window.location.(origin|href) available to create URL for href: " + n), new URL(n, t)
             }
 
-            null == c && (c = 0, o.replaceState(MS({}, o.state, {idx: c}), ""));
+            null == c && (c = 0, o.replaceState(XS({}, o.state, {idx: c}), ""));
             let p = {
                 get action() {
                     return s
@@ -39262,17 +39573,17 @@
                     return e(a, o)
                 }, listen(e) {
                     if (l) throw new Error("A history only accepts one active listener");
-                    return a.addEventListener(zS, d), l = e, () => {
-                        a.removeEventListener(zS, d), l = null
+                    return a.addEventListener(eO, d), l = e, () => {
+                        a.removeEventListener(eO, d), l = null
                     }
                 }, createHref: e => t(a, e), createURL: h, encodeLocation(e) {
                     let t = h(e);
                     return {pathname: t.pathname, search: t.search, hash: t.hash}
                 }, push: function (e, t) {
-                    s = FS.Push;
-                    let r = BS(p.location, e, t);
+                    s = JS.Push;
+                    let r = aO(p.location, e, t);
                     n && n(r, e), c = u() + 1;
-                    let d = GS(r, c), h = p.createHref(r);
+                    let d = rO(r, c), h = p.createHref(r);
                     try {
                         o.pushState(d, "", h)
                     } catch (f) {
@@ -39281,55 +39592,61 @@
                     }
                     i && l && l({action: s, location: p.location, delta: 1})
                 }, replace: function (e, t) {
-                    s = FS.Replace;
-                    let r = BS(p.location, e, t);
+                    s = JS.Replace;
+                    let r = aO(p.location, e, t);
                     n && n(r, e), c = u();
-                    let a = GS(r, c), d = p.createHref(r);
+                    let a = rO(r, c), d = p.createHref(r);
                     o.replaceState(a, "", d), i && l && l({action: s, location: p.location, delta: 0})
                 }, go: e => o.go(e)
             };
             return p
         }
 
-        var qS;
+        var lO;
         !function (e) {
             e.data = "data", e.deferred = "deferred", e.redirect = "redirect", e.error = "error"
-        }(qS || (qS = {}));
-        const KS = new Set(["lazy", "caseSensitive", "path", "id", "index", "children"]);
+        }(lO || (lO = {}));
+        const cO = new Set(["lazy", "caseSensitive", "path", "id", "index", "children"]);
 
-        function YS(e, t, n, r) {
+        function uO(e, t, n, r) {
             return void 0 === n && (n = []), void 0 === r && (r = {}), e.map(((e, a) => {
-                let i = [...n, a], o = "string" === typeof e.id ? e.id : i.join("-");
-                if (VS(!0 !== e.index || !e.children, "Cannot specify children on an index route"), VS(!r[o], 'Found a route id collision on id "' + o + "\".  Route id's must be globally unique within Data Router usages"), function (e) {
+                let i = [...n, String(a)], o = "string" === typeof e.id ? e.id : i.join("-");
+                if (tO(!0 !== e.index || !e.children, "Cannot specify children on an index route"), tO(!r[o], 'Found a route id collision on id "' + o + "\".  Route id's must be globally unique within Data Router usages"), function (e) {
                     return !0 === e.index
                 }(e)) {
-                    let n = MS({}, e, t(e), {id: o});
+                    let n = XS({}, e, t(e), {id: o});
                     return r[o] = n, n
                 }
                 {
-                    let n = MS({}, e, t(e), {id: o, children: void 0});
-                    return r[o] = n, e.children && (n.children = YS(e.children, t, i, r)), n
+                    let n = XS({}, e, t(e), {id: o, children: void 0});
+                    return r[o] = n, e.children && (n.children = uO(e.children, t, i, r)), n
                 }
             }))
         }
 
-        function ZS(e, t, n) {
-            void 0 === n && (n = "/");
-            let r = oO(("string" === typeof t ? WS(t) : t).pathname || "/", n);
-            if (null == r) return null;
-            let a = QS(e);
+        function dO(e, t, n) {
+            return void 0 === n && (n = "/"), hO(e, t, n, !1)
+        }
+
+        function hO(e, t, n, r) {
+            let a = wO(("string" === typeof t ? oO(t) : t).pathname || "/", n);
+            if (null == a) return null;
+            let i = pO(e);
             !function (e) {
                 e.sort(((e, t) => e.score !== t.score ? t.score - e.score : function (e, t) {
                     let n = e.length === t.length && e.slice(0, -1).every(((e, n) => e === t[n]));
                     return n ? e[e.length - 1] - t[t.length - 1] : 0
                 }(e.routesMeta.map((e => e.childrenIndex)), t.routesMeta.map((e => e.childrenIndex)))))
-            }(a);
-            let i = null;
-            for (let o = 0; null == i && o < a.length; ++o) i = nO(a[o], iO(r));
-            return i
+            }(i);
+            let o = null;
+            for (let s = 0; null == o && s < i.length; ++s) {
+                let e = xO(a);
+                o = yO(i[s], e, r)
+            }
+            return o
         }
 
-        function QS(e, t, n, r) {
+        function pO(e, t, n, r) {
             void 0 === t && (t = []), void 0 === n && (n = []), void 0 === r && (r = "");
             let a = (e, a, i) => {
                 let o = {
@@ -39338,81 +39655,84 @@
                     childrenIndex: a,
                     route: e
                 };
-                o.relativePath.startsWith("/") && (VS(o.relativePath.startsWith(r), 'Absolute route path "' + o.relativePath + '" nested under path "' + r + '" is not valid. An absolute child route path must start with the combined path of all its parent routes.'), o.relativePath = o.relativePath.slice(r.length));
-                let s = uO([r, o.relativePath]), l = n.concat(o);
-                e.children && e.children.length > 0 && (VS(!0 !== e.index, 'Index routes must not have child routes. Please remove all child routes from route path "' + s + '".'), QS(e.children, t, l, s)), (null != e.path || e.index) && t.push({
+                o.relativePath.startsWith("/") && (tO(o.relativePath.startsWith(r), 'Absolute route path "' + o.relativePath + '" nested under path "' + r + '" is not valid. An absolute child route path must start with the combined path of all its parent routes.'), o.relativePath = o.relativePath.slice(r.length));
+                let s = PO([r, o.relativePath]), l = n.concat(o);
+                e.children && e.children.length > 0 && (tO(!0 !== e.index, 'Index routes must not have child routes. Please remove all child routes from route path "' + s + '".'), pO(e.children, t, l, s)), (null != e.path || e.index) && t.push({
                     path: s,
-                    score: tO(s, e.index),
+                    score: vO(s, e.index),
                     routesMeta: l
                 })
             };
             return e.forEach(((e, t) => {
                 var n;
-                if ("" !== e.path && null != (n = e.path) && n.includes("?")) for (let r of XS(e.path)) a(e, t, r); else a(e, t)
+                if ("" !== e.path && null != (n = e.path) && n.includes("?")) for (let r of fO(e.path)) a(e, t, r); else a(e, t)
             })), t
         }
 
-        function XS(e) {
+        function fO(e) {
             let t = e.split("/");
             if (0 === t.length) return [];
             let [n, ...r] = t, a = n.endsWith("?"), i = n.replace(/\?$/, "");
             if (0 === r.length) return a ? [i, ""] : [i];
-            let o = XS(r.join("/")), s = [];
+            let o = fO(r.join("/")), s = [];
             return s.push(...o.map((e => "" === e ? i : [i, e].join("/")))), a && s.push(...o), s.map((t => e.startsWith("/") && "" === t ? "/" : t))
         }
 
-        const JS = /^:\w+$/, eO = e => "*" === e;
+        const mO = /^:[\w-]+$/, gO = e => "*" === e;
 
-        function tO(e, t) {
+        function vO(e, t) {
             let n = e.split("/"), r = n.length;
-            return n.some(eO) && (r += -2), t && (r += 2), n.filter((e => !eO(e))).reduce(((e, t) => e + (JS.test(t) ? 3 : "" === t ? 1 : 10)), r)
+            return n.some(gO) && (r += -2), t && (r += 2), n.filter((e => !gO(e))).reduce(((e, t) => e + (mO.test(t) ? 3 : "" === t ? 1 : 10)), r)
         }
 
-        function nO(e, t) {
-            let {routesMeta: n} = e, r = {}, a = "/", i = [];
-            for (let o = 0; o < n.length; ++o) {
-                let e = n[o], s = o === n.length - 1, l = "/" === a ? t : t.slice(a.length) || "/",
-                    c = aO({path: e.relativePath, caseSensitive: e.caseSensitive, end: s}, l);
-                if (!c) return null;
-                Object.assign(r, c.params);
-                let u = e.route;
-                i.push({
-                    params: r,
-                    pathname: uO([a, c.pathname]),
-                    pathnameBase: dO(uO([a, c.pathnameBase])),
-                    route: u
-                }), "/" !== c.pathnameBase && (a = uO([a, c.pathnameBase]))
+        function yO(e, t, n) {
+            void 0 === n && (n = !1);
+            let {routesMeta: r} = e, a = {}, i = "/", o = [];
+            for (let s = 0; s < r.length; ++s) {
+                let e = r[s], l = s === r.length - 1, c = "/" === i ? t : t.slice(i.length) || "/",
+                    u = _O({path: e.relativePath, caseSensitive: e.caseSensitive, end: l}, c), d = e.route;
+                if (!u && l && n && !r[r.length - 1].route.index && (u = _O({
+                    path: e.relativePath,
+                    caseSensitive: e.caseSensitive,
+                    end: !1
+                }, c)), !u) return null;
+                Object.assign(a, u.params), o.push({
+                    params: a,
+                    pathname: PO([i, u.pathname]),
+                    pathnameBase: CO(PO([i, u.pathnameBase])),
+                    route: d
+                }), "/" !== u.pathnameBase && (i = PO([i, u.pathnameBase]))
             }
-            return i
+            return o
         }
 
-        function rO(e, t) {
+        function bO(e, t) {
             void 0 === t && (t = {});
             let n = e;
-            n.endsWith("*") && "*" !== n && !n.endsWith("/*") && (US(!1, 'Route path "' + n + '" will be treated as if it were "' + n.replace(/\*$/, "/*") + '" because the `*` character must always follow a `/` in the pattern. To get rid of this warning, please change the route path to "' + n.replace(/\*$/, "/*") + '".'), n = n.replace(/\*$/, "/*"));
+            n.endsWith("*") && "*" !== n && !n.endsWith("/*") && (nO(!1, 'Route path "' + n + '" will be treated as if it were "' + n.replace(/\*$/, "/*") + '" because the `*` character must always follow a `/` in the pattern. To get rid of this warning, please change the route path to "' + n.replace(/\*$/, "/*") + '".'), n = n.replace(/\*$/, "/*"));
             const r = n.startsWith("/") ? "/" : "", a = e => null == e ? "" : "string" === typeof e ? e : String(e);
             return r + n.split(/\/+/).map(((e, n, r) => {
                 if (n === r.length - 1 && "*" === e) {
                     return a(t["*"])
                 }
-                const i = e.match(/^:(\w+)(\??)$/);
+                const i = e.match(/^:([\w-]+)(\??)$/);
                 if (i) {
                     const [, e, n] = i;
                     let r = t[e];
-                    return VS("?" === n || null != r, 'Missing ":' + e + '" param'), a(r)
+                    return tO("?" === n || null != r, 'Missing ":' + e + '" param'), a(r)
                 }
                 return e.replace(/\?$/g, "")
             })).filter((e => !!e)).join("/")
         }
 
-        function aO(e, t) {
+        function _O(e, t) {
             "string" === typeof e && (e = {path: e, caseSensitive: !1, end: !0});
             let [n, r] = function (e, t, n) {
                 void 0 === t && (t = !1);
                 void 0 === n && (n = !0);
-                US("*" === e || !e.endsWith("*") || e.endsWith("/*"), 'Route path "' + e + '" will be treated as if it were "' + e.replace(/\*$/, "/*") + '" because the `*` character must always follow a `/` in the pattern. To get rid of this warning, please change the route path to "' + e.replace(/\*$/, "/*") + '".');
+                nO("*" === e || !e.endsWith("*") || e.endsWith("/*"), 'Route path "' + e + '" will be treated as if it were "' + e.replace(/\*$/, "/*") + '" because the `*` character must always follow a `/` in the pattern. To get rid of this warning, please change the route path to "' + e.replace(/\*$/, "/*") + '".');
                 let r = [],
-                    a = "^" + e.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(/\/:(\w+)(\?)?/g, ((e, t, n) => (r.push({
+                    a = "^" + e.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(/\/:([\w-]+)(\?)?/g, ((e, t, n) => (r.push({
                         paramName: t,
                         isOptional: null != n
                     }), n ? "/?([^\\/]+)?" : "/([^\\/]+)")));
@@ -39430,55 +39750,46 @@
                         o = i.slice(0, i.length - e.length).replace(/(.)\/+$/, "$1")
                     }
                     const l = s[n];
-                    return e[r] = a && !l ? void 0 : function (e, t) {
-                        try {
-                            return decodeURIComponent(e)
-                        } catch (n) {
-                            return US(!1, 'The value for the URL param "' + t + '" will not be decoded because the string "' + e + '" is a malformed URL segment. This is probably due to a bad percent encoding (' + n + ")."), e
-                        }
-                    }(l || "", r), e
+                    return e[r] = a && !l ? void 0 : (l || "").replace(/%2F/g, "/"), e
                 }), {}), pathname: i, pathnameBase: o, pattern: e
             }
         }
 
-        function iO(e) {
+        function xO(e) {
             try {
-                return decodeURI(e)
+                return e.split("/").map((e => decodeURIComponent(e).replace(/\//g, "%2F"))).join("/")
             } catch (t) {
-                return US(!1, 'The URL path "' + e + '" could not be decoded because it is is a malformed URL segment. This is probably due to a bad percent encoding (' + t + ")."), e
+                return nO(!1, 'The URL path "' + e + '" could not be decoded because it is is a malformed URL segment. This is probably due to a bad percent encoding (' + t + ")."), e
             }
         }
 
-        function oO(e, t) {
+        function wO(e, t) {
             if ("/" === t) return e;
             if (!e.toLowerCase().startsWith(t.toLowerCase())) return null;
             let n = t.endsWith("/") ? t.length - 1 : t.length, r = e.charAt(n);
             return r && "/" !== r ? null : e.slice(n) || "/"
         }
 
-        function sO(e, t, n, r) {
+        function kO(e, t, n, r) {
             return "Cannot include a '" + e + "' character in a manually specified `to." + t + "` field [" + JSON.stringify(r) + "].  Please separate it out to the `to." + n + '` field. Alternatively you may provide the full path as a string in <Link to="..."> and the router will parse it for you.'
         }
 
-        function lO(e) {
+        function EO(e) {
             return e.filter(((e, t) => 0 === t || e.route.path && e.route.path.length > 0))
         }
 
-        function cO(e, t, n, r) {
+        function SO(e, t) {
+            let n = EO(e);
+            return t ? n.map(((e, t) => t === n.length - 1 ? e.pathname : e.pathnameBase)) : n.map((e => e.pathnameBase))
+        }
+
+        function OO(e, t, n, r) {
             let a;
-            void 0 === r && (r = !1), "string" === typeof e ? a = WS(e) : (a = MS({}, e), VS(!a.pathname || !a.pathname.includes("?"), sO("?", "pathname", "search", a)), VS(!a.pathname || !a.pathname.includes("#"), sO("#", "pathname", "hash", a)), VS(!a.search || !a.search.includes("#"), sO("#", "search", "hash", a)));
+            void 0 === r && (r = !1), "string" === typeof e ? a = oO(e) : (a = XS({}, e), tO(!a.pathname || !a.pathname.includes("?"), kO("?", "pathname", "search", a)), tO(!a.pathname || !a.pathname.includes("#"), kO("#", "pathname", "hash", a)), tO(!a.search || !a.search.includes("#"), kO("#", "search", "hash", a)));
             let i, o = "" === e || "" === a.pathname, s = o ? "/" : a.pathname;
-            if (null == s) i = n; else if (r) {
-                let e = t[t.length - 1].replace(/^\//, "").split("/");
-                if (s.startsWith("..")) {
-                    let t = s.split("/");
-                    for (; ".." === t[0];) t.shift(), e.pop();
-                    a.pathname = t.join("/")
-                }
-                i = "/" + e.join("/")
-            } else {
+            if (null == s) i = n; else {
                 let e = t.length - 1;
-                if (s.startsWith("..")) {
+                if (!r && s.startsWith("..")) {
                     let t = s.split("/");
                     for (; ".." === t[0];) t.shift(), e -= 1;
                     a.pathname = t.join("/")
@@ -39487,45 +39798,45 @@
             }
             let l = function (e, t) {
                 void 0 === t && (t = "/");
-                let {pathname: n, search: r = "", hash: a = ""} = "string" === typeof e ? WS(e) : e,
+                let {pathname: n, search: r = "", hash: a = ""} = "string" === typeof e ? oO(e) : e,
                     i = n ? n.startsWith("/") ? n : function (e, t) {
                         let n = t.replace(/\/+$/, "").split("/");
                         return e.split("/").forEach((e => {
                             ".." === e ? n.length > 1 && n.pop() : "." !== e && n.push(e)
                         })), n.length > 1 ? n.join("/") : "/"
                     }(n, t) : t;
-                return {pathname: i, search: hO(r), hash: pO(a)}
+                return {pathname: i, search: IO(r), hash: AO(a)}
             }(a, i), c = s && "/" !== s && s.endsWith("/"), u = (o || "." === s) && n.endsWith("/");
             return l.pathname.endsWith("/") || !c && !u || (l.pathname += "/"), l
         }
 
-        const uO = e => e.join("/").replace(/\/\/+/g, "/"), dO = e => e.replace(/\/+$/, "").replace(/^\/*/, "/"),
-            hO = e => e && "?" !== e ? e.startsWith("?") ? e : "?" + e : "",
-            pO = e => e && "#" !== e ? e.startsWith("#") ? e : "#" + e : "";
+        const PO = e => e.join("/").replace(/\/\/+/g, "/"), CO = e => e.replace(/\/+$/, "").replace(/^\/*/, "/"),
+            IO = e => e && "?" !== e ? e.startsWith("?") ? e : "?" + e : "",
+            AO = e => e && "#" !== e ? e.startsWith("#") ? e : "#" + e : "";
 
-        class fO extends Error {
+        class DO extends Error {
         }
 
-        const mO = function (e, t) {
+        const RO = function (e, t) {
             void 0 === t && (t = 302);
             let n = t;
             "number" === typeof n ? n = {status: n} : "undefined" === typeof n.status && (n.status = 302);
             let r = new Headers(n.headers);
-            return r.set("Location", e), new Response(null, MS({}, n, {headers: r}))
+            return r.set("Location", e), new Response(null, XS({}, n, {headers: r}))
         };
 
-        class gO {
+        class TO {
             constructor(e, t, n, r) {
                 void 0 === r && (r = !1), this.status = e, this.statusText = t || "", this.internal = r, n instanceof Error ? (this.data = n.toString(), this.error = n) : this.data = n
             }
         }
 
-        function vO(e) {
+        function jO(e) {
             return null != e && "number" === typeof e.status && "string" === typeof e.statusText && "boolean" === typeof e.internal && "data" in e
         }
 
-        const yO = ["post", "put", "patch", "delete"], bO = new Set(yO), _O = ["get", ...yO], xO = new Set(_O),
-            wO = new Set([301, 302, 303, 307, 308]), kO = new Set([307, 308]), EO = {
+        const LO = ["post", "put", "patch", "delete"], NO = new Set(LO), MO = ["get", ...LO], FO = new Set(MO),
+            zO = new Set([301, 302, 303, 307, 308]), VO = new Set([307, 308]), UO = {
                 state: "idle",
                 location: void 0,
                 formMethod: void 0,
@@ -39534,7 +39845,7 @@
                 formData: void 0,
                 json: void 0,
                 text: void 0
-            }, SO = {
+            }, GO = {
                 state: "idle",
                 data: void 0,
                 formMethod: void 0,
@@ -39543,124 +39854,148 @@
                 formData: void 0,
                 json: void 0,
                 text: void 0
-            }, OO = {state: "unblocked", proceed: void 0, reset: void 0, location: void 0},
-            PO = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i, CO = e => ({hasErrorBoundary: Boolean(e.hasErrorBoundary)}),
-            IO = "remix-router-transitions";
+            }, BO = {state: "unblocked", proceed: void 0, reset: void 0, location: void 0},
+            $O = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i, WO = e => ({hasErrorBoundary: Boolean(e.hasErrorBoundary)}),
+            HO = "remix-router-transitions";
 
-        function AO(e) {
+        function qO(e) {
             const t = e.window ? e.window : "undefined" !== typeof window ? window : void 0,
                 n = "undefined" !== typeof t && "undefined" !== typeof t.document && "undefined" !== typeof t.document.createElement,
                 r = !n;
             let a;
-            if (VS(e.routes.length > 0, "You must provide a non-empty routes array to createRouter"), e.mapRouteProperties) a = e.mapRouteProperties; else if (e.detectErrorBoundary) {
+            if (tO(e.routes.length > 0, "You must provide a non-empty routes array to createRouter"), e.mapRouteProperties) a = e.mapRouteProperties; else if (e.detectErrorBoundary) {
                 let t = e.detectErrorBoundary;
                 a = e => ({hasErrorBoundary: t(e)})
-            } else a = CO;
-            let i, o = {}, s = YS(e.routes, a, void 0, o), l = e.basename || "/",
-                c = MS({v7_fetcherPersist: !1, v7_normalizeFormMethod: !1, v7_prependBasename: !1}, e.future), u = null,
-                d = new Set, h = null, p = null, f = null, m = null != e.hydrationData,
-                g = ZS(s, e.history.location, l), v = null;
-            if (null == g) {
-                let t = qO(404, {pathname: e.history.location.pathname}), {matches: n, route: r} = HO(s);
-                g = n, v = {[r.id]: t}
+            } else a = WO;
+            let i, o, s, l = {}, c = uO(e.routes, a, void 0, l), u = e.basename || "/", d = e.dataStrategy || rP,
+                h = e.patchRoutesOnNavigation, p = XS({
+                    v7_fetcherPersist: !1,
+                    v7_normalizeFormMethod: !1,
+                    v7_partialHydration: !1,
+                    v7_prependBasename: !1,
+                    v7_relativeSplatPath: !1,
+                    v7_skipActionErrorRevalidation: !1
+                }, e.future), f = null, m = new Set, g = null, v = null, y = null, b = null != e.hydrationData,
+                _ = dO(c, e.history.location, u), x = !1, w = null;
+            if (null == _ && !h) {
+                let t = vP(404, {pathname: e.history.location.pathname}), {matches: n, route: r} = gP(c);
+                _ = n, w = {[r.id]: t}
             }
-            let y, b, _ = !g.some((e => e.route.lazy)) && (!g.some((e => e.route.loader)) || null != e.hydrationData),
-                x = {
+            if (_ && !e.hydrationData) {
+                fe(_, c, e.history.location.pathname).active && (_ = null)
+            }
+            if (_) if (_.some((e => e.route.lazy))) o = !1; else if (_.some((e => e.route.loader))) if (p.v7_partialHydration) {
+                let t = e.hydrationData ? e.hydrationData.loaderData : null,
+                    n = e.hydrationData ? e.hydrationData.errors : null;
+                if (n) {
+                    let e = _.findIndex((e => void 0 !== n[e.route.id]));
+                    o = _.slice(0, e + 1).every((e => !XO(e.route, t, n)))
+                } else o = _.every((e => !XO(e.route, t, n)))
+            } else o = null != e.hydrationData; else o = !0; else if (o = !1, _ = [], p.v7_partialHydration) {
+                let t = fe(null, c, e.history.location.pathname);
+                t.active && t.matches && (x = !0, _ = t.matches)
+            }
+            let k, E, S = {
                     historyAction: e.history.action,
                     location: e.history.location,
-                    matches: g,
-                    initialized: _,
-                    navigation: EO,
+                    matches: _,
+                    initialized: o,
+                    navigation: UO,
                     restoreScrollPosition: null == e.hydrationData && null,
                     preventScrollReset: !1,
                     revalidation: "idle",
                     loaderData: e.hydrationData && e.hydrationData.loaderData || {},
                     actionData: e.hydrationData && e.hydrationData.actionData || null,
-                    errors: e.hydrationData && e.hydrationData.errors || v,
+                    errors: e.hydrationData && e.hydrationData.errors || w,
                     fetchers: new Map,
                     blockers: new Map
-                }, w = FS.Pop, k = !1, E = !1, S = new Map, O = null, P = !1, C = !1, I = [], A = [], D = new Map,
-                R = 0, T = -1, j = new Map, L = new Set, N = new Map, M = new Map, F = new Set, z = new Map,
-                V = new Map, U = !1;
+                }, O = JS.Pop, P = !1, C = !1, I = new Map, A = null, D = !1, R = !1, T = [], j = new Set, L = new Map,
+                N = 0, M = -1, F = new Map, z = new Set, V = new Map, U = new Map, G = new Set, B = new Map,
+                $ = new Map;
 
-            function G(e, t) {
-                void 0 === t && (t = {}), x = MS({}, x, e);
+            function W(e, t) {
+                void 0 === t && (t = {}), S = XS({}, S, e);
                 let n = [], r = [];
-                c.v7_fetcherPersist && x.fetchers.forEach(((e, t) => {
-                    "idle" === e.state && (F.has(t) ? r.push(t) : n.push(t))
-                })), [...d].forEach((e => e(x, {
+                p.v7_fetcherPersist && S.fetchers.forEach(((e, t) => {
+                    "idle" === e.state && (G.has(t) ? r.push(t) : n.push(t))
+                })), G.forEach((e => {
+                    S.fetchers.has(e) || L.has(e) || r.push(e)
+                })), [...m].forEach((e => e(S, {
                     deletedFetchers: r,
-                    unstable_viewTransitionOpts: t.viewTransitionOpts,
-                    unstable_flushSync: !0 === t.flushSync
-                }))), c.v7_fetcherPersist && (n.forEach((e => x.fetchers.delete(e))), r.forEach((e => Q(e))))
+                    viewTransitionOpts: t.viewTransitionOpts,
+                    flushSync: !0 === t.flushSync
+                }))), p.v7_fetcherPersist ? (n.forEach((e => S.fetchers.delete(e))), r.forEach((e => ne(e)))) : r.forEach((e => G.delete(e)))
             }
 
-            function B(t, n, r) {
+            function H(t, n, r) {
                 var a, o;
-                let l, {flushSync: c} = void 0 === r ? {} : r,
-                    u = null != x.actionData && null != x.navigation.formMethod && tP(x.navigation.formMethod) && "loading" === x.navigation.state && !0 !== (null == (a = t.state) ? void 0 : a._isRedirect);
-                l = n.actionData ? Object.keys(n.actionData).length > 0 ? n.actionData : null : u ? x.actionData : null;
-                let d = n.loaderData ? $O(x.loaderData, n.loaderData, n.matches || [], n.errors) : x.loaderData,
-                    h = x.blockers;
-                h.size > 0 && (h = new Map(h), h.forEach(((e, t) => h.set(t, OO))));
+                let s, {flushSync: l} = void 0 === r ? {} : r,
+                    u = null != S.actionData && null != S.navigation.formMethod && PP(S.navigation.formMethod) && "loading" === S.navigation.state && !0 !== (null == (a = t.state) ? void 0 : a._isRedirect);
+                s = n.actionData ? Object.keys(n.actionData).length > 0 ? n.actionData : null : u ? S.actionData : null;
+                let d = n.loaderData ? pP(S.loaderData, n.loaderData, n.matches || [], n.errors) : S.loaderData,
+                    h = S.blockers;
+                h.size > 0 && (h = new Map(h), h.forEach(((e, t) => h.set(t, BO))));
                 let p,
-                    f = !0 === k || null != x.navigation.formMethod && tP(x.navigation.formMethod) && !0 !== (null == (o = t.state) ? void 0 : o._isRedirect);
-                if (i && (s = i, i = void 0), P || w === FS.Pop || (w === FS.Push ? e.history.push(t, t.state) : w === FS.Replace && e.history.replace(t, t.state)), w === FS.Pop) {
-                    let e = S.get(x.location.pathname);
+                    f = !0 === P || null != S.navigation.formMethod && PP(S.navigation.formMethod) && !0 !== (null == (o = t.state) ? void 0 : o._isRedirect);
+                if (i && (c = i, i = void 0), D || O === JS.Pop || (O === JS.Push ? e.history.push(t, t.state) : O === JS.Replace && e.history.replace(t, t.state)), O === JS.Pop) {
+                    let e = I.get(S.location.pathname);
                     e && e.has(t.pathname) ? p = {
-                        currentLocation: x.location,
+                        currentLocation: S.location,
                         nextLocation: t
-                    } : S.has(t.pathname) && (p = {currentLocation: t, nextLocation: x.location})
-                } else if (E) {
-                    let e = S.get(x.location.pathname);
-                    e ? e.add(t.pathname) : (e = new Set([t.pathname]), S.set(x.location.pathname, e)), p = {
-                        currentLocation: x.location,
+                    } : I.has(t.pathname) && (p = {currentLocation: t, nextLocation: S.location})
+                } else if (C) {
+                    let e = I.get(S.location.pathname);
+                    e ? e.add(t.pathname) : (e = new Set([t.pathname]), I.set(S.location.pathname, e)), p = {
+                        currentLocation: S.location,
                         nextLocation: t
                     }
                 }
-                G(MS({}, n, {
-                    actionData: l,
+                W(XS({}, n, {
+                    actionData: s,
                     loaderData: d,
-                    historyAction: w,
+                    historyAction: O,
                     location: t,
                     initialized: !0,
-                    navigation: EO,
+                    navigation: UO,
                     revalidation: "idle",
-                    restoreScrollPosition: se(t, n.matches || x.matches),
+                    restoreScrollPosition: pe(t, n.matches || S.matches),
                     preventScrollReset: f,
                     blockers: h
-                }), {
-                    viewTransitionOpts: p,
-                    flushSync: !0 === c
-                }), w = FS.Pop, k = !1, E = !1, P = !1, C = !1, I = [], A = []
+                }), {viewTransitionOpts: p, flushSync: !0 === l}), O = JS.Pop, P = !1, C = !1, D = !1, R = !1, T = []
             }
 
-            async function $(t, n, r) {
-                b && b.abort(), b = null, w = t, P = !0 === (r && r.startUninterruptedRevalidation), function (e, t) {
-                    if (h && f) {
-                        let n = oe(e, t);
-                        h[n] = f()
+            async function q(t, n, r) {
+                k && k.abort(), k = null, O = t, D = !0 === (r && r.startUninterruptedRevalidation), function (e, t) {
+                    if (g && y) {
+                        let n = he(e, t);
+                        g[n] = y()
                     }
-                }(x.location, x.matches), k = !0 === (r && r.preventScrollReset), E = !0 === (r && r.enableViewTransition);
-                let c = i || s, u = r && r.overrideNavigation, d = ZS(c, n, l), p = !0 === (r && r.flushSync);
-                if (!d) {
-                    let e = qO(404, {pathname: n.pathname}), {matches: t, route: r} = HO(c);
-                    return ie(), void B(n, {matches: t, loaderData: {}, errors: {[r.id]: e}}, {flushSync: p})
-                }
-                if (x.initialized && !C && function (e, t) {
+                }(S.location, S.matches), P = !0 === (r && r.preventScrollReset), C = !0 === (r && r.enableViewTransition);
+                let a = i || c, o = r && r.overrideNavigation,
+                    s = null != r && r.initialHydration && S.matches && S.matches.length > 0 && !x ? S.matches : dO(a, n, u),
+                    l = !0 === (r && r.flushSync);
+                if (s && S.initialized && !R && function (e, t) {
                     if (e.pathname !== t.pathname || e.search !== t.search) return !1;
                     if ("" === e.hash) return "" !== t.hash;
                     if (e.hash === t.hash) return !0;
                     if ("" !== t.hash) return !0;
                     return !1
-                }(x.location, n) && !(r && r.submission && tP(r.submission.formMethod))) return void B(n, {matches: d}, {flushSync: p});
-                b = new AbortController;
-                let m, g, v = zO(e.history, n, b.signal, r && r.submission);
-                if (r && r.pendingError) g = {[WO(d).route.id]: r.pendingError}; else if (r && r.submission && tP(r.submission.formMethod)) {
-                    let e = await async function (e, t, n, r, i) {
+                }(S.location, n) && !(r && r.submission && PP(r.submission.formMethod))) return void H(n, {matches: s}, {flushSync: l});
+                let d = fe(s, a, n.pathname);
+                if (d.active && d.matches && (s = d.matches), !s) {
+                    let {error: e, notFoundMatches: t, route: r} = ue(n.pathname);
+                    return void H(n, {matches: t, loaderData: {}, errors: {[r.id]: e}}, {flushSync: l})
+                }
+                k = new AbortController;
+                let h, f = lP(e.history, n, k.signal, r && r.submission);
+                if (r && r.pendingError) h = [mP(s).route.id, {
+                    type: lO.error,
+                    error: r.pendingError
+                }]; else if (r && r.submission && PP(r.submission.formMethod)) {
+                    let t = await async function (e, t, n, r, a, i) {
                         void 0 === i && (i = {});
-                        q();
-                        let s, c = function (e, t) {
+                        X();
+                        let o, s = function (e, t) {
                             let n = {
                                 state: "submitting",
                                 location: e,
@@ -39673,197 +40008,273 @@
                             };
                             return n
                         }(t, n);
-                        G({navigation: c}, {flushSync: !0 === i.flushSync});
-                        let u = iP(r, t);
-                        if (u.route.action || u.route.lazy) {
-                            if (s = await FO("action", e, u, r, o, a, l), e.signal.aborted) return {shortCircuited: !0}
-                        } else s = {
-                            type: qS.error,
-                            error: qO(405, {method: e.method, pathname: t.pathname, routeId: u.route.id})
-                        };
-                        if (XO(s)) {
-                            let e;
-                            return e = i && null != i.replace ? i.replace : s.location === x.location.pathname + x.location.search, await W(x, s, {
-                                submission: n,
-                                replace: e
-                            }), {shortCircuited: !0}
+                        if (W({navigation: s}, {flushSync: !0 === i.flushSync}), a) {
+                            let n = await me(r, t.pathname, e.signal);
+                            if ("aborted" === n.type) return {shortCircuited: !0};
+                            if ("error" === n.type) {
+                                let e = mP(n.partialMatches).route.id;
+                                return {
+                                    matches: n.partialMatches,
+                                    pendingActionResult: [e, {type: lO.error, error: n.error}]
+                                }
+                            }
+                            if (!n.matches) {
+                                let {notFoundMatches: e, error: n, route: r} = ue(t.pathname);
+                                return {matches: e, pendingActionResult: [r.id, {type: lO.error, error: n}]}
+                            }
+                            r = n.matches
                         }
-                        if (QO(s)) {
-                            let e = WO(r, u.route.id);
-                            return !0 !== (i && i.replace) && (w = FS.Push), {
-                                pendingActionData: {},
-                                pendingActionError: {[e.route.id]: s.error}
+                        let l = RP(r, t);
+                        if (l.route.action || l.route.lazy) {
+                            if (o = (await Z("action", S, e, [l], r, null))[l.route.id], e.signal.aborted) return {shortCircuited: !0}
+                        } else o = {
+                            type: lO.error,
+                            error: vP(405, {method: e.method, pathname: t.pathname, routeId: l.route.id})
+                        };
+                        if (kP(o)) {
+                            let t;
+                            if (i && null != i.replace) t = i.replace; else {
+                                t = sP(o.response.headers.get("Location"), new URL(e.url), u) === S.location.pathname + S.location.search
+                            }
+                            return await Y(e, o, !0, {submission: n, replace: t}), {shortCircuited: !0}
+                        }
+                        if (xP(o)) throw vP(400, {type: "defer-action"});
+                        if (wP(o)) {
+                            let e = mP(r, l.route.id);
+                            return !0 !== (i && i.replace) && (O = JS.Push), {
+                                matches: r,
+                                pendingActionResult: [e.route.id, o]
                             }
                         }
-                        if (ZO(s)) throw qO(400, {type: "defer-action"});
-                        return {pendingActionData: {[u.route.id]: s.data}}
-                    }(v, n, r.submission, d, {replace: r.replace, flushSync: p});
-                    if (e.shortCircuited) return;
-                    m = e.pendingActionData, g = e.pendingActionError, u = sP(n, r.submission), p = !1, v = new Request(v.url, {signal: v.signal})
+                        return {matches: r, pendingActionResult: [l.route.id, o]}
+                    }(f, n, r.submission, s, d.active, {replace: r.replace, flushSync: l});
+                    if (t.shortCircuited) return;
+                    if (t.pendingActionResult) {
+                        let [e, r] = t.pendingActionResult;
+                        if (wP(r) && jO(r.error) && 404 === r.error.status) return k = null, void H(n, {
+                            matches: t.matches,
+                            loaderData: {},
+                            errors: {[e]: r.error}
+                        })
+                    }
+                    s = t.matches || s, h = t.pendingActionResult, o = jP(n, r.submission), l = !1, d.active = !1, f = lP(e.history, f.url, f.signal)
                 }
                 let {
-                    shortCircuited: y,
-                    loaderData: _,
-                    errors: S
-                } = await async function (t, n, r, a, o, c, u, d, h, p) {
-                    let f = a || sP(n, o), m = o || c || oP(f),
-                        g = i || s, [v, y] = jO(e.history, x, r, m, n, C, I, A, F, N, L, g, l, h, p);
-                    if (ie((e => !(r && r.some((t => t.route.id === e))) || v && v.some((t => t.route.id === e)))), T = ++R, 0 === v.length && 0 === y.length) {
-                        let e = ee();
-                        return B(n, MS({
+                    shortCircuited: m,
+                    matches: v,
+                    loaderData: b,
+                    errors: _
+                } = await async function (t, n, r, a, o, s, l, d, h, f, m) {
+                    let g = o || jP(n, s), v = s || l || TP(g), y = !D && (!p.v7_partialHydration || !h);
+                    if (a) {
+                        if (y) {
+                            let e = K(m);
+                            W(XS({navigation: g}, void 0 !== e ? {actionData: e} : {}), {flushSync: f})
+                        }
+                        let e = await me(r, n.pathname, t.signal);
+                        if ("aborted" === e.type) return {shortCircuited: !0};
+                        if ("error" === e.type) {
+                            let t = mP(e.partialMatches).route.id;
+                            return {matches: e.partialMatches, loaderData: {}, errors: {[t]: e.error}}
+                        }
+                        if (!e.matches) {
+                            let {error: e, notFoundMatches: t, route: r} = ue(n.pathname);
+                            return {matches: t, loaderData: {}, errors: {[r.id]: e}}
+                        }
+                        r = e.matches
+                    }
+                    let b = i || c, [_, x] = QO(e.history, S, r, v, n, p.v7_partialHydration && !0 === h, p.v7_skipActionErrorRevalidation, R, T, j, G, V, z, b, u, m);
+                    if (de((e => !(r && r.some((t => t.route.id === e))) || _ && _.some((t => t.route.id === e)))), M = ++N, 0 === _.length && 0 === x.length) {
+                        let e = ie();
+                        return H(n, XS({
                             matches: r,
                             loaderData: {},
-                            errors: p || null
-                        }, h ? {actionData: h} : {}, e ? {fetchers: new Map(x.fetchers)} : {}), {flushSync: d}), {shortCircuited: !0}
+                            errors: m && wP(m[1]) ? {[m[0]]: m[1].error} : null
+                        }, fP(m), e ? {fetchers: new Map(S.fetchers)} : {}), {flushSync: f}), {shortCircuited: !0}
                     }
-                    if (!P) {
-                        y.forEach((e => {
-                            let t = x.fetchers.get(e.key), n = lP(void 0, t ? t.data : void 0);
-                            x.fetchers.set(e.key, n)
-                        }));
-                        let e = h || x.actionData;
-                        G(MS({navigation: f}, e ? 0 === Object.keys(e).length ? {actionData: null} : {actionData: e} : {}, y.length > 0 ? {fetchers: new Map(x.fetchers)} : {}), {flushSync: d})
-                    }
-                    y.forEach((e => {
-                        D.has(e.key) && X(e.key), e.controller && D.set(e.key, e.controller)
-                    }));
-                    let _ = () => y.forEach((e => X(e.key)));
-                    b && b.signal.addEventListener("abort", _);
-                    let {results: w, loaderResults: k, fetcherResults: E} = await H(x.matches, r, v, y, t);
-                    if (t.signal.aborted) return {shortCircuited: !0};
-                    b && b.signal.removeEventListener("abort", _);
-                    y.forEach((e => D.delete(e.key)));
-                    let S = KO(w);
-                    if (S) {
-                        if (S.idx >= v.length) {
-                            let e = y[S.idx - v.length].key;
-                            L.add(e)
+                    if (y) {
+                        let e = {};
+                        if (!a) {
+                            e.navigation = g;
+                            let t = K(m);
+                            void 0 !== t && (e.actionData = t)
                         }
-                        return await W(x, S.result, {replace: u}), {shortCircuited: !0}
+                        x.length > 0 && (e.fetchers = function (e) {
+                            return e.forEach((e => {
+                                let t = S.fetchers.get(e.key), n = LP(void 0, t ? t.data : void 0);
+                                S.fetchers.set(e.key, n)
+                            })), new Map(S.fetchers)
+                        }(x)), W(e, {flushSync: f})
                     }
-                    let {loaderData: O, errors: j} = BO(x, r, v, k, p, y, E, z);
-                    z.forEach(((e, t) => {
-                        e.subscribe((n => {
-                            (n || e.done) && z.delete(t)
-                        }))
+                    x.forEach((e => {
+                        re(e.key), e.controller && L.set(e.key, e.controller)
                     }));
-                    let M = ee(), V = te(T), U = M || V || y.length > 0;
-                    return MS({loaderData: O, errors: j}, U ? {fetchers: new Map(x.fetchers)} : {})
-                }(v, n, d, u, r && r.submission, r && r.fetcherSubmission, r && r.replace, p, m, g);
-                y || (b = null, B(n, MS({matches: d}, m ? {actionData: m} : {}, {loaderData: _, errors: S})))
+                    let w = () => x.forEach((e => re(e.key)));
+                    k && k.signal.addEventListener("abort", w);
+                    let {loaderResults: E, fetcherResults: O} = await Q(S, r, _, x, t);
+                    if (t.signal.aborted) return {shortCircuited: !0};
+                    k && k.signal.removeEventListener("abort", w);
+                    x.forEach((e => L.delete(e.key)));
+                    let P = yP(E);
+                    if (P) return await Y(t, P.result, !0, {replace: d}), {shortCircuited: !0};
+                    if (P = yP(O), P) return z.add(P.key), await Y(t, P.result, !0, {replace: d}), {shortCircuited: !0};
+                    let {loaderData: C, errors: I} = hP(S, r, E, m, x, O, B);
+                    B.forEach(((e, t) => {
+                        e.subscribe((n => {
+                            (n || e.done) && B.delete(t)
+                        }))
+                    })), p.v7_partialHydration && h && S.errors && (I = XS({}, S.errors, I));
+                    let A = ie(), F = oe(M), U = A || F || x.length > 0;
+                    return XS({matches: r, loaderData: C, errors: I}, U ? {fetchers: new Map(S.fetchers)} : {})
+                }(f, n, s, d.active, o, r && r.submission, r && r.fetcherSubmission, r && r.replace, r && !0 === r.initialHydration, l, h);
+                m || (k = null, H(n, XS({matches: v || s}, fP(h), {loaderData: b, errors: _})))
             }
 
-            async function W(r, a, i) {
-                let {submission: o, fetcherSubmission: s, replace: c} = void 0 === i ? {} : i;
-                a.revalidate && (C = !0);
-                let u = BS(r.location, a.location, {_isRedirect: !0});
-                if (VS(u, "Expected a location on the redirect navigation"), n) {
+            function K(e) {
+                return e && !wP(e[1]) ? {[e[0]]: e[1].data} : S.actionData ? 0 === Object.keys(S.actionData).length ? null : S.actionData : void 0
+            }
+
+            async function Y(r, a, i, o) {
+                let {submission: s, fetcherSubmission: l, preventScrollReset: c, replace: d} = void 0 === o ? {} : o;
+                a.response.headers.has("X-Remix-Revalidate") && (R = !0);
+                let h = a.response.headers.get("Location");
+                tO(h, "Expected a Location header on the redirect Response"), h = sP(h, new URL(r.url), u);
+                let p = aO(S.location, h, {_isRedirect: !0});
+                if (n) {
                     let n = !1;
-                    if (a.reloadDocument) n = !0; else if (PO.test(a.location)) {
-                        const r = e.history.createURL(a.location);
-                        n = r.origin !== t.location.origin || null == oO(r.pathname, l)
+                    if (a.response.headers.has("X-Remix-Reload-Document")) n = !0; else if ($O.test(h)) {
+                        const r = e.history.createURL(h);
+                        n = r.origin !== t.location.origin || null == wO(r.pathname, u)
                     }
-                    if (n) return void (c ? t.location.replace(a.location) : t.location.assign(a.location))
+                    if (n) return void (d ? t.location.replace(h) : t.location.assign(h))
                 }
-                b = null;
-                let d = !0 === c ? FS.Replace : FS.Push, {formMethod: h, formAction: p, formEncType: f} = r.navigation;
-                !o && !s && h && p && f && (o = oP(r.navigation));
-                let m = o || s;
-                if (kO.has(a.status) && m && tP(m.formMethod)) await $(d, u, {
-                    submission: MS({}, m, {formAction: a.location}),
-                    preventScrollReset: k
+                k = null;
+                let f = !0 === d || a.response.headers.has("X-Remix-Replace") ? JS.Replace : JS.Push, {
+                    formMethod: m,
+                    formAction: g,
+                    formEncType: v
+                } = S.navigation;
+                !s && !l && m && g && v && (s = TP(S.navigation));
+                let y = s || l;
+                if (VO.has(a.response.status) && y && PP(y.formMethod)) await q(f, p, {
+                    submission: XS({}, y, {formAction: h}),
+                    preventScrollReset: c || P,
+                    enableViewTransition: i ? C : void 0
                 }); else {
-                    let e = sP(u, o);
-                    await $(d, u, {overrideNavigation: e, fetcherSubmission: s, preventScrollReset: k})
+                    let e = jP(p, s);
+                    await q(f, p, {
+                        overrideNavigation: e,
+                        fetcherSubmission: l,
+                        preventScrollReset: c || P,
+                        enableViewTransition: i ? C : void 0
+                    })
                 }
             }
 
-            async function H(t, n, r, i, s) {
-                let c = await Promise.all([...r.map((e => FO("loader", s, e, n, o, a, l))), ...i.map((t => {
-                    if (t.matches && t.match && t.controller) return FO("loader", zO(e.history, t.path, t.controller.signal), t.match, t.matches, o, a, l);
-                    return {type: qS.error, error: qO(404, {pathname: t.path})}
-                }))]), u = c.slice(0, r.length), d = c.slice(r.length);
-                return await Promise.all([nP(t, r, u, u.map((() => s.signal)), !1, x.loaderData), nP(t, i.map((e => e.match)), d, i.map((e => e.controller ? e.controller.signal : null)), !0)]), {
-                    results: c,
-                    loaderResults: u,
-                    fetcherResults: d
+            async function Z(e, t, n, r, i, o) {
+                let s, c = {};
+                try {
+                    s = await aP(d, e, t, n, r, i, o, l, a)
+                } catch (h) {
+                    return r.forEach((e => {
+                        c[e.route.id] = {type: lO.error, error: h}
+                    })), c
+                }
+                for (let [a, l] of Object.entries(s)) if (_P(l)) {
+                    let e = l.result;
+                    c[a] = {type: lO.redirect, response: oP(e, n, a, i, u, p.v7_relativeSplatPath)}
+                } else c[a] = await iP(l);
+                return c
+            }
+
+            async function Q(t, n, r, a, i) {
+                let o = t.matches, s = Z("loader", t, i, r, n, null), l = Promise.all(a.map((async n => {
+                    if (n.matches && n.match && n.controller) {
+                        let r = (await Z("loader", t, lP(e.history, n.path, n.controller.signal), [n.match], n.matches, n.key))[n.match.route.id];
+                        return {[n.key]: r}
+                    }
+                    return Promise.resolve({[n.key]: {type: lO.error, error: vP(404, {pathname: n.path})}})
+                }))), c = await s, u = (await l).reduce(((e, t) => Object.assign(e, t)), {});
+                return await Promise.all([CP(n, c, i.signal, o, t.loaderData), IP(n, u, a)]), {
+                    loaderResults: c,
+                    fetcherResults: u
                 }
             }
 
-            function q() {
-                C = !0, I.push(...ie()), N.forEach(((e, t) => {
-                    D.has(t) && (A.push(t), X(t))
+            function X() {
+                R = !0, T.push(...de()), V.forEach(((e, t) => {
+                    L.has(t) && j.add(t), re(t)
                 }))
             }
 
-            function K(e, t, n) {
-                void 0 === n && (n = {}), x.fetchers.set(e, t), G({fetchers: new Map(x.fetchers)}, {flushSync: !0 === (n && n.flushSync)})
+            function J(e, t, n) {
+                void 0 === n && (n = {}), S.fetchers.set(e, t), W({fetchers: new Map(S.fetchers)}, {flushSync: !0 === (n && n.flushSync)})
             }
 
-            function Y(e, t, n, r) {
+            function ee(e, t, n, r) {
                 void 0 === r && (r = {});
-                let a = WO(x.matches, t);
-                Q(e), G({
+                let a = mP(S.matches, t);
+                ne(e), W({
                     errors: {[a.route.id]: n},
-                    fetchers: new Map(x.fetchers)
+                    fetchers: new Map(S.fetchers)
                 }, {flushSync: !0 === (r && r.flushSync)})
             }
 
-            function Z(e) {
-                return c.v7_fetcherPersist && (M.set(e, (M.get(e) || 0) + 1), F.has(e) && F.delete(e)), x.fetchers.get(e) || SO
-            }
-
-            function Q(e) {
-                let t = x.fetchers.get(e);
-                !D.has(e) || t && "loading" === t.state && j.has(e) || X(e), N.delete(e), j.delete(e), L.delete(e), F.delete(e), x.fetchers.delete(e)
-            }
-
-            function X(e) {
-                let t = D.get(e);
-                VS(t, "Expected fetch controller: " + e), t.abort(), D.delete(e)
-            }
-
-            function J(e) {
-                for (let t of e) {
-                    let e = cP(Z(t).data);
-                    x.fetchers.set(t, e)
-                }
-            }
-
-            function ee() {
-                let e = [], t = !1;
-                for (let n of L) {
-                    let r = x.fetchers.get(n);
-                    VS(r, "Expected fetcher: " + n), "loading" === r.state && (L.delete(n), e.push(n), t = !0)
-                }
-                return J(e), t
-            }
-
             function te(e) {
-                let t = [];
-                for (let [n, r] of j) if (r < e) {
-                    let e = x.fetchers.get(n);
-                    VS(e, "Expected fetcher: " + n), "loading" === e.state && (X(n), j.delete(n), t.push(n))
-                }
-                return J(t), t.length > 0
+                return U.set(e, (U.get(e) || 0) + 1), G.has(e) && G.delete(e), S.fetchers.get(e) || GO
             }
 
             function ne(e) {
-                x.blockers.delete(e), V.delete(e)
+                let t = S.fetchers.get(e);
+                !L.has(e) || t && "loading" === t.state && F.has(e) || re(e), V.delete(e), F.delete(e), z.delete(e), p.v7_fetcherPersist && G.delete(e), j.delete(e), S.fetchers.delete(e)
             }
 
-            function re(e, t) {
-                let n = x.blockers.get(e) || OO;
-                VS("unblocked" === n.state && "blocked" === t.state || "blocked" === n.state && "blocked" === t.state || "blocked" === n.state && "proceeding" === t.state || "blocked" === n.state && "unblocked" === t.state || "proceeding" === n.state && "unblocked" === t.state, "Invalid blocker state transition: " + n.state + " -> " + t.state);
-                let r = new Map(x.blockers);
-                r.set(e, t), G({blockers: r})
+            function re(e) {
+                let t = L.get(e);
+                t && (t.abort(), L.delete(e))
             }
 
             function ae(e) {
+                for (let t of e) {
+                    let e = NP(te(t).data);
+                    S.fetchers.set(t, e)
+                }
+            }
+
+            function ie() {
+                let e = [], t = !1;
+                for (let n of z) {
+                    let r = S.fetchers.get(n);
+                    tO(r, "Expected fetcher: " + n), "loading" === r.state && (z.delete(n), e.push(n), t = !0)
+                }
+                return ae(e), t
+            }
+
+            function oe(e) {
+                let t = [];
+                for (let [n, r] of F) if (r < e) {
+                    let e = S.fetchers.get(n);
+                    tO(e, "Expected fetcher: " + n), "loading" === e.state && (re(n), F.delete(n), t.push(n))
+                }
+                return ae(t), t.length > 0
+            }
+
+            function se(e) {
+                S.blockers.delete(e), $.delete(e)
+            }
+
+            function le(e, t) {
+                let n = S.blockers.get(e) || BO;
+                tO("unblocked" === n.state && "blocked" === t.state || "blocked" === n.state && "blocked" === t.state || "blocked" === n.state && "proceeding" === t.state || "blocked" === n.state && "unblocked" === t.state || "proceeding" === n.state && "unblocked" === t.state, "Invalid blocker state transition: " + n.state + " -> " + t.state);
+                let r = new Map(S.blockers);
+                r.set(e, t), W({blockers: r})
+            }
+
+            function ce(e) {
                 let {currentLocation: t, nextLocation: n, historyAction: r} = e;
-                if (0 === V.size) return;
-                V.size > 1 && US(!1, "A router only supports one blocker at a time");
-                let a = Array.from(V.entries()), [i, o] = a[a.length - 1], s = x.blockers.get(i);
+                if (0 === $.size) return;
+                $.size > 1 && nO(!1, "A router only supports one blocker at a time");
+                let a = Array.from($.entries()), [i, o] = a[a.length - 1], s = S.blockers.get(i);
                 return s && "proceeding" === s.state ? void 0 : o({
                     currentLocation: t,
                     nextLocation: n,
@@ -39871,153 +40282,208 @@
                 }) ? i : void 0
             }
 
-            function ie(e) {
+            function ue(e) {
+                let t = vP(404, {pathname: e}), n = i || c, {matches: r, route: a} = gP(n);
+                return de(), {notFoundMatches: r, route: a, error: t}
+            }
+
+            function de(e) {
                 let t = [];
-                return z.forEach(((n, r) => {
-                    e && !e(r) || (n.cancel(), t.push(r), z.delete(r))
+                return B.forEach(((n, r) => {
+                    e && !e(r) || (n.cancel(), t.push(r), B.delete(r))
                 })), t
             }
 
-            function oe(e, t) {
-                if (p) {
-                    let n = p(e, t.map((e => function (e, t) {
+            function he(e, t) {
+                if (v) {
+                    let n = v(e, t.map((e => function (e, t) {
                         let {route: n, pathname: r, params: a} = e;
                         return {id: n.id, pathname: r, params: a, data: t[n.id], handle: n.handle}
-                    }(e, x.loaderData))));
+                    }(e, S.loaderData))));
                     return n || e.key
                 }
                 return e.key
             }
 
-            function se(e, t) {
-                if (h) {
-                    let n = oe(e, t), r = h[n];
+            function pe(e, t) {
+                if (g) {
+                    let n = he(e, t), r = g[n];
                     if ("number" === typeof r) return r
                 }
                 return null
             }
 
-            return y = {
+            function fe(e, t, n) {
+                if (h) {
+                    if (!e) {
+                        return {active: !0, matches: hO(t, n, u, !0) || []}
+                    }
+                    if (Object.keys(e[0].params).length > 0) {
+                        return {active: !0, matches: hO(t, n, u, !0)}
+                    }
+                }
+                return {active: !1, matches: null}
+            }
+
+            async function me(e, t, n, r) {
+                if (!h) return {type: "success", matches: e};
+                let o = e;
+                for (; ;) {
+                    let e = null == i, d = i || c, p = l;
+                    try {
+                        await h({
+                            signal: n, path: t, matches: o, fetcherKey: r, patch: (e, t) => {
+                                n.aborted || tP(e, t, d, p, a)
+                            }
+                        })
+                    } catch (s) {
+                        return {type: "error", error: s, partialMatches: o}
+                    } finally {
+                        e && !n.aborted && (c = [...c])
+                    }
+                    if (n.aborted) return {type: "aborted"};
+                    let f = dO(d, t, u);
+                    if (f) return {type: "success", matches: f};
+                    let m = hO(d, t, u, !0);
+                    if (!m || o.length === m.length && o.every(((e, t) => e.route.id === m[t].route.id))) return {
+                        type: "success",
+                        matches: null
+                    };
+                    o = m
+                }
+            }
+
+            return s = {
                 get basename() {
-                    return l
+                    return u
+                },
+                get future() {
+                    return p
                 },
                 get state() {
-                    return x
+                    return S
                 },
                 get routes() {
-                    return s
+                    return c
                 },
                 get window() {
                     return t
                 },
                 initialize: function () {
-                    if (u = e.history.listen((t => {
+                    if (f = e.history.listen((t => {
                         let {action: n, location: r, delta: a} = t;
-                        if (U) return void (U = !1);
-                        US(0 === V.size || null != a, "You are trying to use a blocker on a POP navigation to a location that was not created by @remix-run/router. This will fail silently in production. This can happen if you are navigating outside the router via `window.history.pushState`/`window.location.hash` instead of using router navigation APIs.  This can also happen if you are using createHashRouter and the user manually changes the URL.");
-                        let i = ae({currentLocation: x.location, nextLocation: r, historyAction: n});
-                        return i && null != a ? (U = !0, e.history.go(-1 * a), void re(i, {
-                            state: "blocked",
-                            location: r,
-                            proceed() {
-                                re(i, {
-                                    state: "proceeding",
-                                    proceed: void 0,
-                                    reset: void 0,
-                                    location: r
-                                }), e.history.go(a)
-                            },
-                            reset() {
-                                let e = new Map(x.blockers);
-                                e.set(i, OO), G({blockers: e})
-                            }
-                        })) : $(n, r)
+                        if (E) return E(), void (E = void 0);
+                        nO(0 === $.size || null != a, "You are trying to use a blocker on a POP navigation to a location that was not created by @remix-run/router. This will fail silently in production. This can happen if you are navigating outside the router via `window.history.pushState`/`window.location.hash` instead of using router navigation APIs.  This can also happen if you are using createHashRouter and the user manually changes the URL.");
+                        let i = ce({currentLocation: S.location, nextLocation: r, historyAction: n});
+                        if (i && null != a) {
+                            let t = new Promise((e => {
+                                E = e
+                            }));
+                            return e.history.go(-1 * a), void le(i, {
+                                state: "blocked", location: r, proceed() {
+                                    le(i, {
+                                        state: "proceeding",
+                                        proceed: void 0,
+                                        reset: void 0,
+                                        location: r
+                                    }), t.then((() => e.history.go(a)))
+                                }, reset() {
+                                    let e = new Map(S.blockers);
+                                    e.set(i, BO), W({blockers: e})
+                                }
+                            })
+                        }
+                        return q(n, r)
                     })), n) {
                         !function (e, t) {
                             try {
-                                let n = e.sessionStorage.getItem(IO);
+                                let n = e.sessionStorage.getItem(HO);
                                 if (n) {
                                     let e = JSON.parse(n);
                                     for (let [n, r] of Object.entries(e || {})) r && Array.isArray(r) && t.set(n, new Set(r || []))
                                 }
                             } catch (n) {
                             }
-                        }(t, S);
+                        }(t, I);
                         let e = () => function (e, t) {
                             if (t.size > 0) {
                                 let r = {};
                                 for (let [e, n] of t) r[e] = [...n];
                                 try {
-                                    e.sessionStorage.setItem(IO, JSON.stringify(r))
+                                    e.sessionStorage.setItem(HO, JSON.stringify(r))
                                 } catch (n) {
-                                    US(!1, "Failed to save applied view transitions in sessionStorage (" + n + ").")
+                                    nO(!1, "Failed to save applied view transitions in sessionStorage (" + n + ").")
                                 }
                             }
-                        }(t, S);
-                        t.addEventListener("pagehide", e), O = () => t.removeEventListener("pagehide", e)
+                        }(t, I);
+                        t.addEventListener("pagehide", e), A = () => t.removeEventListener("pagehide", e)
                     }
-                    return x.initialized || $(FS.Pop, x.location), y
+                    return S.initialized || q(JS.Pop, S.location, {initialHydration: !0}), s
                 },
                 subscribe: function (e) {
-                    return d.add(e), () => d.delete(e)
+                    return m.add(e), () => m.delete(e)
                 },
                 enableScrollRestoration: function (e, t, n) {
-                    if (h = e, f = t, p = n || null, !m && x.navigation === EO) {
-                        m = !0;
-                        let e = se(x.location, x.matches);
-                        null != e && G({restoreScrollPosition: e})
+                    if (g = e, y = t, v = n || null, !b && S.navigation === UO) {
+                        b = !0;
+                        let e = pe(S.location, S.matches);
+                        null != e && W({restoreScrollPosition: e})
                     }
                     return () => {
-                        h = null, f = null, p = null
+                        g = null, y = null, v = null
                     }
                 },
                 navigate: async function t(n, r) {
                     if ("number" === typeof n) return void e.history.go(n);
-                    let a = DO(x.location, x.matches, l, c.v7_prependBasename, n, null == r ? void 0 : r.fromRouteId, null == r ? void 0 : r.relative), {
+                    let a = KO(S.location, S.matches, u, p.v7_prependBasename, n, p.v7_relativeSplatPath, null == r ? void 0 : r.fromRouteId, null == r ? void 0 : r.relative), {
                         path: i,
                         submission: o,
                         error: s
-                    } = RO(c.v7_normalizeFormMethod, !1, a, r), u = x.location, d = BS(x.location, i, r && r.state);
-                    d = MS({}, d, e.history.encodeLocation(d));
-                    let h = r && null != r.replace ? r.replace : void 0, p = FS.Push;
-                    !0 === h ? p = FS.Replace : !1 === h || null != o && tP(o.formMethod) && o.formAction === x.location.pathname + x.location.search && (p = FS.Replace);
+                    } = YO(p.v7_normalizeFormMethod, !1, a, r), l = S.location, c = aO(S.location, i, r && r.state);
+                    c = XS({}, c, e.history.encodeLocation(c));
+                    let d = r && null != r.replace ? r.replace : void 0, h = JS.Push;
+                    !0 === d ? h = JS.Replace : !1 === d || null != o && PP(o.formMethod) && o.formAction === S.location.pathname + S.location.search && (h = JS.Replace);
                     let f = r && "preventScrollReset" in r ? !0 === r.preventScrollReset : void 0,
-                        m = !0 === (r && r.unstable_flushSync),
-                        g = ae({currentLocation: u, nextLocation: d, historyAction: p});
-                    if (!g) return await $(p, d, {
+                        m = !0 === (r && r.flushSync), g = ce({currentLocation: l, nextLocation: c, historyAction: h});
+                    if (!g) return await q(h, c, {
                         submission: o,
                         pendingError: s,
                         preventScrollReset: f,
                         replace: r && r.replace,
-                        enableViewTransition: r && r.unstable_viewTransition,
+                        enableViewTransition: r && r.viewTransition,
                         flushSync: m
                     });
-                    re(g, {
-                        state: "blocked", location: d, proceed() {
-                            re(g, {state: "proceeding", proceed: void 0, reset: void 0, location: d}), t(n, r)
+                    le(g, {
+                        state: "blocked", location: c, proceed() {
+                            le(g, {state: "proceeding", proceed: void 0, reset: void 0, location: c}), t(n, r)
                         }, reset() {
-                            let e = new Map(x.blockers);
-                            e.set(g, OO), G({blockers: e})
+                            let e = new Map(S.blockers);
+                            e.set(g, BO), W({blockers: e})
                         }
                     })
                 },
-                fetch: function (t, n, u, d) {
+                fetch: function (t, n, a, o) {
                     if (r) throw new Error("router.fetch() was called during the server render, but it shouldn't be. You are likely calling a useFetcher() method in the body of your component. Try moving it to a useEffect or a callback.");
-                    D.has(t) && X(t);
-                    let h = !0 === (d && d.unstable_flushSync), p = i || s,
-                        f = DO(x.location, x.matches, l, c.v7_prependBasename, u, n, null == d ? void 0 : d.relative),
-                        m = ZS(p, f, l);
-                    if (!m) return void Y(t, n, qO(404, {pathname: f}), {flushSync: h});
-                    let {path: g, submission: v, error: y} = RO(c.v7_normalizeFormMethod, !0, f, d);
-                    if (y) return void Y(t, n, y, {flushSync: h});
-                    let _ = iP(m, g);
-                    k = !0 === (d && d.preventScrollReset), v && tP(v.formMethod) ? async function (t, n, r, c, u, d, h) {
-                        if (q(), N.delete(t), !c.route.action && !c.route.lazy) {
-                            let e = qO(405, {method: h.formMethod, pathname: r, routeId: n});
-                            return void Y(t, n, e, {flushSync: d})
+                    re(t);
+                    let s = !0 === (o && o.flushSync), l = i || c,
+                        d = KO(S.location, S.matches, u, p.v7_prependBasename, a, p.v7_relativeSplatPath, n, null == o ? void 0 : o.relative),
+                        h = dO(l, d, u), f = fe(h, l, d);
+                    if (f.active && f.matches && (h = f.matches), !h) return void ee(t, n, vP(404, {pathname: d}), {flushSync: s});
+                    let {path: m, submission: g, error: v} = YO(p.v7_normalizeFormMethod, !0, d, o);
+                    if (v) return void ee(t, n, v, {flushSync: s});
+                    let y = RP(h, m), b = !0 === (o && o.preventScrollReset);
+                    g && PP(g.formMethod) ? async function (t, n, r, a, o, s, l, d, h) {
+                        function f(e) {
+                            if (!e.route.action && !e.route.lazy) {
+                                let e = vP(405, {method: h.formMethod, pathname: r, routeId: n});
+                                return ee(t, n, e, {flushSync: l}), !0
+                            }
+                            return !1
                         }
-                        let p = x.fetchers.get(t);
-                        K(t, function (e, t) {
+
+                        if (X(), V.delete(t), !s && f(a)) return;
+                        let m = S.fetchers.get(t);
+                        J(t, function (e, t) {
                             let n = {
                                 state: "submitting",
                                 formMethod: e.formMethod,
@@ -40029,124 +40495,155 @@
                                 data: t ? t.data : void 0
                             };
                             return n
-                        }(h, p), {flushSync: d});
-                        let f = new AbortController, m = zO(e.history, r, f.signal, h);
-                        D.set(t, f);
-                        let g = R, v = await FO("action", m, c, u, o, a, l);
-                        if (m.signal.aborted) return void (D.get(t) === f && D.delete(t));
-                        if (F.has(t)) return void K(t, cP(void 0));
-                        if (XO(v)) return D.delete(t), T > g ? void K(t, cP(void 0)) : (L.add(t), K(t, lP(h)), W(x, v, {fetcherSubmission: h}));
-                        if (QO(v)) return void Y(t, n, v.error);
-                        if (ZO(v)) throw qO(400, {type: "defer-action"});
-                        let y = x.navigation.location || x.location, _ = zO(e.history, y, f.signal), k = i || s,
-                            E = "idle" !== x.navigation.state ? ZS(k, x.navigation.location, l) : x.matches;
-                        VS(E, "Didn't find any matches after fetcher action");
-                        let S = ++R;
-                        j.set(t, S);
-                        let O = lP(h, v.data);
-                        x.fetchers.set(t, O);
-                        let [P, M] = jO(e.history, x, E, h, y, C, I, A, F, N, L, k, l, {[c.route.id]: v.data}, void 0);
-                        M.filter((e => e.key !== t)).forEach((e => {
-                            let t = e.key, n = x.fetchers.get(t), r = lP(void 0, n ? n.data : void 0);
-                            x.fetchers.set(t, r), D.has(t) && X(t), e.controller && D.set(t, e.controller)
-                        })), G({fetchers: new Map(x.fetchers)});
-                        let V = () => M.forEach((e => X(e.key)));
-                        f.signal.addEventListener("abort", V);
-                        let {results: U, loaderResults: $, fetcherResults: Z} = await H(x.matches, E, P, M, _);
-                        if (f.signal.aborted) return;
-                        f.signal.removeEventListener("abort", V), j.delete(t), D.delete(t), M.forEach((e => D.delete(e.key)));
-                        let Q = KO(U);
-                        if (Q) {
-                            if (Q.idx >= P.length) {
-                                let e = M[Q.idx - P.length].key;
-                                L.add(e)
-                            }
-                            return W(x, Q.result)
+                        }(h, m), {flushSync: l});
+                        let g = new AbortController, v = lP(e.history, r, g.signal, h);
+                        if (s) {
+                            let e = await me(o, new URL(v.url).pathname, v.signal, t);
+                            if ("aborted" === e.type) return;
+                            if ("error" === e.type) return void ee(t, n, e.error, {flushSync: l});
+                            if (!e.matches) return void ee(t, n, vP(404, {pathname: r}), {flushSync: l});
+                            if (f(a = RP(o = e.matches, r))) return
                         }
-                        let {loaderData: J, errors: ee} = BO(x, x.matches, P, $, void 0, M, Z, z);
-                        if (x.fetchers.has(t)) {
-                            let e = cP(v.data);
-                            x.fetchers.set(t, e)
+                        L.set(t, g);
+                        let y = N, b = await Z("action", S, v, [a], o, t), _ = b[a.route.id];
+                        if (v.signal.aborted) return void (L.get(t) === g && L.delete(t));
+                        if (p.v7_fetcherPersist && G.has(t)) {
+                            if (kP(_) || wP(_)) return void J(t, NP(void 0))
+                        } else {
+                            if (kP(_)) return L.delete(t), M > y ? void J(t, NP(void 0)) : (z.add(t), J(t, LP(h)), Y(v, _, !1, {
+                                fetcherSubmission: h,
+                                preventScrollReset: d
+                            }));
+                            if (wP(_)) return void ee(t, n, _.error)
                         }
-                        te(S), "loading" === x.navigation.state && S > T ? (VS(w, "Expected pending action"), b && b.abort(), B(x.navigation.location, {
-                            matches: E,
-                            loaderData: J,
-                            errors: ee,
-                            fetchers: new Map(x.fetchers)
-                        })) : (G({
-                            errors: ee,
-                            loaderData: $O(x.loaderData, J, E, ee),
-                            fetchers: new Map(x.fetchers)
-                        }), C = !1)
-                    }(t, n, g, _, m, h, v) : (N.set(t, {routeId: n, path: g}), async function (t, n, r, i, s, c, u) {
-                        let d = x.fetchers.get(t);
-                        K(t, lP(u, d ? d.data : void 0), {flushSync: c});
-                        let h = new AbortController, p = zO(e.history, r, h.signal);
-                        D.set(t, h);
-                        let f = R, m = await FO("loader", p, i, s, o, a, l);
-                        ZO(m) && (m = await rP(m, p.signal, !0) || m);
-                        D.get(t) === h && D.delete(t);
-                        if (p.signal.aborted) return;
-                        if (F.has(t)) return void K(t, cP(void 0));
-                        if (XO(m)) return T > f ? void K(t, cP(void 0)) : (L.add(t), void await W(x, m));
-                        if (QO(m)) return void Y(t, n, m.error);
-                        VS(!ZO(m), "Unhandled fetcher deferred data"), K(t, cP(m.data))
-                    }(t, n, g, _, m, h, v))
+                        if (xP(_)) throw vP(400, {type: "defer-action"});
+                        let x = S.navigation.location || S.location, w = lP(e.history, x, g.signal), E = i || c,
+                            P = "idle" !== S.navigation.state ? dO(E, S.navigation.location, u) : S.matches;
+                        tO(P, "Didn't find any matches after fetcher action");
+                        let C = ++N;
+                        F.set(t, C);
+                        let I = LP(h, _.data);
+                        S.fetchers.set(t, I);
+                        let [A, D] = QO(e.history, S, P, h, x, !1, p.v7_skipActionErrorRevalidation, R, T, j, G, V, z, E, u, [a.route.id, _]);
+                        D.filter((e => e.key !== t)).forEach((e => {
+                            let t = e.key, n = S.fetchers.get(t), r = LP(void 0, n ? n.data : void 0);
+                            S.fetchers.set(t, r), re(t), e.controller && L.set(t, e.controller)
+                        })), W({fetchers: new Map(S.fetchers)});
+                        let U = () => D.forEach((e => re(e.key)));
+                        g.signal.addEventListener("abort", U);
+                        let {loaderResults: $, fetcherResults: q} = await Q(S, P, A, D, w);
+                        if (g.signal.aborted) return;
+                        g.signal.removeEventListener("abort", U), F.delete(t), L.delete(t), D.forEach((e => L.delete(e.key)));
+                        let K = yP($);
+                        if (K) return Y(w, K.result, !1, {preventScrollReset: d});
+                        if (K = yP(q), K) return z.add(K.key), Y(w, K.result, !1, {preventScrollReset: d});
+                        let {loaderData: te, errors: ne} = hP(S, P, $, void 0, D, q, B);
+                        if (S.fetchers.has(t)) {
+                            let e = NP(_.data);
+                            S.fetchers.set(t, e)
+                        }
+                        oe(C), "loading" === S.navigation.state && C > M ? (tO(O, "Expected pending action"), k && k.abort(), H(S.navigation.location, {
+                            matches: P,
+                            loaderData: te,
+                            errors: ne,
+                            fetchers: new Map(S.fetchers)
+                        })) : (W({
+                            errors: ne,
+                            loaderData: pP(S.loaderData, te, P, ne),
+                            fetchers: new Map(S.fetchers)
+                        }), R = !1)
+                    }(t, n, m, y, h, f.active, s, b, g) : (V.set(t, {
+                        routeId: n,
+                        path: m
+                    }), async function (t, n, r, a, i, o, s, l, c) {
+                        let u = S.fetchers.get(t);
+                        J(t, LP(c, u ? u.data : void 0), {flushSync: s});
+                        let d = new AbortController, h = lP(e.history, r, d.signal);
+                        if (o) {
+                            let e = await me(i, new URL(h.url).pathname, h.signal, t);
+                            if ("aborted" === e.type) return;
+                            if ("error" === e.type) return void ee(t, n, e.error, {flushSync: s});
+                            if (!e.matches) return void ee(t, n, vP(404, {pathname: r}), {flushSync: s});
+                            a = RP(i = e.matches, r)
+                        }
+                        L.set(t, d);
+                        let p = N, f = await Z("loader", S, h, [a], i, t), m = f[a.route.id];
+                        xP(m) && (m = await AP(m, h.signal, !0) || m);
+                        L.get(t) === d && L.delete(t);
+                        if (h.signal.aborted) return;
+                        if (G.has(t)) return void J(t, NP(void 0));
+                        if (kP(m)) return M > p ? void J(t, NP(void 0)) : (z.add(t), void await Y(h, m, !1, {preventScrollReset: l}));
+                        if (wP(m)) return void ee(t, n, m.error);
+                        tO(!xP(m), "Unhandled fetcher deferred data"), J(t, NP(m.data))
+                    }(t, n, m, y, h, f.active, s, b, g))
                 },
                 revalidate: function () {
-                    q(), G({revalidation: "loading"}), "submitting" !== x.navigation.state && ("idle" !== x.navigation.state ? $(w || x.historyAction, x.navigation.location, {overrideNavigation: x.navigation}) : $(x.historyAction, x.location, {startUninterruptedRevalidation: !0}))
+                    X(), W({revalidation: "loading"}), "submitting" !== S.navigation.state && ("idle" !== S.navigation.state ? q(O || S.historyAction, S.navigation.location, {
+                        overrideNavigation: S.navigation,
+                        enableViewTransition: !0 === C
+                    }) : q(S.historyAction, S.location, {startUninterruptedRevalidation: !0}))
                 },
                 createHref: t => e.history.createHref(t),
                 encodeLocation: t => e.history.encodeLocation(t),
-                getFetcher: Z,
+                getFetcher: te,
                 deleteFetcher: function (e) {
-                    if (c.v7_fetcherPersist) {
-                        let t = (M.get(e) || 0) - 1;
-                        t <= 0 ? (M.delete(e), F.add(e)) : M.set(e, t)
-                    } else Q(e);
-                    G({fetchers: new Map(x.fetchers)})
+                    let t = (U.get(e) || 0) - 1;
+                    t <= 0 ? (U.delete(e), G.add(e), p.v7_fetcherPersist || ne(e)) : U.set(e, t), W({fetchers: new Map(S.fetchers)})
                 },
                 dispose: function () {
-                    u && u(), O && O(), d.clear(), b && b.abort(), x.fetchers.forEach(((e, t) => Q(t))), x.blockers.forEach(((e, t) => ne(t)))
+                    f && f(), A && A(), m.clear(), k && k.abort(), S.fetchers.forEach(((e, t) => ne(t))), S.blockers.forEach(((e, t) => se(t)))
                 },
                 getBlocker: function (e, t) {
-                    let n = x.blockers.get(e) || OO;
-                    return V.get(e) !== t && V.set(e, t), n
+                    let n = S.blockers.get(e) || BO;
+                    return $.get(e) !== t && $.set(e, t), n
                 },
-                deleteBlocker: ne,
-                _internalFetchControllers: D,
-                _internalActiveDeferreds: z,
+                deleteBlocker: se,
+                patchRoutes: function (e, t) {
+                    let n = null == i;
+                    tP(e, t, i || c, l, a), n && (c = [...c], W({}))
+                },
+                _internalFetchControllers: L,
+                _internalActiveDeferreds: B,
                 _internalSetRoutes: function (e) {
-                    o = {}, i = YS(e, a, void 0, o)
+                    l = {}, i = uO(e, a, void 0, l)
                 }
-            }, y
+            }, s
         }
 
         Symbol("deferred");
 
-        function DO(e, t, n, r, a, i, o) {
-            let s, l;
-            if (i) {
-                s = [];
-                for (let e of t) if (s.push(e), e.route.id === i) {
-                    l = e;
+        function KO(e, t, n, r, a, i, o, s) {
+            let l, c;
+            if (o) {
+                l = [];
+                for (let e of t) if (l.push(e), e.route.id === o) {
+                    c = e;
                     break
                 }
-            } else s = t, l = t[t.length - 1];
-            let c = cO(a || ".", lO(s).map((e => e.pathnameBase)), oO(e.pathname, n) || e.pathname, "path" === o);
-            return null == a && (c.search = e.search, c.hash = e.hash), null != a && "" !== a && "." !== a || !l || !l.route.index || aP(c.search) || (c.search = c.search ? c.search.replace(/^\?/, "?index&") : "?index"), r && "/" !== n && (c.pathname = "/" === c.pathname ? n : uO([n, c.pathname])), $S(c)
+            } else l = t, c = t[t.length - 1];
+            let u = OO(a || ".", SO(l, i), wO(e.pathname, n) || e.pathname, "path" === s);
+            if (null == a && (u.search = e.search, u.hash = e.hash), (null == a || "" === a || "." === a) && c) {
+                let e = DP(u.search);
+                if (c.route.index && !e) u.search = u.search ? u.search.replace(/^\?/, "?index&") : "?index"; else if (!c.route.index && e) {
+                    let e = new URLSearchParams(u.search), t = e.getAll("index");
+                    e.delete("index"), t.filter((e => e)).forEach((t => e.append("index", t)));
+                    let n = e.toString();
+                    u.search = n ? "?" + n : ""
+                }
+            }
+            return r && "/" !== n && (u.pathname = "/" === u.pathname ? n : PO([n, u.pathname])), iO(u)
         }
 
-        function RO(e, t, n, r) {
+        function YO(e, t, n, r) {
             if (!r || !function (e) {
                 return null != e && ("formData" in e && null != e.formData || "body" in e && void 0 !== e.body)
             }(r)) return {path: n};
-            if (r.formMethod && !eP(r.formMethod)) return {path: n, error: qO(405, {method: r.formMethod})};
-            let a, i, o = () => ({path: n, error: qO(400, {type: "invalid-body"})}), s = r.formMethod || "get",
-                l = e ? s.toUpperCase() : s.toLowerCase(), c = YO(n);
+            if (r.formMethod && !OP(r.formMethod)) return {path: n, error: vP(405, {method: r.formMethod})};
+            let a, i, o = () => ({path: n, error: vP(400, {type: "invalid-body"})}), s = r.formMethod || "get",
+                l = e ? s.toUpperCase() : s.toLowerCase(), c = bP(n);
             if (void 0 !== r.body) {
                 if ("text/plain" === r.formEncType) {
-                    if (!tP(l)) return o();
+                    if (!PP(l)) return o();
                     let e = "string" === typeof r.body ? r.body : r.body instanceof FormData || r.body instanceof URLSearchParams ? Array.from(r.body.entries()).reduce(((e, t) => {
                         let [n, r] = t;
                         return "" + e + n + "=" + r + "\n"
@@ -40164,7 +40661,7 @@
                     }
                 }
                 if ("application/json" === r.formEncType) {
-                    if (!tP(l)) return o();
+                    if (!PP(l)) return o();
                     try {
                         let e = "string" === typeof r.body ? JSON.parse(r.body) : r.body;
                         return {
@@ -40183,8 +40680,8 @@
                     }
                 }
             }
-            if (VS("function" === typeof FormData, "FormData is not available in this environment"), r.formData) a = VO(r.formData), i = r.formData; else if (r.body instanceof FormData) a = VO(r.body), i = r.body; else if (r.body instanceof URLSearchParams) a = r.body, i = UO(a); else if (null == r.body) a = new URLSearchParams, i = new FormData; else try {
-                a = new URLSearchParams(r.body), i = UO(a)
+            if (tO("function" === typeof FormData, "FormData is not available in this environment"), r.formData) a = cP(r.formData), i = r.formData; else if (r.body instanceof FormData) a = cP(r.body), i = r.body; else if (r.body instanceof URLSearchParams) a = r.body, i = uP(a); else if (null == r.body) a = new URLSearchParams, i = new FormData; else try {
+                a = new URLSearchParams(r.body), i = uP(a)
             } catch (h) {
                 return o()
             }
@@ -40196,47 +40693,49 @@
                 json: void 0,
                 text: void 0
             };
-            if (tP(u.formMethod)) return {path: n, submission: u};
-            let d = WS(n);
-            return t && d.search && aP(d.search) && a.append("index", ""), d.search = "?" + a, {
-                path: $S(d),
+            if (PP(u.formMethod)) return {path: n, submission: u};
+            let d = oO(n);
+            return t && d.search && DP(d.search) && a.append("index", ""), d.search = "?" + a, {
+                path: iO(d),
                 submission: u
             }
         }
 
-        function TO(e, t) {
-            let n = e;
-            if (t) {
-                let r = e.findIndex((e => e.route.id === t));
-                r >= 0 && (n = e.slice(0, r))
-            }
-            return n
+        function ZO(e, t, n) {
+            void 0 === n && (n = !1);
+            let r = e.findIndex((e => e.route.id === t));
+            return r >= 0 ? e.slice(0, n ? r + 1 : r) : e
         }
 
-        function jO(e, t, n, r, a, i, o, s, l, c, u, d, h, p, f) {
-            let m = f ? Object.values(f)[0] : p ? Object.values(p)[0] : void 0, g = e.createURL(t.location),
-                v = e.createURL(a), y = f ? Object.keys(f)[0] : void 0, b = TO(n, y).filter(((e, n) => {
-                    if (e.route.lazy) return !0;
-                    if (null == e.route.loader) return !1;
-                    if (function (e, t, n) {
-                        let r = !t || n.route.id !== t.route.id, a = void 0 === e[n.route.id];
-                        return r || a
-                    }(t.loaderData, t.matches[n], e) || o.some((t => t === e.route.id))) return !0;
-                    let a = t.matches[n], s = e;
-                    return NO(e, MS({
-                        currentUrl: g,
-                        currentParams: a.params,
-                        nextUrl: v,
-                        nextParams: s.params
-                    }, r, {
-                        actionResult: m,
-                        defaultShouldRevalidate: i || g.pathname + g.search === v.pathname + v.search || g.search !== v.search || LO(a, s)
-                    }))
-                })), _ = [];
-            return c.forEach(((e, a) => {
-                if (!n.some((t => t.route.id === e.routeId)) || l.has(a)) return;
-                let o = ZS(d, e.path, h);
-                if (!o) return void _.push({
+        function QO(e, t, n, r, a, i, o, s, l, c, u, d, h, p, f, m) {
+            let g = m ? wP(m[1]) ? m[1].error : m[1].data : void 0, v = e.createURL(t.location), y = e.createURL(a),
+                b = n;
+            i && t.errors ? b = ZO(n, Object.keys(t.errors)[0], !0) : m && wP(m[1]) && (b = ZO(n, m[0]));
+            let _ = m ? m[1].statusCode : void 0, x = o && _ && _ >= 400, w = b.filter(((e, n) => {
+                let {route: a} = e;
+                if (a.lazy) return !0;
+                if (null == a.loader) return !1;
+                if (i) return XO(a, t.loaderData, t.errors);
+                if (function (e, t, n) {
+                    let r = !t || n.route.id !== t.route.id, a = void 0 === e[n.route.id];
+                    return r || a
+                }(t.loaderData, t.matches[n], e) || l.some((t => t === e.route.id))) return !0;
+                let o = t.matches[n], c = e;
+                return eP(e, XS({
+                    currentUrl: v,
+                    currentParams: o.params,
+                    nextUrl: y,
+                    nextParams: c.params
+                }, r, {
+                    actionResult: g,
+                    actionStatus: _,
+                    defaultShouldRevalidate: !x && (s || v.pathname + v.search === y.pathname + y.search || v.search !== y.search || JO(o, c))
+                }))
+            })), k = [];
+            return d.forEach(((e, a) => {
+                if (i || !n.some((t => t.route.id === e.routeId)) || u.has(a)) return;
+                let o = dO(p, e.path, f);
+                if (!o) return void k.push({
                     key: a,
                     routeId: e.routeId,
                     path: e.path,
@@ -40244,29 +40743,36 @@
                     match: null,
                     controller: null
                 });
-                let c = t.fetchers.get(a), p = iP(o, e.path), f = !1;
-                f = !u.has(a) && (!!s.includes(a) || (c && "idle" !== c.state && void 0 === c.data ? i : NO(p, MS({
-                    currentUrl: g,
+                let l = t.fetchers.get(a), d = RP(o, e.path), m = !1;
+                h.has(a) ? m = !1 : c.has(a) ? (c.delete(a), m = !0) : m = l && "idle" !== l.state && void 0 === l.data ? s : eP(d, XS({
+                    currentUrl: v,
                     currentParams: t.matches[t.matches.length - 1].params,
-                    nextUrl: v,
+                    nextUrl: y,
                     nextParams: n[n.length - 1].params
-                }, r, {actionResult: m, defaultShouldRevalidate: i})))), f && _.push({
+                }, r, {actionResult: g, actionStatus: _, defaultShouldRevalidate: !x && s})), m && k.push({
                     key: a,
                     routeId: e.routeId,
                     path: e.path,
                     matches: o,
-                    match: p,
+                    match: d,
                     controller: new AbortController
                 })
-            })), [b, _]
+            })), [w, k]
         }
 
-        function LO(e, t) {
+        function XO(e, t, n) {
+            if (e.lazy) return !0;
+            if (!e.loader) return !1;
+            let r = null != t && void 0 !== t[e.id], a = null != n && void 0 !== n[e.id];
+            return !(!r && a) && ("function" === typeof e.loader && !0 === e.loader.hydrate || !r && !a)
+        }
+
+        function JO(e, t) {
             let n = e.route.path;
             return e.pathname !== t.pathname || null != n && n.endsWith("*") && e.params["*"] !== t.params["*"]
         }
 
-        function NO(e, t) {
+        function eP(e, t) {
             if (e.route.shouldRevalidate) {
                 let n = e.route.shouldRevalidate(t);
                 if ("boolean" === typeof n) return n
@@ -40274,133 +40780,200 @@
             return t.defaultShouldRevalidate
         }
 
-        async function MO(e, t, n) {
-            if (!e.lazy) return;
-            let r = await e.lazy();
-            if (!e.lazy) return;
-            let a = n[e.id];
-            VS(a, "No route found in manifest");
-            let i = {};
-            for (let o in r) {
-                let e = void 0 !== a[o] && "hasErrorBoundary" !== o;
-                US(!e, 'Route "' + a.id + '" has a static property "' + o + '" defined but its lazy function is also returning a value for this property. The lazy route property "' + o + '" will be ignored.'), e || KS.has(o) || (i[o] = r[o])
-            }
-            Object.assign(a, i), Object.assign(a, MS({}, t(a), {lazy: void 0}))
+        function tP(e, t, n, r, a) {
+            var i;
+            let o;
+            if (e) {
+                let t = r[e];
+                tO(t, "No route found to patch children into: routeId = " + e), t.children || (t.children = []), o = t.children
+            } else o = n;
+            let s = uO(t.filter((e => !o.some((t => nP(e, t))))), a, [e || "_", "patch", String((null == (i = o) ? void 0 : i.length) || "0")], r);
+            o.push(...s)
         }
 
-        async function FO(e, t, n, r, a, i, o, s) {
-            let l, c, u;
-            void 0 === s && (s = {});
-            let d = e => {
-                let r, a = new Promise(((e, t) => r = t));
-                return u = () => r(), t.signal.addEventListener("abort", u), Promise.race([e({
-                    request: t,
-                    params: n.params,
-                    context: s.requestContext
-                }), a])
-            };
+        function nP(e, t) {
+            return "id" in e && "id" in t && e.id === t.id || e.index === t.index && e.path === t.path && e.caseSensitive === t.caseSensitive && (!(e.children && 0 !== e.children.length || t.children && 0 !== t.children.length) || e.children.every(((e, n) => {
+                var r;
+                return null == (r = t.children) ? void 0 : r.some((t => nP(e, t)))
+            })))
+        }
+
+        async function rP(e) {
+            let {matches: t} = e, n = t.filter((e => e.shouldLoad)), r = await Promise.all(n.map((e => e.resolve())));
+            return r.reduce(((e, t, r) => Object.assign(e, {[n[r].route.id]: t})), {})
+        }
+
+        async function aP(e, t, n, r, a, i, o, s, l, c) {
+            let u = i.map((e => e.route.lazy ? async function (e, t, n) {
+                if (!e.lazy) return;
+                let r = await e.lazy();
+                if (!e.lazy) return;
+                let a = n[e.id];
+                tO(a, "No route found in manifest");
+                let i = {};
+                for (let o in r) {
+                    let e = void 0 !== a[o] && "hasErrorBoundary" !== o;
+                    nO(!e, 'Route "' + a.id + '" has a static property "' + o + '" defined but its lazy function is also returning a value for this property. The lazy route property "' + o + '" will be ignored.'), e || cO.has(o) || (i[o] = r[o])
+                }
+                Object.assign(a, i), Object.assign(a, XS({}, t(a), {lazy: void 0}))
+            }(e.route, l, s) : void 0)), d = i.map(((e, n) => {
+                let i = u[n], o = a.some((t => t.route.id === e.route.id));
+                return XS({}, e, {
+                    shouldLoad: o,
+                    resolve: async n => (n && "GET" === r.method && (e.route.lazy || e.route.loader) && (o = !0), o ? async function (e, t, n, r, a, i) {
+                        let o, s, l = r => {
+                            let o, l = new Promise(((e, t) => o = t));
+                            s = () => o(), t.signal.addEventListener("abort", s);
+                            let c = a => "function" !== typeof r ? Promise.reject(new Error('You cannot call the handler for a route which defines a boolean "' + e + '" [routeId: ' + n.route.id + "]")) : r({
+                                request: t,
+                                params: n.params,
+                                context: i
+                            }, ...void 0 !== a ? [a] : []), u = (async () => {
+                                try {
+                                    return {type: "data", result: await (a ? a((e => c(e))) : c())}
+                                } catch (e) {
+                                    return {type: "error", result: e}
+                                }
+                            })();
+                            return Promise.race([u, l])
+                        };
+                        try {
+                            let a = n.route[e];
+                            if (r) if (a) {
+                                let e, [t] = await Promise.all([l(a).catch((t => {
+                                    e = t
+                                })), r]);
+                                if (void 0 !== e) throw e;
+                                o = t
+                            } else {
+                                if (await r, a = n.route[e], !a) {
+                                    if ("action" === e) {
+                                        let e = new URL(t.url), r = e.pathname + e.search;
+                                        throw vP(405, {method: t.method, pathname: r, routeId: n.route.id})
+                                    }
+                                    return {type: lO.data, result: void 0}
+                                }
+                                o = await l(a)
+                            } else {
+                                if (!a) {
+                                    let e = new URL(t.url);
+                                    throw vP(404, {pathname: e.pathname + e.search})
+                                }
+                                o = await l(a)
+                            }
+                            tO(void 0 !== o.result, "You defined " + ("action" === e ? "an action" : "a loader") + ' for route "' + n.route.id + "\" but didn't return anything from your `" + e + "` function. Please return a value or `null`.")
+                        } catch (c) {
+                            return {type: lO.error, result: c}
+                        } finally {
+                            s && t.signal.removeEventListener("abort", s)
+                        }
+                        return o
+                    }(t, r, e, i, n, c) : Promise.resolve({type: lO.data, result: void 0}))
+                })
+            })), h = await e({matches: d, request: r, params: i[0].params, fetcherKey: o, context: c});
             try {
-                let r = n.route[e];
-                if (n.route.lazy) if (r) {
-                    let e, t = await Promise.all([d(r).catch((t => {
-                        e = t
-                    })), MO(n.route, i, a)]);
-                    if (e) throw e;
-                    c = t[0]
-                } else {
-                    if (await MO(n.route, i, a), r = n.route[e], !r) {
-                        if ("action" === e) {
-                            let e = new URL(t.url), r = e.pathname + e.search;
-                            throw qO(405, {method: t.method, pathname: r, routeId: n.route.id})
-                        }
-                        return {type: qS.data, data: void 0}
-                    }
-                    c = await d(r)
-                } else {
-                    if (!r) {
-                        let e = new URL(t.url);
-                        throw qO(404, {pathname: e.pathname + e.search})
-                    }
-                    c = await d(r)
-                }
-                VS(void 0 !== c, "You defined " + ("action" === e ? "an action" : "a loader") + ' for route "' + n.route.id + "\" but didn't return anything from your `" + e + "` function. Please return a value or `null`.")
-            } catch (f) {
-                l = qS.error, c = f
-            } finally {
-                u && t.signal.removeEventListener("abort", u)
+                await Promise.all(u)
+            } catch (p) {
             }
-            if (JO(c)) {
-                let e, a = c.status;
-                if (wO.has(a)) {
-                    let e = c.headers.get("Location");
-                    if (VS(e, "Redirects returned/thrown from loaders/actions must have a Location header"), PO.test(e)) {
-                        if (!s.isStaticRequest) {
-                            let n = new URL(t.url), r = e.startsWith("//") ? new URL(n.protocol + e) : new URL(e),
-                                a = null != oO(r.pathname, o);
-                            r.origin === n.origin && a && (e = r.pathname + r.search + r.hash)
-                        }
-                    } else e = DO(new URL(t.url), r.slice(0, r.indexOf(n) + 1), o, !0, e);
-                    if (s.isStaticRequest) throw c.headers.set("Location", e), c;
-                    return {
-                        type: qS.redirect,
-                        status: a,
-                        location: e,
-                        revalidate: null !== c.headers.get("X-Remix-Revalidate"),
-                        reloadDocument: null !== c.headers.get("X-Remix-Reload-Document")
-                    }
+            return h
+        }
+
+        async function iP(e) {
+            let {result: t, type: n} = e;
+            if (SP(t)) {
+                let e;
+                try {
+                    let n = t.headers.get("Content-Type");
+                    e = n && /\bapplication\/json\b/.test(n) ? null == t.body ? null : await t.json() : await t.text()
+                } catch (d) {
+                    return {type: lO.error, error: d}
                 }
-                if (s.isRouteRequest) {
-                    throw {type: l === qS.error ? qS.error : qS.data, response: c}
-                }
-                let i = c.headers.get("Content-Type");
-                return e = i && /\bapplication\/json\b/.test(i) ? await c.json() : await c.text(), l === qS.error ? {
-                    type: l,
-                    error: new gO(a, c.statusText, e),
-                    headers: c.headers
-                } : {type: qS.data, data: e, statusCode: c.status, headers: c.headers}
+                return n === lO.error ? {
+                    type: lO.error,
+                    error: new TO(t.status, t.statusText, e),
+                    statusCode: t.status,
+                    headers: t.headers
+                } : {type: lO.data, data: e, statusCode: t.status, headers: t.headers}
             }
-            return l === qS.error ? {type: l, error: c} : function (e) {
+            var r, a, i, o, s, l, c, u;
+            return n === lO.error ? EP(t) ? t.data instanceof Error ? {
+                type: lO.error,
+                error: t.data,
+                statusCode: null == (i = t.init) ? void 0 : i.status,
+                headers: null != (o = t.init) && o.headers ? new Headers(t.init.headers) : void 0
+            } : {
+                type: lO.error,
+                error: new TO((null == (r = t.init) ? void 0 : r.status) || 500, void 0, t.data),
+                statusCode: jO(t) ? t.status : void 0,
+                headers: null != (a = t.init) && a.headers ? new Headers(t.init.headers) : void 0
+            } : {type: lO.error, error: t, statusCode: jO(t) ? t.status : void 0} : function (e) {
                 let t = e;
                 return t && "object" === typeof t && "object" === typeof t.data && "function" === typeof t.subscribe && "function" === typeof t.cancel && "function" === typeof t.resolveData
-            }(c) ? {
-                type: qS.deferred,
-                deferredData: c,
-                statusCode: null == (h = c.init) ? void 0 : h.status,
-                headers: (null == (p = c.init) ? void 0 : p.headers) && new Headers(c.init.headers)
-            } : {type: qS.data, data: c};
-            var h, p
+            }(t) ? {
+                type: lO.deferred,
+                deferredData: t,
+                statusCode: null == (s = t.init) ? void 0 : s.status,
+                headers: (null == (l = t.init) ? void 0 : l.headers) && new Headers(t.init.headers)
+            } : EP(t) ? {
+                type: lO.data,
+                data: t.data,
+                statusCode: null == (c = t.init) ? void 0 : c.status,
+                headers: null != (u = t.init) && u.headers ? new Headers(t.init.headers) : void 0
+            } : {type: lO.data, data: t}
         }
 
-        function zO(e, t, n, r) {
-            let a = e.createURL(YO(t)).toString(), i = {signal: n};
-            if (r && tP(r.formMethod)) {
+        function oP(e, t, n, r, a, i) {
+            let o = e.headers.get("Location");
+            if (tO(o, "Redirects returned/thrown from loaders/actions must have a Location header"), !$O.test(o)) {
+                let s = r.slice(0, r.findIndex((e => e.route.id === n)) + 1);
+                o = KO(new URL(t.url), s, a, !0, o, i), e.headers.set("Location", o)
+            }
+            return e
+        }
+
+        function sP(e, t, n) {
+            if ($O.test(e)) {
+                let r = e, a = r.startsWith("//") ? new URL(t.protocol + r) : new URL(r), i = null != wO(a.pathname, n);
+                if (a.origin === t.origin && i) return a.pathname + a.search + a.hash
+            }
+            return e
+        }
+
+        function lP(e, t, n, r) {
+            let a = e.createURL(bP(t)).toString(), i = {signal: n};
+            if (r && PP(r.formMethod)) {
                 let {formMethod: e, formEncType: t} = r;
-                i.method = e.toUpperCase(), "application/json" === t ? (i.headers = new Headers({"Content-Type": t}), i.body = JSON.stringify(r.json)) : "text/plain" === t ? i.body = r.text : "application/x-www-form-urlencoded" === t && r.formData ? i.body = VO(r.formData) : i.body = r.formData
+                i.method = e.toUpperCase(), "application/json" === t ? (i.headers = new Headers({"Content-Type": t}), i.body = JSON.stringify(r.json)) : "text/plain" === t ? i.body = r.text : "application/x-www-form-urlencoded" === t && r.formData ? i.body = cP(r.formData) : i.body = r.formData
             }
             return new Request(a, i)
         }
 
-        function VO(e) {
+        function cP(e) {
             let t = new URLSearchParams;
             for (let [n, r] of e.entries()) t.append(n, "string" === typeof r ? r : r.name);
             return t
         }
 
-        function UO(e) {
+        function uP(e) {
             let t = new FormData;
             for (let [n, r] of e.entries()) t.append(n, r);
             return t
         }
 
-        function GO(e, t, n, r, a) {
-            let i, o = {}, s = null, l = !1, c = {};
-            return n.forEach(((n, u) => {
-                let d = t[u].route.id;
-                if (VS(!XO(n), "Cannot handle redirect results in processLoaderData"), QO(n)) {
-                    let t = WO(e, d), a = n.error;
-                    r && (a = Object.values(r)[0], r = void 0), s = s || {}, null == s[t.route.id] && (s[t.route.id] = a), o[d] = void 0, l || (l = !0, i = vO(n.error) ? n.error.status : 500), n.headers && (c[d] = n.headers)
-                } else ZO(n) ? (a.set(d, n.deferredData), o[d] = n.deferredData.data) : o[d] = n.data, null == n.statusCode || 200 === n.statusCode || l || (i = n.statusCode), n.headers && (c[d] = n.headers)
-            })), r && (s = r, o[Object.keys(r)[0]] = void 0), {
+        function dP(e, t, n, r, a) {
+            let i, o = {}, s = null, l = !1, c = {}, u = n && wP(n[1]) ? n[1].error : void 0;
+            return e.forEach((n => {
+                if (!(n.route.id in t)) return;
+                let d = n.route.id, h = t[d];
+                if (tO(!kP(h), "Cannot handle redirect results in processLoaderData"), wP(h)) {
+                    let t = h.error;
+                    if (void 0 !== u && (t = u, u = void 0), s = s || {}, a) s[d] = t; else {
+                        let n = mP(e, d);
+                        null == s[n.route.id] && (s[n.route.id] = t)
+                    }
+                    o[d] = void 0, l || (l = !0, i = jO(h.error) ? h.error.status : 500), h.headers && (c[d] = h.headers)
+                } else xP(h) ? (r.set(d, h.deferredData), o[d] = h.deferredData.data, null == h.statusCode || 200 === h.statusCode || l || (i = h.statusCode), h.headers && (c[d] = h.headers)) : (o[d] = h.data, h.statusCode && 200 !== h.statusCode && !l && (i = h.statusCode), h.headers && (c[d] = h.headers))
+            })), void 0 !== u && n && (s = {[n[0]]: u}, o[n[0]] = void 0), {
                 loaderData: o,
                 errors: s,
                 statusCode: i || 200,
@@ -40408,25 +40981,22 @@
             }
         }
 
-        function BO(e, t, n, r, a, i, o, s) {
-            let {loaderData: l, errors: c} = GO(t, n, r, a, s);
-            for (let u = 0; u < i.length; u++) {
-                let {key: t, match: n, controller: r} = i[u];
-                VS(void 0 !== o && void 0 !== o[u], "Did not find corresponding fetcher result");
-                let a = o[u];
-                if (!r || !r.signal.aborted) if (QO(a)) {
-                    let r = WO(e.matches, null == n ? void 0 : n.route.id);
-                    c && c[r.route.id] || (c = MS({}, c, {[r.route.id]: a.error})), e.fetchers.delete(t)
-                } else if (XO(a)) VS(!1, "Unhandled fetcher revalidation redirect"); else if (ZO(a)) VS(!1, "Unhandled fetcher deferred data"); else {
-                    let n = cP(a.data);
-                    e.fetchers.set(t, n)
+        function hP(e, t, n, r, a, i, o) {
+            let {loaderData: s, errors: l} = dP(t, n, r, o, !1);
+            return a.forEach((t => {
+                let {key: n, match: r, controller: a} = t, o = i[n];
+                if (tO(o, "Did not find corresponding fetcher result"), !a || !a.signal.aborted) if (wP(o)) {
+                    let t = mP(e.matches, null == r ? void 0 : r.route.id);
+                    l && l[t.route.id] || (l = XS({}, l, {[t.route.id]: o.error})), e.fetchers.delete(n)
+                } else if (kP(o)) tO(!1, "Unhandled fetcher revalidation redirect"); else if (xP(o)) tO(!1, "Unhandled fetcher deferred data"); else {
+                    let t = NP(o.data);
+                    e.fetchers.set(n, t)
                 }
-            }
-            return {loaderData: l, errors: c}
+            })), {loaderData: s, errors: l}
         }
 
-        function $O(e, t, n, r) {
-            let a = MS({}, t);
+        function pP(e, t, n, r) {
+            let a = XS({}, t);
             for (let i of n) {
                 let n = i.route.id;
                 if (t.hasOwnProperty(n) ? void 0 !== t[n] && (a[n] = t[n]) : void 0 !== e[n] && i.route.loader && (a[n] = e[n]), r && r.hasOwnProperty(n)) break
@@ -40434,95 +41004,116 @@
             return a
         }
 
-        function WO(e, t) {
+        function fP(e) {
+            return e ? wP(e[1]) ? {actionData: {}} : {actionData: {[e[0]]: e[1].data}} : {}
+        }
+
+        function mP(e, t) {
             let n = t ? e.slice(0, e.findIndex((e => e.route.id === t)) + 1) : [...e];
             return n.reverse().find((e => !0 === e.route.hasErrorBoundary)) || e[0]
         }
 
-        function HO(e) {
+        function gP(e) {
             let t = 1 === e.length ? e[0] : e.find((e => e.index || !e.path || "/" === e.path)) || {id: "__shim-error-route__"};
             return {matches: [{params: {}, pathname: "", pathnameBase: "", route: t}], route: t}
         }
 
-        function qO(e, t) {
-            let {pathname: n, routeId: r, method: a, type: i} = void 0 === t ? {} : t, o = "Unknown Server Error",
-                s = "Unknown @remix-run/router error";
-            return 400 === e ? (o = "Bad Request", a && n && r ? s = "You made a " + a + ' request to "' + n + '" but did not provide a `loader` for route "' + r + '", so there is no way to handle the request.' : "defer-action" === i ? s = "defer() is not supported in actions" : "invalid-body" === i && (s = "Unable to encode submission body")) : 403 === e ? (o = "Forbidden", s = 'Route "' + r + '" does not match URL "' + n + '"') : 404 === e ? (o = "Not Found", s = 'No route matches URL "' + n + '"') : 405 === e && (o = "Method Not Allowed", a && n && r ? s = "You made a " + a.toUpperCase() + ' request to "' + n + '" but did not provide an `action` for route "' + r + '", so there is no way to handle the request.' : a && (s = 'Invalid request method "' + a.toUpperCase() + '"')), new gO(e || 500, o, new Error(s), !0)
+        function vP(e, t) {
+            let {pathname: n, routeId: r, method: a, type: i, message: o} = void 0 === t ? {} : t,
+                s = "Unknown Server Error", l = "Unknown @remix-run/router error";
+            return 400 === e ? (s = "Bad Request", a && n && r ? l = "You made a " + a + ' request to "' + n + '" but did not provide a `loader` for route "' + r + '", so there is no way to handle the request.' : "defer-action" === i ? l = "defer() is not supported in actions" : "invalid-body" === i && (l = "Unable to encode submission body")) : 403 === e ? (s = "Forbidden", l = 'Route "' + r + '" does not match URL "' + n + '"') : 404 === e ? (s = "Not Found", l = 'No route matches URL "' + n + '"') : 405 === e && (s = "Method Not Allowed", a && n && r ? l = "You made a " + a.toUpperCase() + ' request to "' + n + '" but did not provide an `action` for route "' + r + '", so there is no way to handle the request.' : a && (l = 'Invalid request method "' + a.toUpperCase() + '"')), new TO(e || 500, s, new Error(l), !0)
         }
 
-        function KO(e) {
-            for (let t = e.length - 1; t >= 0; t--) {
-                let n = e[t];
-                if (XO(n)) return {result: n, idx: t}
+        function yP(e) {
+            let t = Object.entries(e);
+            for (let n = t.length - 1; n >= 0; n--) {
+                let [e, r] = t[n];
+                if (kP(r)) return {key: e, result: r}
             }
         }
 
-        function YO(e) {
-            return $S(MS({}, "string" === typeof e ? WS(e) : e, {hash: ""}))
+        function bP(e) {
+            return iO(XS({}, "string" === typeof e ? oO(e) : e, {hash: ""}))
         }
 
-        function ZO(e) {
-            return e.type === qS.deferred
+        function _P(e) {
+            return SP(e.result) && zO.has(e.result.status)
         }
 
-        function QO(e) {
-            return e.type === qS.error
+        function xP(e) {
+            return e.type === lO.deferred
         }
 
-        function XO(e) {
-            return (e && e.type) === qS.redirect
+        function wP(e) {
+            return e.type === lO.error
         }
 
-        function JO(e) {
+        function kP(e) {
+            return (e && e.type) === lO.redirect
+        }
+
+        function EP(e) {
+            return "object" === typeof e && null != e && "type" in e && "data" in e && "init" in e && "DataWithResponseInit" === e.type
+        }
+
+        function SP(e) {
             return null != e && "number" === typeof e.status && "string" === typeof e.statusText && "object" === typeof e.headers && "undefined" !== typeof e.body
         }
 
-        function eP(e) {
-            return xO.has(e.toLowerCase())
+        function OP(e) {
+            return FO.has(e.toLowerCase())
         }
 
-        function tP(e) {
-            return bO.has(e.toLowerCase())
+        function PP(e) {
+            return NO.has(e.toLowerCase())
         }
 
-        async function nP(e, t, n, r, a, i) {
-            for (let o = 0; o < n.length; o++) {
-                let s = n[o], l = t[o];
-                if (!l) continue;
-                let c = e.find((e => e.route.id === l.route.id)),
-                    u = null != c && !LO(c, l) && void 0 !== (i && i[l.route.id]);
-                if (ZO(s) && (a || u)) {
-                    let e = r[o];
-                    VS(e, "Expected an AbortSignal for revalidating fetcher deferred result"), await rP(s, e, a).then((e => {
-                        e && (n[o] = e || n[o])
-                    }))
-                }
+        async function CP(e, t, n, r, a) {
+            let i = Object.entries(t);
+            for (let o = 0; o < i.length; o++) {
+                let [s, l] = i[o], c = e.find((e => (null == e ? void 0 : e.route.id) === s));
+                if (!c) continue;
+                let u = r.find((e => e.route.id === c.route.id)),
+                    d = null != u && !JO(u, c) && void 0 !== (a && a[c.route.id]);
+                xP(l) && d && await AP(l, n, !1).then((e => {
+                    e && (t[s] = e)
+                }))
             }
         }
 
-        async function rP(e, t, n) {
+        async function IP(e, t, n) {
+            for (let r = 0; r < n.length; r++) {
+                let {key: a, routeId: i, controller: o} = n[r], s = t[a],
+                    l = e.find((e => (null == e ? void 0 : e.route.id) === i));
+                l && (xP(s) && (tO(o, "Expected an AbortController for revalidating fetcher deferred result"), await AP(s, o.signal, !0).then((e => {
+                    e && (t[a] = e)
+                }))))
+            }
+        }
+
+        async function AP(e, t, n) {
             if (void 0 === n && (n = !1), !await e.deferredData.resolveData(t)) {
                 if (n) try {
-                    return {type: qS.data, data: e.deferredData.unwrappedData}
+                    return {type: lO.data, data: e.deferredData.unwrappedData}
                 } catch (r) {
-                    return {type: qS.error, error: r}
+                    return {type: lO.error, error: r}
                 }
-                return {type: qS.data, data: e.deferredData.data}
+                return {type: lO.data, data: e.deferredData.data}
             }
         }
 
-        function aP(e) {
+        function DP(e) {
             return new URLSearchParams(e).getAll("index").some((e => "" === e))
         }
 
-        function iP(e, t) {
-            let n = "string" === typeof t ? WS(t).search : t.search;
-            if (e[e.length - 1].route.index && aP(n || "")) return e[e.length - 1];
-            let r = lO(e);
+        function RP(e, t) {
+            let n = "string" === typeof t ? oO(t).search : t.search;
+            if (e[e.length - 1].route.index && DP(n || "")) return e[e.length - 1];
+            let r = EO(e);
             return r[r.length - 1]
         }
 
-        function oP(e) {
+        function TP(e) {
             let {formMethod: t, formAction: n, formEncType: r, text: a, formData: i, json: o} = e;
             if (t && n && r) return null != a ? {
                 formMethod: t,
@@ -40548,7 +41139,7 @@
             } : void 0
         }
 
-        function sP(e, t) {
+        function jP(e, t) {
             if (t) {
                 return {
                     state: "loading",
@@ -40573,7 +41164,7 @@
             }
         }
 
-        function lP(e, t) {
+        function LP(e, t) {
             if (e) {
                 return {
                     state: "loading",
@@ -40598,7 +41189,7 @@
             }
         }
 
-        function cP(e) {
+        function NP(e) {
             return {
                 state: "idle",
                 formMethod: void 0,
@@ -40611,7 +41202,7 @@
             }
         }
 
-        const uP = new class {
+        const MP = new class {
             constructor() {
                 this.listeners = []
             }
@@ -40628,20 +41219,20 @@
             }
 
             async fetchCaptcha() {
-                const {authentication: e} = kC.getState(), t = await rS.authentication.getCaptcha();
+                const {authentication: e} = nI.getState(), t = await gS.authentication.getCaptcha();
                 e.actions.setCaptcha(t)
             }
 
             resetAuthentication() {
-                const {authentication: e} = kC.getState();
+                const {authentication: e} = nI.getState();
                 e.actions.initialize()
             }
 
             async startThirdPartyAuthProcess(e) {
-                const {authentication: t, user: n} = kC.getState();
+                const {authentication: t, user: n} = nI.getState();
                 try {
                     t.actions.setProvider(e), t.actions.setStatus("connecting");
-                    const r = n.device, a = await rS.rsiClient.getConnectionToken(r);
+                    const r = n.device, a = await gS.rsiClient.getConnectionToken(r);
                     window.launcherAPI.authentication.setAuthenticationProcessStart(a), this.registerEventListener()
                 } catch (r) {
                     this.cancelThirdPartyAuthProcess(), t.actions.setStatus("error")
@@ -40653,395 +41244,524 @@
             }
 
             async openAuthWindow() {
-                const {authentication: e} = kC.getState();
-                e.connectionId && window.launcherAPI.window.setOpenExternalWindow(OC(`/launcher/oauth/${e.provider}/${e.connectionId}`))
+                const {authentication: e} = nI.getState();
+                e.connectionId && window.launcherAPI.window.setOpenExternalWindow(iI(`/launcher/oauth/${e.provider}/${e.connectionId}`))
             }
 
             async setAuthenicationProcessStartSuccess(e) {
-                const {authentication: t} = kC.getState();
+                const {authentication: t} = nI.getState();
                 t.actions.setStatus("connected"), await t.actions.setConnectionId(e), this.openAuthWindow()
             }
 
             async setAuthenticationSuccessful(e) {
-                const {authentication: t} = kC.getState();
+                const {authentication: t} = nI.getState();
                 this.removeEventListener();
                 try {
-                    await this.retrieveUserInfo(e), window.location.hash = rO(`${vR.HOME}`)
+                    await this.retrieveUserInfo(e), window.location.hash = bO(`${rT.HOME}`)
                 } catch (n) {
                     t.actions.setStatus("error")
                 }
             }
 
             async setAuthenticationProcessFailed() {
-                const {authentication: e} = kC.getState();
+                const {authentication: e} = nI.getState();
                 this.removeEventListener(), e.actions.setStatus("error")
             }
 
             async setAuthenticationProcessTimeout() {
-                const {authentication: e} = kC.getState();
+                const {authentication: e} = nI.getState();
                 this.removeEventListener(), e.actions.setStatus("timeout")
             }
 
             async retrieveUserInfo(e) {
-                const {identity: t, session: n, device: r} = await rS.authentication.signInThirdParty(e);
-                dP.setSession({session: n, remember: !0}), dP.setIdentity({
+                const {identity: t, session: n, device: r} = await gS.authentication.signInThirdParty(e);
+                FP.setSession({session: n, remember: !0}), FP.setIdentity({
                     identity: t,
                     remember: !0
-                }), dP.setDevice({device: r, remember: !0})
+                }), FP.setDevice({device: r, remember: !0})
             }
         };
-        const dP = new class {
-                async getSession(e) {
-                    const {application: t, user: n} = kC.getState(),
-                        r = n.sessions[null !== e && void 0 !== e ? e : t.platformMaster];
-                    if (r && fP(r)) return r;
-                    const a = await pP.fetchQuery((i = e, {
-                        queryKey: [`signinSession-${i}`],
-                        queryFn: async () => rS.authentication.getSignInSession(i)
-                    }));
-                    var i;
-                    if (!a) throw new sE({
-                        message: `Not able to log-in to ${e} platform.`,
-                        code: xk,
-                        payload: null,
-                        environment: e
+        const FP = new class {
+            async getSession(e) {
+                const {application: t, user: n} = nI.getState(),
+                    r = n.sessions[null !== e && void 0 !== e ? e : t.platformMaster];
+                if (r && BP(r)) return r;
+                const a = await VP.fetchQuery((i = e, {
+                    queryKey: [`signinSession-${i}`],
+                    queryFn: async () => gS.authentication.getSignInSession(i)
+                }));
+                var i;
+                if (!a) throw new yE({
+                    message: `Not able to log-in to ${e} platform.`,
+                    code: Rk,
+                    payload: null,
+                    environment: e
+                });
+                return n.actions.setSession(a, e), a
+            }
+
+            setSession({session: e, platform: t, remember: n = !1}) {
+                const {user: r} = nI.getState();
+                r.actions.setSession(e, t, n)
+            }
+
+            clearSession(e) {
+                const {user: t} = nI.getState();
+                t.actions.clearSession(e)
+            }
+
+            setIdentity({identity: e, remember: t = !1}) {
+                const {user: n} = nI.getState();
+                n.actions.setIdentity(e, t)
+            }
+
+            setDevice({device: e, remember: t = !1}) {
+                const {user: n} = nI.getState();
+                n.actions.setDevice(e, t)
+            }
+
+            isLoggedIn(e, t) {
+                var n, r;
+                const {application: a, user: i} = nI.getState(),
+                    o = null !== (n = i.sessions[a.platformMaster]) && void 0 !== n ? n : e,
+                    s = null !== (r = i.identity) && void 0 !== r ? r : t;
+                return !!o && !!s
+            }
+
+            resetUser({clearDevice: e}) {
+                const {user: t} = nI.getState();
+                t.actions.resetUser(e)
+            }
+
+            async logOutCurrentUser(e = {clearDevice: !1}) {
+                var t;
+                const {application: n, user: r} = nI.getState(),
+                    a = (null === (t = r.device) || void 0 === t ? void 0 : t.duration) === zw.SESSION || (null === e || void 0 === e ? void 0 : e.clearDevice);
+                try {
+                    (r.sessions[n.platformMaster] && Object.keys(r.sessions[n.platformMaster] || {}).length > 0 ? r.sessions[n.platformMaster] : null) && (gS.games.clearClaims(), await gS.authentication.signOut({clearDevice: a}))
+                } catch (i) {
+                    if (i instanceof Error && !n.actions.isOffline()) {
+                        const e = new dw.GenericError({
+                            code: dw.errorsNames.ERR_LOGOUT_FAILED,
+                            message: `[Logout] Error:  Failed ${i}`,
+                            payload: null
+                        });
+                        throw await ZS((e => {
+                            switch (e.code) {
+                                case dw.errorsCodes.ERR_LOGOUT_FAILED:
+                                    return {
+                                        handler: {
+                                            type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                            args: {
+                                                title: bt.t("dialog_warning_logout_title", {ns: "dialog"}),
+                                                content: bt.t("dialog_warning_logout_error", {ns: "dialog"})
+                                            }
+                                        }, error: e
+                                    };
+                                case dw.errorsCodes.ERR_DISPLAY_AGREEMENT:
+                                    return {
+                                        handler: {
+                                            type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                            args: {content: bt.t("agreement_fetch_info_error", {ns: "agreements"})}
+                                        }, error: e
+                                    };
+                                default:
+                                    return {handler: {type: YS.DISPLAY_ACKNOWLEDGE_DIALOG, args: {}}, error: e}
+                            }
+                        })(e)), i
+                    }
+                } finally {
+                    VP.clear(), MP.resetAuthentication(), n.actions.resetApplication(), FP.resetUser(e), Sw().authentication.setSignOut()
+                }
+            }
+        }, zP = async e => {
+            switch (!0) {
+                case e instanceof LE:
+                    await FP.logOutCurrentUser(), await nI.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                        title: bt.t("error_api_denied_request_title", {ns: "errors"}),
+                        content: e.message
                     });
-                    return n.actions.setSession(a, e), a
+                    break;
+                case e instanceof NE:
+                    await FP.logOutCurrentUser(), await nI.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                        title: bt.t("error_api_too_many_requests_title", {ns: "errors"}),
+                        content: e.message
+                    });
+                    break;
+                case e instanceof VE:
+                    const {connection: t, actions: n} = nI.getState().application;
+                    if (t.mode === dw.ConnectionMode.NO_CONNECTION) return;
+                    n.checkConnection();
+                    break;
+                case e instanceof wE:
+                    await FP.logOutCurrentUser(), await nI.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                        title: bt.t("error_api_auth_expired_title", {ns: "errors"}),
+                        content: e.message
+                    });
+                    break;
+                case e instanceof IE:
+                case e instanceof bE:
+                case e instanceof RE:
+                case e instanceof _E:
+                case e instanceof DE:
+                case e instanceof rS:
+                case e instanceof xE:
+                case e instanceof OE:
+                case e instanceof PE:
+                    break;
+                case e instanceof EE:
+                    await FP.logOutCurrentUser(), await nI.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                        title: bt.t("error_generic_title", {ns: "errors"}),
+                        content: e.message
+                    });
+                    break;
+                case e instanceof SE:
+                case e instanceof CE:
+                    break;
+                default:
+                    await nI.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                        title: bt.t("error_generic_title", {ns: "errors"}),
+                        content: e.message
+                    })
+            }
+        }, VP = new class {
+            #_;
+            #g;
+            #o;
+            #x;
+            #w;
+            #k;
+            #E;
+            #S;
+
+            constructor(e = {}) {
+                this.#_ = e.queryCache || new FS, this.#g = e.mutationCache || new VS, this.#o = e.defaultOptions || {}, this.#x = new Map, this.#w = new Map, this.#k = 0
+            }
+
+            mount() {
+                this.#k++, 1 === this.#k && (this.#E = IS.subscribe((() => {
+                    IS.isFocused() && (this.resumePausedMutations(), this.#_.onFocus())
+                })), this.#S = AS.N.subscribe((() => {
+                    AS.N.isOnline() && (this.resumePausedMutations(), this.#_.onOnline())
+                })))
+            }
+
+            unmount() {
+                this.#k--, 0 === this.#k && (this.#E?.(), this.#E = void 0, this.#S?.(), this.#S = void 0)
+            }
+
+            isFetching(e) {
+                return this.#_.findAll({...e, fetchStatus: "fetching"}).length
+            }
+
+            isMutating(e) {
+                return this.#g.findAll({...e, status: "pending"}).length
+            }
+
+            getQueryData(e) {
+                return this.#_.find({queryKey: e})?.state.data
+            }
+
+            ensureQueryData(e) {
+                const t = this.getQueryData(e.queryKey);
+                return void 0 !== t ? Promise.resolve(t) : this.fetchQuery(e)
+            }
+
+            getQueriesData(e) {
+                return this.getQueryCache().findAll(e).map((({queryKey: e, state: t}) => [e, t.data]))
+            }
+
+            setQueryData(e, t, n) {
+                const r = this.#_.find({queryKey: e})?.state.data, a = (0, OS.SE)(t, r);
+                if ("undefined" === typeof a) return;
+                const i = this.defaultQueryOptions({queryKey: e});
+                return this.#_.build(this, i).setData(a, {...n, manual: !0})
+            }
+
+            setQueriesData(e, t, n) {
+                return PS.batch((() => this.getQueryCache().findAll(e).map((({queryKey: e}) => [e, this.setQueryData(e, t, n)]))))
+            }
+
+            getQueryState(e) {
+                return this.#_.find({queryKey: e})?.state
+            }
+
+            removeQueries(e) {
+                const t = this.#_;
+                PS.batch((() => {
+                    t.findAll(e).forEach((e => {
+                        t.remove(e)
+                    }))
+                }))
+            }
+
+            resetQueries(e, t) {
+                const n = this.#_, r = {type: "active", ...e};
+                return PS.batch((() => (n.findAll(e).forEach((e => {
+                    e.reset()
+                })), this.refetchQueries(r, t))))
+            }
+
+            cancelQueries(e = {}, t = {}) {
+                const n = {revert: !0, ...t}, r = PS.batch((() => this.#_.findAll(e).map((e => e.cancel(n)))));
+                return Promise.all(r).then(OS.ZT).catch(OS.ZT)
+            }
+
+            invalidateQueries(e = {}, t = {}) {
+                return PS.batch((() => {
+                    if (this.#_.findAll(e).forEach((e => {
+                        e.invalidate()
+                    })), "none" === e.refetchType) return Promise.resolve();
+                    const n = {...e, type: e.refetchType ?? e.type ?? "active"};
+                    return this.refetchQueries(n, t)
+                }))
+            }
+
+            refetchQueries(e = {}, t) {
+                const n = {...t, cancelRefetch: t?.cancelRefetch ?? !0},
+                    r = PS.batch((() => this.#_.findAll(e).filter((e => !e.isDisabled())).map((e => {
+                        let t = e.fetch(void 0, n);
+                        return n.throwOnError || (t = t.catch(OS.ZT)), "paused" === e.state.fetchStatus ? Promise.resolve() : t
+                    }))));
+                return Promise.all(r).then(OS.ZT)
+            }
+
+            fetchQuery(e) {
+                const t = this.defaultQueryOptions(e);
+                "undefined" === typeof t.retry && (t.retry = !1);
+                const n = this.#_.build(this, t);
+                return n.isStaleByTime(t.staleTime) ? n.fetch(t) : Promise.resolve(n.state.data)
+            }
+
+            prefetchQuery(e) {
+                return this.fetchQuery(e).then(OS.ZT).catch(OS.ZT)
+            }
+
+            fetchInfiniteQuery(e) {
+                return e.behavior = US(e.pages), this.fetchQuery(e)
+            }
+
+            prefetchInfiniteQuery(e) {
+                return this.fetchInfiniteQuery(e).then(OS.ZT).catch(OS.ZT)
+            }
+
+            resumePausedMutations() {
+                return this.#g.resumePausedMutations()
+            }
+
+            getQueryCache() {
+                return this.#_
+            }
+
+            getMutationCache() {
+                return this.#g
+            }
+
+            getDefaultOptions() {
+                return this.#o
+            }
+
+            setDefaultOptions(e) {
+                this.#o = e
+            }
+
+            setQueryDefaults(e, t) {
+                this.#x.set((0, OS.Ym)(e), {queryKey: e, defaultOptions: t})
+            }
+
+            getQueryDefaults(e) {
+                const t = [...this.#x.values()];
+                let n = {};
+                return t.forEach((t => {
+                    (0, OS.to)(e, t.queryKey) && (n = {...n, ...t.defaultOptions})
+                })), n
+            }
+
+            setMutationDefaults(e, t) {
+                this.#w.set((0, OS.Ym)(e), {mutationKey: e, defaultOptions: t})
+            }
+
+            getMutationDefaults(e) {
+                const t = [...this.#w.values()];
+                let n = {};
+                return t.forEach((t => {
+                    (0, OS.to)(e, t.mutationKey) && (n = {...n, ...t.defaultOptions})
+                })), n
+            }
+
+            defaultQueryOptions(e) {
+                if (e?._defaulted) return e;
+                const t = {
+                    ...this.#o.queries, ...e?.queryKey && this.getQueryDefaults(e.queryKey), ...e,
+                    _defaulted: !0
+                };
+                return t.queryHash || (t.queryHash = (0, OS.Rm)(t.queryKey, t)), "undefined" === typeof t.refetchOnReconnect && (t.refetchOnReconnect = "always" !== t.networkMode), "undefined" === typeof t.throwOnError && (t.throwOnError = !!t.suspense), "undefined" === typeof t.networkMode && t.persister && (t.networkMode = "offlineFirst"), t
+            }
+
+            defaultMutationOptions(e) {
+                return e?._defaulted ? e : {
+                    ...this.#o.mutations, ...e?.mutationKey && this.getMutationDefaults(e.mutationKey), ...e,
+                    _defaulted: !0
+                }
+            }
+
+            clear() {
+                this.#_.clear(), this.#g.clear()
+            }
+        }({
+            defaultOptions: {
+                queries: {
+                    gcTime: 12e5,
+                    staleTime: 3e5,
+                    networkMode: "online",
+                    refetchOnReconnect: "always"
+                }
+            }, mutationCache: new VS({
+                onError: async e => {
+                    await $S(e), await zP(e), window.launcherAPI.log.error(`[Mutation] Error: ${e.message}`)
+                }
+            }), queryCache: new FS({
+                onError: async e => {
+                    await $S(e), await zP(e), window.launcherAPI.log.error(`[Query] Error: ${e.message}`)
+                }
+            })
+        });
+        const UP = new class {
+                getChannelDefaultGameSettings(e) {
+                    const {storage: t} = nI.getState(), {
+                        gameId: n,
+                        channelId: r,
+                        platformId: a,
+                        gameName: i,
+                        channelName: o
+                    } = e;
+                    return {
+                        gameId: n,
+                        gameName: i,
+                        channelId: r,
+                        channelName: o,
+                        platformId: a,
+                        libraryFolder: t.defaultLibraryFolder
+                    }
                 }
 
-                setSession({session: e, platform: t, remember: n = !1}) {
-                    const {user: r} = kC.getState();
-                    r.actions.setSession(e, t, n)
-                }
-
-                clearSession(e) {
-                    const {user: t} = kC.getState();
-                    t.actions.clearSession(e)
-                }
-
-                setIdentity({identity: e, remember: t = !1}) {
-                    const {user: n} = kC.getState();
-                    n.actions.setIdentity(e, t)
-                }
-
-                setDevice({device: e, remember: t = !1}) {
-                    const {user: n} = kC.getState();
-                    n.actions.setDevice(e, t)
-                }
-
-                isLoggedIn(e, t) {
-                    var n, r;
-                    const {application: a, user: i} = kC.getState(),
-                        o = null !== (n = i.sessions[a.platformMaster]) && void 0 !== n ? n : e,
-                        s = null !== (r = i.identity) && void 0 !== r ? r : t;
-                    return !!o && !!s
-                }
-
-                resetUser({clearDevice: e}) {
-                    const {user: t} = kC.getState();
-                    t.actions.resetUser(e)
-                }
-
-                async logOutCurrentUser(e = {clearDevice: !1}) {
+                async getChannelGameSettings(e) {
                     var t;
-                    const {application: n, user: r} = kC.getState(),
-                        a = (null === (t = r.device) || void 0 === t ? void 0 : t.duration) === Tw.SESSION || (null === e || void 0 === e ? void 0 : e.clearDevice);
-                    try {
-                        (r.sessions[n.platformMaster] && Object.keys(r.sessions[n.platformMaster] || {}).length > 0 ? r.sessions[n.platformMaster] : null) && (rS.games.clearClaims(), await rS.authentication.signOut({clearDevice: a}))
-                    } catch (i) {
-                        if (i instanceof Error && !n.actions.isOffline()) {
-                            const e = new dw.GenericError({
-                                code: dw.errorsNames.ERR_LOGOUT_FAILED,
-                                message: `[Logout] Error:  Failed ${i}`,
-                                payload: null
-                            });
-                            throw await LS((e => {
-                                switch (e.code) {
-                                    case dw.errorsCodes.ERR_LOGOUT_FAILED:
-                                        return {
-                                            handler: {
-                                                type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
-                                                args: {
-                                                    title: bt.t("dialog_warning_logout_title", {ns: "dialog"}),
-                                                    content: bt.t("dialog_warning_logout_error", {ns: "dialog"})
-                                                }
-                                            }, error: e
-                                        };
-                                    case dw.errorsCodes.ERR_DISPLAY_AGREEMENT:
-                                        return {
-                                            handler: {
-                                                type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
-                                                args: {content: bt.t("agreement_fetch_info_error", {ns: "agreements"})}
-                                            }, error: e
-                                        };
-                                    default:
-                                        return {handler: {type: jS.DISPLAY_ACKNOWLEDGE_DIALOG, args: {}}, error: e}
+                    const n = await window.launcherAPI.store.getValueFromStore("library.settings");
+                    return null !== (t = null === n || void 0 === n ? void 0 : n.find((({
+                                                                                            gameId: t,
+                                                                                            channelId: n
+                                                                                        }) => t === (null === e || void 0 === e ? void 0 : e.gameId) && n === e.channelId))) && void 0 !== t ? t : null
+                }
+
+                async saveChannelGameSettings(e) {
+                    const t = nI.getState(),
+                        n = [...t.game.settings.filter((t => !(t.gameId === e.gameId && t.channelId === e.channelId))), e].sort(((e, t) => Dk(e.channelId, t.channelId)));
+                    t.game.actions.setSettings(n)
+                }
+
+                async resetChannelGameSettings(e) {
+                    const t = nI.getState(), n = this.getChannelDefaultGameSettings(e),
+                        r = [...t.game.settings.filter((t => !(t.gameId === e.gameId && t.channelId === e.channelId))), n].sort(((e, t) => Dk(e.channelId, t.channelId)));
+                    t.game.actions.setSettings(r)
+                }
+
+                async setChannelLibraryFolder(e, t) {
+                    var n;
+                    const {library: r, dialog: a, storage: i, game: o} = nI.getState(),
+                        s = (null === (n = o.settings.find((t => t.channelId === e.channelId))) || void 0 === n ? void 0 : n.libraryFolder) || i.defaultLibraryFolder,
+                        l = r.installedGames.map((e => {
+                            const t = e.channels.filter((e => Pw(e.libraryFolder) === s));
+                            return {...e, channels: t}
+                        })), c = l.filter((e => e.channels.length > 0)),
+                        u = c.find((t => t.channels.find((t => t.id === e.channelId))));
+                    if (c.length > 0 && u) {
+                        const {resolved: n} = await a.actions.showChannelLibraryChangeDialog(s, t, e);
+                        if (!n) return !1
+                    }
+                    const d = nI.getState().game.settings.map((n => n.channelId === e.channelId ? {
+                        ...n,
+                        libraryFolder: t
+                    } : n)).sort(((e, t) => Dk(e.channelId, t.channelId)));
+                    return o.actions.setSettings(d), QP.removeInstalledGameChannel(e), !0
+                }
+
+                async setLibraryFolderToDefault(e) {
+                    const {storage: t, game: n} = nI.getState(),
+                        r = nI.getState().game.settings.map((n => e.find((e => e.libraryFolder === n.libraryFolder)) ? {
+                            ...n,
+                            libraryFolder: t.defaultLibraryFolder
+                        } : n)).sort(((e, t) => Dk(e.channelId, t.channelId)));
+                    n.actions.setSettings(r)
+                }
+
+                async setLibraryFolderToNewPath(e, t) {
+                    const {game: n} = nI.getState(),
+                        r = nI.getState().game.settings.map((n => e.find((e => e.libraryFolder === n.libraryFolder)) ? {
+                            ...n,
+                            libraryFolder: t
+                        } : n)).sort(((e, t) => Dk(e.channelId, t.channelId)));
+                    n.actions.setSettings(r)
+                }
+            }, GP = (e, t) => ({
+                game: {
+                    settings: [], actions: {
+                        initialize: async () => {
+                            const t = await window.launcherAPI.store.getValueFromStore("library.settings") || [],
+                                n = QP.getAvailableGamesWeightSorted().flatMap((e => e.channels.map((n => {
+                                    const r = t.find((t => t.gameId === e.id && t.channelId === n.id));
+                                    return {
+                                        ...r,
+                                        gameId: e.id,
+                                        gameName: e.name,
+                                        channelId: n.id,
+                                        channelName: n.name,
+                                        platformId: n.platformId,
+                                        installDir: n.installDir
+                                    }
+                                })))), r = n.sort(((e, t) => Dk(e.channelId, t.channelId)));
+                            e((e => ({
+                                game: {
+                                    ...e.game,
+                                    settings: r
                                 }
-                            })(e)), i
+                            }))), window.launcherAPI.store.setValueToStore("library.settings", r)
+                        }, setSettings: t => {
+                            e((e => ({
+                                game: {
+                                    ...e.game,
+                                    settings: t
+                                }
+                            }))), window.launcherAPI.store.setValueToStore("library.settings", t)
+                        }, upsertGameSettings: n => {
+                            const r = [...t().game.settings.filter((e => !(e.gameId === n.gameId && e.channelId === n.channelId))), n];
+                            e((e => ({
+                                game: {
+                                    ...e.game,
+                                    settings: r
+                                }
+                            }))), window.launcherAPI.store.setValueToStore("library.settings", r)
+                        }, removeGameSettingsEntry: (n, r) => {
+                            const a = t().game.settings.filter((e => !(e.gameId === n && e.channelId === r)));
+                            e((e => ({
+                                game: {
+                                    ...e.game,
+                                    settings: a
+                                }
+                            }))), window.launcherAPI.store.setValueToStore("library.settings", a)
                         }
-                    } finally {
-                        pP.clear(), uP.resetAuthentication(), n.actions.resetApplication(), dP.resetUser(e), Sw().authentication.setSignOut()
                     }
                 }
-            }, hP = async e => {
-                switch (!0) {
-                    case e instanceof kE:
-                        await dP.logOutCurrentUser(), await kC.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
-                            title: bt.t("error_api_denied_request_title", {ns: "errors"}),
-                            content: e.message
-                        });
-                        break;
-                    case e instanceof EE:
-                        await dP.logOutCurrentUser(), await kC.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
-                            title: bt.t("error_api_too_many_requests_title", {ns: "errors"}),
-                            content: e.message
-                        });
-                        break;
-                    case e instanceof CE:
-                        const {application: {connection: t, actions: n}} = kC.getState();
-                        if (t.mode === dw.ConnectionMode.NO_CONNECTION) return;
-                        n.checkConnection();
-                        break;
-                    case e instanceof uE:
-                        await dP.logOutCurrentUser(), await kC.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
-                            title: bt.t("error_api_auth_expired_title", {ns: "errors"}),
-                            content: e.message
-                        });
-                        break;
-                    case e instanceof vE:
-                    case e instanceof _E:
-                    case e instanceof lE:
-                    case e instanceof bE:
-                    case e instanceof WE:
-                    case e instanceof cE:
-                    case e instanceof fE:
-                    case e instanceof mE:
-                        break;
-                    case e instanceof hE:
-                        await dP.logOutCurrentUser(), await kC.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
-                            title: bt.t("error_generic_title", {ns: "errors"}),
-                            content: e.message
-                        });
-                        break;
-                    case e instanceof pE:
-                    case e instanceof gE:
-                        break;
-                    default:
-                        await kC.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
-                            title: bt.t("error_generic_title", {ns: "errors"}),
-                            content: e.message
-                        })
-                }
-            }, pP = new class {
-                #_;
-                #g;
-                #o;
-                #x;
-                #w;
-                #k;
-                #E;
-                #S;
-
-                constructor(e = {}) {
-                    this.#_ = e.queryCache || new kS, this.#g = e.mutationCache || new SS, this.#o = e.defaultOptions || {}, this.#x = new Map, this.#w = new Map, this.#k = 0
-                }
-
-                mount() {
-                    this.#k++, 1 === this.#k && (this.#E = fS.subscribe((() => {
-                        fS.isFocused() && (this.resumePausedMutations(), this.#_.onFocus())
-                    })), this.#S = mS.N.subscribe((() => {
-                        mS.N.isOnline() && (this.resumePausedMutations(), this.#_.onOnline())
-                    })))
-                }
-
-                unmount() {
-                    this.#k--, 0 === this.#k && (this.#E?.(), this.#E = void 0, this.#S?.(), this.#S = void 0)
-                }
-
-                isFetching(e) {
-                    return this.#_.findAll({...e, fetchStatus: "fetching"}).length
-                }
-
-                isMutating(e) {
-                    return this.#g.findAll({...e, status: "pending"}).length
-                }
-
-                getQueryData(e) {
-                    return this.#_.find({queryKey: e})?.state.data
-                }
-
-                ensureQueryData(e) {
-                    const t = this.getQueryData(e.queryKey);
-                    return void 0 !== t ? Promise.resolve(t) : this.fetchQuery(e)
-                }
-
-                getQueriesData(e) {
-                    return this.getQueryCache().findAll(e).map((({queryKey: e, state: t}) => [e, t.data]))
-                }
-
-                setQueryData(e, t, n) {
-                    const r = this.#_.find({queryKey: e})?.state.data, a = (0, dS.SE)(t, r);
-                    if ("undefined" === typeof a) return;
-                    const i = this.defaultQueryOptions({queryKey: e});
-                    return this.#_.build(this, i).setData(a, {...n, manual: !0})
-                }
-
-                setQueriesData(e, t, n) {
-                    return hS.batch((() => this.getQueryCache().findAll(e).map((({queryKey: e}) => [e, this.setQueryData(e, t, n)]))))
-                }
-
-                getQueryState(e) {
-                    return this.#_.find({queryKey: e})?.state
-                }
-
-                removeQueries(e) {
-                    const t = this.#_;
-                    hS.batch((() => {
-                        t.findAll(e).forEach((e => {
-                            t.remove(e)
-                        }))
-                    }))
-                }
-
-                resetQueries(e, t) {
-                    const n = this.#_, r = {type: "active", ...e};
-                    return hS.batch((() => (n.findAll(e).forEach((e => {
-                        e.reset()
-                    })), this.refetchQueries(r, t))))
-                }
-
-                cancelQueries(e = {}, t = {}) {
-                    const n = {revert: !0, ...t}, r = hS.batch((() => this.#_.findAll(e).map((e => e.cancel(n)))));
-                    return Promise.all(r).then(dS.ZT).catch(dS.ZT)
-                }
-
-                invalidateQueries(e = {}, t = {}) {
-                    return hS.batch((() => {
-                        if (this.#_.findAll(e).forEach((e => {
-                            e.invalidate()
-                        })), "none" === e.refetchType) return Promise.resolve();
-                        const n = {...e, type: e.refetchType ?? e.type ?? "active"};
-                        return this.refetchQueries(n, t)
-                    }))
-                }
-
-                refetchQueries(e = {}, t) {
-                    const n = {...t, cancelRefetch: t?.cancelRefetch ?? !0},
-                        r = hS.batch((() => this.#_.findAll(e).filter((e => !e.isDisabled())).map((e => {
-                            let t = e.fetch(void 0, n);
-                            return n.throwOnError || (t = t.catch(dS.ZT)), "paused" === e.state.fetchStatus ? Promise.resolve() : t
-                        }))));
-                    return Promise.all(r).then(dS.ZT)
-                }
-
-                fetchQuery(e) {
-                    const t = this.defaultQueryOptions(e);
-                    "undefined" === typeof t.retry && (t.retry = !1);
-                    const n = this.#_.build(this, t);
-                    return n.isStaleByTime(t.staleTime) ? n.fetch(t) : Promise.resolve(n.state.data)
-                }
-
-                prefetchQuery(e) {
-                    return this.fetchQuery(e).then(dS.ZT).catch(dS.ZT)
-                }
-
-                fetchInfiniteQuery(e) {
-                    return e.behavior = OS(e.pages), this.fetchQuery(e)
-                }
-
-                prefetchInfiniteQuery(e) {
-                    return this.fetchInfiniteQuery(e).then(dS.ZT).catch(dS.ZT)
-                }
-
-                resumePausedMutations() {
-                    return this.#g.resumePausedMutations()
-                }
-
-                getQueryCache() {
-                    return this.#_
-                }
-
-                getMutationCache() {
-                    return this.#g
-                }
-
-                getDefaultOptions() {
-                    return this.#o
-                }
-
-                setDefaultOptions(e) {
-                    this.#o = e
-                }
-
-                setQueryDefaults(e, t) {
-                    this.#x.set((0, dS.Ym)(e), {queryKey: e, defaultOptions: t})
-                }
-
-                getQueryDefaults(e) {
-                    const t = [...this.#x.values()];
-                    let n = {};
-                    return t.forEach((t => {
-                        (0, dS.to)(e, t.queryKey) && (n = {...n, ...t.defaultOptions})
-                    })), n
-                }
-
-                setMutationDefaults(e, t) {
-                    this.#w.set((0, dS.Ym)(e), {mutationKey: e, defaultOptions: t})
-                }
-
-                getMutationDefaults(e) {
-                    const t = [...this.#w.values()];
-                    let n = {};
-                    return t.forEach((t => {
-                        (0, dS.to)(e, t.mutationKey) && (n = {...n, ...t.defaultOptions})
-                    })), n
-                }
-
-                defaultQueryOptions(e) {
-                    if (e?._defaulted) return e;
-                    const t = {
-                        ...this.#o.queries, ...e?.queryKey && this.getQueryDefaults(e.queryKey), ...e,
-                        _defaulted: !0
-                    };
-                    return t.queryHash || (t.queryHash = (0, dS.Rm)(t.queryKey, t)), "undefined" === typeof t.refetchOnReconnect && (t.refetchOnReconnect = "always" !== t.networkMode), "undefined" === typeof t.throwOnError && (t.throwOnError = !!t.suspense), "undefined" === typeof t.networkMode && t.persister && (t.networkMode = "offlineFirst"), t
-                }
-
-                defaultMutationOptions(e) {
-                    return e?._defaulted ? e : {
-                        ...this.#o.mutations, ...e?.mutationKey && this.getMutationDefaults(e.mutationKey), ...e,
-                        _defaulted: !0
-                    }
-                }
-
-                clear() {
-                    this.#_.clear(), this.#g.clear()
-                }
-            }({
-                defaultOptions: {
-                    queries: {
-                        gcTime: 12e5,
-                        staleTime: 3e5,
-                        networkMode: "online",
-                        refetchOnReconnect: "always"
-                    }
-                }, mutationCache: new SS({
-                    onError: async e => {
-                        await IS(e), await hP(e), window.launcherAPI.log.error(`[Mutation] Error: ${e.message}`)
-                    }
-                }), queryCache: new kS({
-                    onError: async e => {
-                        await IS(e), await hP(e), window.launcherAPI.log.error(`[Query] Error: ${e.message}`)
-                    }
-                })
-            }), fP = e => "key" in e && "value" in e && "cookie" in e, mP = (e, t) => t.find((({id: t}) => t === e)),
-            gP = async (e, t, n = !0) => {
-                const r = kC.getState().user;
+            }), BP = e => "key" in e && "value" in e && "cookie" in e, $P = (e, t) => t.find((({id: t}) => t === e)),
+            WP = async (e, t, n = !0) => {
+                const r = nI.getState().user;
                 if (!r.identity) throw new Error("Identification of the user cannot be retrieved");
                 try {
-                    const n = await dP.getSession(e), a = await pP.fetchQuery(((e, t, n) => ({
+                    const n = await FP.getSession(e), a = await VP.fetchQuery(((e, t, n) => ({
                         queryKey: [`gameToken-${e}-${t}-${n.value}`],
-                        queryFn: async () => rS.games.getGameToken(e, t, n),
-                        staleTime: xw.day
+                        queryFn: async () => gS.games.getGameToken(e, t, n),
+                        staleTime: 0,
+                        gcTime: 0
                     }))(e, t, n));
                     return {
                         username: r.identity.username,
@@ -41050,55 +41770,54 @@
                         gameToken: a
                     }
                 } catch (a) {
-                    if (a instanceof uE && n) return dP.clearSession(e), gP(e, t, !1);
+                    if (a instanceof wE && n) return FP.clearSession(e), WP(e, t, !1);
                     throw a
                 }
-            }, vP = (e, t, n) => {
+            }, HP = (e, t, n) => {
                 const r = e.find((({id: e}) => e === t.gameId)),
                     a = null === r || void 0 === r ? void 0 : r.channels.find((({id: e}) => e === t.channelId));
                 if (!r || !a) return e;
                 const i = r.channels.filter((e => e.id !== t.channelId)), o = {...r, channels: [...i, {...a, status: n}]};
                 return [...e.filter((e => e.id !== t.gameId)), o]
-            }, yP = async e => {
+            }, qP = async e => {
                 try {
                     var t, n, r, a, i, o, s, l, c, u, d;
-                    const {storage: h, settings: p} = kC.getState(), {
-                            gameId: f,
-                            channelId: m,
-                            gameName: g,
-                            channelName: v,
-                            platformId: y
-                        } = e, b = kP.getInstalledChannel(e), _ = await pP.fetchQuery(aS(f, m)),
-                        x = await p.actions.getChannelGameSettings({
-                            platformId: y,
-                            gameId: f,
-                            gameName: g,
-                            channelId: m,
-                            channelName: v
+                    const {storage: h} = nI.getState(), {
+                            gameId: p,
+                            channelId: f,
+                            gameName: m,
+                            channelName: g,
+                            platformId: v
+                        } = e, y = QP.getInstalledChannel(e), b = await VP.fetchQuery(vS(p, f)),
+                        _ = await UP.getChannelGameSettings({
+                            platformId: v,
+                            gameId: p,
+                            gameName: m,
+                            channelId: f,
+                            channelName: g
                         });
                     return {
-                        ..._,
-                        gameId: f,
-                        gameName: g,
-                        channelId: m,
-                        channelName: v,
-                        platformId: y,
-                        libraryFolder: null !== (t = null !== (n = null === b || void 0 === b ? void 0 : b.libraryFolder) && void 0 !== n ? n : null === x || void 0 === x ? void 0 : x.libraryFolder) && void 0 !== t ? t : h.defaultLibraryFolder,
-                        servicesEndpoint: null !== (r = null === x || void 0 === x ? void 0 : x.servicesEndpoint) && void 0 !== r ? r : _.servicesEndpoint,
-                        installDir: null !== (a = null === x || void 0 === x ? void 0 : x.installDir) && void 0 !== a ? a : _.installDir,
-                        eacSandbox: null !== (i = null === x || void 0 === x ? void 0 : x.eacSandbox) && void 0 !== i && i,
-                        network: null !== (o = null === x || void 0 === x ? void 0 : x.network) && void 0 !== o ? o : _.network,
-                        port: null !== (s = null !== (l = null === x || void 0 === x ? void 0 : x.port) && void 0 !== l ? l : _.universePort) && void 0 !== s ? s : 8e3,
-                        hostname: null !== (c = null === x || void 0 === x ? void 0 : x.hostname) && void 0 !== c ? c : _.universeHost,
-                        executable: null !== (u = null === x || void 0 === x ? void 0 : x.executable) && void 0 !== u ? u : _.executable,
-                        launchOptions: null !== (d = null === x || void 0 === x ? void 0 : x.launchOptions) && void 0 !== d ? d : _.launchOptions
+                        ...b,
+                        gameId: p,
+                        gameName: m,
+                        channelId: f,
+                        channelName: g,
+                        platformId: v,
+                        libraryFolder: null !== (t = null !== (n = null === y || void 0 === y ? void 0 : y.libraryFolder) && void 0 !== n ? n : null === _ || void 0 === _ ? void 0 : _.libraryFolder) && void 0 !== t ? t : h.defaultLibraryFolder,
+                        servicesEndpoint: null !== (r = null === _ || void 0 === _ ? void 0 : _.servicesEndpoint) && void 0 !== r ? r : b.servicesEndpoint,
+                        installDir: null !== (a = null === _ || void 0 === _ ? void 0 : _.installDir) && void 0 !== a ? a : b.installDir,
+                        eacSandbox: null !== (i = null === _ || void 0 === _ ? void 0 : _.eacSandbox) && void 0 !== i && i,
+                        network: null !== (o = null === _ || void 0 === _ ? void 0 : _.network) && void 0 !== o ? o : b.network,
+                        port: null !== (s = null !== (l = null === _ || void 0 === _ ? void 0 : _.port) && void 0 !== l ? l : b.universePort) && void 0 !== s ? s : 8e3,
+                        hostname: null !== (c = null === _ || void 0 === _ ? void 0 : _.hostname) && void 0 !== c ? c : b.universeHost,
+                        executable: null !== (u = null === _ || void 0 === _ ? void 0 : _.executable) && void 0 !== u ? u : b.executable,
+                        launchOptions: null !== (d = null === _ || void 0 === _ ? void 0 : _.launchOptions) && void 0 !== d ? d : b.launchOptions
                     }
                 } catch (h) {
-                    throw new mk("We could not get any information about the game")
+                    throw new Sk("We could not get any information about the game")
                 }
-            }, bP = (e, t) => t > e, _P = (e, t) => e.weight - t.weight, xP = (e, t) => e.weight - t.weight,
-            wP = (e, t) => (e.weight || 0) - (t.weight || 0);
-        const kP = new class {
+            }, KP = (e, t) => t > e, YP = (e, t) => e.weight - t.weight, ZP = (e, t) => e.weight - t.weight;
+        const QP = new class {
             constructor() {
                 this.listeners = []
             }
@@ -41115,27 +41834,27 @@
             }
 
             setLaunchGameSuccessfull(e) {
-                const {library: t} = kC.getState();
+                const {library: t} = nI.getState();
                 t.actions.setGameChannelRunning(e)
             }
 
             setLaunchGameStopped(e) {
-                const {library: t, soundSystem: n} = kC.getState(), r = Sw();
+                const {library: t, soundSystem: n} = nI.getState(), r = Sw();
                 t.actions.setGameChannelRunning(void 0), n.actions.unmute(), r.window.setRestoreWindow()
             }
 
             async setLaunchGameFailed(e) {
-                const {library: t, soundSystem: n} = kC.getState(), r = Sw();
+                const {library: t, soundSystem: n} = nI.getState(), r = Sw();
                 t.actions.setGameChannelRunning(void 0), n.actions.unmute(), r.window.setRestoreWindow();
                 const a = (0, dw.serializerLaunchErrors)(e);
-                await LS((e => {
+                await ZS((e => {
                     const {gameId: t, platformId: n, channelId: r, gameName: a, channelName: i} = e.payload,
                         o = {gameId: t, platformId: n, channelId: r, gameName: a, channelName: i};
                     switch (!0) {
                         case e instanceof dw.NoGameFilesError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_WARNING_DIALOG,
+                                    type: YS.DISPLAY_WARNING_DIALOG,
                                     args: {
                                         title: bt.t("error_launch_no_game_files_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -41155,7 +41874,7 @@
                                             })]
                                         }),
                                         primaryCallback: async () => {
-                                            AP.addInstallationToQueue(o, dw.InstallationType.VERIFY)
+                                            aC.addInstallationToQueue(o, dw.InstallationType.VERIFY)
                                         },
                                         primaryLabel: bt.t("dialog_action_verify", {ns: "dialog"})
                                     }
@@ -41164,7 +41883,7 @@
                         case e instanceof dw.EACError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_WARNING_DIALOG,
+                                    type: YS.DISPLAY_WARNING_DIALOG,
                                     args: {
                                         title: bt.t("error_launch_EAC_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -41184,7 +41903,7 @@
                                             })]
                                         }),
                                         primaryCallback: async () => {
-                                            AP.addInstallationToQueue(o, dw.InstallationType.VERIFY)
+                                            aC.addInstallationToQueue(o, dw.InstallationType.VERIFY)
                                         },
                                         primaryLabel: bt.t("dialog_action_verify", {ns: "dialog"})
                                     }
@@ -41193,9 +41912,9 @@
                         case e instanceof dw.GameCrashError:
                             return {
                                 handler: {
-                                    type: jS.EXECUTE_CALLBACK, args: {
+                                    type: YS.EXECUTE_CALLBACK, args: {
                                         callback: async () => {
-                                            const {dialog: t} = kC.getState();
+                                            const {dialog: t} = nI.getState();
                                             t.actions.showLaunchGameCrashDialog(o, e)
                                         }
                                     }
@@ -41204,7 +41923,7 @@
                         default:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_WARNING_DIALOG,
+                                    type: YS.DISPLAY_WARNING_DIALOG,
                                     args: {
                                         title: bt.t("error_launch_unknown_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -41231,7 +41950,7 @@
                                             })]
                                         }),
                                         primaryCallback: async () => {
-                                            AP.addInstallationToQueue(o, dw.InstallationType.VERIFY)
+                                            aC.addInstallationToQueue(o, dw.InstallationType.VERIFY)
                                         },
                                         primaryLabel: bt.t("dialog_action_verify", {ns: "dialog"})
                                     }
@@ -41243,8 +41962,8 @@
 
             getAvailableChannelsSorted(e) {
                 var t;
-                const {library: n} = kC.getState(), r = n.availableGames.find((t => t.id === e));
-                return (null !== (t = null === r || void 0 === r ? void 0 : r.channels) && void 0 !== t ? t : []).sort(xP)
+                const {library: n} = nI.getState(), r = n.availableGames.find((t => t.id === e));
+                return (null !== (t = null === r || void 0 === r ? void 0 : r.channels) && void 0 !== t ? t : []).sort(ZP)
             }
 
             getAvailableChannel(e) {
@@ -41252,22 +41971,22 @@
             }
 
             getAvailableGamesWeightSorted() {
-                const {library: e} = kC.getState();
-                return e.availableGames.sort(_P).map((e => {
-                    const t = e.channels.sort(xP);
+                const {library: e} = nI.getState();
+                return e.availableGames.sort(YP).map((e => {
+                    const t = e.channels.sort(ZP);
                     return {...e, channels: t}
                 }))
             }
 
             getInstalledChannel(e) {
                 var t;
-                const {library: n} = kC.getState(), r = n.installedGames.find((t => t.id === e.gameId));
+                const {library: n} = nI.getState(), r = n.installedGames.find((t => t.id === e.gameId));
                 return null !== (t = null === r || void 0 === r ? void 0 : r.channels.find((t => t.id === e.channelId))) && void 0 !== t ? t : void 0
             }
 
             async addInstalledGameChannel(e) {
                 var t, n, r;
-                const {library: a} = kC.getState(), {libraryFolder: i} = await yP(e),
+                const {library: a} = nI.getState(), {libraryFolder: i} = await qP(e),
                     o = null !== (t = a.availableGames.find((({id: t}) => t === e.gameId))) && void 0 !== t ? t : null,
                     s = null === o || void 0 === o ? void 0 : o.channels.find((({
                                                                                     id: t,
@@ -41286,25 +42005,25 @@
             }
 
             saveInstalledGameChannel(e) {
-                const {library: t} = kC.getState(), n = vP(t.availableGames, e, dw.GameChannelStatus.INSTALLED);
+                const {library: t} = nI.getState(), n = HP(t.availableGames, e, dw.GameChannelStatus.INSTALLED);
                 t.actions.setAvailableGames(n), this.addInstalledGameChannel(e)
             }
 
             removeInstalledGameChannel(e) {
                 var t, n;
-                const {library: r} = kC.getState(),
+                const {library: r} = nI.getState(),
                     a = null !== (t = r.installedGames.find((({id: t}) => t === e.gameId))) && void 0 !== t ? t : null,
                     i = null !== (n = null === a || void 0 === a ? void 0 : a.channels.find((({id: t}) => t === e.channelId))) && void 0 !== n ? n : null;
                 if (!a || !i) return;
                 const o = {...a, channels: a.channels.filter((t => t.id !== e.channelId))},
                     s = [...r.installedGames.filter((e => e.id !== o.id)), o];
                 r.actions.setInstalledGames(s);
-                const l = vP(r.availableGames, e, dw.GameChannelStatus.AVAILABLE);
+                const l = HP(r.availableGames, e, dw.GameChannelStatus.AVAILABLE);
                 r.actions.setAvailableGames(l)
             }
 
             changeGameSelected(e) {
-                const {library: t} = kC.getState(), n = mP(e, t.availableGames);
+                const {library: t} = nI.getState(), n = $P(e, t.availableGames);
                 if (void 0 === n) return;
                 const r = n.channels.length > 0 ? {
                     gameId: n.id,
@@ -41317,21 +42036,21 @@
             }
 
             async launchGame(e) {
-                const {library: t, soundSystem: n, dialog: r} = kC.getState(), a = Sw();
+                const {library: t, soundSystem: n, dialog: r} = nI.getState(), a = Sw();
                 if (!t.gameChannelSelected) return;
                 const i = this.getInstalledChannel(e);
-                if (!mP(t.gameChannelSelected.gameId, t.availableGames) || !i) return;
+                if (!$P(t.gameChannelSelected.gameId, t.availableGames) || !i) return;
                 if (await a.game.isGameProcessRunning()) await r.actions.showAcknowledgeDialogErrorOccured({
                     title: bt.t("error_launch_game_running_title", {ns: "errors"}),
                     content: bt.t("error_launch_game_running_content", {ns: "errors"})
                 }); else try {
-                    const o = await yP(e);
-                    if (bP(i.version, o.version)) {
-                        const n = vP(t.availableGames, e, dw.GameChannelStatus.UPDATE_AVAILABLE);
+                    const o = await qP(e);
+                    if (KP(i.version, o.version)) {
+                        const n = HP(t.availableGames, e, dw.GameChannelStatus.UPDATE_AVAILABLE);
                         return t.actions.setAvailableGames(n), void await r.actions.showGameChannelUpdateAvailableDialog(e)
                     }
-                    if (!await AP.validateRequirements(e)) return;
-                    const s = await gP(e.platformId, e.gameId), l = {
+                    if (!await aC.validateRequirements(e)) return;
+                    const s = await WP(e.platformId, e.gameId), l = {
                         ...o,
                         libraryFolder: o.libraryFolder,
                         nickname: s.username,
@@ -41340,7 +42059,7 @@
                     };
                     n.actions.changeVolume(0, 2e3), a.window.setMinimizeWindow(), a.game.launchGame(l)
                 } catch (o) {
-                    if (a.log.error(`[Library Slice] Not able to launch the game : ${o}`), o instanceof wE) return void await r.actions.showAcknowledgeDialogErrorOccured({
+                    if (a.log.error(`[Library Slice] Not able to launch the game : ${o}`), o instanceof jE) return void await r.actions.showAcknowledgeDialogErrorOccured({
                         title: bt.t("error_launch_account_not_found_title", {ns: "errors"}),
                         content: (0, hw.jsxs)(bu, {
                             gap: "100",
@@ -41373,7 +42092,7 @@
                             })]
                         })
                     });
-                    if (o instanceof mk) return void await r.actions.showAcknowledgeDialogErrorOccured({
+                    if (o instanceof Sk) return void await r.actions.showAcknowledgeDialogErrorOccured({
                         title: bt.t("error_launch_check_update_unavailable_title", {ns: "errors"}),
                         content: (0, hw.jsxs)(bu, {
                             gap: "100",
@@ -41396,7 +42115,7 @@
                             })]
                         })
                     });
-                    await kC.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
+                    await nI.getState().dialog.actions.showAcknowledgeDialogErrorOccured({
                         title: bt.t("error_launch_unknown_title", {ns: "errors"}),
                         content: (0, hw.jsxs)(bu, {
                             gap: "100",
@@ -41419,39 +42138,40 @@
             }
 
             async checkForGamesChannelsUpdates() {
-                const {library: e} = kC.getState();
+                const {library: e, game: t} = nI.getState();
                 try {
-                    const t = await pP.fetchQuery({
+                    const n = await VP.fetchQuery({
                         queryKey: ["library"],
-                        queryFn: async () => rS.games.getLibrary(),
-                        staleTime: xw.minute
-                    }), n = e.installedGames, r = t.map((e => {
-                        var t, r;
-                        const a = null !== (t = null === (r = n.find((t => t.id === e.id))) || void 0 === r ? void 0 : r.channels) && void 0 !== t ? t : void 0,
+                        queryFn: async () => gS.games.getLibrary(),
+                        staleTime: 0,
+                        gcTime: 0
+                    }), r = e.installedGames, a = n.map((e => {
+                        var t, n;
+                        const a = null !== (t = null === (n = r.find((t => t.id === e.id))) || void 0 === n ? void 0 : n.channels) && void 0 !== t ? t : void 0,
                             i = e.channels.map((e => {
                                 const t = null === a || void 0 === a ? void 0 : a.find((t => t.id === e.id));
                                 let n = dw.GameChannelStatus.AVAILABLE;
-                                return t && (n = bP(t.version, e.version) ? dw.GameChannelStatus.UPDATE_AVAILABLE : dw.GameChannelStatus.INSTALLED), {
+                                return t && (n = KP(t.version, e.version) ? dw.GameChannelStatus.UPDATE_AVAILABLE : dw.GameChannelStatus.INSTALLED), {
                                     ...e,
                                     status: n
                                 }
                             }));
                         return {...e, channels: i}
                     }));
-                    e.actions.setAvailableGames(r)
-                } catch (t) {
-                    throw new mk
+                    e.actions.setAvailableGames(a), t.actions.initialize()
+                } catch (n) {
+                    throw new Sk
                 }
             }
 
             async checkForGameChannelUpdates(e) {
-                const {library: t, toasts: n} = kC.getState();
+                const {library: t, toasts: n} = nI.getState();
                 try {
-                    const r = await pP.fetchQuery(aS(e.gameId, e.channelId));
+                    const r = await VP.fetchQuery(vS(e.gameId, e.channelId));
                     let a = !1;
                     const i = t => t.channels.map((n => {
                         if (r.gameId === t.id && r.channelId === n.id) return n;
-                        const i = bP(n.version, r.version);
+                        const i = KP(n.version, r.version);
                         return e.gameId === t.id && e.channelId === n.id && (a = i), i ? {
                             ...n,
                             versionLabel: r.versionLabel,
@@ -41467,36 +42187,38 @@
                         }), type: a ? "positive" : "informative"
                     }), a
                 } catch (r) {
-                    throw new mk
+                    throw new Sk
                 }
             }
-        }, EP = (e, t) => `${e}-${t}`;
-        const SP = new class {
-            getGlobal() {
-                var e;
-                return null !== (e = kC.getState().warnings.warningsGlobalAccepted) && void 0 !== e ? e : []
-            }
-
-            getByGame(e) {
-                var t;
-                return null !== (t = kC.getState().warnings.warningsByGameAccepted[e]) && void 0 !== t ? t : []
-            }
-
-            getByGameChannel(e, t) {
-                var n;
-                return null !== (n = kC.getState().warnings.warningsByGameChannelAccepted[EP(e, t)]) && void 0 !== n ? n : []
+        }, XP = (e, t) => `${e}-${t}`;
+        const JP = new class {
+            async checkWarnings(e) {
+                try {
+                    const {
+                            gameId: t,
+                            channelId: n
+                        } = e, [r, a, i] = await Promise.all([VP.ensureQueryData(yS("global")), VP.ensureQueryData(yS("game", t, null)), VP.ensureQueryData(yS("channel", t, n))]),
+                        o = [...new Set([...r, ...a, ...i].map((e => e.id)))],
+                        s = await Promise.all(o.map((async e => [e, await VP.ensureQueryData(bS(e))]))), l = new Map(s),
+                        c = r.map((e => l.get(e.id))), u = a.map((e => l.get(e.id))), d = i.map((e => l.get(e.id)));
+                    if ((await this.handleWarningArrayForScope(t, n, c, "global")).some((e => !e.resolved))) return !1;
+                    if ((await this.handleWarningArrayForScope(t, n, u, "game")).some((e => !e.resolved))) return !1;
+                    return (await this.handleWarningArrayForScope(t, n, d, "channel")).every((e => e.resolved))
+                } catch (t) {
+                    return window.launcherAPI.log.error("[Warnings] checkWarnings error", t), !1
+                }
             }
 
             addManyGlobal(e) {
                 var t;
-                const {warnings: n} = kC.getState(),
+                const {warnings: n} = nI.getState(),
                     r = [...new Set([...null !== (t = n.warningsGlobalAccepted) && void 0 !== t ? t : [], ...e])];
                 n.actions.setGlobalWarnings(r)
             }
 
             addManyByGame(e, t) {
                 var n;
-                const {warnings: r} = kC.getState(),
+                const {warnings: r} = nI.getState(),
                     a = null !== (n = r.warningsByGameAccepted[e]) && void 0 !== n ? n : [],
                     i = [...new Set([...a, ...t])];
                 r.actions.setWarningsByGame({...r.warningsByGameAccepted, [e]: i})
@@ -41504,7 +42226,7 @@
 
             addManyByGameChannel(e, t, n) {
                 var r;
-                const {warnings: a} = kC.getState(), i = EP(e, t),
+                const {warnings: a} = nI.getState(), i = XP(e, t),
                     o = null !== (r = a.warningsByGameChannelAccepted[i]) && void 0 !== r ? r : [],
                     s = [...new Set([...o, ...n])];
                 a.actions.setWarningsByGameChannel({...a.warningsByGameChannelAccepted, [i]: s})
@@ -41512,7 +42234,7 @@
 
             async handleWarningArrayForScope(e, t, n, r) {
                 if (!n.length) return [];
-                const {dialog: a} = kC.getState(),
+                const {dialog: a} = nI.getState(),
                     i = new Set([...this.getGlobal(), ...this.getByGame(e), ...this.getByGameChannel(e, t)]),
                     o = n.filter((e => !i.has(e.warning_id)));
                 if (!o.length) return [];
@@ -41525,23 +42247,21 @@
                 return l.length && ("global" === r ? this.addManyGlobal(l) : "game" === r ? this.addManyByGame(e, l) : this.addManyByGameChannel(e, t, l)), s
             }
 
-            async checkWarnings(e) {
-                try {
-                    const {
-                            gameId: t,
-                            channelId: n
-                        } = e, [r, a, i] = await Promise.all([pP.ensureQueryData(iS("global", null, null)), pP.ensureQueryData(iS("game", t, null)), pP.ensureQueryData(iS("channel", t, n))]),
-                        o = [...new Set([...r, ...a, ...i].map((e => e.id)))],
-                        s = await Promise.all(o.map((async e => [e, await pP.ensureQueryData(oS(e))]))), l = new Map(s),
-                        c = r.map((e => l.get(e.id))), u = a.map((e => l.get(e.id))), d = i.map((e => l.get(e.id)));
-                    if ((await this.handleWarningArrayForScope(t, n, c, "global")).some((e => !e.resolved))) return !1;
-                    if ((await this.handleWarningArrayForScope(t, n, u, "game")).some((e => !e.resolved))) return !1;
-                    return (await this.handleWarningArrayForScope(t, n, d, "channel")).every((e => e.resolved))
-                } catch (t) {
-                    return console.error("[Warnings] checkWarnings error", t), !1
-                }
+            getGlobal() {
+                var e;
+                return null !== (e = nI.getState().warnings.warningsGlobalAccepted) && void 0 !== e ? e : []
             }
-        }, OP = e => ({
+
+            getByGame(e) {
+                var t;
+                return null !== (t = nI.getState().warnings.warningsByGameAccepted[e]) && void 0 !== t ? t : []
+            }
+
+            getByGameChannel(e, t) {
+                var n;
+                return null !== (n = nI.getState().warnings.warningsByGameChannelAccepted[XP(e, t)]) && void 0 !== n ? n : []
+            }
+        }, eC = e => ({
             warnings: {
                 warningsGlobalAccepted: [],
                 warningsByGameAccepted: {},
@@ -41556,22 +42276,35 @@
                     }
                 }
             }
-        }), PP = [Nw.EULA, Nw.TOS, Nw.DISCLAIMER], CP = {channel: 0, game: 1, global: 2};
-        const IP = new class {
+        }), tC = [Gw.EULA, Gw.TOS, Gw.DISCLAIMER], nC = {channel: 0, game: 1, global: 2};
+        const rC = new class {
+            async checkAgreements(e) {
+                try {
+                    const {
+                            gameId: t,
+                            channelId: n
+                        } = e, [r, a, i] = await Promise.all([this.fetchScope("global"), this.fetchScope("game", t, null), this.fetchScope("channel", t, n)]),
+                        o = this.prioritizeByType(a, r, i), s = await this.prefetchInfoMap(o);
+                    return await this.runDialogsWithPersist(o, s)
+                } catch (t) {
+                    return window.launcherAPI.log.error("[Agreements] checkAgreements error", t), !1
+                }
+            }
+
             async fetchScope(e, t, n) {
                 try {
                     var r;
-                    const a = await pP.fetchQuery(((e, t, n) => ({
-                        queryKey: ["agreementsFiltered", e, null !== t && void 0 !== t ? t : null, null !== n && void 0 !== n ? n : null],
-                        queryFn: async () => rS.agreements.checkAgreements(t, n)
-                    }))(e, null !== t && void 0 !== t ? t : null, null !== n && void 0 !== n ? n : null));
+                    const a = await VP.fetchQuery(((e, t, n) => ({
+                        queryKey: ["agreementsFiltered", e, t, n],
+                        queryFn: async () => gS.agreements.checkAgreements(t, n)
+                    }))(e, t, n));
                     return (null !== (r = a.agreements) && void 0 !== r ? r : []).map((t => ({
                         ...t,
                         type: t.type,
                         scope: e
                     })))
                 } catch (s) {
-                    if (s instanceof gE) {
+                    if (s instanceof CE) {
                         var a, i, o;
                         return (null !== (a = null === (i = s.payload) || void 0 === i || null === (o = i.data) || void 0 === o ? void 0 : o.agreements) && void 0 !== a ? a : []).map((t => ({
                             ...t,
@@ -41584,9 +42317,9 @@
 
             async prefetchInfoMap(e) {
                 const t = [...new Set(e.map((e => `${e.id}:${e.type}`)))], n = await Promise.all(t.map((async e => {
-                    const [t, n] = e.split(":"), r = Number(t), a = n, i = await pP.ensureQueryData(((e, t) => ({
+                    const [t, n] = e.split(":"), r = Number(t), a = n, i = await VP.ensureQueryData(((e, t) => ({
                         queryKey: ["agreementInfo", e, t],
-                        queryFn: async () => rS.agreements.getAgreementInfo(e, t)
+                        queryFn: async () => gS.agreements.getAgreementInfo(e, t)
                     }))(r, a));
                     return [r, i]
                 })));
@@ -41601,40 +42334,27 @@
                         r.set(a.type, a);
                         continue
                     }
-                    const t = CP[e.scope], n = CP[a.scope];
+                    const t = nC[e.scope], n = nC[a.scope];
                     (n < t || n === t && a.id > e.id) && r.set(a.type, a)
                 }
-                return PP.map((e => r.get(e))).filter((e => !!e))
+                return tC.map((e => r.get(e))).filter((e => !!e))
             }
 
             async runDialogsWithPersist(e, t) {
                 if (!e.length) return !0;
-                const {dialog: n} = kC.getState(), r = [], a = [], i = [], o = [];
+                const {dialog: n} = nI.getState(), r = [], a = [], i = [], o = [];
                 for (const s of e) {
                     const e = t.get(s.id);
                     if (!(await n.actions.showAgreementsDialog(e.title, e.subtitle, e.body)).resolved) return !1;
-                    const l = pP.fetchQuery(sS(s.id, s.type)).catch((e => {
-                        console.error("[Agreements] accept failed", s, e)
+                    const l = VP.fetchQuery(_S(s.id, s.type)).catch((e => {
+                        window.launcherAPI.log.error("[Agreements] accept failed", s, e)
                     }));
                     o.push(l), "global" === s.scope ? r.push(s.id) : "game" === s.scope ? a.push(s.id) : i.push(s.id)
                 }
-                return Promise.allSettled(o), pP.invalidateQueries({queryKey: ["agreementsFiltered"]}), !0
-            }
-
-            async checkAgreements(e) {
-                try {
-                    const {
-                            gameId: t,
-                            channelId: n
-                        } = e, [r, a, i] = await Promise.all([this.fetchScope("global"), this.fetchScope("game", t), this.fetchScope("channel", t, n)]),
-                        o = this.prioritizeByType(i, a, r), s = await this.prefetchInfoMap(o);
-                    return await this.runDialogsWithPersist(o, s)
-                } catch (t) {
-                    return console.error("[Agreements] checkAgreements error", t), !1
-                }
+                return Promise.allSettled(o), VP.invalidateQueries({queryKey: ["agreementsFiltered"]}), !0
             }
         };
-        const AP = new class {
+        const aC = new class {
             constructor() {
                 this.listeners = []
             }
@@ -41651,13 +42371,13 @@
             }
 
             setInstallationProgress(e) {
-                const {installer: t} = kC.getState(), n = Sw();
+                const {installer: t} = nI.getState(), n = Sw();
                 if (!t.current) return void n.log.warn("[Installer Service] We could not update info about download progression since there is no installation in progress");
                 const r = ((e, t) => {
                     let n = {
                         ...t,
                         phase: e.phase,
-                        speed: e.info.speed > 0 ? ck().format(e.info.speed, {decimalPlaces: 1}) : "0"
+                        speed: e.info.speed > 0 ? bk().format(e.info.speed, {decimalPlaces: 1}) : "0"
                     };
                     switch (e.phase) {
                         case dw.InstallerPhases.PatcherRetrieveRemoteFileStart:
@@ -41760,72 +42480,76 @@
             }
 
             async setInstallationSuccess(e) {
-                const {installer: t, settings: n} = kC.getState(), r = Sw();
-                if (!t.current) return void r.log.warn("[Installer Service] We could not end the installation because the game is not in the queue");
-                const a = {
+                var t, n, r, a;
+                const {installer: i} = nI.getState(), o = Sw();
+                if (!i.current) return void o.log.warn("[Installer Service] We could not end the installation because the game is not in the queue");
+                const s = {
                     gameId: e.gameId,
                     gameName: e.gameName,
                     channelId: e.channelId,
                     channelName: e.channelName,
                     platformId: e.platformId
                 };
-                if (!pk(t.current.game, a)) return void r.log.warn("[Installer Service] We could not end the installation because the game completed is not the same as the one in the queue");
-                if (!t.current.release) return void r.log.warn("[Installer Service] We could not end the installation because the game release was not provided");
-                if (!t.current.progress) return void r.log.warn(`[Installer Service] We could not end the installation because the event is strange ${e}`);
-                if (e.isInitialDownload) return t.actions.setCurrent({
-                    ...t.current,
+                if (!kk(i.current.game, s)) return void o.log.warn("[Installer Service] We could not end the installation because the game completed is not the same as the one in the queue");
+                if (!i.current.release) return void o.log.warn("[Installer Service] We could not end the installation because the game release was not provided");
+                if (!i.current.progress) return void o.log.warn(`[Installer Service] We could not end the installation because the event is strange ${e}`);
+                if (e.isInitialDownload) return i.actions.setCurrent({
+                    ...i.current,
                     progress: void 0
-                }), void this.installChannel(t.current.game, {skipRequirements: !0, skipAnalitics: !0});
-                const i = [...t.finished, {...t.current, status: dw.InstallationStatus.COMPLETED, progress: void 0}];
-                t.actions.setCurrent(void 0), t.actions.setFinished(i), kP.saveInstalledGameChannel(a);
-                const o = {
-                    ...t.current.game,
-                    installDir: t.current.release.installDir,
-                    libraryFolder: t.current.release.libraryFolder
+                }), void this.installChannel(i.current.game, {skipRequirements: !0, skipAnalitics: !0});
+                const l = [...i.finished, {...i.current, status: dw.InstallationStatus.COMPLETED, progress: void 0}];
+                i.actions.setCurrent(void 0), i.actions.setFinished(l), QP.saveInstalledGameChannel(s);
+                const c = {
+                    ...i.current.game,
+                    installDir: i.current.release.installDir,
+                    libraryFolder: i.current.release.libraryFolder
                 };
-                await n.actions.saveChannelGameSettings(o), await this.processInstallationQueue();
-                const s = {
+                await UP.saveChannelGameSettings(c), await this.processInstallationQueue();
+                const u = {
                     [dw.InstallationType.INSTALL]: dw.AnalyticsEventName.APP_INSTALL_SUCCESS,
                     [dw.InstallationType.VERIFY]: dw.AnalyticsEventName.APP_VERIFY_SUCCESS,
                     [dw.InstallationType.UPDATE]: dw.AnalyticsEventName.APP_UPDATE_SUCCESS
-                }[t.current.type];
-                r.analytics.setAnalyticsEvent(s, {
-                    Game: t.current.game.gameId,
-                    Channel: t.current.game.channelId,
-                    Environment: t.current.game.platformId
-                }), this.setInstallSuccessToast(t.current.game)
+                }[i.current.type];
+                o.analytics.setAnalyticsEvent(u, {
+                    Game: i.current.game.gameId,
+                    Channel: i.current.game.channelId,
+                    Environment: i.current.game.platformId,
+                    Version: null !== (t = null === (n = i.current.release) || void 0 === n ? void 0 : n.version) && void 0 !== t ? t : -1,
+                    VersionLabel: null !== (r = null === (a = i.current.release) || void 0 === a ? void 0 : a.versionLabel) && void 0 !== r ? r : "N/A"
+                }), this.setInstallSuccessToast(i.current.game)
             }
 
             async setInstallationFailed(e) {
-                const {installer: t, application: n} = kC.getState(), r = Sw();
-                if (!t.current) return void r.log.warn("[Installer Service] We could not end the installation because the game is not in the queue");
-                const a = {
+                var t, n, r, a;
+                const {installer: i, application: o} = nI.getState(), s = Sw();
+                if (!i.current) return void s.log.warn("[Installer Service] We could not end the installation because the game is not in the queue");
+                const l = {
                     gameId: e.payload.gameId,
                     gameName: e.payload.gameName,
                     channelId: e.payload.channelId,
                     channelName: e.payload.channelName,
                     platformId: e.payload.platformId
                 };
-                if (!pk(t.current.game, a)) return void r.log.warn("[Installer Service] We could not end the installation because the game completed is not the same as the one in the queue");
-                n.actions.setDownloadPopoverOpened(!1);
-                const i = [...t.finished, {...t.current, status: dw.InstallationStatus.ERROR, progress: void 0}];
-                t.actions.setCurrent(void 0), t.actions.setFinished(i);
-                const o = (0, dw.serializerInstallerErrors)(e);
-                await LS((e => {
+                if (!kk(i.current.game, l)) return void s.log.warn("[Installer Service] We could not end the installation because the game completed is not the same as the one in the queue");
+                o.actions.setDownloadPopoverOpened(!1);
+                const c = [...i.finished, {...i.current, status: dw.InstallationStatus.ERROR, progress: void 0}];
+                i.actions.setCurrent(void 0), i.actions.setFinished(c);
+                const u = (0, dw.serializerInstallerErrors)(e);
+                await ZS((e => {
                     var t, n, r, a;
-                    const i = kC.getState().installer, {
+                    const i = nI.getState().installer, {
                             gameId: o,
                             platformId: s,
                             channelId: l,
                             gameName: c,
                             channelName: u
                         } = e.payload, d = {gameId: o, gameName: c, channelId: l, channelName: u, platformId: s},
-                        h = i.current && pk(i.current.game, d) ? i.current : dk(i.queue, d);
+                        h = i.current && kk(i.current.game, d) ? i.current : xk(i.queue, d);
                     switch (!0) {
                         case e instanceof dw.LSPermissionError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                    type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
                                     args: {
                                         title: bt.t("error_installer_support_permission_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -41854,7 +42578,7 @@
                         case e instanceof dw.LSCreateDirectoryError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                    type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
                                     args: {
                                         title: bt.t("error_installer_create_directory_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -41890,7 +42614,7 @@
                         case e instanceof dw.InvalidMDFileError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                    type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
                                     args: {
                                         title: bt.t("error_installer_basepack_invalid_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -41910,7 +42634,7 @@
                         case e instanceof dw.NotMappedError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                    type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
                                     args: {
                                         title: bt.t("error_installer_init_download_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -41942,7 +42666,7 @@
                         case e instanceof dw.DiskFullError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                    type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
                                     args: {
                                         title: bt.t("error_installer_disc_full_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -41961,7 +42685,7 @@
                         case e instanceof dw.WritePermissionsError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_WARNING_DIALOG,
+                                    type: YS.DISPLAY_WARNING_DIALOG,
                                     args: {
                                         title: bt.t("error_installer_permissions_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -41975,7 +42699,7 @@
                                             })]
                                         }),
                                         primaryCallback: async () => {
-                                            h && await AP.setPermissions(h)
+                                            h && await aC.setPermissions(h)
                                         },
                                         primaryLabel: bt.t("error_installer_permissions_action", {ns: "errors"})
                                     }
@@ -41984,7 +42708,7 @@
                         case e instanceof dw.FileInUseError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                    type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
                                     args: {
                                         title: bt.t("error_installer_file_in_use_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -42003,7 +42727,7 @@
                         case e instanceof dw.Pk4CorruptedError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                    type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
                                     args: {
                                         title: bt.t("error_installer_pk4_corrupted_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -42022,7 +42746,7 @@
                         case e instanceof dw.RetrieveManifestError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                    type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
                                     args: {
                                         title: bt.t("error_installer_retrieve_manifest_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -42041,7 +42765,7 @@
                         case e instanceof dw.PatcherUnknownNetworkError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                    type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
                                     args: {
                                         title: bt.t("error_installer_unknown_network_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -42060,7 +42784,7 @@
                         case e instanceof dw.BasePackP4kCorruptedError:
                             return {
                                 handler: {
-                                    type: jS.DISPLAY_ACKNOWLEDGE_DIALOG,
+                                    type: YS.DISPLAY_ACKNOWLEDGE_DIALOG,
                                     args: {
                                         title: bt.t("error_installer_base_p4k_corrupted_title", {ns: "errors"}),
                                         content: (0, hw.jsxs)(bu, {
@@ -42092,7 +42816,7 @@
                         case e instanceof dw.DownloadUnsuccessfullError:
                             return [{
                                 handler: {
-                                    type: jS.DISPLAY_WARNING_DIALOG,
+                                    type: YS.DISPLAY_WARNING_DIALOG,
                                     skip: void 0 !== (null === h || void 0 === h || null === (r = h.options) || void 0 === r ? void 0 : r.numberOfRetriesLeft) && (null === h || void 0 === h || null === (a = h.options) || void 0 === a ? void 0 : a.numberOfRetriesLeft) > 0,
                                     args: {
                                         title: bt.t("error_installer_base_p4k_corrupted_title", {ns: "errors"}),
@@ -42120,7 +42844,7 @@
                                             })]
                                         }),
                                         primaryCallback: async () => {
-                                            AP.addInstallationToQueue(d, dw.InstallationType.VERIFY)
+                                            aC.addInstallationToQueue(d, dw.InstallationType.VERIFY)
                                         },
                                         primaryLabel: bt.t("dialog_action_verify", {ns: "dialog"})
                                     }
@@ -42178,42 +42902,47 @@
                                     })]
                                 });
                             return {
-                                handler: {type: jS.DISPLAY_ACKNOWLEDGE_DIALOG, args: {title: i(), content: o()}},
+                                handler: {type: YS.DISPLAY_ACKNOWLEDGE_DIALOG, args: {title: i(), content: o()}},
                                 error: e
                             }
                     }
-                })(o)), n.actions.setDownloadPopoverOpened(!0), await this.processInstallationQueue();
-                const s = {
+                })(u)), o.actions.setDownloadPopoverOpened(!0), await this.processInstallationQueue();
+                const d = {
                     [dw.InstallationType.INSTALL]: dw.AnalyticsEventName.APP_INSTALL_ERROR,
                     [dw.InstallationType.VERIFY]: dw.AnalyticsEventName.APP_VERIFY_ERROR,
                     [dw.InstallationType.UPDATE]: dw.AnalyticsEventName.APP_UPDATE_ERROR
-                }[t.current.type];
-                r.analytics.setAnalyticsEvent(s, {
-                    Game: t.current.game.gameId,
-                    Channel: t.current.game.channelId,
-                    Environment: t.current.game.platformId,
-                    ErrorCode: o.code,
-                    ErrorMessage: o.message
+                }[i.current.type];
+                s.analytics.setAnalyticsEvent(d, {
+                    Game: i.current.game.gameId,
+                    Channel: i.current.game.channelId,
+                    Environment: i.current.game.platformId,
+                    Version: null !== (t = null === (n = i.current.release) || void 0 === n ? void 0 : n.version) && void 0 !== t ? t : -1,
+                    VersionLabel: null !== (r = null === (a = i.current.release) || void 0 === a ? void 0 : a.versionLabel) && void 0 !== r ? r : "N/A",
+                    ErrorCode: u.code,
+                    ErrorMessage: u.message
                 })
             }
 
             async setCancelationSuccess() {
-                const {installer: e, toasts: t} = kC.getState(), n = Sw();
-                if (!e.current) return void n.log.warn("[Installer Service] We could not succed to cancel the installation because there wasn't any channel cancelling.");
-                e.actions.setCurrent(void 0), e.current.type === dw.InstallationType.INSTALL && kP.removeInstalledGameChannel(e.current.game);
-                const r = {
+                var e, t, n, r;
+                const {installer: a, toasts: i} = nI.getState(), o = Sw();
+                if (!a.current) return void o.log.warn("[Installer Service] We could not succed to cancel the installation because there wasn't any channel cancelling.");
+                a.actions.setCurrent(void 0), a.current.type === dw.InstallationType.INSTALL && QP.removeInstalledGameChannel(a.current.game);
+                const s = {
                     [dw.InstallationType.INSTALL]: dw.AnalyticsEventName.APP_INSTALL_STOP,
                     [dw.InstallationType.VERIFY]: dw.AnalyticsEventName.APP_VERIFY_STOP,
                     [dw.InstallationType.UPDATE]: dw.AnalyticsEventName.APP_UPDATE_STOP
-                }[e.current.type];
-                n.analytics.setAnalyticsEvent(r, {
-                    Game: e.current.game.gameId,
-                    Channel: e.current.game.channelId,
-                    Environment: e.current.game.platformId
+                }[a.current.type];
+                o.analytics.setAnalyticsEvent(s, {
+                    Game: a.current.game.gameId,
+                    Channel: a.current.game.channelId,
+                    Environment: a.current.game.platformId,
+                    Version: null !== (e = null === (t = a.current.release) || void 0 === t ? void 0 : t.version) && void 0 !== e ? e : -1,
+                    VersionLabel: null !== (n = null === (r = a.current.release) || void 0 === r ? void 0 : r.versionLabel) && void 0 !== n ? n : "N/A"
                 });
-                t.actions.add({
+                i.actions.add({
                     type: "informative", title: (() => {
-                        switch (e.current.type) {
+                        switch (a.current.type) {
                             case dw.InstallationType.INSTALL:
                                 return bt.t("download_toast_cancel_install_success", {ns: "download"});
                             case dw.InstallationType.VERIFY:
@@ -42221,20 +42950,20 @@
                             case dw.InstallationType.UPDATE:
                                 return bt.t("download_toast_cancel_update_success", {ns: "download"})
                         }
-                    })(), icon: Ww
+                    })(), icon: Xw
                 }), await this.processInstallationQueue()
             }
 
             async setCancelationFailed(e) {
-                const {installer: t} = kC.getState();
+                const {installer: t} = nI.getState();
                 t.current && t.actions.setCurrent(void 0), await this.processInstallationQueue()
             }
 
             async setUninstallationSuccess(e) {
-                const {installer: t, settings: n} = kC.getState(), r = Sw();
-                if (!hk(t.uninstallations, e)) return void r.log.warn(`[Installer Service] We could not end the uninstallation because the channel was not process ${e}`);
-                const a = t.uninstallations.filter((t => t.channelId !== e.channelId && t.gameId !== e.gameId));
-                t.actions.setUninstallations(a), kP.removeInstalledGameChannel(e), await n.actions.resetChannelGameSettings(e), r.analytics.setAnalyticsEvent(dw.AnalyticsEventName.APP_UNINSTALL_SUCCESS, {
+                const {installer: t} = nI.getState(), n = Sw();
+                if (!wk(t.uninstallations, e)) return void n.log.warn(`[Installer Service] We could not end the uninstallation because the channel was not process ${e}`);
+                const r = t.uninstallations.filter((t => t.channelId !== e.channelId && t.gameId !== e.gameId));
+                t.actions.setUninstallations(r), QP.removeInstalledGameChannel(e), await UP.resetChannelGameSettings(e), n.analytics.setAnalyticsEvent(dw.AnalyticsEventName.APP_UNINSTALL_SUCCESS, {
                     Game: e.gameId,
                     Channel: e.channelId,
                     Environment: e.platformId
@@ -42242,7 +42971,7 @@
             }
 
             setUninstallationFailed(e) {
-                const {installer: t} = kC.getState(), n = Sw(), {payload: r} = e, a = hk(t.uninstallations, r);
+                const {installer: t} = nI.getState(), n = Sw(), {payload: r} = e, a = wk(t.uninstallations, r);
                 if (!a) return void n.log.warn("[Installer Service] We could not clear the uninstallation because the game is not in the queue");
                 const i = t.uninstallations.filter((e => e.channelId !== r.channelId && e.gameId !== r.gameId));
                 t.actions.setUninstallations(i), n.analytics.setAnalyticsEvent(dw.AnalyticsEventName.APP_UNINSTALL_ERROR, {
@@ -42255,7 +42984,7 @@
             }
 
             setInstallSuccessToast(e) {
-                const {installer: t, toasts: n} = kC.getState(), r = Sw(), a = dk(t.finished, e);
+                const {installer: t, toasts: n} = nI.getState(), r = Sw(), a = xk(t.finished, e);
                 if (!a || a.status !== dw.InstallationStatus.COMPLETED) return void r.log.warn("[Installer Service] We could not display the sucess toast because the installation the game is not in the queue or is not completed");
                 return n.actions.add({
                     title: (() => {
@@ -42272,7 +43001,7 @@
             }
 
             setUninstallSuccessToast(e) {
-                const {toasts: t} = kC.getState();
+                const {toasts: t} = nI.getState();
                 return t.actions.add({
                     title: bt.t("download_toast_uninstall_success", {
                         ns: "download",
@@ -42283,7 +43012,7 @@
             }
 
             setUninstallFailToast(e) {
-                const {toasts: t} = kC.getState();
+                const {toasts: t} = nI.getState();
                 return t.actions.add({
                     title: bt.t("download_toast_uninstall_fail", {
                         ns: "download",
@@ -42294,7 +43023,7 @@
             }
 
             setFixPermissionsSuccessToast() {
-                const {application: e, toasts: t} = kC.getState();
+                const {application: e, toasts: t} = nI.getState();
                 return e.actions.setDownloadPopoverOpened(!1), t.actions.add({
                     title: bt.t("download_toast_fix_permission_success", {ns: "download"}),
                     type: "positive",
@@ -42303,7 +43032,7 @@
             }
 
             setFixPermissionsFailedToast(e) {
-                const {application: t, toasts: n} = kC.getState();
+                const {application: t, toasts: n} = nI.getState();
                 return t.actions.setDownloadPopoverOpened(!1), n.actions.add({
                     title: bt.t("download_toast_fix_permission_fail", {
                         ns: "download",
@@ -42314,27 +43043,28 @@
             }
 
             async installChannel(e, t) {
-                const {installer: n, application: r, settings: a, storage: i} = kC.getState(), o = Sw();
+                const {installer: n, application: r, game: a, storage: i} = nI.getState(), o = Sw();
                 r.actions.setDownloadPopoverOpened(!1);
                 const s = await this.validateRequirements(e);
                 if (r.actions.setDownloadPopoverOpened(!0), !s) return void this.cancelInstallation(e);
-                if (n.current && !pk(n.current.game, e)) return void o.log.warn(`[Installer Service] Cannot start the installation of ${e} since the installer is already running`);
-                const l = n.current && pk(n.current.game, e) ? n.current : dk(n.queue, e);
+                if (n.current && !kk(n.current.game, e)) return void o.log.warn(`[Installer Service] Cannot start the installation of ${e} since the installer is already running`);
+                const l = n.current && kk(n.current.game, e) ? n.current : xk(n.queue, e);
                 if (l) try {
                     var c;
-                    const s = await yP(e), u = n.queue.filter((t => !pk(t.game, e))),
-                        d = {...l, status: dw.InstallationStatus.IN_PROGRESS, release: s};
-                    n.actions.setCurrent(d), n.actions.setQueue(u), r.actions.setDownloadPopoverOpened(!0);
-                    const h = (null === (c = a.gamesSettings.find((({channelId: t}) => t === e.channelId))) || void 0 === c ? void 0 : c.libraryFolder) || i.defaultLibraryFolder,
-                        p = {
+                    const s = await qP(e), f = n.queue.filter((t => !kk(t.game, e))),
+                        m = {...l, status: dw.InstallationStatus.IN_PROGRESS, release: s};
+                    n.actions.setCurrent(m), n.actions.setQueue(f), r.actions.setDownloadPopoverOpened(!0);
+                    const g = (null === (c = a.settings.find((({channelId: t}) => t === e.channelId))) || void 0 === c ? void 0 : c.libraryFolder) || i.defaultLibraryFolder,
+                        v = {
                             ...s,
                             gameName: e.gameName,
                             channelName: e.channelName,
-                            libraryFolder: h,
-                            forcePatcher: a.appSettings.download.forceDataPatcher,
+                            libraryFolder: g,
+                            forcePatcher: n.downloadOptions.forceDataPatcher,
                             verify: l.type === dw.InstallationType.VERIFY
                         };
-                    if (o.installer.setInstall(p), t && !t.skipAnalitics) {
+                    if (o.installer.setInstall(v), t && !t.skipAnalitics) {
+                        var u, d, h, p;
                         const e = {
                             [dw.InstallationType.INSTALL]: dw.AnalyticsEventName.APP_INSTALL_START,
                             [dw.InstallationType.VERIFY]: dw.AnalyticsEventName.APP_VERIFY_START,
@@ -42343,16 +43073,18 @@
                         o.analytics.setAnalyticsEvent(e, {
                             Game: l.game.gameId,
                             Channel: l.game.channelId,
-                            Environment: l.game.platformId
+                            Environment: l.game.platformId,
+                            Version: null !== (u = null === (d = l.release) || void 0 === d ? void 0 : d.version) && void 0 !== u ? u : -1,
+                            VersionLabel: null !== (h = null === (p = l.release) || void 0 === p ? void 0 : p.versionLabel) && void 0 !== h ? h : "N/A"
                         })
                     }
-                } catch (u) {
-                    o.log.error(`[Installer Service] Error during installation : ${u}`)
+                } catch (f) {
+                    o.log.error(`[Installer Service] Error during installation : ${f}`)
                 } else o.log.warn(`[Installer Service] Cannot start the installation of ${e} since the installation is not in queue`)
             }
 
             async uninstallChannel(e) {
-                const {dialog: t, installer: n} = kC.getState(), r = Sw(), a = await yP(e),
+                const {dialog: t, installer: n} = nI.getState(), r = Sw(), a = await qP(e),
                     i = await t.actions.showWarningUninstallDialog(a);
                 if (!i.resolved) return;
                 r.log.info(`[Installer Service] Uninstallation process started ("${a.libraryFolder}" | ${e} | ${i}`);
@@ -42363,9 +43095,9 @@
             }
 
             pauseInstallation(e) {
-                const {installer: t} = kC.getState(), n = Sw();
+                const {installer: t} = nI.getState(), n = Sw();
                 if (!t.current || t.current.status === dw.InstallationStatus.PAUSED) return void n.log.warn("[Installer Service] We could not pause the installation because the game is not in the queue or is already pause");
-                if (!t.current.progress || !uk(t.current.progress)) return void n.log.warn("[Installer Service] We could not pause the installation because the current phase is not pausable");
+                if (!t.current.progress || !_k(t.current.progress)) return void n.log.warn("[Installer Service] We could not pause the installation because the current phase is not pausable");
                 const r = {
                     ...t.current,
                     status: dw.InstallationStatus.PAUSED,
@@ -42375,7 +43107,7 @@
             }
 
             resumeInstallation(e) {
-                const {installer: t} = kC.getState(), n = Sw();
+                const {installer: t} = nI.getState(), n = Sw();
                 if (!t.current || t.current.status !== dw.InstallationStatus.PAUSED) return void n.log.warn("[Installer Service] We could not resume the installation because the game is not in the queue");
                 const r = {
                     ...t.current,
@@ -42386,28 +43118,28 @@
             }
 
             clearCompletedInstallations() {
-                const {installer: e} = kC.getState();
+                const {installer: e} = nI.getState();
                 e.actions.setFinished([])
             }
 
             async cancelInstallation(e) {
-                const {application: t, installer: n, dialog: r} = kC.getState();
-                if (!!n.current && pk(n.current.game, e)) return t.actions.setDownloadPopoverOpened(!1), void await r.actions.showGameCancelInstallationDialog(n.current);
-                const a = dk(n.queue, e);
+                const {application: t, installer: n, dialog: r} = nI.getState();
+                if (!!n.current && kk(n.current.game, e)) return t.actions.setDownloadPopoverOpened(!1), void await r.actions.showGameCancelInstallationDialog(n.current);
+                const a = xk(n.queue, e);
                 if (a) {
-                    const e = n.queue.filter((e => !pk(e.game, a.game)));
+                    const e = n.queue.filter((e => !kk(e.game, a.game)));
                     n.actions.setQueue(e)
                 }
-                const i = dk(n.finished, e);
+                const i = xk(n.finished, e);
                 if (i) {
-                    const e = n.queue.filter((e => !pk(e.game, i.game)));
+                    const e = n.queue.filter((e => !kk(e.game, i.game)));
                     n.actions.setFinished(e)
                 }
             }
 
             removeInstallation(e) {
                 var t, n;
-                const {installer: r} = kC.getState(), a = Sw();
+                const {installer: r} = nI.getState(), a = Sw();
                 if (!r.current || !r.current.release) return void a.log.warn("[Installer Service] We could not remove the installation because the game is not in the queue");
                 const i = {
                         ...r.current.release,
@@ -42424,15 +43156,15 @@
             }
 
             setInstallationOptions(e, t) {
-                const {installer: n} = kC.getState(), r = Sw();
+                const {installer: n} = nI.getState(), r = Sw();
                 if (!n.current) return void r.log.warn("[Installer Service] We could not set options to the installation because the game is not in the queue");
                 const a = {...n.current, options: t};
                 n.actions.setCurrent(a)
             }
 
             addInstallationToQueue(e, t) {
-                const {installer: n, application: r} = kC.getState();
-                if (!dk(n.queue, e)) {
+                const {installer: n, application: r} = nI.getState();
+                if (!xk(n.queue, e)) {
                     const a = [...n.queue, {game: e, status: dw.InstallationStatus.WAITING, type: t}];
                     n.actions.setQueue(a), r.actions.setDownloadPopoverOpened(!0), this.processInstallationQueue()
                 }
@@ -42446,26 +43178,39 @@
             }
 
             async validateRequirements(e) {
-                const {application: t} = kC.getState(), n = Sw(), r = await t.actions.isMinimumWindowsVersion(),
+                const {application: t} = nI.getState(), n = Sw(), r = await t.actions.isMinimumWindowsVersion(),
                     a = await t.actions.isRespectingCPUCapabilites();
                 n.log.info(`[Requirement] OS check : ${r}`), n.log.info(`[Requirement] CPU check : ${a}`);
-                if (!await IP.checkAgreements(e)) return !1;
-                return !!await SP.checkWarnings(e)
+                if (!await rC.checkAgreements(e)) return !1;
+                return !!await JP.checkWarnings(e)
             }
 
             updateQueue(e) {
-                const {installer: t} = kC.getState();
+                const {installer: t} = nI.getState();
                 t.actions.setQueue(e)
             }
 
             async processInstallationQueue() {
-                const {installer: e} = kC.getState(), t = Sw();
+                const {installer: e} = nI.getState(), t = Sw();
                 if (e.current) return void t.log.info("[Installer Service] Nothing to process in queue since there is already an installation in progress");
                 if (0 === e.queue.length) return;
                 const n = e.queue[0];
                 await this.installChannel(n.game, {skipRequirements: !0, skipAnalitics: !1})
             }
-        }, DP = ({
+
+            changeDownloadSettings(e) {
+                const t = window.launcherAPI.installer.onSetDownloadOptionsSuccess((e => {
+                    const {installer: n} = nI.getState(), r = {...n.downloadOptions, [e.name]: e.value};
+                    n.actions.setDownloadOptions(r), t()
+                }));
+                window.launcherAPI.installer.setDownloadOptions(e)
+            }
+
+            setForceDataPatcher(e) {
+                const {installer: t} = nI.getState(), n = {...t.downloadOptions, forceDataPatcher: e};
+                t.actions.setDownloadOptions(n)
+            }
+        }, iC = ({
                      launcherVersion: e = "unknown",
                      patcherVersion: t = "unknown",
                      platformMaster: n = "prod",
@@ -42497,9 +43242,9 @@
             nonOperationalStatus: c,
             connection: u,
             animations: d
-        }), RP = (e, t) => ({
+        }), oC = (e, t) => ({
             application: {
-                ...DP({}), actions: {
+                ...iC({}), actions: {
                     initializeApplication: async () => {
                         const {
                                 launcherVersion: t,
@@ -42507,7 +43252,7 @@
                                 environment: r
                             } = await window.launcherAPI.game.getGlobalConfig(),
                             a = await window.launcherAPI.store.getValueFromStore("application.connection.lastTimeOnline"),
-                            i = DP({
+                            i = iC({
                                 launcherVersion: t,
                                 patcherVersion: n,
                                 platformMaster: r,
@@ -42525,7 +43270,7 @@
                         e.actions.setDownloadPopoverOpened(!e.isDownloadPopoverOpened)
                     },
                     setDownloadPopoverOpened: t => {
-                        t || AP.clearCompletedInstallations(), e((e => ({
+                        t || aC.clearCompletedInstallations(), e((e => ({
                             application: {
                                 ...e.application,
                                 isDownloadPopoverOpened: t
@@ -42556,7 +43301,7 @@
                     },
                     resetApplication: () => e((e => ({
                         application: {
-                            ...e.application, ...DP({}),
+                            ...e.application, ...iC({}),
                             launcherVersion: e.application.launcherVersion,
                             patcherVersion: e.application.patcherVersion,
                             platformMaster: e.application.platformMaster
@@ -42580,7 +43325,7 @@
                     },
                     getRemainingTimeOfOfflineSession: () => {
                         const {application: {connection: {lastTimeOnline: e}}, user: {device: n}} = t();
-                        if (!(n && (void 0 !== n.expires || n.duration !== Tw.SESSION)) || void 0 === e) return;
+                        if (!(n && (void 0 !== n.expires || n.duration !== zw.SESSION)) || void 0 === e) return;
                         const r = e + dw.configuration.authenticationExpiry, a = n.expires;
                         return kw(new Date(a < r ? a : r).toDateString(), "relative", {})
                     },
@@ -42639,14 +43384,14 @@
                                     needToBeCheck: !1
                                 }
                             }
-                        }))), window.launcherAPI.store.setValueToStore("application.connection.lastTimeOnline", i), dP.isLoggedIn() && (r.setCloseAllPopovers(), r.setLostConnectionToast(), r.setConnectionPopoverOpened(!0))
+                        }))), window.launcherAPI.store.setValueToStore("application.connection.lastTimeOnline", i), FP.isLoggedIn() && (r.setCloseAllPopovers(), r.setLostConnectionToast(), r.setConnectionPopoverOpened(!0))
                     },
                     setLostConnectionToast: () => {
                         const {application: {actions: e}, toasts: n} = t(), r = e.getRemainingTimeOfOfflineSession();
                         n.actions.add({
                             duration: 6e3,
                             type: "informative",
-                            icon: Hw,
+                            icon: Jw,
                             title: ve.t("connection_toast_warning_lost_connection_title", {ns: "connection"}),
                             children: (0, hw.jsxs)(bu, {
                                 gap: "100",
@@ -42680,14 +43425,14 @@
                     }
                 }
             }
-        }), TP = "autoUpdate", jP = (e, t = {}) => bt.t(e, {ns: TP, ...t}), LP = (e, t) => {
+        }), sC = "autoUpdate", lC = (e, t = {}) => bt.t(e, {ns: sC, ...t}), cC = (e, t) => {
             var n;
             const {closeDialog: r} = e.autoUpdate.actions,
                 a = null === (n = window.launcherAPI.autoUpdate) || void 0 === n ? void 0 : n.updateAndRestart, i = {
                     open: !0,
                     alert: !0,
-                    close: jP("auto_update_dialog_close"),
-                    title: jP("auto_update_dialog_title"),
+                    close: lC("auto_update_dialog_close"),
+                    title: lC("auto_update_dialog_title"),
                     onOpenChange: () => {
                         r()
                     }
@@ -42700,16 +43445,16 @@
                             children: [(0, hw.jsx)(iu, {
                                 variant: "emphasis-s",
                                 as: "h4",
-                                children: jP("auto_update_dialog_sub_title", {version: t.updateInfo.version})
+                                children: lC("auto_update_dialog_sub_title", {version: t.updateInfo.version})
                             }), (0, hw.jsx)(ht, {
                                 i18nKey: "auto_update_dialog_update_available_content",
                                 t: bt.t,
-                                ns: TP,
+                                ns: sC,
                                 components: [(0, hw.jsx)("br", {})]
                             })]
                         }),
-                        actions: [{label: jP("auto_update_dialog_update_available_action_secondary_label")}, {
-                            label: jP("auto_update_dialog_update_available_action_primary_label"),
+                        actions: [{label: lC("auto_update_dialog_update_available_action_secondary_label")}, {
+                            label: lC("auto_update_dialog_update_available_action_primary_label"),
                             onClick: () => a()
                         }]
                     };
@@ -42721,16 +43466,16 @@
                             children: [(0, hw.jsx)(iu, {
                                 variant: "emphasis-s",
                                 as: "h4",
-                                children: jP("auto_update_dialog_sub_title", {version: t.updateInfo.version})
+                                children: lC("auto_update_dialog_sub_title", {version: t.updateInfo.version})
                             }), (0, hw.jsx)(ht, {
                                 i18nKey: "auto_update_dialog_update_install_failed_content",
                                 t: bt.t,
-                                ns: TP,
+                                ns: sC,
                                 components: [(0, hw.jsx)(j_, {href: dw.configuration.supportUrl, external: !0})]
                             })]
                         }),
-                        actions: [{label: jP("auto_update_dialog_update_install_failed_action_secondary_label")}, {
-                            label: jP("auto_update_dialog_update_install_failed_action_primary_label"),
+                        actions: [{label: lC("auto_update_dialog_update_install_failed_action_secondary_label")}, {
+                            label: lC("auto_update_dialog_update_install_failed_action_primary_label"),
                             onClick: () => a()
                         }]
                     };
@@ -42742,11 +43487,11 @@
                             children: [(0, hw.jsx)(iu, {
                                 variant: "emphasis-s",
                                 as: "h4",
-                                children: jP("auto_update_dialog_sub_title", {version: t.updateInfo.version})
-                            }), jP("auto_update_dialog_update_quit_game_content")]
+                                children: lC("auto_update_dialog_sub_title", {version: t.updateInfo.version})
+                            }), lC("auto_update_dialog_update_quit_game_content")]
                         }),
-                        actions: [{label: jP("auto_update_dialog_update_quit_game_action_secondary_label")}, {
-                            label: jP("auto_update_dialog_update_quit_game_action_primary_label"),
+                        actions: [{label: lC("auto_update_dialog_update_quit_game_action_secondary_label")}, {
+                            label: lC("auto_update_dialog_update_quit_game_action_primary_label"),
                             onClick: () => a(!0)
                         }]
                     };
@@ -42757,20 +43502,20 @@
                             children: [(0, hw.jsx)(iu, {
                                 variant: "emphasis-s",
                                 as: "h4",
-                                children: jP("auto_update_dialog_sub_title", {version: t.updateInfo.version})
+                                children: lC("auto_update_dialog_sub_title", {version: t.updateInfo.version})
                             }), (0, hw.jsx)(ht, {
                                 i18nKey: "auto_update_dialog_no_update_content",
                                 t: bt.t,
-                                ns: TP,
+                                ns: sC,
                                 components: [(0, hw.jsx)("br", {})]
                             })]
                         }),
-                        actions: [{label: jP("auto_update_dialog_no_update_action_primary_label")}]
+                        actions: [{label: lC("auto_update_dialog_no_update_action_primary_label")}]
                     }
             }
-        }, NP = {dialog: {}}, MP = (e, t) => ({
+        }, uC = {dialog: {}}, dC = (e, t) => ({
             autoUpdate: {
-                ...NP, actions: {
+                ...uC, actions: {
                     async closeDialog() {
                         var n;
                         const r = t();
@@ -42782,33 +43527,42 @@
                         })
                     }, displayDialog(n) {
                         const r = t();
-                        e({autoUpdate: {...r.autoUpdate, dialog: LP(r, n)}})
+                        e({autoUpdate: {...r.autoUpdate, dialog: cC(r, n)}})
                     }
                 }
             }
-        }), FP = () => {
-            const e = kC((e => e.autoUpdate));
-            return MA(), (0, hw.jsx)(rf, {...e.dialog})
-        }, zP = Gl.create((({title: e, content: t, primaryCallback: n, primaryLabel: r, typeDialog: a}) => {
-            const i = Ll(), {t: o} = yt(["dialog"]), s = {
+        }), hC = () => {
+            const e = nI((e => e.autoUpdate));
+            return bD(), (0, hw.jsx)(rf, {...e.dialog})
+        }, pC = Gl.create((({
+                                title: e,
+                                content: t,
+                                close: n = "",
+                                alert: r = !1,
+                                primaryCallback: a,
+                                primaryLabel: i,
+                                typeDialog: o
+                            }) => {
+            const s = Ll(), {t: l} = yt(["dialog"]), c = {
                 close: !1,
-                label: null !== r && void 0 !== r ? r : o("dialog_action_ok", {ns: "dialog"}),
+                label: null !== i && void 0 !== i ? i : l("dialog_action_ok", {ns: "dialog"}),
                 onClick: () => {
-                    null === n || void 0 === n || n(), i.resolve({resolved: !0}), i.hide()
+                    null === a || void 0 === a || a(), s.resolve({resolved: !0}), s.hide()
                 }
-            };
+            }, u = "" === n ? l("dialog_action_close", {ns: "dialog"}) : n;
             return (0, hw.jsx)(rf, {
-                open: i.visible,
-                onOpenChange: e => i[e ? "show" : "hide"](),
+                open: s.visible,
+                onOpenChange: e => s[e ? "show" : "hide"](),
                 title: e,
-                type: null !== a && void 0 !== a ? a : "negative",
-                close: o("dialog_action_close"),
-                actions: [s],
+                type: null !== o && void 0 !== o ? o : "negative",
+                close: u,
+                alert: r,
+                actions: [c],
                 children: t
             })
         }));
-        Gl.register("acknowledgement-dialog", zP);
-        const VP = Gl.create((({
+        Gl.register("acknowledgement-dialog", pC);
+        const fC = Gl.create((({
                                    close: e,
                                    title: t,
                                    content: n,
@@ -42850,34 +43604,35 @@
                 })
             })
         }));
-        Gl.register("form-dialog", VP);
-        const UP = Gl.create((({type: e, data: t, gameSettings: n, inGameSettings: r}) => {
-            const {t: a} = yt(["dialog"]), {settings: i, application: o} = kC(),
-                s = i.appSettings.accessibility.reduceMotion.wipeAnimationsDisabled, l = Ll(), c = r ? void 0 : () => {
-                    const e = rO(`/${vR.SETTINGS}/${vR.SETTINGS_GAMES}`, {gameId: t.gameId, channelId: t.channelId});
-                    if (!s) return void (window.location.hash = e);
+        Gl.register("form-dialog", fC);
+        const mC = Gl.create((({type: e, data: t, gameSettings: n, inGameSettings: r}) => {
+            const {t: a} = yt(["dialog"]), i = nI((e => e.application)),
+                o = nI((e => e.accessibility)).options.reduceMotion.wipeAnimationsDisabled, s = Ll(),
+                l = r ? void 0 : () => {
+                    const e = bO(`/${rT.SETTINGS}/${rT.SETTINGS_GAMES}`, {gameId: t.gameId, channelId: t.channelId});
+                    if (!o) return void (window.location.hash = e);
                     const n = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
-                    o.actions.setAnimatingAppLayoutWipe("full", !0);
+                    i.actions.setAnimatingAppLayoutWipe("full", !0);
                     const r = setTimeout((() => {
                         window.location.hash = e
                     }), n / 2);
                     return () => clearTimeout(r)
                 };
-            return (0, hw.jsx)(VP, {
-                id: l.id,
+            return (0, hw.jsx)(fC, {
+                id: s.id,
                 close: !r,
                 title: a(e === dw.InstallationType.INSTALL ? "dialog_start_installation_install_title" : "dialog_start_installation_update_title", {
                     ns: "dialog",
                     game: t.gameName,
                     channel: t.channelId
                 }),
-                content: (0, hw.jsx)(GP, {data: t, gameSettings: n, inGameSettings: r}),
+                content: (0, hw.jsx)(gC, {data: t, gameSettings: n, inGameSettings: r}),
                 primaryLabel: a(e === dw.InstallationType.INSTALL ? "dialog_start_installation_action_install" : "dialog_start_installation_action_update", {ns: "dialog"}),
-                primaryCallback: () => AP.addInstallationToQueue(t, e),
+                primaryCallback: () => aC.addInstallationToQueue(t, e),
                 secondaryLabel: a(r ? "dialog_action_cancel" : "dialog_start_installation_action_go_to_settings", {ns: "dialog"}),
-                secondaryCallback: c
+                secondaryCallback: l
             })
-        })), GP = ({data: e, gameSettings: t, inGameSettings: n}) => {
+        })), gC = ({data: e, gameSettings: t, inGameSettings: n}) => {
             const {t: r} = yt(["dialog"]);
             return (0, hw.jsxs)(bu, {
                 role: "group",
@@ -42903,8 +43658,8 @@
                 }), (0, hw.jsx)(iu, {children: r(n ? "dialog_start_installation_content_location_close_popover" : "dialog_start_installation_content_location_settings", {ns: "dialog"})})]
             })
         };
-        Gl.register("disk-space-dialog", UP);
-        const BP = Gl.create((({
+        Gl.register("disk-space-dialog", mC);
+        const vC = Gl.create((({
                                    title: e,
                                    content: t,
                                    primaryCallback: n,
@@ -42942,27 +43697,27 @@
                 children: t
             })
         }));
-        let $P, WP;
-        Gl.register("warning-confirm-dialog", BP), function (e) {
+        let yC, bC;
+        Gl.register("warning-confirm-dialog", vC), function (e) {
             e.SHADERS = "shaders", e.SCREENSHOTS = "screenshots", e.USER = "user"
-        }($P || ($P = {})), function (e) {
+        }(yC || (yC = {})), function (e) {
             e.KEYBINDINGS = "keybindings", e.PREFERENCES = "preferences", e.CHARACTERS = "characters"
-        }(WP || (WP = {}));
-        const HP = () => {
+        }(bC || (bC = {}));
+        const _C = () => {
             const {t: e} = yt(["settingsPage"]), t = {
-                [$P.SHADERS]: !0,
-                [$P.SCREENSHOTS]: !0,
-                [$P.USER]: !0,
-                [WP.KEYBINDINGS]: !0,
-                [WP.PREFERENCES]: !0,
-                [WP.CHARACTERS]: !0
+                [yC.SHADERS]: !0,
+                [yC.SCREENSHOTS]: !0,
+                [yC.USER]: !0,
+                [bC.KEYBINDINGS]: !0,
+                [bC.PREFERENCES]: !0,
+                [bC.CHARACTERS]: !0
             }, [n, r] = (0, ke.useState)(t), a = (0, ke.useCallback)((e => {
                 const {name: t, checked: n} = e.target;
                 r((e => {
                     const r = {...e, [t]: n};
-                    if (Object.values(WP).includes(t)) {
+                    if (Object.values(bC).includes(t)) {
                         const e = r.keybindings || r.preferences || r.characters;
-                        r[$P.USER] = e
+                        r[yC.USER] = e
                     }
                     return r
                 }))
@@ -42970,12 +43725,12 @@
                 const {name: t, checked: n} = e.target;
                 r((e => {
                     const r = {...e, [t]: null !== n && void 0 !== n && n};
-                    return Object.values(WP).forEach((e => {
+                    return Object.values(bC).forEach((e => {
                         r[e] = n
                     })), r
                 }))
             }), []), o = [];
-            Object.values(WP).forEach((e => {
+            Object.values(bC).forEach((e => {
                 o.push(n[e])
             }));
             const s = o.every(Boolean), l = o.some(Boolean) && !s;
@@ -42988,19 +43743,19 @@
                     id: "legend",
                     children: e("settings_games_local_delete_description")
                 }), (0, hw.jsx)(Kp, {
-                    name: $P.SHADERS,
+                    name: yC.SHADERS,
                     checked: n.shaders,
                     value: n.shaders.toString(),
                     onChange: e => a(e),
                     children: e("settings_games_local_shaders_folder")
                 }), (0, hw.jsx)(Kp, {
-                    name: $P.SCREENSHOTS,
+                    name: yC.SCREENSHOTS,
                     checked: n.screenshots,
                     value: n.screenshots.toString(),
                     onChange: e => a(e),
                     children: e("settings_games_local_screenshots_folder")
                 }), (0, hw.jsxs)(Kp, {
-                    name: $P.USER,
+                    name: yC.USER,
                     checked: n.user,
                     value: n.user.toString(),
                     onChange: e => i(e),
@@ -43010,19 +43765,19 @@
                         gap: "100",
                         className: "sol-u-margin-bs-050",
                         children: [(0, hw.jsx)(Kp, {
-                            name: WP.KEYBINDINGS,
+                            name: bC.KEYBINDINGS,
                             checked: n.keybindings,
                             value: n.keybindings.toString(),
                             onChange: e => a(e),
                             children: e("settings_games_local_keybindings")
                         }), (0, hw.jsx)(Kp, {
-                            name: WP.PREFERENCES,
+                            name: bC.PREFERENCES,
                             checked: n.preferences,
                             value: n.preferences.toString(),
                             onChange: e => a(e),
                             children: e("settings_games_local_settings")
                         }), (0, hw.jsx)(Kp, {
-                            name: WP.CHARACTERS,
+                            name: bC.CHARACTERS,
                             checked: n.characters,
                             value: n.characters.toString(),
                             onChange: e => a(e),
@@ -43031,7 +43786,7 @@
                     })]
                 })]
             })
-        }, qP = Gl.create((({error: e, data: t}) => {
+        }, xC = Gl.create((({error: e, data: t}) => {
             const {t: n} = yt(), r = Ll(), {
                 crashInfo: a,
                 isCrashInfoLoading: i,
@@ -43063,7 +43818,7 @@
                 })), [e]);
                 return {crashInfo: n, isCrashInfoLoading: i, isCrashInfoTimeout: o, isCrashInfoRetrieved: s}
             })();
-            return (0, hw.jsx)(BP, {
+            return (0, hw.jsx)(vC, {
                 id: r.id,
                 title: n("error_launch_game_crash_title", {game: t.gameName, ns: "errors"}),
                 content: (0, hw.jsxs)(bu, {
@@ -43097,7 +43852,7 @@
                             gap: "025",
                             children: [(0, hw.jsx)(iu, {children: n("error_launch_game_crash_info", {ns: "errors"})}), i && (0, hw.jsxs)(bu, {
                                 gap: "025",
-                                children: [(0, hw.jsx)(Jw, {}), (0, hw.jsx)(iu, {children: n("error_launch_game_crash_retrieving_crash_info", {ns: "errors"})})]
+                                children: [(0, hw.jsx)(ok, {}), (0, hw.jsx)(iu, {children: n("error_launch_game_crash_retrieving_crash_info", {ns: "errors"})})]
                             }), o && (0, hw.jsx)(iu, {children: n("error_launch_game_crash_could_not_retrieve_crash_info", {ns: "errors"})}), s && (0, hw.jsxs)(bu, {
                                 children: [(0, hw.jsx)(iu, {children: a ? a.DigestId : n("error_launch_game_crash_could_not_retrieve_crash_info", {ns: "errors"})}), a && (0, hw.jsx)(Qp, {
                                     copyValue: a.DigestId,
@@ -43110,17 +43865,60 @@
                     })]
                 }),
                 primaryLabel: n("dialog_action_verify", {ns: "dialog"}),
-                primaryCallback: () => AP.addInstallationToQueue(t, dw.InstallationType.VERIFY),
+                primaryCallback: () => aC.addInstallationToQueue(t, dw.InstallationType.VERIFY),
                 secondaryLabel: n("dialog_action_cancel", {ns: "dialog"})
             })
         }));
-        Gl.register("launch-game-crash-dialog", qP);
-        const KP = (e, t) => ({
+
+        async function wC() {
+            const {accessibility: e, application: t} = nI.getState();
+            if (e.options.reduceMotion.wipeAnimationsDisabled) return void await FP.logOutCurrentUser();
+            const n = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
+            t.actions.setAnimatingAppLayoutWipe("in", !0);
+            const r = setTimeout((() => FP.logOutCurrentUser()), n / 2);
+            return () => clearTimeout(r)
+        }
+
+        Gl.register("launch-game-crash-dialog", xC);
+        const kC = new class {
+            async start() {
+                const {discovery: e} = nI.getState();
+                await e.actions.setIsDone(!1), await e.actions.setIsStarted(!0)
+            }
+
+            async finish() {
+                const {discovery: e} = nI.getState();
+                await e.actions.setIsDone(!0), await e.actions.setIsStarted(!1)
+            }
+        }, EC = (e, t) => {
+            const n = (e => async () => {
+                const {isStarted: t, isDone: n} = e().discovery;
+                await window.launcherAPI.store.setValueToStore("discovery.settings", {isStarted: t, isDone: n})
+            })(t);
+            return {
+                discovery: {
+                    isStarted: !1, isDone: !1, actions: {
+                        initialize: async () => {
+                            var t;
+                            const r = null !== (t = await window.launcherAPI.store.getValueFromStore("discovery.settings")) && void 0 !== t ? t : {
+                                isStarted: !1,
+                                isDone: !1
+                            };
+                            e((e => ({discovery: {...e.discovery, ...r}}))), await n()
+                        }, setIsStarted: async t => {
+                            e((e => ({discovery: {...e.discovery, isStarted: t}}))), await n()
+                        }, setIsDone: async t => {
+                            e((e => ({discovery: {...e.discovery, isDone: t}}))), await n()
+                        }
+                    }
+                }
+            }
+        }, SC = (e, t) => ({
             dialog: {
                 actions: {
                     showExitAppDialog: () => {
                         const e = t();
-                        return Gl.show(VP, {
+                        return Gl.show(fC, {
                             title: ve.t("dialog_warning_exit_app_title", {ns: "dialog"}),
                             content: (0, hw.jsx)(qp, {
                                 description: ve.t("dialog_warning_exit_app_text", {ns: "dialog"}),
@@ -43139,44 +43937,29 @@
                             primaryCallback: () => e.window.actions.exitLauncher()
                         })
                     },
-                    showWarningExitAppGameRuningDialog: () => Gl.show(BP, {
+                    showWarningExitAppGameRuningDialog: () => Gl.show(vC, {
                         title: ve.t("dialog_warning_exit_app_title", {ns: "dialog"}),
                         content: ve.t("dialog_warning_exit_app_game_running_text", {ns: "dialog"}),
                         primaryLabel: ve.t("dialog_action_ok", {ns: "dialog"})
                     }),
-                    showDiscoverDialog: () => {
-                        const e = t();
-                        return Gl.show(BP, {
-                            title: ve.t("dialog_discover_title", {ns: "dialog"}),
-                            content: ve.t("dialog_discover_content", {ns: "dialog"}),
-                            typeDialog: "default",
-                            primaryLabel: ve.t("dialog_discover_start", {ns: "dialog"}),
-                            primaryCallback: () => e.application.actions.setDiscoverStarted(!0),
-                            secondaryLabel: ve.t("dialog_discover_skip", {ns: "dialog"}),
-                            secondaryCallback: () => {
-                                e.application.actions.setDiscoverStarted(!1), e.settings.actions.saveApplicationSettings({
-                                    name: "isDiscoverDone",
-                                    value: !0
-                                })
-                            }
-                        })
-                    },
-                    showLogoutDialog: e => {
-                        const n = t(), r = n.settings.appSettings.accessibility.reduceMotion.wipeAnimationsDisabled;
-                        return Gl.show(BP, {
-                            title: ve.t("dialog_warning_logout_title", {ns: "dialog"}),
-                            content: ve.t(e ? "dialog_warning_logout_game_running_text" : "dialog_warning_logout_text", {ns: "dialog"}),
-                            primaryLabel: ve.t("dialog_warning_logout_confirm", {ns: "dialog"}),
-                            primaryCallback: async () => {
-                                if (r) return void await dP.logOutCurrentUser();
-                                const e = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
-                                n.application.actions.setAnimatingAppLayoutWipe("in", !0);
-                                const t = setTimeout((() => dP.logOutCurrentUser()), e / 2);
-                                return () => clearTimeout(t)
-                            }
-                        })
-                    },
-                    showOsRequirementsDialog: e => Gl.show(zP, {
+                    showDiscoverDialog: () => Gl.show(vC, {
+                        title: ve.t("dialog_discover_title", {ns: "dialog"}),
+                        content: ve.t("dialog_discover_content", {ns: "dialog"}),
+                        typeDialog: "default",
+                        primaryLabel: ve.t("dialog_discover_start", {ns: "dialog"}),
+                        primaryCallback: () => kC.start(),
+                        secondaryLabel: ve.t("dialog_discover_skip", {ns: "dialog"}),
+                        secondaryCallback: () => {
+                            kC.finish()
+                        }
+                    }),
+                    showLogoutDialog: e => Gl.show(vC, {
+                        title: ve.t("dialog_warning_logout_title", {ns: "dialog"}),
+                        content: ve.t(e ? "dialog_warning_logout_game_running_text" : "dialog_warning_logout_text", {ns: "dialog"}),
+                        primaryLabel: ve.t("dialog_warning_logout_confirm", {ns: "dialog"}),
+                        primaryCallback: async () => wC()
+                    }),
+                    showOsRequirementsDialog: e => Gl.show(pC, {
                         title: ve.t("error_os_requirements_title", {ns: "errors"}),
                         content: (0, hw.jsx)(ht, {
                             i18nKey: "error_os_requirements_text",
@@ -43189,7 +43972,7 @@
                             values: {game: e.gameName}
                         })
                     }),
-                    showCpuRequirementsDialog: () => Gl.show(zP, {
+                    showCpuRequirementsDialog: () => Gl.show(pC, {
                         title: ve.t("error_cpu_requirements_title", {ns: "errors"}),
                         content: ve.t("error_cpu_requirements_text", {ns: "errors"})
                     }),
@@ -43201,7 +43984,7 @@
                                                         secondaryLabel: a,
                                                         secondaryCallback: i,
                                                         error: o
-                                                    }) => Gl.show(BP, {
+                                                    }) => Gl.show(vC, {
                         title: null !== e && void 0 !== e ? e : ve.t("error_generic_title", {ns: "errors"}),
                         content: null !== t && void 0 !== t ? t : (0, hw.jsx)(ht, {
                             i18nKey: "error_generic_content",
@@ -43221,7 +44004,7 @@
                         secondaryLabel: null !== a && void 0 !== a ? a : ve.t("dialog_action_cancel", {ns: "dialog"}),
                         secondaryCallback: () => null === i || void 0 === i ? void 0 : i()
                     }),
-                    showWarningDialogCacheClear: () => Gl.show(BP, {
+                    showWarningDialogCacheClear: () => Gl.show(vC, {
                         title: ve.t("dialog_debug_cache_clear_title", {ns: "dialog"}),
                         content: ve.t("dialog_debug_cache_clear_content", {ns: "dialog"}),
                         typeDialog: "default",
@@ -43231,14 +44014,14 @@
                         },
                         secondaryLabel: ve.t("dialog_action_cancel", {ns: "dialog"})
                     }),
-                    showLaunchGameCrashDialog: (e, t) => Gl.show(qP, {data: e, error: t}),
+                    showLaunchGameCrashDialog: (e, t) => Gl.show(xC, {data: e, error: t}),
                     showAcknowledgeDialogErrorOccured: ({
                                                             title: e,
                                                             content: t,
                                                             primaryCallback: n,
                                                             primaryLabel: r,
                                                             error: a
-                                                        }) => Gl.show(zP, {
+                                                        }) => Gl.show(pC, {
                         title: null !== e && void 0 !== e ? e : ve.t("error_generic_title", {ns: "errors"}),
                         content: null !== t && void 0 !== t ? t : (0, hw.jsx)(ht, {
                             i18nKey: "error_generic_content",
@@ -43253,14 +44036,14 @@
                         primaryCallback: () => null === n || void 0 === n ? void 0 : n(),
                         primaryLabel: null !== r && void 0 !== r ? r : void 0
                     }),
-                    showWarningsDialog: (e, t) => Gl.show(BP, {
+                    showWarningsDialog: (e, t) => Gl.show(vC, {
                         title: e,
                         typeDialog: "positive",
                         content: _w(t),
                         secondaryLabel: ve.t("dialog_action_close", {ns: "dialog"}),
                         primaryLabel: ve.t("dialog_action_acknowledge", {ns: "dialog"})
                     }),
-                    showAgreementsDialog: (e, t, n) => Gl.show(BP, {
+                    showAgreementsDialog: (e, t, n) => Gl.show(vC, {
                         title: e,
                         typeDialog: "positive",
                         content: _w(`<h1>${t}</h1>${n}`),
@@ -43268,36 +44051,33 @@
                         primaryLabel: ve.t("dialog_action_accept", {ns: "dialog"}),
                         disablePrimaryUntilScrolled: !0
                     }),
-                    showResetSettingsDialog: e => {
-                        const n = t();
-                        return Gl.show(BP, {
-                            title: ve.t("dialog_settings_reset_title", {ns: "dialog"}),
-                            content: ve.t("dialog_settings_reset_content", {ns: "dialog"}),
-                            secondaryLabel: ve.t("dialog_action_cancel", {ns: "dialog"}),
-                            primaryLabel: ve.t("dialog_settings_reset_button", {ns: "dialog"}),
-                            primaryCallback: () => {
-                                n.settings.actions.resetChannelGameSettings(e)
-                            }
-                        })
-                    },
-                    showDeleteLocalSettingsDialog: () => Gl.show(VP, {
+                    showResetSettingsDialog: e => Gl.show(vC, {
+                        title: ve.t("dialog_settings_reset_title", {ns: "dialog"}),
+                        content: ve.t("dialog_settings_reset_content", {ns: "dialog"}),
+                        secondaryLabel: ve.t("dialog_action_cancel", {ns: "dialog"}),
+                        primaryLabel: ve.t("dialog_settings_reset_button", {ns: "dialog"}),
+                        primaryCallback: () => {
+                            UP.resetChannelGameSettings(e)
+                        }
+                    }),
+                    showDeleteLocalSettingsDialog: () => Gl.show(fC, {
                         title: ve.t("dialog_settings_delete_local_title", {ns: "dialog"}),
-                        content: (0, hw.jsx)(HP, {}),
+                        content: (0, hw.jsx)(_C, {}),
                         secondaryLabel: ve.t("dialog_action_cancel", {ns: "dialog"}),
                         primaryLabel: ve.t("dialog_action_delete", {ns: "dialog"})
                     }),
-                    showGameNotInstalledDialog: e => Gl.show(BP, {
+                    showGameNotInstalledDialog: e => Gl.show(vC, {
                         title: ve.t("dialog_settings_game_not_installed_title", {ns: "dialog"}),
                         content: ve.t("dialog_settings_game_not_installed_content", {ns: "dialog"}),
                         secondaryLabel: ve.t("dialog_action_cancel", {ns: "dialog"}),
                         primaryLabel: ve.t("dialog_action_install", {ns: "dialog"}),
                         primaryCallback: () => {
-                            AP.addInstallationToQueue(e, dw.InstallationType.INSTALL)
+                            aC.addInstallationToQueue(e, dw.InstallationType.INSTALL)
                         }
                     }),
                     showGameStartInstallationDialog: async (e, t, n) => {
-                        const r = await yP(t);
-                        return Gl.show(UP, {
+                        const r = await qP(t);
+                        return Gl.show(mC, {
                             key: Date.now(),
                             type: e,
                             data: t,
@@ -43327,7 +44107,7 @@
                                     info: `${e.game.gameName} - ${e.release ? e.release.versionLabel + " - " : ""}${e.game.channelId}`
                                 })
                         }
-                        return Gl.show(BP, {
+                        return Gl.show(vC, {
                             title: r.title,
                             content: (0, hw.jsxs)(bu, {
                                 role: "group",
@@ -43335,7 +44115,7 @@
                                 vertical: !0,
                                 children: [(0, hw.jsx)("p", {children: r.content}), e.type === dw.InstallationType.INSTALL && (0, hw.jsx)(Kp, {
                                     type: "checkbox",
-                                    onChange: t => AP.setInstallationOptions(e.game, {keepFilesOnCancel: t.target.checked}),
+                                    onChange: t => aC.setInstallationOptions(e.game, {keepFilesOnCancel: t.target.checked}),
                                     children: ve.t("dialog_cancel_install_content_keep_files_downloaded", {ns: "dialog"})
                                 })]
                             }),
@@ -43345,11 +44125,11 @@
                                 n.application.actions.setDownloadPopoverOpened(!0)
                             },
                             primaryCallback: () => {
-                                AP.removeInstallation(e.game), n.application.actions.setDownloadPopoverOpened(!0)
+                                aC.removeInstallation(e.game), n.application.actions.setDownloadPopoverOpened(!0)
                             }
                         })
                     },
-                    showGameChannelUpdateAvailableDialog: e => Gl.show(zP, {
+                    showGameChannelUpdateAvailableDialog: e => Gl.show(pC, {
                         typeDialog: "positive",
                         title: ve.t("dialog_launch_check_update_available_title", {ns: "dialog"}),
                         content: ve.t("dialog_launch_check_update_available_content", {
@@ -43358,7 +44138,7 @@
                             channel: e.channelName
                         })
                     }),
-                    showWarningUninstallDialog: e => Gl.show(VP, {
+                    showWarningUninstallDialog: e => Gl.show(fC, {
                         title: ve.t("dialog_warning_uninstall_title", {
                             game: e.gameName,
                             channel: e.channelName,
@@ -43385,7 +44165,7 @@
                         secondaryLabel: ve.t("dialog_action_cancel", {ns: "dialog"}),
                         primaryLabel: ve.t("dialog_warning_uninstall_confirm", {ns: "dialog"})
                     }),
-                    showLostConnectionDialog: () => Gl.show(zP, {
+                    showLostConnectionDialog: () => Gl.show(pC, {
                         typeDialog: "default",
                         title: ve.t("dialog_warning_lost_connection_title", {ns: "dialog"}),
                         content: (0, hw.jsx)("span", {
@@ -43397,7 +44177,7 @@
                         }),
                         primaryLabel: ve.t("dialog_action_continue_offline", {ns: "dialog"})
                     }),
-                    showDuplicateLibraryDialog: () => Gl.show(zP, {
+                    showDuplicateLibraryDialog: () => Gl.show(pC, {
                         typeDialog: "negative",
                         title: ve.t("dialog_warning_duplicate_library_title", {ns: "dialog"}),
                         content: (0, hw.jsx)("span", {
@@ -43409,7 +44189,7 @@
                         }),
                         primaryLabel: ve.t("dialog_action_ok", {ns: "dialog"})
                     }),
-                    showDeleteLibraryDialog: (e, t) => Gl.show(BP, {
+                    showDeleteLibraryDialog: (e, t) => Gl.show(vC, {
                         typeDialog: "negative",
                         title: ve.t("dialog_warning_delete_game_library_title", {ns: "dialog"}),
                         content: (0, hw.jsxs)(bu, {
@@ -43447,7 +44227,7 @@
                         primaryLabel: ve.t("dialog_action_delete", {ns: "dialog"}),
                         secondaryLabel: ve.t("dialog_action_cancel", {ns: "dialog"})
                     }),
-                    showReplaceInstalledLibraryDialog: (e, t, n) => Gl.show(BP, {
+                    showReplaceInstalledLibraryDialog: (e, t, n) => Gl.show(vC, {
                         typeDialog: "notice",
                         title: ve.t("dialog_warning_change_game_title_dialog", {ns: "dialog"}),
                         content: (0, hw.jsxs)(bu, {
@@ -43474,7 +44254,7 @@
                                         variant: "body-m-bold",
                                         children: t
                                     }), (0, hw.jsx)(uu, {
-                                        icon: Zw,
+                                        icon: rk,
                                         variant: "plain",
                                         size: "small",
                                         onClick: () => window.launcherAPI.settings.openFileSystemDialog(t)
@@ -43494,7 +44274,7 @@
                                         variant: "body-m-bold",
                                         children: e
                                     }), (0, hw.jsx)(uu, {
-                                        icon: Zw,
+                                        icon: rk,
                                         variant: "plain",
                                         size: "small",
                                         onClick: () => window.launcherAPI.settings.openFileSystemDialog(e)
@@ -43521,7 +44301,7 @@
                         primaryLabel: ve.t("dialog_action_proceed", {ns: "dialog"}),
                         secondaryLabel: ve.t("dialog_action_cancel", {ns: "dialog"})
                     }),
-                    showReplaceInstalledDefaultLibraryDialog: (e, t, n) => Gl.show(BP, {
+                    showReplaceInstalledDefaultLibraryDialog: (e, t, n) => Gl.show(vC, {
                         typeDialog: "notice",
                         title: ve.t("dialog_warning_set_default_library_title", {ns: "dialog"}),
                         content: (0, hw.jsxs)(bu, {
@@ -43548,7 +44328,7 @@
                                         variant: "body-m-bold",
                                         children: t
                                     }), (0, hw.jsx)(uu, {
-                                        icon: Zw,
+                                        icon: rk,
                                         variant: "plain",
                                         size: "small",
                                         onClick: () => window.launcherAPI.settings.openFileSystemDialog(t)
@@ -43568,7 +44348,7 @@
                                         variant: "body-m-bold",
                                         children: e
                                     }), (0, hw.jsx)(uu, {
-                                        icon: Zw,
+                                        icon: rk,
                                         variant: "plain",
                                         size: "small",
                                         onClick: () => window.launcherAPI.settings.openFileSystemDialog(e)
@@ -43595,7 +44375,7 @@
                         primaryLabel: ve.t("dialog_action_set_default_library", {ns: "dialog"}),
                         secondaryLabel: ve.t("dialog_action_cancel", {ns: "dialog"})
                     }),
-                    showSetDefaultLibraryDialog: e => Gl.show(BP, {
+                    showSetDefaultLibraryDialog: e => Gl.show(vC, {
                         typeDialog: "default",
                         title: ve.t("dialog_warning_set_default_library_title", {ns: "dialog"}),
                         content: (0, hw.jsxs)(bu, {
@@ -43613,7 +44393,7 @@
                         primaryLabel: ve.t("dialog_action_set_default_library", {ns: "dialog"}),
                         secondaryLabel: ve.t("dialog_action_cancel", {ns: "dialog"})
                     }),
-                    showChannelLibraryChangeDialog: (e, t, n) => Gl.show(BP, {
+                    showChannelLibraryChangeDialog: (e, t, n) => Gl.show(vC, {
                         typeDialog: "notice",
                         title: ve.t("dialog_warning_change_game_title_dialog", {ns: "dialog"}),
                         content: (0, hw.jsxs)(bu, {
@@ -43640,7 +44420,7 @@
                                         variant: "body-m-bold",
                                         children: e
                                     }), (0, hw.jsx)(uu, {
-                                        icon: Zw,
+                                        icon: rk,
                                         variant: "plain",
                                         size: "small",
                                         onClick: () => window.launcherAPI.settings.openFileSystemDialog(e)
@@ -43659,7 +44439,7 @@
                                         variant: "body-m-bold",
                                         children: t
                                     }), (0, hw.jsx)(uu, {
-                                        icon: Zw,
+                                        icon: rk,
                                         variant: "plain",
                                         size: "small",
                                         onClick: () => window.launcherAPI.settings.openFileSystemDialog(t)
@@ -43675,316 +44455,207 @@
                         }),
                         primaryLabel: ve.t("dialog_action_proceed", {ns: "dialog"}),
                         secondaryLabel: ve.t("dialog_action_cancel", {ns: "dialog"})
+                    }),
+                    showPromotionSuccessDialog: () => Gl.show(pC, {
+                        title: ve.t("dialog_promotion_logout_title", {ns: "dialog"}),
+                        content: ve.t("dialog_promotion_logout_message", {ns: "dialog"}),
+                        close: !1,
+                        alert: !0,
+                        primaryLabel: ve.t("dialog_warning_logout_confirm", {ns: "dialog"}),
+                        primaryCallback: async () => wC()
+                    }),
+                    showPromotionErrorDialog: (e, t) => Gl.show(pC, {
+                        title: ve.t("dialog_promotion_error_title", {ns: "dialog"}),
+                        content: (0, hw.jsxs)(bu, {
+                            role: "group",
+                            gap: "100",
+                            vertical: !0,
+                            children: [(0, hw.jsx)("p", {
+                                children: (0, hw.jsx)(ht, {
+                                    i18nKey: "dialog_promotion_error_message",
+                                    t: ve.t,
+                                    ns: "dialog",
+                                    components: [(0, hw.jsx)(j_, {
+                                        href: iI(null !== e && void 0 !== e ? e : ""),
+                                        external: !0
+                                    })]
+                                })
+                            }), (0, hw.jsxs)(bu, {
+                                gap: "50",
+                                children: [(0, hw.jsx)(iu, {
+                                    variant: "body-m-bold",
+                                    children: t
+                                }), (0, hw.jsx)(uu, {
+                                    icon: Zw,
+                                    variant: "plain",
+                                    size: "small",
+                                    onClick: async () => await navigator.clipboard.writeText(null !== t && void 0 !== t ? t : "")
+                                })]
+                            })]
+                        }),
+                        primaryLabel: ve.t("dialog_action_ok", {ns: "dialog"})
                     })
                 }
             }
-        }), YP = {
+        }), OC = {
             currentLanguage: {code: "", label: "", codeLabel: "", subLabel: null, altCodes: null},
             languageCollection: []
-        }, ZP = (e, t) => ({
+        }, PC = {...dw.configuration.language.defaultLanguage, subLabel: null, altCodes: null}, CC = (e, t) => ({
             language: {
-                ...YP, actions: {
+                ...OC, actions: {
                     initialize: async () => {
-                        const t = await window.launcherAPI.language.getLanguageCollection(),
-                            n = await window.launcherAPI.language.getCurrentLanguage() || dw.configuration.language.defaultLanguage;
-                        e((e => ({language: {...e.language, currentLanguage: n, languageCollection: t}})))
-                    }, setCurrentLanguage: async t => {
+                        var t, n;
+                        const r = null !== (t = await window.launcherAPI.language.getLanguageCollection()) && void 0 !== t ? t : [PC],
+                            a = null !== (n = await window.launcherAPI.language.getCurrentLanguage()) && void 0 !== n ? n : PC;
+                        e((e => ({language: {...e.language, currentLanguage: a, languageCollection: r}})))
+                    }, setCurrentLanguage: t => {
                         e((e => ({
                             language: {
                                 ...e.language,
                                 currentLanguage: t
                             }
-                        }))), await window.launcherAPI.language.changeCurrentLanguage(t)
-                    }, setLanguageCollection: async t => {
+                        }))), window.launcherAPI.language.changeCurrentLanguage(t)
+                    }, setLanguageCollection: t => {
                         e((e => ({
                             language: {
                                 ...e.language,
                                 languageCollection: t
                             }
-                        }))), await window.launcherAPI.language.changeLanguageCollection(t)
-                    }
-                }
-            }
-        }), QP = SC_TOOLBOX_ENABLE_DOWNLOADER_BOOST ? [{
-            label: "!1024",
-            value: 1024
-        }, {
-            label: "!512",
-            value: 512
-        }, {
-            label: "!256",
-            value: 256
-        }, {
-            label: "!128",
-            value: 128
-        }, {
-            label: "CIG-MAX (25)",
-            value: 25
-        }, {
-            label: "20",
-            value: 20
-        }, {
-            label: "15",
-            value: 15
-        }, {
-            label: "10",
-            value: 10
-        }, {
-            label: "5",
-            value: 5
-        }, {
-            label: "1",
-            value: 1
-        }] : [{label: "Max", value: 25}, {label: "20", value: 20}, {label: "15", value: 15}, {
-            label: "10",
-            value: 10
-        }, {label: "5", value: 5}], XP = {
-            reduceMotion: {
-                syncWithSystem: !1,
-                backgroundVideoDisabled: !1,
-                unessentialAnimationsDisabled: !1,
-                wipeAnimationsDisabled: !1
-            }
-        }, JP = {
-            appSettings: {
-                quitOnWindowClose: !1,
-                hideQuitWarning: !1,
-                isDiscoverDone: !1,
-                download: {concurrentTransfers: QP[0].value, maximumDownloadBandwidth: 0, forceDataPatcher: !1},
-                accessibility: XP
-            }
-        }, eC = ({
-                     gamesSettings: e = [],
-                     quitOnWindowClose: t = JP.appSettings.quitOnWindowClose,
-                     hideQuitWarning: n = JP.appSettings.hideQuitWarning,
-                     isDiscoverDone: r = JP.appSettings.isDiscoverDone,
-                     download: a = JP.appSettings.download,
-                     accessibility: i = JP.appSettings.accessibility
-                 } = {}) => ({
-            ...JP,
-            appSettings: {
-                ...JP.appSettings,
-                quitOnWindowClose: t,
-                hideQuitWarning: n,
-                isDiscoverDone: r,
-                download: a,
-                accessibility: i
-            },
-            gamesSettings: e
-        }), tC = (e, t) => ({
-            settings: {
-                ...eC(), actions: {
-                    initializeApplicationSettings: async () => {
-                        const n = await window.launcherAPI.store.getValueFromStore("application.quitOnWindowClose"),
-                            r = await window.launcherAPI.store.getValueFromStore("application.hideQuitWarning"),
-                            a = await window.launcherAPI.store.getValueFromStore("application.isDiscoverDone"),
-                            i = await window.launcherAPI.store.getValueFromStore("application.download"),
-                            o = await t().settings.actions.getAccessibilitySettingsFromPersistentStore();
-                        e((e => ({
-                            settings: {
-                                ...e.settings, ...eC({
-                                    gamesSettings: e.settings.gamesSettings,
-                                    quitOnWindowClose: n,
-                                    hideQuitWarning: r,
-                                    isDiscoverDone: a,
-                                    download: i,
-                                    accessibility: o
-                                })
-                            }
-                        })))
-                    },
-                    initializeGameSettings: async () => {
-                        const t = await window.launcherAPI.store.getValueFromStore("library.settings"),
-                            n = kP.getAvailableGamesWeightSorted().map((e => e.channels.map((n => ({
-                                ...t.find((t => t.channelId === n.id && t.gameId === e.id)),
-                                gameId: e.id,
-                                gameName: e.name,
-                                channelId: n.id,
-                                channelName: n.name,
-                                platformId: n.platformId,
-                                installDir: n.installDir,
-                                weight: n.weight
-                            })))));
-                        e((e => ({settings: {...e.settings, gamesSettings: n.flat()}})))
-                    },
-                    getChannelDefaultGameSettings: e => {
-                        const {storage: n} = t(), {
-                            gameId: r,
-                            channelId: a,
-                            platformId: i,
-                            gameName: o,
-                            channelName: s
-                        } = e;
-                        return {
-                            gameId: r,
-                            gameName: o,
-                            channelId: a,
-                            channelName: s,
-                            platformId: i,
-                            libraryFolder: n.defaultLibraryFolder
-                        }
-                    },
-                    getChannelGameSettings: async e => {
-                        var t;
-                        const n = await window.launcherAPI.store.getValueFromStore("library.settings");
-                        return null !== (t = null === n || void 0 === n ? void 0 : n.find((({
-                                                                                                gameId: t,
-                                                                                                channelId: n
-                                                                                            }) => t === (null === e || void 0 === e ? void 0 : e.gameId) && n === e.channelId))) && void 0 !== t ? t : null
-                    },
-                    resetChannelGameSettings: async n => {
-                        const r = t(), {gameId: a, channelId: i} = n;
-                        try {
-                            const {gamesSettings: t} = r.settings,
-                                o = r.settings.actions.getChannelDefaultGameSettings(n);
-                            let s = [...t.filter((e => e.channelId !== i)), o].sort(((e, t) => {
-                                return n = e.channelId, r = t.channelId, (_k[r] || 0) - (_k[n] || 0);
-                                var n, r
-                            }));
-                            e((e => ({settings: {...e.settings, gamesSettings: s}})));
-                            const l = (await window.launcherAPI.store.getValueFromStore("library.settings")).filter((e => e.gameId !== a || e.channelId !== i));
-                            window.launcherAPI.store.setValueToStore("library.settings", l)
-                        } catch (o) {
-                            console.error("[ResetSettings - error]", o)
-                        }
-                    },
-                    saveChannelGameSettings: async n => {
-                        const {channelId: r} = n, {gamesSettings: a} = t().settings;
-                        let i = [...a.filter((e => e.channelId !== r)), n].sort(wP);
-                        e((e => ({settings: {...e.settings, gamesSettings: i}})));
-                        const o = await window.launcherAPI.store.getValueFromStore("library.settings");
-                        if (o) {
-                            const e = [...o.filter((e => e.channelId !== r)), {...n}].sort(wP);
-                            window.launcherAPI.store.setValueToStore("library.settings", e)
-                        } else window.launcherAPI.store.setValueToStore("library.settings", i)
-                    },
-                    saveApplicationSettings: async t => {
-                        e((e => ({
-                            settings: {
-                                ...e.settings,
-                                appSettings: {...e.settings.appSettings, [t.name]: t.value}
-                            }
-                        }))), window.launcherAPI.store.setValueToStore(`application.${t.name}`, t.value)
-                    },
-                    getAccessibilitySettingsFromPersistentStore: async () => await window.launcherAPI.store.getValueFromStore("application.settings.accessibility"),
-                    getAccessibilitySettings: () => t().settings.appSettings.accessibility,
-                    setAccessibilitySettingsToPersistentStore: async e => {
-                        e.forEach((e => {
-                            window.launcherAPI.store.setValueToStore(`application.settings.accessibility.reduceMotion.${e.id}`, e.value)
-                        }))
-                    },
-                    setAccessibilitySettings: t => {
-                        const n = t.reduce(((e, t) => (e[t.id] = t.value, e)), {});
-                        e((e => ({
-                            ...e,
-                            settings: {
-                                ...e.settings,
-                                appSettings: {
-                                    ...e.settings.appSettings,
-                                    accessibility: {
-                                        ...e.settings.appSettings.accessibility,
-                                        reduceMotion: {...e.settings.appSettings.accessibility.reduceMotion, ...n}
-                                    }
-                                }
-                            }
-                        })))
-                    },
-                    setDownloadSettings: (e, t) => {
-                        window.launcherAPI.installer.setDownloadOptions({
-                            name: e,
-                            value: t
-                        }), window.launcherAPI.store.setValueToStore(`application.download.${e}`, t)
-                    },
-                    setForceDataPatcher: t => {
-                        e((e => ({
-                            ...e,
-                            settings: {
-                                ...e.settings,
-                                appSettings: {
-                                    ...e.settings.appSettings,
-                                    download: {...e.settings.appSettings.download, forceDataPatcher: t}
-                                }
-                            }
-                        })))
-                    },
-                    onSetDownloadSettingsSuccess: async e => {
-                        const n = {...t().settings.appSettings.download, [e.name]: e.value};
-                        await t().settings.actions.saveApplicationSettings({name: "download", value: n})
-                    },
-                    debugGetLogs: async () => {
-                        window.launcherAPI.settings.openLogsFolder()
-                    },
-                    getAnimationSystemSettings: async () => await window.launcherAPI.settings.getAnimationSystemSettings(),
-                    restartApp: () => window.launcherAPI.settings.restartApp(),
-                    setChannelLibraryFolder: async (e, n) => {
-                        var r;
-                        const {settings: a, library: i, dialog: o, storage: s} = t(),
-                            l = (null === (r = a.gamesSettings.find((t => e.channelId === t.channelId))) || void 0 === r ? void 0 : r.libraryFolder) || s.defaultLibraryFolder,
-                            c = await i.installedGames.map((e => {
-                                const t = e.channels.filter((e => Pw(e.libraryFolder) === l));
-                                return {...e, channels: t}
-                            })), u = c.filter((e => e.channels.length > 0)), d = u.length > 0,
-                            h = u.find((t => t.channels.find((t => t.id === e.channelId))));
-                        if (d && h) {
-                            const {resolved: t} = await o.actions.showChannelLibraryChangeDialog(l, n, e);
-                            if (!t) return !1
-                        }
-                        return await Promise.all(a.gamesSettings.map((async t => {
-                            if (t.channelId === e.channelId) {
-                                const e = {...t, libraryFolder: n};
-                                await a.actions.saveChannelGameSettings(e)
-                            }
-                        }))), kP.removeInstalledGameChannel(e), !0
-                    },
-                    setLibraryFolderToDefault: async n => {
-                        const {storage: r, settings: a} = t(),
-                            i = a.gamesSettings.map((e => (n.find((({libraryFolder: t}) => t === e.libraryFolder)) && (e.libraryFolder = r.defaultLibraryFolder), e)));
-                        e((e => ({
-                            settings: {
-                                ...e.settings,
-                                gamesSettings: i
-                            }
-                        }))), await window.launcherAPI.store.setValueToStore("library.settings", a.gamesSettings)
-                    },
-                    setLibraryFolderToNewPath: async (n, r) => {
-                        const {settings: a} = t(),
-                            i = a.gamesSettings.map((e => (n.find((({libraryFolder: t}) => t === e.libraryFolder)) && (e.libraryFolder = r), e)));
-                        e((e => ({
-                            settings: {
-                                ...e.settings,
-                                gamesSettings: i
-                            }
-                        }))), await window.launcherAPI.store.setValueToStore("library.settings", a.gamesSettings)
+                        }))), window.launcherAPI.language.changeLanguageCollection(t)
                     }
                 }
             }
         });
-        let nC = null;
-        const rC = e => Object.entries(e).reduce(((e, [t, n]) => ({
+        const IC = new class {
+            async getAnimationSystemSettings() {
+                return await window.launcherAPI.settings.getAnimationSystemSettings()
+            }
+
+            restartApp() {
+                return window.launcherAPI.settings.restartApp()
+            }
+
+            async debugGetLogs() {
+                return window.launcherAPI.settings.openLogsFolder()
+            }
+
+            changeQuitOnWindowCloseBehaviour(e) {
+                const {launcher: t} = nI.getState();
+                t.actions.toggleQuitOnWindowClose(e)
+            }
+
+            changeHideQuitWarningBehaviour(e) {
+                const {launcher: t} = nI.getState();
+                t.actions.toggleHideQuitWarning(e)
+            }
+        }, AC = !1, DC = !1, RC = ({quitOnWindowClose: e = AC, hideQuitWarning: t = DC} = {}) => ({
+            quitOnWindowClose: e,
+            hideQuitWarning: t
+        }), TC = e => ({
+            launcher: {
+                ...RC(), actions: {
+                    initialize: async () => {
+                        const t = await window.launcherAPI.store.getValueFromStore("application.quitOnWindowClose"),
+                            n = await window.launcherAPI.store.getValueFromStore("application.hideQuitWarning");
+                        e((e => ({launcher: {...e.launcher, ...RC({quitOnWindowClose: t, hideQuitWarning: n})}})))
+                    }, toggleQuitOnWindowClose: t => {
+                        e((e => ({
+                            launcher: {
+                                ...e.launcher,
+                                quitOnWindowClose: t
+                            }
+                        }))), window.launcherAPI.store.setValueToStore("application.quitOnWindowClose", t)
+                    }, toggleHideQuitWarning: t => {
+                        e((e => ({
+                            launcher: {
+                                ...e.launcher,
+                                hideQuitWarning: t
+                            }
+                        }))), window.launcherAPI.store.setValueToStore("application.hideQuitWarning", t)
+                    }
+                }
+            }
+        }), jC = e => ({
+            promotion: {
+                promotions: [], actions: {
+                    initialize: async () => {
+                        e((e => ({promotion: {...e.promotion, promotions: []}})))
+                    }, setPromotion: t => {
+                        e((e => ({
+                            promotion: {
+                                ...e.promotion,
+                                promotions: [...e.promotion.promotions.filter((e => e.id !== t.id)), t]
+                            }
+                        })))
+                    }, setPromotions: t => {
+                        e((e => ({promotion: {...e.promotion, promotions: t}})))
+                    }
+                }
+            }
+        });
+        let LC;
+        !function (e) {
+            e.AVAILABLE = "available", e.UNAVAILABLE = "unavailable", e.LOADING = "loading", e.FINISHED = "finished"
+        }(LC || (LC = {}));
+        const NC = new class {
+            constructor() {
+                this.listeners = []
+            }
+
+            registerEventListener() {
+            }
+
+            removeEventListener() {
+                this.listeners.forEach((e => {
+                    e()
+                }))
+            }
+
+            async checkPromotions() {
+                const {promotion: e, library: t} = nI.getState();
+                let n = [];
+                for (const i of t.availableGames) if (0 !== i.channels.length && i.status === dw.GameStatus.AVAILABLE) for (const e of i.channels) {
+                    var r, a;
+                    const t = null !== (r = null !== (a = await VP.getQueryData(xS(i.id, e.id).queryKey)) && void 0 !== a ? a : await VP.fetchQuery(xS(i.id, e.id))) && void 0 !== r ? r : null;
+                    if (t) {
+                        const r = i.hasGamePackage || i.isPromoted ? i.hasGamePackage && i.isPromoted ? LC.FINISHED : LC.UNAVAILABLE : LC.AVAILABLE;
+                        n.push({...t, code: t["meta.promotion_code"], status: r, game_id: i.id, channel_id: e.id})
+                    }
+                }
+                e.actions.setPromotions(n)
+            }
+
+            setPromotionStatusById(e, t) {
+                const {promotion: n} = nI.getState(), r = n.promotions.find((t => t.id === e));
+                n.actions.setPromotion({...r, status: t})
+            }
+        };
+        let MC = null;
+        const FC = e => Object.entries(e).reduce(((e, [t, n]) => ({
             ...e,
             [t]: `${dw.configuration.assets.directory}${n}`
-        })), {}), aC = e => ({
+        })), {}), zC = e => ({
             volume: null !== e && void 0 !== e ? e : 50,
             previousVolume: null,
             system: null,
-            soundList: rC(dw.configuration.assets.sounds),
-            trackList: rC(dw.configuration.assets.musics)
-        }), iC = (e, t) => ({
+            soundList: FC(dw.configuration.assets.sounds),
+            trackList: FC(dw.configuration.assets.musics)
+        }), VC = (e, t) => ({
             soundSystem: {
-                ...aC(), actions: {
+                ...zC(), actions: {
                     initializeSoundContext: async () => {
                         var t;
-                        const n = await window.launcherAPI.store.getValueFromStore("application.volume"), r = aC(n);
-                        nC = null !== (t = nC) && void 0 !== t ? t : new TS({
+                        const n = await window.launcherAPI.store.getValueFromStore("application.volume"), r = zC(n);
+                        MC = null !== (t = MC) && void 0 !== t ? t : new KS({
                             sounds: r.soundList,
                             musics: r.trackList,
                             volume: r.volume
                         }), e((e => ({
                             soundSystem: {
                                 ...e.soundSystem, ...r,
-                                system: nC
+                                system: MC
                             }
-                        }))), nC.playSound("open"), nC.playBackgroundTrack()
+                        }))), MC.playSound("open"), MC.playBackgroundTrack()
                     }, changeVolume: (n, r = 0) => {
                         const a = t().soundSystem.system;
                         if (!a) return;
@@ -44018,76 +44689,134 @@
                     }
                 }
             }
-        }), oC = async () => {
-            const {application: e, status: t} = kC.getState();
-            if (dP.isLoggedIn() || sC(t.intervalId), !e.isWindowMinimized) {
-                if (e.actions.isOffline()) return e.actions.setNonOperationalStatus(void 0), void kC.setState((e => ({
-                    ...e,
-                    status: {...e.status, ...lC()}
-                })));
-                try {
-                    const t = await pP.fetchQuery({
-                            queryKey: ["rsiStatus"],
-                            queryFn: async () => rS.statusClient.getStatus(),
-                            staleTime: 0
-                        }),
-                        n = null === t || void 0 === t ? void 0 : t.systems.filter((e => (e.name === dw.RSISystemName.PERSISTENTE_UNIVERSE || e.name === dw.RSISystemName.ARENA_COMMANDER) && e.status !== dw.RSISystemStatus.OPERATIONAL)).sort(((e, t) => dw.SystemStatusOrder[e.status.toUpperCase()] - dw.SystemStatusOrder[t.status.toUpperCase()])).map((e => e.status)).shift();
-                    e.actions.setNonOperationalStatus(n), kC.setState((e => ({
-                        ...e,
-                        status: {...e.status, ...t, lastRequestDate: (new Date).toISOString()}
-                    })))
-                } catch (n) {
-                    console.error("ERROR", n)
-                }
-            }
-        }, sC = e => {
-            const t = kC.getState().application;
-            clearInterval(e), t.actions.setNonOperationalStatus(void 0), kC.setState((e => ({
-                ...e,
-                status: {...e.status, ...lC()}
-            })))
-        }, lC = () => ({
-            is: "",
-            cStateVersion: "",
-            apiVersion: "",
-            title: "",
-            languageCodeHTML: "",
-            languageCode: "",
-            baseURL: "",
-            description: "",
-            summaryStatus: void 0,
-            categories: [],
-            systems: [],
-            buildDate: "",
-            buildTime: "",
-            buildTimezone: "",
-            colorBrand: "",
-            colorOk: "",
-            colorDisrupted: "",
-            colorDown: "",
-            colorNotice: "",
-            alwaysKeepBrandColor: "",
-            logo: "",
-            googleAnalytics: "",
-            lastRequestDate: "",
-            intervalId: ""
-        }), cC = e => ({
+        }), UC = e => ({
             status: {
-                ...lC(), actions: {
-                    initializeStatus: async () => {
-                        e((e => ({status: {...e.status, ...lC()}})))
-                    }, checkStatus: async () => {
-                        if (!kC.getState().status.intervalId) {
-                            await oC();
-                            const e = setInterval(oC, ww(dw.configuration.requestPollingInterval.status.base, dw.configuration.requestPollingInterval.status.window));
-                            kC.setState({status: {...kC.getState().status, intervalId: e}})
-                        }
+                is: "",
+                cStateVersion: "",
+                apiVersion: "",
+                title: "",
+                languageCodeHTML: "",
+                languageCode: "",
+                baseURL: "",
+                description: "",
+                summaryStatus: void 0,
+                categories: [],
+                systems: [],
+                buildDate: "",
+                buildTime: "",
+                buildTimezone: "",
+                colorBrand: "",
+                colorOk: "",
+                colorDisrupted: "",
+                colorDown: "",
+                colorNotice: "",
+                alwaysKeepBrandColor: "",
+                logo: "",
+                googleAnalytics: "",
+                lastRequestDate: "",
+                intervalId: "",
+                actions: {
+                    initialize: async () => {
+                        e((e => ({
+                            status: {
+                                ...e.status,
+                                is: "",
+                                cStateVersion: "",
+                                apiVersion: "",
+                                title: "",
+                                languageCodeHTML: "",
+                                languageCode: "",
+                                baseURL: "",
+                                description: "",
+                                summaryStatus: void 0,
+                                categories: [],
+                                systems: [],
+                                buildDate: "",
+                                buildTime: "",
+                                buildTimezone: "",
+                                colorBrand: "",
+                                colorOk: "",
+                                colorDisrupted: "",
+                                colorDown: "",
+                                colorNotice: "",
+                                alwaysKeepBrandColor: "",
+                                logo: "",
+                                googleAnalytics: "",
+                                lastRequestDate: "",
+                                intervalId: ""
+                            }
+                        })))
+                    }, setInterval: async t => {
+                        e((e => ({status: {...e.status, intervalId: t}})))
+                    }, setStatus: async t => {
+                        e((e => ({status: {...e.status, ...t}})))
                     }
                 }
             }
-        }), uC = {defaultLibraryFolder: "", additionalLibraries: []}, dC = e => ({
+        });
+        const GC = new class {
+            async checkStatus() {
+                const {status: e} = nI.getState();
+                if (!e.intervalId) {
+                    await this.fetchAndSetStatus();
+                    const t = setInterval(this.fetchAndSetStatus, ww(dw.configuration.requestPollingInterval.status.base, dw.configuration.requestPollingInterval.status.window));
+                    e.actions.setInterval(t)
+                }
+            }
+
+            clearIntervalAndSetState(e) {
+                const {application: t, status: n} = nI.getState();
+                clearInterval(e), t.actions.setNonOperationalStatus(void 0), n.actions.initialize()
+            }
+
+            async fetchAndSetStatus() {
+                const {application: e, status: t} = nI.getState();
+                if (FP.isLoggedIn() || this.clearIntervalAndSetState(t.intervalId), !e.isWindowMinimized) {
+                    if (e.actions.isOffline()) return e.actions.setNonOperationalStatus(void 0), void t.actions.setStatus({
+                        is: "",
+                        cStateVersion: "",
+                        apiVersion: "",
+                        title: "",
+                        languageCodeHTML: "",
+                        languageCode: "",
+                        baseURL: "",
+                        description: "",
+                        summaryStatus: void 0,
+                        categories: [],
+                        systems: [],
+                        buildDate: "",
+                        buildTime: "",
+                        buildTimezone: "",
+                        colorBrand: "",
+                        colorOk: "",
+                        colorDisrupted: "",
+                        colorDown: "",
+                        colorNotice: "",
+                        alwaysKeepBrandColor: "",
+                        logo: "",
+                        googleAnalytics: "",
+                        lastRequestDate: "",
+                        intervalId: ""
+                    });
+                    try {
+                        const n = await VP.fetchQuery({
+                            queryKey: ["rsiStatus"],
+                            queryFn: async () => gS.statusClient.getStatus(),
+                            staleTime: 0
+                        });
+                        let r = null === n || void 0 === n ? void 0 : n.systems.filter((e => (e.name === dw.RSISystemName.PERSISTENTE_UNIVERSE || e.name === dw.RSISystemName.ARENA_COMMANDER) && e.status !== dw.RSISystemStatus.OPERATIONAL)).sort(((e, t) => dw.SystemStatusOrder[e.status.toUpperCase()] - dw.SystemStatusOrder[t.status.toUpperCase()])).map((e => e.status)).shift();
+                        e.actions.setNonOperationalStatus(r), t.actions.setStatus({
+                            ...t, ...n,
+                            lastRequestDate: (new Date).toISOString()
+                        })
+                    } catch (n) {
+                        console.error("ERROR", n)
+                    }
+                }
+            }
+        }, BC = {defaultLibraryFolder: "", additionalLibraries: []}, $C = e => ({
             storage: {
-                ...uC, actions: {
+                ...BC, actions: {
                     initialize: async () => {
                         const t = await window.launcherAPI.storage.getDefaultLibrary(),
                             n = await window.launcherAPI.storage.getAdditionalLibraries();
@@ -44110,16 +44839,15 @@
                 }
             }
         });
-        const hC = new class {
+        const WC = new class {
             async checkDuplicateLibraryFolder(e, t) {
-                const {storage: n, dialog: r} = kC.getState(), a = t.some((t => t === e)),
+                const {storage: n, dialog: r} = nI.getState(), a = t.some((t => t === e)),
                     i = n.defaultLibraryFolder === e;
                 return !(!a && !i) && (await r.actions.showDuplicateLibraryDialog(), !0)
             }
 
             async handleSettingsLibraries(e, t) {
-                const {settings: n} = kC.getState();
-                await n.actions.setLibraryFolderToNewPath(t, e)
+                await UP.setLibraryFolderToNewPath(t, e)
             }
 
             async removeInstalledChannel(e) {
@@ -44133,23 +44861,24 @@
                             gameName: e.name,
                             platformId: t.platformId
                         };
-                        kP.removeInstalledGameChannel(n)
+                        QP.removeInstalledGameChannel(n)
                     }))
                 }))
             }
 
             async getEffectedGamesAndSettings(e) {
-                const {library: t, settings: n} = kC.getState();
+                const {library: t, game: n} = nI.getState(), r = t.installedGames.map((t => {
+                    const n = t.channels.filter((t => Pw(t.libraryFolder) === e));
+                    return {...t, channels: n}
+                }));
                 return {
-                    effectedInstalledGameList: t.installedGames.map((t => {
-                        const n = t.channels.filter((t => Pw(t.libraryFolder) === e));
-                        return {...t, channels: n}
-                    })), effectedSettingsChannels: n.gamesSettings.filter((t => e === t.libraryFolder))
+                    effectedInstalledGameList: r,
+                    effectedSettingsChannels: n.settings.filter((t => e === t.libraryFolder))
                 }
             }
 
             async saveDefaultLibraryFolder(e, t) {
-                const {storage: n, dialog: r} = kC.getState(), a = n.additionalLibraries || [];
+                const {storage: n, dialog: r} = nI.getState(), a = n.additionalLibraries || [];
                 if (await this.checkDuplicateLibraryFolder(e, a)) return !1;
                 const {
                     effectedInstalledGameList: i,
@@ -44159,7 +44888,7 @@
             }
 
             async saveAdditionalLibraryFolders(e) {
-                const {storage: t} = kC.getState(), n = t.additionalLibraries || [];
+                const {storage: t} = nI.getState(), n = t.additionalLibraries || [];
                 return !await this.checkDuplicateLibraryFolder(e, n) && (n.push(e), t.actions.setAdditionalLibraryFolders(n), this.setNewLibraryToast(), !0)
             }
 
@@ -44167,14 +44896,14 @@
                 const {
                     storage: n,
                     dialog: r
-                } = kC.getState(), {resolved: a} = await r.actions.showSetDefaultLibraryDialog(e);
+                } = nI.getState(), {resolved: a} = await r.actions.showSetDefaultLibraryDialog(e);
                 if (!a) return !1;
                 const i = n.defaultLibraryFolder, o = n.additionalLibraries || [];
                 return o[t] = i, n.actions.setDefaultLibraryFolder(e), n.actions.setAdditionalLibraryFolders(o), this.setDefaultLibUpdatedToast(), !0
             }
 
             async replaceAdditionalLibraryFolder(e, t, n) {
-                const {storage: r, dialog: a} = kC.getState(), i = r.additionalLibraries || [];
+                const {storage: r, dialog: a} = nI.getState(), i = r.additionalLibraries || [];
                 if (await this.checkDuplicateLibraryFolder(e, i)) return !1;
                 const {
                     effectedInstalledGameList: o,
@@ -44184,7 +44913,7 @@
             }
 
             async deleteAdditionalLibrary(e, t) {
-                const {storage: n, dialog: r} = kC.getState(), {
+                const {storage: n, dialog: r} = nI.getState(), {
                     effectedInstalledGameList: a,
                     effectedSettingsChannels: i
                 } = await this.getEffectedGamesAndSettings(e), {resolved: o} = await r.actions.showDeleteLibraryDialog(e, a);
@@ -44195,7 +44924,7 @@
             }
 
             setDeleteLibraryToast() {
-                const {toasts: e} = kC.getState();
+                const {toasts: e} = nI.getState();
                 return e.actions.add({
                     title: ve.t("settings_toast_delete_lib_success", {ns: "settingsPage"}),
                     type: "negative",
@@ -44205,7 +44934,7 @@
             }
 
             setNewLibraryToast() {
-                const {toasts: e} = kC.getState();
+                const {toasts: e} = nI.getState();
                 return e.actions.add({
                     title: ve.t("settings_toast_lib_added", {ns: "settingsPage"}),
                     type: "positive",
@@ -44215,7 +44944,7 @@
             }
 
             setDefaultLibUpdatedToast() {
-                const {toasts: e} = kC.getState();
+                const {toasts: e} = nI.getState();
                 return e.actions.add({
                     title: ve.t("settings_toast_default_lib_updated", {ns: "settingsPage"}),
                     type: "positive",
@@ -44223,16 +44952,16 @@
                     closeOnClick: !0
                 })
             }
-        }, pC = {list: []}, fC = (e, t) => ({
+        }, HC = {list: []}, qC = (e, t) => ({
             toasts: {
-                ...pC, actions: {
+                ...HC, actions: {
                     async init() {
                         const e = t();
                         window.launcherAPI.autoUpdate.onNewVersionInstalled((() => {
                             e.toasts.actions.add({
-                                title: jP("auto_update_toast_update_installed"),
+                                title: lC("auto_update_toast_update_installed"),
                                 type: "positive",
-                                icon: Ww,
+                                icon: Xw,
                                 closeOnClick: !1
                             }, !0)
                         }))
@@ -44253,11 +44982,11 @@
                     }
                 }
             }
-        }), mC = (e, t) => ({
+        }), KC = (e, t) => ({
             window: {
                 actions: {
                     openInternalWindow: async (e, t) => {
-                        const n = kC.getState().application, r = kC.getState().user, a = n.platformMaster,
+                        const n = nI.getState().application, r = nI.getState().user, a = n.platformMaster,
                             i = r.sessions[a], o = r.device, s = [{
                                 name: "viewed_cookie_notif",
                                 value: "1",
@@ -44275,8 +45004,8 @@
                             application: e,
                             library: n,
                             dialog: r,
-                            settings: a
-                        } = t(), {wipeAnimationsDisabled: i} = a.appSettings.accessibility.reduceMotion;
+                            accessibility: a
+                        } = t(), {wipeAnimationsDisabled: i} = a.options.reduceMotion;
                         if (n.gameChannelRunning) return r.actions.showWarningExitAppGameRuningDialog();
                         if (i) return void Sw().window.setQuitWindow();
                         const o = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
@@ -44285,38 +45014,34 @@
                         }), o / 2)
                     }, closeLauncher: async () => {
                         const {
-                                application: n,
-                                dialog: r,
-                                settings: a,
-                                window: i
-                            } = t(), {wipeAnimationsDisabled: o} = a.appSettings.accessibility.reduceMotion,
-                            s = a.appSettings.quitOnWindowClose, l = a.appSettings.hideQuitWarning,
+                                application: e,
+                                dialog: n,
+                                accessibility: r,
+                                window: a,
+                                launcher: i
+                            } = t(), {wipeAnimationsDisabled: o} = r.options.reduceMotion, s = i.quitOnWindowClose,
+                            l = i.hideQuitWarning,
                             c = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/)),
                             u = () => {
-                                s ? i.actions.exitLauncher() : Sw().window.setCloseWindow()
+                                s ? a.actions.exitLauncher() : Sw().window.setCloseWindow()
                             };
                         if (l || !s) {
                             if (o) {
-                                n.actions.setAnimatingAppLayoutWipe("in", !0);
-                                const e = setTimeout(u, c / 2);
-                                return () => clearTimeout(e)
+                                e.actions.setAnimatingAppLayoutWipe("in", !0);
+                                const t = setTimeout(u, c / 2);
+                                return () => clearTimeout(t)
                             }
                             return u()
                         }
-                        const d = await r.actions.showExitAppDialog(), h = Boolean(d.results && d.results.hideDialog);
-                        h && (e((e => ({
-                            settings: {
-                                ...e.settings,
-                                application: {...e.settings.appSettings, hideQuitWarning: h}
-                            }
-                        }))), await t().settings.actions.saveApplicationSettings({name: "hideQuitWarning", value: h}))
+                        const d = await n.actions.showExitAppDialog(), h = Boolean(d.results && d.results.hideDialog);
+                        h && IC.changeHideQuitWarningBehaviour(h)
                     }, logoutLauncher: () => {
                         const {library: e, dialog: n} = t(), r = void 0 !== e.gameChannelRunning;
                         return n.actions.showLogoutDialog(r)
                     }
                 }
             }
-        }), gC = e => {
+        }), YC = e => {
             let t;
             const n = new Set, r = (e, r) => {
                     const a = "function" === typeof e ? e(t) : e;
@@ -44328,17 +45053,17 @@
                 i = {setState: r, getState: a, getInitialState: () => o, subscribe: e => (n.add(e), () => n.delete(e))},
                 o = t = e(r, a, i);
             return i
-        }, vC = e => e;
-        const yC = e => {
-            const t = (e => e ? gC(e) : gC)(e), n = e => function (e, t = vC) {
+        }, ZC = e => e;
+        const QC = e => {
+            const t = (e => e ? YC(e) : YC)(e), n = e => function (e, t = ZC) {
                 const n = ke.useSyncExternalStore(e.subscribe, (() => t(e.getState())), (() => t(e.getInitialState())));
                 return ke.useDebugValue(n), n
             }(t, e);
             return Object.assign(n, t), n
-        }, bC = new Map, _C = e => {
-            const t = bC.get(e);
+        }, XC = new Map, JC = e => {
+            const t = XC.get(e);
             return t ? Object.fromEntries(Object.entries(t.stores).map((([e, t]) => [e, t.getState()]))) : {}
-        }, xC = (e, t = {}) => (n, r, a) => {
+        }, eI = (e, t = {}) => (n, r, a) => {
             const {enabled: i, anonymousActionType: o, store: s, ...l} = t;
             let c;
             try {
@@ -44348,10 +45073,10 @@
             if (!c) return e(n, r, a);
             const {connection: u, ...d} = ((e, t, n) => {
                 if (void 0 === e) return {type: "untracked", connection: t.connect(n)};
-                const r = bC.get(n.name);
+                const r = XC.get(n.name);
                 if (r) return {type: "tracked", store: e, ...r};
                 const a = {connection: t.connect(n), stores: {}};
-                return bC.set(n.name, a), {type: "tracked", store: e, ...a}
+                return XC.set(n.name, a), {type: "tracked", store: e, ...a}
             })(s, c, l);
             let h = !0;
             a.setState = (e, t, i) => {
@@ -44361,7 +45086,7 @@
                 return void 0 === s ? (null == u || u.send(d, r()), c) : (null == u || u.send({
                     ...d,
                     type: `${s}/${d.type}`
-                }, {..._C(l.name), [s]: a.getState()}), c)
+                }, {...JC(l.name), [s]: a.getState()}), c)
             };
             const p = (...e) => {
                 const t = h;
@@ -44378,7 +45103,7 @@
                 var t;
                 switch (e.type) {
                     case"ACTION":
-                        return "string" !== typeof e.payload ? void console.error("[zustand devtools middleware] Unsupported action format") : wC(e.payload, (e => {
+                        return "string" !== typeof e.payload ? void console.error("[zustand devtools middleware] Unsupported action format") : tI(e.payload, (e => {
                             if ("__setState" !== e.type) a.dispatchFromDevtools && "function" === typeof a.dispatch && a.dispatch(e); else {
                                 if (void 0 === s) return void p(e.state);
                                 1 !== Object.keys(e.state).length && console.error('\n                    [zustand devtools middleware] Unsupported __setState action format.\n                    When using \'store\' option in devtools(), the \'state\' should have only one key, which is a value of \'store\' that was passed in devtools(),\n                    and value of this only key should be a state object. Example: { "type": "__setState", "state": { "abc123Store": { "foo": "bar" } } }\n                    ');
@@ -44390,17 +45115,17 @@
                     case"DISPATCH":
                         switch (e.payload.type) {
                             case"RESET":
-                                return p(f), void 0 === s ? null == u ? void 0 : u.init(a.getState()) : null == u ? void 0 : u.init(_C(l.name));
+                                return p(f), void 0 === s ? null == u ? void 0 : u.init(a.getState()) : null == u ? void 0 : u.init(JC(l.name));
                             case"COMMIT":
-                                return void 0 === s ? void (null == u || u.init(a.getState())) : null == u ? void 0 : u.init(_C(l.name));
+                                return void 0 === s ? void (null == u || u.init(a.getState())) : null == u ? void 0 : u.init(JC(l.name));
                             case"ROLLBACK":
-                                return wC(e.state, (e => {
+                                return tI(e.state, (e => {
                                     if (void 0 === s) return p(e), void (null == u || u.init(a.getState()));
-                                    p(e[s]), null == u || u.init(_C(l.name))
+                                    p(e[s]), null == u || u.init(JC(l.name))
                                 }));
                             case"JUMP_TO_STATE":
                             case"JUMP_TO_ACTION":
-                                return wC(e.state, (e => {
+                                return tI(e.state, (e => {
                                     void 0 !== s ? JSON.stringify(a.getState()) !== JSON.stringify(e[s]) && p(e[s]) : p(e)
                                 }));
                             case"IMPORT_STATE": {
@@ -44415,7 +45140,7 @@
                         return
                 }
             })), f
-        }, wC = (e, t) => {
+        }, tI = (e, t) => {
             let n;
             try {
                 n = JSON.parse(e)
@@ -44424,19 +45149,19 @@
             }
             void 0 !== n && t(n)
         };
-        const kC = (EC ? yC(EC) : yC)(xC(((...e) => ({...RP(...e), ...NS(...e), ...tC(...e), ...iC(...e), ...cC(...e), ...RS(...e), ...MP(...e), ...sk(...e), ...KP(...e), ...fC(...e), ...bk(...e), ...mC(...e), ...dC(...e), ...ZP(...e), ...OP(...e)})), {
+        const nI = (rI ? QC(rI) : QC)(eI(((...e) => ({...oC(...e), ...QS(...e), ...VC(...e), ...UC(...e), ...qS(...e), ...dC(...e), ...vk(...e), ...SC(...e), ...qC(...e), ...Ik(...e), ...KC(...e), ...$C(...e), ...CC(...e), ...eC(...e), ...jC(...e), ...TC(...e), ...GP(...e), ...EC(...e), ...Mw(...e)})), {
             name: "launcher-store",
             enabled: !0,
             trace: !0
         }));
-        var EC;
-        const SC = window.envVars.reviewAppRootUrl, OC = e => {
+        var rI;
+        const aI = window.envVars.reviewAppRootUrl, iI = e => {
             var t;
-            const n = dw.configuration.env, r = kC.getState().application.platformMaster;
-            return ("reviewapp" === r ? SC : null !== (t = n[r].rootUrl) && void 0 !== t ? t : dw.configuration.rootUrl) + e
-        }, PC = e => e / 1e3, CC = (0, ke.createContext)({}), IC = ({children: e}) => {
+            const n = dw.configuration.env, r = nI.getState().application.platformMaster;
+            return ("reviewapp" === r ? aI : null !== (t = n[r].rootUrl) && void 0 !== t ? t : dw.configuration.rootUrl) + e
+        }, oI = e => e / 1e3, sI = (0, ke.createContext)({}), lI = ({children: e}) => {
             const {window: {onSetHideWindowSuccessFul: t, onSetShowWindowSuccessFul: n}} = window.launcherAPI,
-                r = kC.getState().application, [a, i] = (0, ke.useState)(!1);
+                r = nI.getState().application, [a, i] = (0, ke.useState)(!1);
             return (0, ke.useEffect)((() => {
                 const e = t((() => {
                     i(!0), r.actions.setWindowMinimized(!0)
@@ -44446,122 +45171,128 @@
                 return () => {
                     e(), a()
                 }
-            }), [r.actions, t, n]), (0, hw.jsx)(CC.Provider, {value: {isMinimized: a}, children: e})
+            }), [r.actions, t, n]), (0, hw.jsx)(sI.Provider, {value: {isMinimized: a}, children: e})
         };
 
-        function AC() {
-            return AC = Object.assign ? Object.assign.bind() : function (e) {
+        function cI() {
+            return cI = Object.assign ? Object.assign.bind() : function (e) {
                 for (var t = 1; t < arguments.length; t++) {
                     var n = arguments[t];
                     for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r])
                 }
                 return e
-            }, AC.apply(this, arguments)
+            }, cI.apply(this, arguments)
         }
 
-        const DC = ke.createContext(null);
-        const RC = ke.createContext(null);
-        const TC = ke.createContext(null);
-        const jC = ke.createContext(null);
-        const LC = ke.createContext({outlet: null, matches: [], isDataRoute: !1});
-        const NC = ke.createContext(null);
+        const uI = ke.createContext(null);
+        const dI = ke.createContext(null);
+        const hI = ke.createContext(null);
+        const pI = ke.createContext(null);
+        const fI = ke.createContext({outlet: null, matches: [], isDataRoute: !1});
+        const mI = ke.createContext(null);
 
-        function MC() {
-            return null != ke.useContext(jC)
+        function gI() {
+            return null != ke.useContext(pI)
         }
 
-        function FC() {
-            return MC() || VS(!1), ke.useContext(jC).location
+        function vI() {
+            return gI() || tO(!1), ke.useContext(pI).location
         }
 
-        function zC(e) {
-            ke.useContext(TC).static || ke.useLayoutEffect(e)
+        function yI(e) {
+            ke.useContext(hI).static || ke.useLayoutEffect(e)
         }
 
-        function VC() {
-            let {isDataRoute: e} = ke.useContext(LC);
+        function bI() {
+            let {isDataRoute: e} = ke.useContext(fI);
             return e ? function () {
-                let {router: e} = QC(YC.UseNavigateStable), t = JC(ZC.UseNavigateStable), n = ke.useRef(!1);
-                zC((() => {
+                let {router: e} = AI(CI.UseNavigateStable), t = RI(II.UseNavigateStable), n = ke.useRef(!1);
+                yI((() => {
                     n.current = !0
                 }));
                 let r = ke.useCallback((function (r, a) {
-                    void 0 === a && (a = {}), n.current && ("number" === typeof r ? e.navigate(r) : e.navigate(r, AC({fromRouteId: t}, a)))
+                    void 0 === a && (a = {}), n.current && ("number" === typeof r ? e.navigate(r) : e.navigate(r, cI({fromRouteId: t}, a)))
                 }), [e, t]);
                 return r
             }() : function () {
-                MC() || VS(!1);
-                let e = ke.useContext(DC), {
+                gI() || tO(!1);
+                let e = ke.useContext(uI), {
                         basename: t,
-                        navigator: n
-                    } = ke.useContext(TC), {matches: r} = ke.useContext(LC), {pathname: a} = FC(),
-                    i = JSON.stringify(lO(r).map((e => e.pathnameBase))), o = ke.useRef(!1);
-                zC((() => {
-                    o.current = !0
+                        future: n,
+                        navigator: r
+                    } = ke.useContext(hI), {matches: a} = ke.useContext(fI), {pathname: i} = vI(),
+                    o = JSON.stringify(SO(a, n.v7_relativeSplatPath)), s = ke.useRef(!1);
+                yI((() => {
+                    s.current = !0
                 }));
-                let s = ke.useCallback((function (r, s) {
-                    if (void 0 === s && (s = {}), !o.current) return;
-                    if ("number" === typeof r) return void n.go(r);
-                    let l = cO(r, JSON.parse(i), a, "path" === s.relative);
-                    null == e && "/" !== t && (l.pathname = "/" === l.pathname ? t : uO([t, l.pathname])), (s.replace ? n.replace : n.push)(l, s.state, s)
-                }), [t, n, i, a, e]);
-                return s
+                let l = ke.useCallback((function (n, a) {
+                    if (void 0 === a && (a = {}), !s.current) return;
+                    if ("number" === typeof n) return void r.go(n);
+                    let l = OO(n, JSON.parse(o), i, "path" === a.relative);
+                    null == e && "/" !== t && (l.pathname = "/" === l.pathname ? t : PO([t, l.pathname])), (a.replace ? r.replace : r.push)(l, a.state, a)
+                }), [t, r, o, i, e]);
+                return l
             }()
         }
 
-        const UC = ke.createContext(null);
+        const _I = ke.createContext(null);
 
-        function GC(e, t) {
-            let {relative: n} = void 0 === t ? {} : t, {matches: r} = ke.useContext(LC), {pathname: a} = FC(),
-                i = JSON.stringify(lO(r).map((e => e.pathnameBase)));
-            return ke.useMemo((() => cO(e, JSON.parse(i), a, "path" === n)), [e, i, a, n])
+        function xI(e, t) {
+            let {relative: n} = void 0 === t ? {} : t, {future: r} = ke.useContext(hI), {matches: a} = ke.useContext(fI), {pathname: i} = vI(),
+                o = JSON.stringify(SO(a, r.v7_relativeSplatPath));
+            return ke.useMemo((() => OO(e, JSON.parse(o), i, "path" === n)), [e, o, i, n])
         }
 
-        function BC(e, t, n) {
-            MC() || VS(!1);
-            let {navigator: r} = ke.useContext(TC), {matches: a} = ke.useContext(LC), i = a[a.length - 1],
-                o = i ? i.params : {}, s = (i && i.pathname, i ? i.pathnameBase : "/");
-            i && i.route;
-            let l, c = FC();
+        function wI(e, t, n, r) {
+            gI() || tO(!1);
+            let {navigator: a} = ke.useContext(hI), {matches: i} = ke.useContext(fI), o = i[i.length - 1],
+                s = o ? o.params : {}, l = (o && o.pathname, o ? o.pathnameBase : "/");
+            o && o.route;
+            let c, u = vI();
             if (t) {
-                var u;
-                let e = "string" === typeof t ? WS(t) : t;
-                "/" === s || (null == (u = e.pathname) ? void 0 : u.startsWith(s)) || VS(!1), l = e
-            } else l = c;
-            let d = l.pathname || "/", h = ZS(e, {pathname: "/" === s ? d : d.slice(s.length) || "/"});
-            let p = KC(h && h.map((e => Object.assign({}, e, {
-                params: Object.assign({}, o, e.params),
-                pathname: uO([s, r.encodeLocation ? r.encodeLocation(e.pathname).pathname : e.pathname]),
-                pathnameBase: "/" === e.pathnameBase ? s : uO([s, r.encodeLocation ? r.encodeLocation(e.pathnameBase).pathname : e.pathnameBase])
-            }))), a, n);
-            return t && p ? ke.createElement(jC.Provider, {
+                var d;
+                let e = "string" === typeof t ? oO(t) : t;
+                "/" === l || (null == (d = e.pathname) ? void 0 : d.startsWith(l)) || tO(!1), c = e
+            } else c = u;
+            let h = c.pathname || "/", p = h;
+            if ("/" !== l) {
+                let e = l.replace(/^\//, "").split("/");
+                p = "/" + h.replace(/^\//, "").split("/").slice(e.length).join("/")
+            }
+            let f = dO(e, {pathname: p});
+            let m = PI(f && f.map((e => Object.assign({}, e, {
+                params: Object.assign({}, s, e.params),
+                pathname: PO([l, a.encodeLocation ? a.encodeLocation(e.pathname).pathname : e.pathname]),
+                pathnameBase: "/" === e.pathnameBase ? l : PO([l, a.encodeLocation ? a.encodeLocation(e.pathnameBase).pathname : e.pathnameBase])
+            }))), i, n, r);
+            return t && m ? ke.createElement(pI.Provider, {
                 value: {
-                    location: AC({
+                    location: cI({
                         pathname: "/",
                         search: "",
                         hash: "",
                         state: null,
                         key: "default"
-                    }, l), navigationType: FS.Pop
+                    }, c), navigationType: JS.Pop
                 }
-            }, p) : p
+            }, m) : m
         }
 
-        function $C() {
+        function kI() {
             let e = function () {
                     var e;
-                    let t = ke.useContext(NC), n = XC(ZC.UseRouteError), r = JC(ZC.UseRouteError);
-                    if (t) return t;
+                    let t = ke.useContext(mI), n = DI(II.UseRouteError), r = RI(II.UseRouteError);
+                    if (void 0 !== t) return t;
                     return null == (e = n.errors) ? void 0 : e[r]
-                }(), t = vO(e) ? e.status + " " + e.statusText : e instanceof Error ? e.message : JSON.stringify(e),
+                }(), t = jO(e) ? e.status + " " + e.statusText : e instanceof Error ? e.message : JSON.stringify(e),
                 n = e instanceof Error ? e.stack : null, r = "rgba(200,200,200, 0.5)",
                 a = {padding: "0.5rem", backgroundColor: r};
             return ke.createElement(ke.Fragment, null, ke.createElement("h2", null, "Unexpected Application Error!"), ke.createElement("h3", {style: {fontStyle: "italic"}}, t), n ? ke.createElement("pre", {style: a}, n) : null, null)
         }
 
-        const WC = ke.createElement($C, null);
+        const EI = ke.createElement(kI, null);
 
-        class HC extends ke.Component {
+        class SI extends ke.Component {
             constructor(e) {
                 super(e), this.state = {location: e.location, revalidation: e.revalidation, error: e.error}
             }
@@ -44575,7 +45306,11 @@
                     error: e.error,
                     location: e.location,
                     revalidation: e.revalidation
-                } : {error: e.error || t.error, location: t.location, revalidation: e.revalidation || t.revalidation}
+                } : {
+                    error: void 0 !== e.error ? e.error : t.error,
+                    location: t.location,
+                    revalidation: e.revalidation || t.revalidation
+                }
             }
 
             componentDidCatch(e, t) {
@@ -44583,123 +45318,151 @@
             }
 
             render() {
-                return this.state.error ? ke.createElement(LC.Provider, {value: this.props.routeContext}, ke.createElement(NC.Provider, {
+                return void 0 !== this.state.error ? ke.createElement(fI.Provider, {value: this.props.routeContext}, ke.createElement(mI.Provider, {
                     value: this.state.error,
                     children: this.props.component
                 })) : this.props.children
             }
         }
 
-        function qC(e) {
-            let {routeContext: t, match: n, children: r} = e, a = ke.useContext(DC);
-            return a && a.static && a.staticContext && (n.route.errorElement || n.route.ErrorBoundary) && (a.staticContext._deepestRenderedBoundaryId = n.route.id), ke.createElement(LC.Provider, {value: t}, r)
+        function OI(e) {
+            let {routeContext: t, match: n, children: r} = e, a = ke.useContext(uI);
+            return a && a.static && a.staticContext && (n.route.errorElement || n.route.ErrorBoundary) && (a.staticContext._deepestRenderedBoundaryId = n.route.id), ke.createElement(fI.Provider, {value: t}, r)
         }
 
-        function KC(e, t, n) {
-            var r;
-            if (void 0 === t && (t = []), void 0 === n && (n = null), null == e) {
-                var a;
-                if (null == (a = n) || !a.errors) return null;
-                e = n.matches
+        function PI(e, t, n, r) {
+            var a;
+            if (void 0 === t && (t = []), void 0 === n && (n = null), void 0 === r && (r = null), null == e) {
+                var i;
+                if (!n) return null;
+                if (n.errors) e = n.matches; else {
+                    if (!(null != (i = r) && i.v7_partialHydration && 0 === t.length && !n.initialized && n.matches.length > 0)) return null;
+                    e = n.matches
+                }
             }
-            let i = e, o = null == (r = n) ? void 0 : r.errors;
-            if (null != o) {
-                let e = i.findIndex((e => e.route.id && (null == o ? void 0 : o[e.route.id])));
-                e >= 0 || VS(!1), i = i.slice(0, Math.min(i.length, e + 1))
+            let o = e, s = null == (a = n) ? void 0 : a.errors;
+            if (null != s) {
+                let e = o.findIndex((e => e.route.id && void 0 !== (null == s ? void 0 : s[e.route.id])));
+                e >= 0 || tO(!1), o = o.slice(0, Math.min(o.length, e + 1))
             }
-            return i.reduceRight(((e, r, a) => {
-                let s = r.route.id ? null == o ? void 0 : o[r.route.id] : null, l = null;
-                n && (l = r.route.errorElement || WC);
-                let c = t.concat(i.slice(0, a + 1)), u = () => {
+            let l = !1, c = -1;
+            if (n && r && r.v7_partialHydration) for (let u = 0; u < o.length; u++) {
+                let e = o[u];
+                if ((e.route.HydrateFallback || e.route.hydrateFallbackElement) && (c = u), e.route.id) {
+                    let {loaderData: t, errors: r} = n,
+                        a = e.route.loader && void 0 === t[e.route.id] && (!r || void 0 === r[e.route.id]);
+                    if (e.route.lazy || a) {
+                        l = !0, o = c >= 0 ? o.slice(0, c + 1) : [o[0]];
+                        break
+                    }
+                }
+            }
+            return o.reduceRight(((e, r, a) => {
+                let i, u = !1, d = null, h = null;
+                var p;
+                n && (i = s && r.route.id ? s[r.route.id] : void 0, d = r.route.errorElement || EI, l && (c < 0 && 0 === a ? (p = "route-fallback", !1 || TI[p] || (TI[p] = !0), u = !0, h = null) : c === a && (u = !0, h = r.route.hydrateFallbackElement || null)));
+                let f = t.concat(o.slice(0, a + 1)), m = () => {
                     let t;
-                    return t = s ? l : r.route.Component ? ke.createElement(r.route.Component, null) : r.route.element ? r.route.element : e, ke.createElement(qC, {
+                    return t = i ? d : u ? h : r.route.Component ? ke.createElement(r.route.Component, null) : r.route.element ? r.route.element : e, ke.createElement(OI, {
                         match: r,
-                        routeContext: {outlet: e, matches: c, isDataRoute: null != n},
+                        routeContext: {outlet: e, matches: f, isDataRoute: null != n},
                         children: t
                     })
                 };
-                return n && (r.route.ErrorBoundary || r.route.errorElement || 0 === a) ? ke.createElement(HC, {
+                return n && (r.route.ErrorBoundary || r.route.errorElement || 0 === a) ? ke.createElement(SI, {
                     location: n.location,
                     revalidation: n.revalidation,
-                    component: l,
-                    error: s,
-                    children: u(),
-                    routeContext: {outlet: null, matches: c, isDataRoute: !0}
-                }) : u()
+                    component: d,
+                    error: i,
+                    children: m(),
+                    routeContext: {outlet: null, matches: f, isDataRoute: !0}
+                }) : m()
             }), null)
         }
 
-        var YC = function (e) {
+        var CI = function (e) {
             return e.UseBlocker = "useBlocker", e.UseRevalidator = "useRevalidator", e.UseNavigateStable = "useNavigate", e
-        }(YC || {}), ZC = function (e) {
+        }(CI || {}), II = function (e) {
             return e.UseBlocker = "useBlocker", e.UseLoaderData = "useLoaderData", e.UseActionData = "useActionData", e.UseRouteError = "useRouteError", e.UseNavigation = "useNavigation", e.UseRouteLoaderData = "useRouteLoaderData", e.UseMatches = "useMatches", e.UseRevalidator = "useRevalidator", e.UseNavigateStable = "useNavigate", e.UseRouteId = "useRouteId", e
-        }(ZC || {});
+        }(II || {});
 
-        function QC(e) {
-            let t = ke.useContext(DC);
-            return t || VS(!1), t
+        function AI(e) {
+            let t = ke.useContext(uI);
+            return t || tO(!1), t
         }
 
-        function XC(e) {
-            let t = ke.useContext(RC);
-            return t || VS(!1), t
+        function DI(e) {
+            let t = ke.useContext(dI);
+            return t || tO(!1), t
         }
 
-        function JC(e) {
+        function RI(e) {
             let t = function (e) {
-                let t = ke.useContext(LC);
-                return t || VS(!1), t
+                let t = ke.useContext(fI);
+                return t || tO(!1), t
             }(), n = t.matches[t.matches.length - 1];
-            return n.route.id || VS(!1), n.route.id
+            return n.route.id || tO(!1), n.route.id
+        }
+
+        const TI = {};
+
+        function jI(e, t) {
+            null == e || e.v7_startTransition, void 0 === (null == e ? void 0 : e.v7_relativeSplatPath) && (!t || t.v7_relativeSplatPath), t && (t.v7_fetcherPersist, t.v7_normalizeFormMethod, t.v7_partialHydration, t.v7_skipActionErrorRevalidation)
         }
 
         Ee.startTransition;
 
-        function eI(e) {
+        function LI(e) {
             let {to: t, replace: n, state: r, relative: a} = e;
-            MC() || VS(!1);
-            let {matches: i} = ke.useContext(LC), {pathname: o} = FC(), s = VC(),
-                l = cO(t, lO(i).map((e => e.pathnameBase)), o, "path" === a), c = JSON.stringify(l);
-            return ke.useEffect((() => s(JSON.parse(c), {replace: n, state: r, relative: a})), [s, c, a, n, r]), null
+            gI() || tO(!1);
+            let {future: i, static: o} = ke.useContext(hI), {matches: s} = ke.useContext(fI), {pathname: l} = vI(),
+                c = bI(), u = OO(t, SO(s, i.v7_relativeSplatPath), l, "path" === a), d = JSON.stringify(u);
+            return ke.useEffect((() => c(JSON.parse(d), {replace: n, state: r, relative: a})), [c, d, a, n, r]), null
         }
 
-        function tI(e) {
+        function NI(e) {
             return function (e) {
-                let t = ke.useContext(LC).outlet;
-                return t ? ke.createElement(UC.Provider, {value: e}, t) : t
+                let t = ke.useContext(fI).outlet;
+                return t ? ke.createElement(_I.Provider, {value: e}, t) : t
             }(e.context)
         }
 
-        function nI(e) {
+        function MI(e) {
             let {
                 basename: t = "/",
                 children: n = null,
                 location: r,
-                navigationType: a = FS.Pop,
+                navigationType: a = JS.Pop,
                 navigator: i,
-                static: o = !1
+                static: o = !1,
+                future: s
             } = e;
-            MC() && VS(!1);
-            let s = t.replace(/^\/*/, "/"), l = ke.useMemo((() => ({basename: s, navigator: i, static: o})), [s, i, o]);
-            "string" === typeof r && (r = WS(r));
-            let {pathname: c = "/", search: u = "", hash: d = "", state: h = null, key: p = "default"} = r,
-                f = ke.useMemo((() => {
-                    let e = oO(c, s);
+            gI() && tO(!1);
+            let l = t.replace(/^\/*/, "/"), c = ke.useMemo((() => ({
+                basename: l,
+                navigator: i,
+                static: o,
+                future: cI({v7_relativeSplatPath: !1}, s)
+            })), [l, s, i, o]);
+            "string" === typeof r && (r = oO(r));
+            let {pathname: u = "/", search: d = "", hash: h = "", state: p = null, key: f = "default"} = r,
+                m = ke.useMemo((() => {
+                    let e = wO(u, l);
                     return null == e ? null : {
-                        location: {pathname: e, search: u, hash: d, state: h, key: p},
+                        location: {pathname: e, search: d, hash: h, state: p, key: f},
                         navigationType: a
                     }
-                }), [s, c, u, d, h, p, a]);
-            return null == f ? null : ke.createElement(TC.Provider, {value: l}, ke.createElement(jC.Provider, {
+                }), [l, u, d, h, p, f, a]);
+            return null == m ? null : ke.createElement(hI.Provider, {value: c}, ke.createElement(pI.Provider, {
                 children: n,
-                value: f
+                value: m
             }))
         }
 
         new Promise((() => {
         }));
 
-        class rI extends ke.Component {
+        class FI extends ke.Component {
             constructor(e) {
                 super(e), this.state = {error: null}
             }
@@ -44719,7 +45482,7 @@
                     let e = this.state.error;
                     Promise.reject().catch((() => {
                     })), Object.defineProperty(r, "_tracked", {get: () => !0}), Object.defineProperty(r, "_error", {get: () => e})
-                } else n._tracked ? (n, void 0 !== r._error ? AwaitRenderStatus.error : void 0 !== r._data ? AwaitRenderStatus.success : AwaitRenderStatus.pending) : (AwaitRenderStatus.pending, Object.defineProperty(n, "_tracked", {get: () => !0}), n.then((e => Object.defineProperty(n, "_data", {get: () => e})), (e => Object.defineProperty(n, "_error", {get: () => e})))); else AwaitRenderStatus.success, Promise.resolve(), Object.defineProperty(r, "_tracked", {get: () => !0}), Object.defineProperty(r, "_data", {get: () => n});
+                } else n._tracked ? (n, "_error" in r ? AwaitRenderStatus.error : "_data" in r ? AwaitRenderStatus.success : AwaitRenderStatus.pending) : (AwaitRenderStatus.pending, Object.defineProperty(n, "_tracked", {get: () => !0}), n.then((e => Object.defineProperty(n, "_data", {get: () => e})), (e => Object.defineProperty(n, "_error", {get: () => e})))); else AwaitRenderStatus.success, Promise.resolve(), Object.defineProperty(r, "_tracked", {get: () => !0}), Object.defineProperty(r, "_data", {get: () => n});
                 if (a === AwaitRenderStatus.error && r._error instanceof AbortedDeferredError) throw neverSettledPromise;
                 if (a === AwaitRenderStatus.error && !t) throw r._error;
                 if (a === AwaitRenderStatus.error) return React.createElement(AwaitContext.Provider, {
@@ -44734,47 +45497,50 @@
             }
         }
 
-        function aI(e) {
+        function zI(e) {
             let t = {hasErrorBoundary: null != e.ErrorBoundary || null != e.errorElement};
             return e.Component && Object.assign(t, {
                 element: ke.createElement(e.Component),
                 Component: void 0
+            }), e.HydrateFallback && Object.assign(t, {
+                hydrateFallbackElement: ke.createElement(e.HydrateFallback),
+                HydrateFallback: void 0
             }), e.ErrorBoundary && Object.assign(t, {
                 errorElement: ke.createElement(e.ErrorBoundary),
                 ErrorBoundary: void 0
             }), t
         }
 
-        var iI = e => "checkbox" === e.type, oI = e => e instanceof Date, sI = e => null == e;
-        const lI = e => "object" === typeof e;
-        var cI = e => !sI(e) && !Array.isArray(e) && lI(e) && !oI(e),
-            uI = e => cI(e) && e.target ? iI(e.target) ? e.target.checked : e.target.value : e,
-            dI = (e, t) => e.has((e => e.substring(0, e.search(/\.\d+(\.|$)/)) || e)(t)),
-            hI = e => Array.isArray(e) ? e.filter(Boolean) : [], pI = e => void 0 === e, fI = (e, t, n) => {
-                if (!t || !cI(e)) return n;
-                const r = hI(t.split(/[,[\].]+?/)).reduce(((e, t) => sI(e) ? e : e[t]), e);
-                return pI(r) || r === e ? pI(e[t]) ? n : e[t] : r
+        var VI = e => "checkbox" === e.type, UI = e => e instanceof Date, GI = e => null == e;
+        const BI = e => "object" === typeof e;
+        var $I = e => !GI(e) && !Array.isArray(e) && BI(e) && !UI(e),
+            WI = e => $I(e) && e.target ? VI(e.target) ? e.target.checked : e.target.value : e,
+            HI = (e, t) => e.has((e => e.substring(0, e.search(/\.\d+(\.|$)/)) || e)(t)),
+            qI = e => Array.isArray(e) ? e.filter(Boolean) : [], KI = e => void 0 === e, YI = (e, t, n) => {
+                if (!t || !$I(e)) return n;
+                const r = qI(t.split(/[,[\].]+?/)).reduce(((e, t) => GI(e) ? e : e[t]), e);
+                return KI(r) || r === e ? KI(e[t]) ? n : e[t] : r
             };
-        const mI = "blur", gI = "focusout", vI = "change", yI = "onBlur", bI = "onChange", _I = "onSubmit",
-            xI = "onTouched", wI = "all", kI = "max", EI = "min", SI = "maxLength", OI = "minLength", PI = "pattern",
-            CI = "required", II = "validate", AI = ke.createContext(null), DI = () => ke.useContext(AI);
-        var RI = (e, t, n, r = !0) => {
+        const ZI = "blur", QI = "focusout", XI = "change", JI = "onBlur", eA = "onChange", tA = "onSubmit",
+            nA = "onTouched", rA = "all", aA = "max", iA = "min", oA = "maxLength", sA = "minLength", lA = "pattern",
+            cA = "required", uA = "validate", dA = ke.createContext(null), hA = () => ke.useContext(dA);
+        var pA = (e, t, n, r = !0) => {
                 const a = {defaultValues: t._defaultValues};
                 for (const i in e) Object.defineProperty(a, i, {
                     get: () => {
                         const a = i;
-                        return t._proxyFormState[a] !== wI && (t._proxyFormState[a] = !r || wI), n && (n[a] = !0), e[a]
+                        return t._proxyFormState[a] !== rA && (t._proxyFormState[a] = !r || rA), n && (n[a] = !0), e[a]
                     }
                 });
                 return a
-            }, TI = e => cI(e) && !Object.keys(e).length, jI = (e, t, n, r) => {
+            }, fA = e => $I(e) && !Object.keys(e).length, mA = (e, t, n, r) => {
                 n(e);
                 const {name: a, ...i} = e;
-                return TI(i) || Object.keys(i).length >= Object.keys(t).length || Object.keys(i).find((e => t[e] === (!r || wI)))
-            }, LI = e => Array.isArray(e) ? e : [e],
-            NI = (e, t, n) => n && t ? e === t : !e || !t || e === t || LI(e).some((e => e && (e.startsWith(t) || t.startsWith(e))));
+                return fA(i) || Object.keys(i).length >= Object.keys(t).length || Object.keys(i).find((e => t[e] === (!r || rA)))
+            }, gA = e => Array.isArray(e) ? e : [e],
+            vA = (e, t, n) => n && t ? e === t : !e || !t || e === t || gA(e).some((e => e && (e.startsWith(t) || t.startsWith(e))));
 
-        function MI(e) {
+        function yA(e) {
             const t = ke.useRef(e);
             t.current = e, ke.useEffect((() => {
                 const n = !e.disabled && t.current.subject.subscribe({next: t.current.next});
@@ -44784,31 +45550,31 @@
             }), [e.disabled])
         }
 
-        var FI = e => "string" === typeof e,
-            zI = (e, t, n, r, a) => FI(e) ? (r && t.watch.add(e), fI(n, e, a)) : Array.isArray(e) ? e.map((e => (r && t.watch.add(e), fI(n, e)))) : (r && (t.watchAll = !0), n),
-            VI = "undefined" !== typeof window && "undefined" !== typeof window.HTMLElement && "undefined" !== typeof document;
+        var bA = e => "string" === typeof e,
+            _A = (e, t, n, r, a) => bA(e) ? (r && t.watch.add(e), YI(n, e, a)) : Array.isArray(e) ? e.map((e => (r && t.watch.add(e), YI(n, e)))) : (r && (t.watchAll = !0), n),
+            xA = "undefined" !== typeof window && "undefined" !== typeof window.HTMLElement && "undefined" !== typeof document;
 
-        function UI(e) {
+        function wA(e) {
             let t;
             const n = Array.isArray(e);
             if (e instanceof Date) t = new Date(e); else if (e instanceof Set) t = new Set(e); else {
-                if (VI && (e instanceof Blob || e instanceof FileList) || !n && !cI(e)) return e;
+                if (xA && (e instanceof Blob || e instanceof FileList) || !n && !$I(e)) return e;
                 if (t = n ? [] : {}, Array.isArray(e) || (e => {
                     const t = e.constructor && e.constructor.prototype;
-                    return cI(t) && t.hasOwnProperty("isPrototypeOf")
-                })(e)) for (const n in e) t[n] = UI(e[n]); else t = e
+                    return $I(t) && t.hasOwnProperty("isPrototypeOf")
+                })(e)) for (const n in e) t[n] = wA(e[n]); else t = e
             }
             return t
         }
 
-        function GI(e) {
-            const t = DI(), {name: n, control: r = t.control, shouldUnregister: a} = e, i = dI(r._names.array, n),
+        function kA(e) {
+            const t = hA(), {name: n, control: r = t.control, shouldUnregister: a} = e, i = HI(r._names.array, n),
                 o = function (e) {
-                    const t = DI(), {control: n = t.control, name: r, defaultValue: a, disabled: i, exact: o} = e || {},
+                    const t = hA(), {control: n = t.control, name: r, defaultValue: a, disabled: i, exact: o} = e || {},
                         s = ke.useRef(r);
-                    s.current = r, MI({
+                    s.current = r, yA({
                         disabled: i, subject: n._subjects.watch, next: e => {
-                            NI(s.current, e.name, o) && c(UI(zI(s.current, n._names, e.values || n._formValues, !1, a)))
+                            vA(s.current, e.name, o) && c(wA(_A(s.current, n._names, e.values || n._formValues, !1, a)))
                         }
                     });
                     const [l, c] = ke.useState(n._getWatch(r, a));
@@ -44816,10 +45582,10 @@
                 }({
                     control: r,
                     name: n,
-                    defaultValue: fI(r._formValues, n, fI(r._defaultValues, n, e.defaultValue)),
+                    defaultValue: YI(r._formValues, n, YI(r._defaultValues, n, e.defaultValue)),
                     exact: !0
                 }), s = function (e) {
-                    const t = DI(), {
+                    const t = hA(), {
                         control: n = t.control,
                         disabled: r,
                         name: a,
@@ -44833,9 +45599,9 @@
                         isValid: !1,
                         errors: !1
                     }), u = ke.useRef(a);
-                    return u.current = a, MI({
+                    return u.current = a, yA({
                         disabled: r,
-                        next: e => l.current && NI(u.current, e.name, i) && jI(e, c.current, n._updateFormState) && s({...n._formState, ...e}),
+                        next: e => l.current && vA(u.current, e.name, i) && mA(e, c.current, n._updateFormState) && s({...n._formState, ...e}),
                         subject: n._subjects.state
                     }), ke.useEffect((() => {
                         l.current = !0;
@@ -44843,11 +45609,11 @@
                         return e !== n._formState.isDirty && n._subjects.state.next({isDirty: e}), c.current.isValid && n._updateValid(!0), () => {
                             l.current = !1
                         }
-                    }), [n]), RI(o, n, c.current, !1)
+                    }), [n]), pA(o, n, c.current, !1)
                 }({control: r, name: n}), l = ke.useRef(r.register(n, {...e.rules, value: o}));
             return ke.useEffect((() => {
                 const e = (e, t) => {
-                    const n = fI(r._fields, e);
+                    const n = YI(r._fields, e);
                     n && (n._f.mount = t)
                 };
                 return e(n, !0), () => {
@@ -44859,15 +45625,15 @@
                     name: n,
                     value: o,
                     onChange: ke.useCallback((e => l.current.onChange({
-                        target: {value: uI(e), name: n},
-                        type: vI
+                        target: {value: WI(e), name: n},
+                        type: XI
                     })), [n]),
                     onBlur: ke.useCallback((() => l.current.onBlur({
-                        target: {value: fI(r._formValues, n), name: n},
-                        type: mI
+                        target: {value: YI(r._formValues, n), name: n},
+                        type: ZI
                     })), [n, r]),
                     ref: e => {
-                        const t = fI(r._fields, n);
+                        const t = YI(r._fields, n);
                         t && e && (t._f.ref = {
                             focus: () => e.focus(),
                             select: () => e.select(),
@@ -44878,35 +45644,35 @@
                 },
                 formState: s,
                 fieldState: Object.defineProperties({}, {
-                    invalid: {enumerable: !0, get: () => !!fI(s.errors, n)},
-                    isDirty: {enumerable: !0, get: () => !!fI(s.dirtyFields, n)},
-                    isTouched: {enumerable: !0, get: () => !!fI(s.touchedFields, n)},
-                    error: {enumerable: !0, get: () => fI(s.errors, n)}
+                    invalid: {enumerable: !0, get: () => !!YI(s.errors, n)},
+                    isDirty: {enumerable: !0, get: () => !!YI(s.dirtyFields, n)},
+                    isTouched: {enumerable: !0, get: () => !!YI(s.touchedFields, n)},
+                    error: {enumerable: !0, get: () => YI(s.errors, n)}
                 })
             }
         }
 
-        var BI = (e, t, n, r, a) => t ? {...n[e], types: {...n[e] && n[e].types ? n[e].types : {}, [r]: a || !0}} : {},
-            $I = e => /^\w*$/.test(e), WI = e => hI(e.replace(/["|']|\]/g, "").split(/\.|\[/));
+        var EA = (e, t, n, r, a) => t ? {...n[e], types: {...n[e] && n[e].types ? n[e].types : {}, [r]: a || !0}} : {},
+            SA = e => /^\w*$/.test(e), OA = e => qI(e.replace(/["|']|\]/g, "").split(/\.|\[/));
 
-        function HI(e, t, n) {
+        function PA(e, t, n) {
             let r = -1;
-            const a = $I(t) ? [t] : WI(t), i = a.length, o = i - 1;
+            const a = SA(t) ? [t] : OA(t), i = a.length, o = i - 1;
             for (; ++r < i;) {
                 const t = a[r];
                 let i = n;
                 if (r !== o) {
                     const n = e[t];
-                    i = cI(n) || Array.isArray(n) ? n : isNaN(+a[r + 1]) ? {} : []
+                    i = $I(n) || Array.isArray(n) ? n : isNaN(+a[r + 1]) ? {} : []
                 }
                 e[t] = i, e = e[t]
             }
             return e
         }
 
-        const qI = (e, t, n) => {
+        const CA = (e, t, n) => {
             for (const r of n || Object.keys(e)) {
-                const n = fI(e, r);
+                const n = YI(e, r);
                 if (n) {
                     const {_f: e, ...r} = n;
                     if (e && t(e.name)) {
@@ -44918,56 +45684,56 @@
                             e.refs[0].focus();
                             break
                         }
-                    } else cI(r) && qI(r, t)
+                    } else $I(r) && CA(r, t)
                 }
             }
         };
-        var KI = e => ({
-                isOnSubmit: !e || e === _I,
-                isOnBlur: e === yI,
-                isOnChange: e === bI,
-                isOnAll: e === wI,
-                isOnTouch: e === xI
+        var IA = e => ({
+                isOnSubmit: !e || e === tA,
+                isOnBlur: e === JI,
+                isOnChange: e === eA,
+                isOnAll: e === rA,
+                isOnTouch: e === nA
             }),
-            YI = (e, t, n) => !n && (t.watchAll || t.watch.has(e) || [...t.watch].some((t => e.startsWith(t) && /^\.\w+/.test(e.slice(t.length))))),
-            ZI = (e, t, n) => {
-                const r = hI(fI(e, n));
-                return HI(r, "root", t[n]), HI(e, n, r), e
-            }, QI = e => "boolean" === typeof e, XI = e => "file" === e.type, JI = e => "function" === typeof e,
-            eA = e => {
-                if (!VI) return !1;
+            AA = (e, t, n) => !n && (t.watchAll || t.watch.has(e) || [...t.watch].some((t => e.startsWith(t) && /^\.\w+/.test(e.slice(t.length))))),
+            DA = (e, t, n) => {
+                const r = qI(YI(e, n));
+                return PA(r, "root", t[n]), PA(e, n, r), e
+            }, RA = e => "boolean" === typeof e, TA = e => "file" === e.type, jA = e => "function" === typeof e,
+            LA = e => {
+                if (!xA) return !1;
                 const t = e ? e.ownerDocument : 0;
                 return e instanceof (t && t.defaultView ? t.defaultView.HTMLElement : HTMLElement)
-            }, tA = e => FI(e) || ke.isValidElement(e), nA = e => "radio" === e.type, rA = e => e instanceof RegExp;
-        const aA = {value: !1, isValid: !1}, iA = {value: !0, isValid: !0};
-        var oA = e => {
+            }, NA = e => bA(e) || ke.isValidElement(e), MA = e => "radio" === e.type, FA = e => e instanceof RegExp;
+        const zA = {value: !1, isValid: !1}, VA = {value: !0, isValid: !0};
+        var UA = e => {
             if (Array.isArray(e)) {
                 if (e.length > 1) {
                     const t = e.filter((e => e && e.checked && !e.disabled)).map((e => e.value));
                     return {value: t, isValid: !!t.length}
                 }
-                return e[0].checked && !e[0].disabled ? e[0].attributes && !pI(e[0].attributes.value) ? pI(e[0].value) || "" === e[0].value ? iA : {
+                return e[0].checked && !e[0].disabled ? e[0].attributes && !KI(e[0].attributes.value) ? KI(e[0].value) || "" === e[0].value ? VA : {
                     value: e[0].value,
                     isValid: !0
-                } : iA : aA
+                } : VA : zA
             }
-            return aA
+            return zA
         };
-        const sA = {isValid: !1, value: null};
-        var lA = e => Array.isArray(e) ? e.reduce(((e, t) => t && t.checked && !t.disabled ? {
+        const GA = {isValid: !1, value: null};
+        var BA = e => Array.isArray(e) ? e.reduce(((e, t) => t && t.checked && !t.disabled ? {
             isValid: !0,
             value: t.value
-        } : e), sA) : sA;
+        } : e), GA) : GA;
 
-        function cA(e, t, n = "validate") {
-            if (tA(e) || Array.isArray(e) && e.every(tA) || QI(e) && !e) return {
+        function $A(e, t, n = "validate") {
+            if (NA(e) || Array.isArray(e) && e.every(NA) || RA(e) && !e) return {
                 type: n,
-                message: tA(e) ? e : "",
+                message: NA(e) ? e : "",
                 ref: t
             }
         }
 
-        var uA = e => cI(e) && !rA(e) ? e : {value: e, message: ""}, dA = async (e, t, n, r, a) => {
+        var WA = e => $I(e) && !FA(e) ? e : {value: e, message: ""}, HA = async (e, t, n, r, a) => {
             const {
                 ref: i,
                 refs: o,
@@ -44982,71 +45748,71 @@
                 valueAsNumber: m,
                 mount: g,
                 disabled: v
-            } = e._f, y = fI(t, f);
+            } = e._f, y = YI(t, f);
             if (!g || v) return {};
             const b = o ? o[0] : i, _ = e => {
-                    r && b.reportValidity && (b.setCustomValidity(QI(e) ? "" : e || ""), b.reportValidity())
-                }, x = {}, w = nA(i), k = iI(i), E = w || k,
-                S = (m || XI(i)) && pI(i.value) && pI(y) || eA(i) && "" === i.value || "" === y || Array.isArray(y) && !y.length,
-                O = BI.bind(null, f, n, x), P = (e, t, n, r = SI, a = OI) => {
+                    r && b.reportValidity && (b.setCustomValidity(RA(e) ? "" : e || ""), b.reportValidity())
+                }, x = {}, w = MA(i), k = VI(i), E = w || k,
+                S = (m || TA(i)) && KI(i.value) && KI(y) || LA(i) && "" === i.value || "" === y || Array.isArray(y) && !y.length,
+                O = EA.bind(null, f, n, x), P = (e, t, n, r = oA, a = sA) => {
                     const o = e ? t : n;
                     x[f] = {type: e ? r : a, message: o, ref: i, ...O(e ? r : a, o)}
                 };
-            if (a ? !Array.isArray(y) || !y.length : s && (!E && (S || sI(y)) || QI(y) && !y || k && !oA(o).isValid || w && !lA(o).isValid)) {
-                const {value: e, message: t} = tA(s) ? {value: !!s, message: s} : uA(s);
-                if (e && (x[f] = {type: CI, message: t, ref: b, ...O(CI, t)}, !n)) return _(t), x
+            if (a ? !Array.isArray(y) || !y.length : s && (!E && (S || GI(y)) || RA(y) && !y || k && !UA(o).isValid || w && !BA(o).isValid)) {
+                const {value: e, message: t} = NA(s) ? {value: !!s, message: s} : WA(s);
+                if (e && (x[f] = {type: cA, message: t, ref: b, ...O(cA, t)}, !n)) return _(t), x
             }
-            if (!S && (!sI(u) || !sI(d))) {
+            if (!S && (!GI(u) || !GI(d))) {
                 let e, t;
-                const r = uA(d), a = uA(u);
-                if (sI(y) || isNaN(y)) {
+                const r = WA(d), a = WA(u);
+                if (GI(y) || isNaN(y)) {
                     const n = i.valueAsDate || new Date(y), o = e => new Date((new Date).toDateString() + " " + e),
                         s = "time" == i.type, l = "week" == i.type;
-                    FI(r.value) && y && (e = s ? o(y) > o(r.value) : l ? y > r.value : n > new Date(r.value)), FI(a.value) && y && (t = s ? o(y) < o(a.value) : l ? y < a.value : n < new Date(a.value))
+                    bA(r.value) && y && (e = s ? o(y) > o(r.value) : l ? y > r.value : n > new Date(r.value)), bA(a.value) && y && (t = s ? o(y) < o(a.value) : l ? y < a.value : n < new Date(a.value))
                 } else {
                     const n = i.valueAsNumber || (y ? +y : y);
-                    sI(r.value) || (e = n > r.value), sI(a.value) || (t = n < a.value)
+                    GI(r.value) || (e = n > r.value), GI(a.value) || (t = n < a.value)
                 }
-                if ((e || t) && (P(!!e, r.message, a.message, kI, EI), !n)) return _(x[f].message), x
+                if ((e || t) && (P(!!e, r.message, a.message, aA, iA), !n)) return _(x[f].message), x
             }
-            if ((l || c) && !S && (FI(y) || a && Array.isArray(y))) {
-                const e = uA(l), t = uA(c), r = !sI(e.value) && y.length > e.value,
-                    a = !sI(t.value) && y.length < t.value;
+            if ((l || c) && !S && (bA(y) || a && Array.isArray(y))) {
+                const e = WA(l), t = WA(c), r = !GI(e.value) && y.length > e.value,
+                    a = !GI(t.value) && y.length < t.value;
                 if ((r || a) && (P(r, e.message, t.message), !n)) return _(x[f].message), x
             }
-            if (h && !S && FI(y)) {
-                const {value: e, message: t} = uA(h);
-                if (rA(e) && !y.match(e) && (x[f] = {type: PI, message: t, ref: i, ...O(PI, t)}, !n)) return _(t), x
+            if (h && !S && bA(y)) {
+                const {value: e, message: t} = WA(h);
+                if (FA(e) && !y.match(e) && (x[f] = {type: lA, message: t, ref: i, ...O(lA, t)}, !n)) return _(t), x
             }
-            if (p) if (JI(p)) {
-                const e = cA(await p(y, t), b);
-                if (e && (x[f] = {...e, ...O(II, e.message)}, !n)) return _(e.message), x
-            } else if (cI(p)) {
+            if (p) if (jA(p)) {
+                const e = $A(await p(y, t), b);
+                if (e && (x[f] = {...e, ...O(uA, e.message)}, !n)) return _(e.message), x
+            } else if ($I(p)) {
                 let e = {};
                 for (const r in p) {
-                    if (!TI(e) && !n) break;
-                    const a = cA(await p[r](y, t), b, r);
+                    if (!fA(e) && !n) break;
+                    const a = $A(await p[r](y, t), b, r);
                     a && (e = {...a, ...O(r, a.message)}, _(a.message), n && (x[f] = e))
                 }
-                if (!TI(e) && (x[f] = {ref: b, ...e}, !n)) return x
+                if (!fA(e) && (x[f] = {ref: b, ...e}, !n)) return x
             }
             return _(!0), x
         };
 
-        function hA(e, t) {
-            const n = Array.isArray(t) ? t : $I(t) ? [t] : WI(t), r = 1 === n.length ? e : function (e, t) {
+        function qA(e, t) {
+            const n = Array.isArray(t) ? t : SA(t) ? [t] : OA(t), r = 1 === n.length ? e : function (e, t) {
                 const n = t.slice(0, -1).length;
                 let r = 0;
-                for (; r < n;) e = pI(e) ? r++ : e[t[r++]];
+                for (; r < n;) e = KI(e) ? r++ : e[t[r++]];
                 return e
             }(e, n), a = n.length - 1, i = n[a];
-            return r && delete r[i], 0 !== a && (cI(r) && TI(r) || Array.isArray(r) && function (e) {
-                for (const t in e) if (!pI(e[t])) return !1;
+            return r && delete r[i], 0 !== a && ($I(r) && fA(r) || Array.isArray(r) && function (e) {
+                for (const t in e) if (!KI(e[t])) return !1;
                 return !0
-            }(r)) && hA(e, n.slice(0, -1)), e
+            }(r)) && qA(e, n.slice(0, -1)), e
         }
 
-        function pA() {
+        function KA() {
             let e = [];
             return {
                 get observers() {
@@ -45063,11 +45829,11 @@
             }
         }
 
-        var fA = e => sI(e) || !lI(e);
+        var YA = e => GI(e) || !BI(e);
 
-        function mA(e, t) {
-            if (fA(e) || fA(t)) return e === t;
-            if (oI(e) && oI(t)) return e.getTime() === t.getTime();
+        function ZA(e, t) {
+            if (YA(e) || YA(t)) return e === t;
+            if (UI(e) && UI(t)) return e.getTime() === t.getTime();
             const n = Object.keys(e), r = Object.keys(t);
             if (n.length !== r.length) return !1;
             for (const a of n) {
@@ -45075,48 +45841,48 @@
                 if (!r.includes(a)) return !1;
                 if ("ref" !== a) {
                     const e = t[a];
-                    if (oI(n) && oI(e) || cI(n) && cI(e) || Array.isArray(n) && Array.isArray(e) ? !mA(n, e) : n !== e) return !1
+                    if (UI(n) && UI(e) || $I(n) && $I(e) || Array.isArray(n) && Array.isArray(e) ? !ZA(n, e) : n !== e) return !1
                 }
             }
             return !0
         }
 
-        var gA = e => "select-multiple" === e.type, vA = e => eA(e) && e.isConnected, yA = e => {
-            for (const t in e) if (JI(e[t])) return !0;
+        var QA = e => "select-multiple" === e.type, XA = e => LA(e) && e.isConnected, JA = e => {
+            for (const t in e) if (jA(e[t])) return !0;
             return !1
         };
 
-        function bA(e, t = {}) {
+        function eD(e, t = {}) {
             const n = Array.isArray(e);
-            if (cI(e) || n) for (const r in e) Array.isArray(e[r]) || cI(e[r]) && !yA(e[r]) ? (t[r] = Array.isArray(e[r]) ? [] : {}, bA(e[r], t[r])) : sI(e[r]) || (t[r] = !0);
+            if ($I(e) || n) for (const r in e) Array.isArray(e[r]) || $I(e[r]) && !JA(e[r]) ? (t[r] = Array.isArray(e[r]) ? [] : {}, eD(e[r], t[r])) : GI(e[r]) || (t[r] = !0);
             return t
         }
 
-        function _A(e, t, n) {
+        function tD(e, t, n) {
             const r = Array.isArray(e);
-            if (cI(e) || r) for (const a in e) Array.isArray(e[a]) || cI(e[a]) && !yA(e[a]) ? pI(t) || fA(n[a]) ? n[a] = Array.isArray(e[a]) ? bA(e[a], []) : {...bA(e[a])} : _A(e[a], sI(t) ? {} : t[a], n[a]) : mA(e[a], t[a]) ? delete n[a] : n[a] = !0;
+            if ($I(e) || r) for (const a in e) Array.isArray(e[a]) || $I(e[a]) && !JA(e[a]) ? KI(t) || YA(n[a]) ? n[a] = Array.isArray(e[a]) ? eD(e[a], []) : {...eD(e[a])} : tD(e[a], GI(t) ? {} : t[a], n[a]) : ZA(e[a], t[a]) ? delete n[a] : n[a] = !0;
             return n
         }
 
-        var xA = (e, t) => _A(e, t, bA(t)), wA = (e, {
+        var nD = (e, t) => tD(e, t, eD(t)), rD = (e, {
             valueAsNumber: t,
             valueAsDate: n,
             setValueAs: r
-        }) => pI(e) ? e : t ? "" === e ? NaN : e ? +e : e : n && FI(e) ? new Date(e) : r ? r(e) : e;
+        }) => KI(e) ? e : t ? "" === e ? NaN : e ? +e : e : n && bA(e) ? new Date(e) : r ? r(e) : e;
 
-        function kA(e) {
+        function aD(e) {
             const t = e.ref;
-            if (!(e.refs ? e.refs.every((e => e.disabled)) : t.disabled)) return XI(t) ? t.files : nA(t) ? lA(e.refs).value : gA(t) ? [...t.selectedOptions].map((({value: e}) => e)) : iI(t) ? oA(e.refs).value : wA(pI(t.value) ? e.ref.value : t.value, e)
+            if (!(e.refs ? e.refs.every((e => e.disabled)) : t.disabled)) return TA(t) ? t.files : MA(t) ? BA(e.refs).value : QA(t) ? [...t.selectedOptions].map((({value: e}) => e)) : VI(t) ? UA(e.refs).value : rD(KI(t.value) ? e.ref.value : t.value, e)
         }
 
-        var EA = e => pI(e) ? e : rA(e) ? e.source : cI(e) ? rA(e.value) ? e.value.source : e.value : e;
+        var iD = e => KI(e) ? e : FA(e) ? e.source : $I(e) ? FA(e.value) ? e.value.source : e.value : e;
 
-        function SA(e, t, n) {
-            const r = fI(e, n);
-            if (r || $I(n)) return {error: r, name: n};
+        function oD(e, t, n) {
+            const r = YI(e, n);
+            if (r || SA(n)) return {error: r, name: n};
             const a = n.split(".");
             for (; a.length;) {
-                const r = a.join("."), i = fI(t, r), o = fI(e, r);
+                const r = a.join("."), i = YI(t, r), o = YI(e, r);
                 if (i && !Array.isArray(i) && n !== r) return {name: n};
                 if (o && o.type) return {name: r, error: o};
                 a.pop()
@@ -45124,10 +45890,10 @@
             return {name: n}
         }
 
-        const OA = {mode: _I, reValidateMode: bI, shouldFocusError: !0};
+        const sD = {mode: tA, reValidateMode: eA, shouldFocusError: !0};
 
-        function PA(e = {}, t) {
-            let n = {...OA, ...e};
+        function lD(e = {}, t) {
+            let n = {...sD, ...e};
             const r = e.resetOptions && e.resetOptions.keepDirtyValues;
             let a, i = {
                     submitCount: 0,
@@ -45141,52 +45907,52 @@
                     touchedFields: {},
                     dirtyFields: {},
                     errors: {}
-                }, o = {}, s = cI(n.defaultValues) && UI(n.defaultValues) || {}, l = n.shouldUnregister ? {} : UI(s),
+                }, o = {}, s = $I(n.defaultValues) && wA(n.defaultValues) || {}, l = n.shouldUnregister ? {} : wA(s),
                 c = {action: !1, mount: !1, watch: !1},
                 u = {mount: new Set, unMount: new Set, array: new Set, watch: new Set}, d = 0;
             const h = {isDirty: !1, dirtyFields: !1, touchedFields: !1, isValidating: !1, isValid: !1, errors: !1},
-                p = {watch: pA(), array: pA(), state: pA()}, f = KI(n.mode), m = KI(n.reValidateMode),
-                g = n.criteriaMode === wI, v = async e => {
+                p = {watch: KA(), array: KA(), state: KA()}, f = IA(n.mode), m = IA(n.reValidateMode),
+                g = n.criteriaMode === rA, v = async e => {
                     if (h.isValid || e) {
-                        const e = n.resolver ? TI((await w()).errors) : await k(o, !0);
+                        const e = n.resolver ? fA((await w()).errors) : await k(o, !0);
                         e !== i.isValid && (i.isValid = e, p.state.next({isValid: e}))
                     }
                 }, y = e => h.isValidating && p.state.next({isValidating: e}), b = (e, t, n, r) => {
-                    const a = fI(o, e);
+                    const a = YI(o, e);
                     if (a) {
-                        const i = fI(l, e, pI(n) ? fI(s, e) : n);
-                        pI(i) || r && r.defaultChecked || t ? HI(l, e, t ? i : kA(a._f)) : O(e, i), c.mount && v()
+                        const i = YI(l, e, KI(n) ? YI(s, e) : n);
+                        KI(i) || r && r.defaultChecked || t ? PA(l, e, t ? i : aD(a._f)) : O(e, i), c.mount && v()
                     }
                 }, _ = (e, t, n, r, a) => {
                     let o = !1, l = !1;
                     const c = {name: e};
                     if (!n || r) {
                         h.isDirty && (l = i.isDirty, i.isDirty = c.isDirty = E(), o = l !== c.isDirty);
-                        const n = mA(fI(s, e), t);
-                        l = fI(i.dirtyFields, e), n ? hA(i.dirtyFields, e) : HI(i.dirtyFields, e, !0), c.dirtyFields = i.dirtyFields, o = o || h.dirtyFields && l !== !n
+                        const n = ZA(YI(s, e), t);
+                        l = YI(i.dirtyFields, e), n ? qA(i.dirtyFields, e) : PA(i.dirtyFields, e, !0), c.dirtyFields = i.dirtyFields, o = o || h.dirtyFields && l !== !n
                     }
                     if (n) {
-                        const t = fI(i.touchedFields, e);
-                        t || (HI(i.touchedFields, e, n), c.touchedFields = i.touchedFields, o = o || h.touchedFields && t !== n)
+                        const t = YI(i.touchedFields, e);
+                        t || (PA(i.touchedFields, e, n), c.touchedFields = i.touchedFields, o = o || h.touchedFields && t !== n)
                     }
                     return o && a && p.state.next(c), o ? c : {}
                 }, x = (t, n, r, o) => {
-                    const s = fI(i.errors, t), l = h.isValid && QI(n) && i.isValid !== n;
+                    const s = YI(i.errors, t), l = h.isValid && RA(n) && i.isValid !== n;
                     var c;
                     if (e.delayError && r ? (c = () => ((e, t) => {
-                        HI(i.errors, e, t), p.state.next({errors: i.errors})
+                        PA(i.errors, e, t), p.state.next({errors: i.errors})
                     })(t, r), a = e => {
                         clearTimeout(d), d = window.setTimeout(c, e)
-                    }, a(e.delayError)) : (clearTimeout(d), a = null, r ? HI(i.errors, t, r) : hA(i.errors, t)), (r ? !mA(s, r) : s) || !TI(o) || l) {
-                        const e = {...o, ...l && QI(n) ? {isValid: n} : {}, errors: i.errors, name: t};
+                    }, a(e.delayError)) : (clearTimeout(d), a = null, r ? PA(i.errors, t, r) : qA(i.errors, t)), (r ? !ZA(s, r) : s) || !fA(o) || l) {
+                        const e = {...o, ...l && RA(n) ? {isValid: n} : {}, errors: i.errors, name: t};
                         i = {...i, ...e}, p.state.next(e)
                     }
                     y(!1)
                 }, w = async e => await n.resolver(l, n.context, ((e, t, n, r) => {
                     const a = {};
                     for (const i of e) {
-                        const e = fI(t, i);
-                        e && HI(a, i, e._f)
+                        const e = YI(t, i);
+                        e && PA(a, i, e._f)
                     }
                     return {criteriaMode: n, names: [...e], fields: a, shouldUseNativeValidation: r}
                 })(e || u.mount, o, n.criteriaMode, n.shouldUseNativeValidation)), k = async (e, t, r = {valid: !0}) => {
@@ -45195,134 +45961,134 @@
                         if (o) {
                             const {_f: e, ...a} = o;
                             if (e) {
-                                const a = u.array.has(e.name), s = await dA(o, l, g, n.shouldUseNativeValidation, a);
+                                const a = u.array.has(e.name), s = await HA(o, l, g, n.shouldUseNativeValidation, a);
                                 if (s[e.name] && (r.valid = !1, t)) break;
-                                !t && (fI(s, e.name) ? a ? ZI(i.errors, s, e.name) : HI(i.errors, e.name, s[e.name]) : hA(i.errors, e.name))
+                                !t && (YI(s, e.name) ? a ? DA(i.errors, s, e.name) : PA(i.errors, e.name, s[e.name]) : qA(i.errors, e.name))
                             }
                             a && await k(a, t, r)
                         }
                     }
                     return r.valid
-                }, E = (e, t) => (e && t && HI(l, e, t), !mA(D(), s)),
-                S = (e, t, n) => zI(e, u, {...c.mount ? l : pI(t) ? s : FI(e) ? {[e]: t} : t}, n, t),
+                }, E = (e, t) => (e && t && PA(l, e, t), !ZA(D(), s)),
+                S = (e, t, n) => _A(e, u, {...c.mount ? l : KI(t) ? s : bA(e) ? {[e]: t} : t}, n, t),
                 O = (e, t, n = {}) => {
-                    const r = fI(o, e);
+                    const r = YI(o, e);
                     let a = t;
                     if (r) {
                         const n = r._f;
-                        n && (!n.disabled && HI(l, e, wA(t, n)), a = eA(n.ref) && sI(t) ? "" : t, gA(n.ref) ? [...n.ref.options].forEach((e => e.selected = a.includes(e.value))) : n.refs ? iI(n.ref) ? n.refs.length > 1 ? n.refs.forEach((e => (!e.defaultChecked || !e.disabled) && (e.checked = Array.isArray(a) ? !!a.find((t => t === e.value)) : a === e.value))) : n.refs[0] && (n.refs[0].checked = !!a) : n.refs.forEach((e => e.checked = e.value === a)) : XI(n.ref) ? n.ref.value = "" : (n.ref.value = a, n.ref.type || p.watch.next({name: e})))
+                        n && (!n.disabled && PA(l, e, rD(t, n)), a = LA(n.ref) && GI(t) ? "" : t, QA(n.ref) ? [...n.ref.options].forEach((e => e.selected = a.includes(e.value))) : n.refs ? VI(n.ref) ? n.refs.length > 1 ? n.refs.forEach((e => (!e.defaultChecked || !e.disabled) && (e.checked = Array.isArray(a) ? !!a.find((t => t === e.value)) : a === e.value))) : n.refs[0] && (n.refs[0].checked = !!a) : n.refs.forEach((e => e.checked = e.value === a)) : TA(n.ref) ? n.ref.value = "" : (n.ref.value = a, n.ref.type || p.watch.next({name: e})))
                     }
                     (n.shouldDirty || n.shouldTouch) && _(e, a, n.shouldTouch, n.shouldDirty, !0), n.shouldValidate && A(e)
                 }, P = (e, t, n) => {
                     for (const r in t) {
-                        const a = t[r], i = `${e}.${r}`, s = fI(o, i);
-                        !u.array.has(e) && fA(a) && (!s || s._f) || oI(a) ? O(i, a, n) : P(i, a, n)
+                        const a = t[r], i = `${e}.${r}`, s = YI(o, i);
+                        !u.array.has(e) && YA(a) && (!s || s._f) || UI(a) ? O(i, a, n) : P(i, a, n)
                     }
                 }, C = (e, n, r = {}) => {
-                    const a = fI(o, e), d = u.array.has(e), f = UI(n);
-                    HI(l, e, f), d ? (p.array.next({
+                    const a = YI(o, e), d = u.array.has(e), f = wA(n);
+                    PA(l, e, f), d ? (p.array.next({
                         name: e,
                         values: l
-                    }), (h.isDirty || h.dirtyFields) && r.shouldDirty && (i.dirtyFields = xA(s, l), p.state.next({
+                    }), (h.isDirty || h.dirtyFields) && r.shouldDirty && (i.dirtyFields = nD(s, l), p.state.next({
                         name: e,
                         dirtyFields: i.dirtyFields,
                         isDirty: E(e, f)
-                    }))) : !a || a._f || sI(f) ? O(e, f, r) : P(e, f, r), YI(e, u) && p.state.next({}), p.watch.next({name: e}), !c.mount && t()
+                    }))) : !a || a._f || GI(f) ? O(e, f, r) : P(e, f, r), AA(e, u) && p.state.next({}), p.watch.next({name: e}), !c.mount && t()
                 }, I = async e => {
                     const t = e.target;
                     let r = t.name;
-                    const s = fI(o, r);
+                    const s = YI(o, r);
                     if (s) {
                         let d, b;
-                        const E = t.type ? kA(s._f) : uI(e), S = e.type === mI || e.type === gI,
-                            O = !((c = s._f).mount && (c.required || c.min || c.max || c.maxLength || c.minLength || c.pattern || c.validate)) && !n.resolver && !fI(i.errors, r) && !s._f.deps || ((e, t, n, r, a) => !a.isOnAll && (!n && a.isOnTouch ? !(t || e) : (n ? r.isOnBlur : a.isOnBlur) ? !e : !(n ? r.isOnChange : a.isOnChange) || e))(S, fI(i.touchedFields, r), i.isSubmitted, m, f),
-                            P = YI(r, u, S);
-                        HI(l, r, E), S ? (s._f.onBlur && s._f.onBlur(e), a && a(0)) : s._f.onChange && s._f.onChange(e);
-                        const C = _(r, E, S, !1), I = !TI(C) || P;
+                        const E = t.type ? aD(s._f) : WI(e), S = e.type === ZI || e.type === QI,
+                            O = !((c = s._f).mount && (c.required || c.min || c.max || c.maxLength || c.minLength || c.pattern || c.validate)) && !n.resolver && !YI(i.errors, r) && !s._f.deps || ((e, t, n, r, a) => !a.isOnAll && (!n && a.isOnTouch ? !(t || e) : (n ? r.isOnBlur : a.isOnBlur) ? !e : !(n ? r.isOnChange : a.isOnChange) || e))(S, YI(i.touchedFields, r), i.isSubmitted, m, f),
+                            P = AA(r, u, S);
+                        PA(l, r, E), S ? (s._f.onBlur && s._f.onBlur(e), a && a(0)) : s._f.onChange && s._f.onChange(e);
+                        const C = _(r, E, S, !1), I = !fA(C) || P;
                         if (!S && p.watch.next({
                             name: r,
                             type: e.type
                         }), O) return h.isValid && v(), I && p.state.next({name: r, ...P ? {} : C});
                         if (!S && P && p.state.next({}), y(!0), n.resolver) {
-                            const {errors: e} = await w([r]), t = SA(i.errors, o, r), n = SA(e, o, t.name || r);
-                            d = n.error, r = n.name, b = TI(e)
-                        } else d = (await dA(s, l, g, n.shouldUseNativeValidation))[r], d ? b = !1 : h.isValid && (b = await k(o, !0));
+                            const {errors: e} = await w([r]), t = oD(i.errors, o, r), n = oD(e, o, t.name || r);
+                            d = n.error, r = n.name, b = fA(e)
+                        } else d = (await HA(s, l, g, n.shouldUseNativeValidation))[r], d ? b = !1 : h.isValid && (b = await k(o, !0));
                         s._f.deps && A(s._f.deps), x(r, b, d, C)
                     }
                     var c
                 }, A = async (e, t = {}) => {
                     let r, a;
-                    const s = LI(e);
+                    const s = gA(e);
                     if (y(!0), n.resolver) {
                         const t = await (async e => {
                             const {errors: t} = await w();
                             if (e) for (const n of e) {
-                                const e = fI(t, n);
-                                e ? HI(i.errors, n, e) : hA(i.errors, n)
+                                const e = YI(t, n);
+                                e ? PA(i.errors, n, e) : qA(i.errors, n)
                             } else i.errors = t;
                             return t
-                        })(pI(e) ? e : s);
-                        r = TI(t), a = e ? !s.some((e => fI(t, e))) : r
+                        })(KI(e) ? e : s);
+                        r = fA(t), a = e ? !s.some((e => YI(t, e))) : r
                     } else e ? (a = (await Promise.all(s.map((async e => {
-                        const t = fI(o, e);
+                        const t = YI(o, e);
                         return await k(t && t._f ? {[e]: t} : t)
                     })))).every(Boolean), (a || i.isValid) && v()) : a = r = await k(o);
                     return p.state.next({
-                        ...!FI(e) || h.isValid && r !== i.isValid ? {} : {name: e}, ...n.resolver || !e ? {isValid: r} : {},
+                        ...!bA(e) || h.isValid && r !== i.isValid ? {} : {name: e}, ...n.resolver || !e ? {isValid: r} : {},
                         errors: i.errors,
                         isValidating: !1
-                    }), t.shouldFocus && !a && qI(o, (e => e && fI(i.errors, e)), e ? s : u.mount), a
+                    }), t.shouldFocus && !a && CA(o, (e => e && YI(i.errors, e)), e ? s : u.mount), a
                 }, D = e => {
                     const t = {...s, ...c.mount ? l : {}};
-                    return pI(e) ? t : FI(e) ? fI(t, e) : e.map((e => fI(t, e)))
+                    return KI(e) ? t : bA(e) ? YI(t, e) : e.map((e => YI(t, e)))
                 }, R = (e, t) => ({
-                    invalid: !!fI((t || i).errors, e),
-                    isDirty: !!fI((t || i).dirtyFields, e),
-                    isTouched: !!fI((t || i).touchedFields, e),
-                    error: fI((t || i).errors, e)
+                    invalid: !!YI((t || i).errors, e),
+                    isDirty: !!YI((t || i).dirtyFields, e),
+                    isTouched: !!YI((t || i).touchedFields, e),
+                    error: YI((t || i).errors, e)
                 }), T = (e, t = {}) => {
-                    for (const r of e ? LI(e) : u.mount) u.mount.delete(r), u.array.delete(r), fI(o, r) && (t.keepValue || (hA(o, r), hA(l, r)), !t.keepError && hA(i.errors, r), !t.keepDirty && hA(i.dirtyFields, r), !t.keepTouched && hA(i.touchedFields, r), !n.shouldUnregister && !t.keepDefaultValue && hA(s, r));
+                    for (const r of e ? gA(e) : u.mount) u.mount.delete(r), u.array.delete(r), YI(o, r) && (t.keepValue || (qA(o, r), qA(l, r)), !t.keepError && qA(i.errors, r), !t.keepDirty && qA(i.dirtyFields, r), !t.keepTouched && qA(i.touchedFields, r), !n.shouldUnregister && !t.keepDefaultValue && qA(s, r));
                     p.watch.next({}), p.state.next({...i, ...t.keepDirty ? {isDirty: E()} : {}}), !t.keepIsValid && v()
                 }, j = (e, t = {}) => {
-                    let r = fI(o, e);
-                    const a = QI(t.disabled);
-                    return HI(o, e, {
+                    let r = YI(o, e);
+                    const a = RA(t.disabled);
+                    return PA(o, e, {
                         ...r || {},
                         _f: {...r && r._f ? r._f : {ref: {name: e}}, name: e, mount: !0, ...t}
-                    }), u.mount.add(e), r ? a && HI(l, e, t.disabled ? void 0 : fI(l, e, kA(r._f))) : b(e, !0, t.value), {
+                    }), u.mount.add(e), r ? a && PA(l, e, t.disabled ? void 0 : YI(l, e, aD(r._f))) : b(e, !0, t.value), {
                         ...a ? {disabled: t.disabled} : {}, ...n.shouldUseNativeValidation ? {
                             required: !!t.required,
-                            min: EA(t.min),
-                            max: EA(t.max),
-                            minLength: EA(t.minLength),
-                            maxLength: EA(t.maxLength),
-                            pattern: EA(t.pattern)
+                            min: iD(t.min),
+                            max: iD(t.max),
+                            minLength: iD(t.minLength),
+                            maxLength: iD(t.maxLength),
+                            pattern: iD(t.pattern)
                         } : {}, name: e, onChange: I, onBlur: I, ref: a => {
                             if (a) {
-                                j(e, t), r = fI(o, e);
-                                const n = pI(a.value) && a.querySelectorAll && a.querySelectorAll("input,select,textarea")[0] || a,
-                                    i = (e => nA(e) || iI(e))(n), l = r._f.refs || [];
+                                j(e, t), r = YI(o, e);
+                                const n = KI(a.value) && a.querySelectorAll && a.querySelectorAll("input,select,textarea")[0] || a,
+                                    i = (e => MA(e) || VI(e))(n), l = r._f.refs || [];
                                 if (i ? l.find((e => e === n)) : n === r._f.ref) return;
-                                HI(o, e, {
+                                PA(o, e, {
                                     _f: {
                                         ...r._f, ...i ? {
-                                            refs: [...l.filter(vA), n, ...Array.isArray(fI(s, e)) ? [{}] : []],
+                                            refs: [...l.filter(XA), n, ...Array.isArray(YI(s, e)) ? [{}] : []],
                                             ref: {type: n.type, name: e}
                                         } : {ref: n}
                                     }
                                 }), b(e, !1, void 0, n)
-                            } else r = fI(o, e, {}), r._f && (r._f.mount = !1), (n.shouldUnregister || t.shouldUnregister) && (!dI(u.array, e) || !c.action) && u.unMount.add(e)
+                            } else r = YI(o, e, {}), r._f && (r._f.mount = !1), (n.shouldUnregister || t.shouldUnregister) && (!HI(u.array, e) || !c.action) && u.unMount.add(e)
                         }
                     }
-                }, L = () => n.shouldFocusError && qI(o, (e => e && fI(i.errors, e)), u.mount), N = (n, a = {}) => {
-                    const d = n || s, f = UI(d), m = n && !TI(n) ? f : s;
+                }, L = () => n.shouldFocusError && CA(o, (e => e && YI(i.errors, e)), u.mount), N = (n, a = {}) => {
+                    const d = n || s, f = wA(d), m = n && !fA(n) ? f : s;
                     if (a.keepDefaultValues || (s = d), !a.keepValues) {
-                        if (a.keepDirtyValues || r) for (const e of u.mount) fI(i.dirtyFields, e) ? HI(m, e, fI(l, e)) : C(e, fI(m, e)); else {
-                            if (VI && pI(n)) for (const e of u.mount) {
-                                const t = fI(o, e);
+                        if (a.keepDirtyValues || r) for (const e of u.mount) YI(i.dirtyFields, e) ? PA(m, e, YI(l, e)) : C(e, YI(m, e)); else {
+                            if (xA && KI(n)) for (const e of u.mount) {
+                                const t = YI(o, e);
                                 if (t && t._f) {
                                     const e = Array.isArray(t._f.refs) ? t._f.refs[0] : t._f.ref;
-                                    if (eA(e)) {
+                                    if (LA(e)) {
                                         const t = e.closest("form");
                                         if (t) {
                                             t.reset();
@@ -45333,7 +46099,7 @@
                             }
                             o = {}
                         }
-                        l = e.shouldUnregister ? a.keepDefaultValues ? UI(s) : {} : f, p.array.next({values: m}), p.watch.next({values: m})
+                        l = e.shouldUnregister ? a.keepDefaultValues ? wA(s) : {} : f, p.array.next({values: m}), p.watch.next({values: m})
                     }
                     u = {
                         mount: new Set,
@@ -45344,16 +46110,16 @@
                         focus: ""
                     }, !c.mount && t(), c.mount = !h.isValid || !!a.keepIsValid, c.watch = !!e.shouldUnregister, p.state.next({
                         submitCount: a.keepSubmitCount ? i.submitCount : 0,
-                        isDirty: a.keepDirty || a.keepDirtyValues ? i.isDirty : !(!a.keepDefaultValues || mA(n, s)),
+                        isDirty: a.keepDirty || a.keepDirtyValues ? i.isDirty : !(!a.keepDefaultValues || ZA(n, s)),
                         isSubmitted: !!a.keepIsSubmitted && i.isSubmitted,
-                        dirtyFields: a.keepDirty || a.keepDirtyValues ? i.dirtyFields : a.keepDefaultValues && n ? xA(s, n) : {},
+                        dirtyFields: a.keepDirty || a.keepDirtyValues ? i.dirtyFields : a.keepDefaultValues && n ? nD(s, n) : {},
                         touchedFields: a.keepTouched ? i.touchedFields : {},
                         errors: a.keepErrors ? i.errors : {},
                         isSubmitting: !1,
                         isSubmitSuccessful: !1
                     })
-                }, M = (e, t) => N(JI(e) ? e(l) : e, t);
-            return JI(n.defaultValues) && n.defaultValues().then((e => {
+                }, M = (e, t) => N(jA(e) ? e(l) : e, t);
+            return jA(n.defaultValues) && n.defaultValues().then((e => {
                 M(e, n.resetOptions), p.state.next({isLoading: !1})
             })), {
                 control: {
@@ -45367,37 +46133,37 @@
                     _updateValid: v,
                     _removeUnmounted: () => {
                         for (const e of u.unMount) {
-                            const t = fI(o, e);
-                            t && (t._f.refs ? t._f.refs.every((e => !vA(e))) : !vA(t._f.ref)) && T(e)
+                            const t = YI(o, e);
+                            t && (t._f.refs ? t._f.refs.every((e => !XA(e))) : !XA(t._f.ref)) && T(e)
                         }
                         u.unMount = new Set
                     },
                     _updateFieldArray: (e, t = [], n, r, a = !0, u = !0) => {
                         if (r && n) {
-                            if (c.action = !0, u && Array.isArray(fI(o, e))) {
-                                const t = n(fI(o, e), r.argA, r.argB);
-                                a && HI(o, e, t)
+                            if (c.action = !0, u && Array.isArray(YI(o, e))) {
+                                const t = n(YI(o, e), r.argA, r.argB);
+                                a && PA(o, e, t)
                             }
-                            if (u && Array.isArray(fI(i.errors, e))) {
-                                const t = n(fI(i.errors, e), r.argA, r.argB);
-                                a && HI(i.errors, e, t), ((e, t) => {
-                                    !hI(fI(e, t)).length && hA(e, t)
+                            if (u && Array.isArray(YI(i.errors, e))) {
+                                const t = n(YI(i.errors, e), r.argA, r.argB);
+                                a && PA(i.errors, e, t), ((e, t) => {
+                                    !qI(YI(e, t)).length && qA(e, t)
                                 })(i.errors, e)
                             }
-                            if (h.touchedFields && u && Array.isArray(fI(i.touchedFields, e))) {
-                                const t = n(fI(i.touchedFields, e), r.argA, r.argB);
-                                a && HI(i.touchedFields, e, t)
+                            if (h.touchedFields && u && Array.isArray(YI(i.touchedFields, e))) {
+                                const t = n(YI(i.touchedFields, e), r.argA, r.argB);
+                                a && PA(i.touchedFields, e, t)
                             }
-                            h.dirtyFields && (i.dirtyFields = xA(s, l)), p.state.next({
+                            h.dirtyFields && (i.dirtyFields = nD(s, l)), p.state.next({
                                 name: e,
                                 isDirty: E(e, t),
                                 dirtyFields: i.dirtyFields,
                                 errors: i.errors,
                                 isValid: i.isValid
                             })
-                        } else HI(l, e, t)
+                        } else PA(l, e, t)
                     },
-                    _getFieldArray: t => hI(fI(c.mount ? l : s, t, e.shouldUnregister ? fI(s, t, []) : [])),
+                    _getFieldArray: t => qI(YI(c.mount ? l : s, t, e.shouldUnregister ? YI(s, t, []) : [])),
                     _reset: N,
                     _updateFormState: e => {
                         i = {...i, ...e}
@@ -45442,40 +46208,40 @@
                 register: j,
                 handleSubmit: (e, t) => async r => {
                     r && (r.preventDefault && r.preventDefault(), r.persist && r.persist());
-                    let a = UI(l);
+                    let a = wA(l);
                     if (p.state.next({isSubmitting: !0}), n.resolver) {
                         const {errors: e, values: t} = await w();
                         i.errors = e, a = t
                     } else await k(o);
-                    TI(i.errors) ? (p.state.next({errors: {}}), await e(a, r)) : (t && await t({...i.errors}, r), L()), p.state.next({
+                    fA(i.errors) ? (p.state.next({errors: {}}), await e(a, r)) : (t && await t({...i.errors}, r), L()), p.state.next({
                         isSubmitted: !0,
                         isSubmitting: !1,
-                        isSubmitSuccessful: TI(i.errors),
+                        isSubmitSuccessful: fA(i.errors),
                         submitCount: i.submitCount + 1,
                         errors: i.errors
                     })
                 },
-                watch: (e, t) => JI(e) ? p.watch.subscribe({next: n => e(S(void 0, t), n)}) : S(e, t, !0),
+                watch: (e, t) => jA(e) ? p.watch.subscribe({next: n => e(S(void 0, t), n)}) : S(e, t, !0),
                 setValue: C,
                 getValues: D,
                 reset: M,
                 resetField: (e, t = {}) => {
-                    fI(o, e) && (pI(t.defaultValue) ? C(e, fI(s, e)) : (C(e, t.defaultValue), HI(s, e, t.defaultValue)), t.keepTouched || hA(i.touchedFields, e), t.keepDirty || (hA(i.dirtyFields, e), i.isDirty = t.defaultValue ? E(e, fI(s, e)) : E()), t.keepError || (hA(i.errors, e), h.isValid && v()), p.state.next({...i}))
+                    YI(o, e) && (KI(t.defaultValue) ? C(e, YI(s, e)) : (C(e, t.defaultValue), PA(s, e, t.defaultValue)), t.keepTouched || qA(i.touchedFields, e), t.keepDirty || (qA(i.dirtyFields, e), i.isDirty = t.defaultValue ? E(e, YI(s, e)) : E()), t.keepError || (qA(i.errors, e), h.isValid && v()), p.state.next({...i}))
                 },
                 clearErrors: e => {
-                    e ? LI(e).forEach((e => hA(i.errors, e))) : i.errors = {}, p.state.next({errors: i.errors})
+                    e ? gA(e).forEach((e => qA(i.errors, e))) : i.errors = {}, p.state.next({errors: i.errors})
                 },
                 unregister: T,
                 setError: (e, t, n) => {
-                    const r = (fI(o, e, {_f: {}})._f || {}).ref;
-                    HI(i.errors, e, {...t, ref: r}), p.state.next({
+                    const r = (YI(o, e, {_f: {}})._f || {}).ref;
+                    PA(i.errors, e, {...t, ref: r}), p.state.next({
                         name: e,
                         errors: i.errors,
                         isValid: !1
                     }), n && n.shouldFocus && r && r.focus && r.focus()
                 },
                 setFocus: (e, t = {}) => {
-                    const n = fI(o, e), r = n && n._f;
+                    const n = YI(o, e), r = n && n._f;
                     if (r) {
                         const e = r.refs ? r.refs[0] : r.ref;
                         e.focus && (e.focus(), t.shouldSelect && e.select())
@@ -45485,7 +46251,7 @@
             }
         }
 
-        function CA(e = {}) {
+        function cD(e = {}) {
             const t = ke.useRef(), [n, r] = ke.useState({
                 isDirty: !1,
                 isValidating: !1,
@@ -45498,24 +46264,24 @@
                 dirtyFields: {},
                 touchedFields: {},
                 errors: {},
-                defaultValues: JI(e.defaultValues) ? void 0 : e.defaultValues
+                defaultValues: jA(e.defaultValues) ? void 0 : e.defaultValues
             });
-            t.current || (t.current = {...PA(e, (() => r((e => ({...e}))))), formState: n});
+            t.current || (t.current = {...lD(e, (() => r((e => ({...e}))))), formState: n});
             const a = t.current.control;
-            return a._options = e, MI({
+            return a._options = e, yA({
                 subject: a._subjects.state, next: e => {
-                    jI(e, a._proxyFormState, a._updateFormState, !0) && r({...a._formState})
+                    mA(e, a._proxyFormState, a._updateFormState, !0) && r({...a._formState})
                 }
             }), ke.useEffect((() => {
                 a._stateFlags.mount || (a._updateValid(), a._stateFlags.mount = !0), a._stateFlags.watch && (a._stateFlags.watch = !1, a._subjects.state.next({})), a._removeUnmounted()
             })), ke.useEffect((() => {
-                e.values && !mA(e.values, a._defaultValues) && a._reset(e.values, a._options.resetOptions)
+                e.values && !ZA(e.values, a._defaultValues) && a._reset(e.values, a._options.resetOptions)
             }), [e.values, a]), ke.useEffect((() => {
                 n.submitCount && a._focusError()
-            }), [a, n.submitCount]), t.current.formState = RI(n, a), t.current
+            }), [a, n.submitCount]), t.current.formState = pA(n, a), t.current
         }
 
-        var IA = class extends pS.l {
+        var uD = class extends CS.l {
             constructor(e, t) {
                 super(), this.#O = void 0, this.#P = e, this.setOptions(t), this.bindMethods(), this.#C()
             }
@@ -45531,7 +46297,7 @@
 
             setOptions(e) {
                 const t = this.options;
-                this.options = this.#P.defaultMutationOptions(e), (0, dS.VS)(t, this.options) || this.#P.getMutationCache().notify({
+                this.options = this.#P.defaultMutationOptions(e), (0, OS.VS)(t, this.options) || this.#P.getMutationCache().notify({
                     type: "observerOptionsUpdated",
                     mutation: this.#I,
                     observer: this
@@ -45582,7 +46348,7 @@
             }
 
             #D(e) {
-                hS.batch((() => {
+                PS.batch((() => {
                     this.#A && this.hasListeners() && ("success" === e?.type ? (this.#A.onSuccess?.(e.data, this.#O.variables, this.#O.context), this.#A.onSettled?.(e.data, null, this.#O.variables, this.#O.context)) : "error" === e?.type && (this.#A.onError?.(e.error, this.#O.variables, this.#O.context), this.#A.onSettled?.(void 0, e.error, this.#O.variables, this.#O.context))), this.listeners.forEach((e => {
                         e(this.#O)
                     }))
@@ -45590,28 +46356,28 @@
             }
         };
 
-        function AA(e, t) {
+        function dD(e, t) {
             return "function" === typeof e ? e(...t) : !!e
         }
 
-        function DA(e, t) {
-            const n = (0, Bl.NL)(t), [r] = ke.useState((() => new IA(n, e)));
+        function hD(e, t) {
+            const n = (0, Bl.NL)(t), [r] = ke.useState((() => new uD(n, e)));
             ke.useEffect((() => {
                 r.setOptions(e)
             }), [r, e]);
-            const a = ke.useSyncExternalStore(ke.useCallback((e => r.subscribe(hS.batchCalls(e))), [r]), (() => r.getCurrentResult()), (() => r.getCurrentResult())),
+            const a = ke.useSyncExternalStore(ke.useCallback((e => r.subscribe(PS.batchCalls(e))), [r]), (() => r.getCurrentResult()), (() => r.getCurrentResult())),
                 i = ke.useCallback(((e, t) => {
-                    r.mutate(e, t).catch(RA)
+                    r.mutate(e, t).catch(pD)
                 }), [r]);
-            if (a.error && AA(r.options.throwOnError, [a.error])) throw a.error;
+            if (a.error && dD(r.options.throwOnError, [a.error])) throw a.error;
             return {...a, mutate: i, mutateAsync: a.mutate}
         }
 
-        function RA() {
+        function pD() {
         }
 
-        const TA = {cancelOnUnmount: !0, cancelOnConditionChange: !0}, jA = (e, t, n, r = TA) => {
-            const a = {...TA, ...r || {}}, i = (0, ke.useRef)(), o = (0, ke.useRef)(e), [s, l] = (0, ke.useState)(!1),
+        const fD = {cancelOnUnmount: !0, cancelOnConditionChange: !0}, mD = (e, t, n, r = fD) => {
+            const a = {...fD, ...r || {}}, i = (0, ke.useRef)(), o = (0, ke.useRef)(e), [s, l] = (0, ke.useState)(!1),
                 c = (e => {
                     const t = (0, ke.useRef)();
                     return (0, ke.useEffect)((() => (t.current = e, () => {
@@ -45632,25 +46398,35 @@
             }), [n, r]), (0, ke.useEffect)((() => () => {
                 a.cancelOnUnmount && u()
             }), []), [s, u]
-        }, LA = [{id: "website", action: () => window.open(dw.configuration.websiteUrl, "_blank")}, {
+        }, gD = (e, t) => {
+            const n = (0, ke.useRef)(e);
+            (0, ke.useEffect)((() => {
+                n.current = e
+            }), [e]), (0, ke.useEffect)((() => {
+                if (null !== t) {
+                    const e = setInterval((() => n.current()), t);
+                    return () => clearInterval(e)
+                }
+            }), [t])
+        }, vD = [{id: "website", action: () => window.open(dw.configuration.websiteUrl, "_blank")}, {
             id: "report_bug",
             action: () => window.open(dw.configuration.issueCouncilUrl, "_blank")
         }, {id: "spectrum", action: () => window.open(dw.configuration.spectrumUrl, "_blank")}, {
             id: "community_hub",
             action: () => window.open(dw.configuration.communityHubUrl, "_blank")
-        }, {id: "support", action: () => window.open(dw.configuration.supportUrl, "_blank")}], NA = () => {
+        }, {id: "support", action: () => window.open(dw.configuration.supportUrl, "_blank")}], yD = () => {
             const {t: e} = yt("tray"), {tray: {onMenuItemClicked: t, updateMenu: n}} = Sw(), {isMinimized: r} = (() => {
-                    const e = (0, ke.useContext)(CC);
+                    const e = (0, ke.useContext)(sI);
                     if (!e) throw new Error("useTheme must be used within a ThemeProvider");
                     return e
                 })(), {
                     exitLauncher: a,
                     logoutLauncher: i
-                } = kC((e => e.window.actions)), {identity: o} = kC((e => e.user)), {
+                } = nI((e => e.window.actions)), {identity: o} = nI((e => e.user)), {
                     volume: s,
                     actions: {mute: l, unmute: c}
-                } = kC((e => e.soundSystem)), u = 0 === s, d = !!o,
-                h = (0, ke.useMemo)((() => [...LA, {id: "logout", action: i, visible: d}, {
+                } = nI((e => e.soundSystem)), u = 0 === s, d = !!o,
+                h = (0, ke.useMemo)((() => [...vD, {id: "logout", action: i, visible: d}, {
                     id: "mute",
                     action: l,
                     visible: !u && !r
@@ -45663,15 +46439,15 @@
                 }));
                 return e
             }), [h, t])
-        }, MA = () => {
-            const e = kC((e => e.autoUpdate)), {
+        }, bD = () => {
+            const e = nI((e => e.autoUpdate)), {
                 onUpdateDownloaded: t,
                 onQuitInstallError: n
             } = window.launcherAPI.autoUpdate;
             (0, ke.useEffect)((() => t((t => e.actions.displayDialog(t)))), [e.actions, t]), (0, ke.useEffect)((() => n((t => e.actions.displayDialog(t)))), [e.actions, n])
         };
 
-        function FA(e, t, n) {
+        function _D(e, t, n) {
             var r = this, a = (0, ke.useRef)(null), i = (0, ke.useRef)(0), o = (0, ke.useRef)(null),
                 s = (0, ke.useRef)([]), l = (0, ke.useRef)(), c = (0, ke.useRef)(), u = (0, ke.useRef)(e),
                 d = (0, ke.useRef)(!0);
@@ -45726,13 +46502,13 @@
             return b
         }
 
-        function zA(e, t, n) {
+        function xD(e, t, n) {
             var r = void 0 === n ? {} : n, a = r.leading, i = r.trailing;
-            return FA(e, t, {maxWait: t, leading: void 0 === a || a, trailing: void 0 === i || i})
+            return _D(e, t, {maxWait: t, leading: void 0 === a || a, trailing: void 0 === i || i})
         }
 
-        const VA = () => {
-            const [e, t] = (0, ke.useState)(!1), [n, r] = (0, ke.useState)([{
+        const wD = () => {
+            const {options: e} = nI((e => e.accessibility)), [t, n] = (0, ke.useState)(!1), [r, a] = (0, ke.useState)([{
                     id: "backgroundVideoDisabled",
                     title: "settings_accessibility_reduce_motion_background_video_toggle_title",
                     description: "settings_accessibility_reduce_motion_background_video_toggle_description",
@@ -45750,157 +46526,144 @@
                     description: "settings_accessibility_reduce_motion_transition_effects_toggle_description",
                     value: !1,
                     dirty: null
-                }]), [a, i] = (0, ke.useState)({
+                }]), [i, o] = (0, ke.useState)({
                     id: "syncWithSystem",
                     title: "settings_accessibility_reduce_motion_system_sync_title",
                     description: "settings_accessibility_reduce_motion_system_sync_description",
                     value: !1,
                     dirty: null
-                }), {t: o} = yt("settingsPage"), s = kC((e => e.settings)),
-                l = zA((async e => await s.actions.setAccessibilitySettingsToPersistentStore(e)), 400),
+                }), {t: s} = yt("settingsPage"), l = xD((async e => await Lw.setSettingsToPersistentStore(e)), 400),
                 c = (0, ke.useCallback)((() => {
-                    const e = n.some((e => e.dirty)), t = a.dirty;
+                    const e = r.some((e => e.dirty)), t = i.dirty;
                     return e || t
-                }), [n, a]), u = (0, ke.useCallback)((async () => {
-                    var e;
-                    const n = s.actions.getAccessibilitySettings(),
-                        a = null !== (e = await s.actions.getAccessibilitySettingsFromPersistentStore()) && void 0 !== e ? e : XP,
-                        o = await s.actions.getAnimationSystemSettings();
-                    t(o.prefersReducedMotion), i((e => {
-                        const t = n.reduceMotion.syncWithSystem !== a.reduceMotion.syncWithSystem;
-                        return {...e, value: a.reduceMotion.syncWithSystem, dirty: t}
-                    })), a.reduceMotion.syncWithSystem ? r((e => e.map((e => {
-                        const t = n.reduceMotion[e.id] !== o.prefersReducedMotion;
-                        return t && (l([{
-                            id: e.id,
-                            value: o.prefersReducedMotion
-                        }]), s.actions.setAccessibilitySettings([{id: e.id, value: o.prefersReducedMotion}])), {
-                            ...e,
-                            value: o.prefersReducedMotion,
-                            dirty: t
-                        }
-                    })))) : r((e => e.map((e => {
-                        const t = a.reduceMotion[e.id], r = n.reduceMotion[e.id] !== t;
-                        return {...e, value: t, dirty: r}
+                }), [r, i]), u = (0, ke.useCallback)((async () => {
+                    var t;
+                    const r = null !== (t = await Lw.getSettingsFromPersistentStore()) && void 0 !== t ? t : Fw,
+                        i = await IC.getAnimationSystemSettings();
+                    n(i.prefersReducedMotion), o((t => {
+                        const n = e.reduceMotion.syncWithSystem !== r.reduceMotion.syncWithSystem;
+                        return {...t, value: r.reduceMotion.syncWithSystem, dirty: n}
+                    })), r.reduceMotion.syncWithSystem ? a((t => t.map((t => {
+                        const n = e.reduceMotion[t.id] !== i.prefersReducedMotion;
+                        return n && (l([{id: t.id, value: i.prefersReducedMotion}]), Lw.changeSettings([{
+                            id: t.id,
+                            value: i.prefersReducedMotion
+                        }])), {...t, value: i.prefersReducedMotion, dirty: n}
+                    })))) : a((t => t.map((t => {
+                        const n = r.reduceMotion[t.id], a = e.reduceMotion[t.id] !== n;
+                        return {...t, value: n, dirty: a}
                     }))))
-                }), [s.actions]), d = (0, ke.useCallback)((async (e, t) => {
-                    r((n => n.map((n => n.id === t ? {...n, value: e, dirty: !0} : n)))), l([{id: t, value: e}])
+                }), []), d = (0, ke.useCallback)((async (e, t) => {
+                    a((n => n.map((n => n.id === t ? {...n, value: e, dirty: !0} : n)))), l([{id: t, value: e}])
                 }), [l]), h = (0, ke.useCallback)((async e => {
-                    const o = await s.actions.getAnimationSystemSettings();
-                    t(o.prefersReducedMotion), r((t => t.map((t => ({
-                        ...t,
-                        value: !!e && o.prefersReducedMotion,
+                    const t = await IC.getAnimationSystemSettings();
+                    n(t.prefersReducedMotion), a((n => n.map((n => ({
+                        ...n,
+                        value: !!e && t.prefersReducedMotion,
                         dirty: !0
-                    }))))), i((t => ({...t, value: e, dirty: !0})));
-                    const c = [...n.map((t => ({
-                        id: t.id,
-                        value: !!e && o.prefersReducedMotion
-                    }))), ...a && [{id: "syncWithSystem", value: e}]];
-                    l(c)
+                    }))))), o((t => ({...t, value: e, dirty: !0})));
+                    const s = [...r.map((n => ({
+                        id: n.id,
+                        value: !!e && t.prefersReducedMotion
+                    }))), ...i && [{id: "syncWithSystem", value: e}]];
+                    l(s)
                 }), [l]);
             return (0, ke.useEffect)((() => {
                 u()
             }), []), (0, hw.jsxs)(qp, {
-                title: o("settings_accessibility_reduce_motion_title"),
-                description: o("settings_accessibility_reduce_motion_description"),
+                title: s("settings_accessibility_reduce_motion_title"),
+                description: s("settings_accessibility_reduce_motion_description"),
                 children: [(0, hw.jsx)(Kp, {
-                    checked: a.value,
+                    checked: i.value,
                     type: "checkbox",
                     onChange: ({target: {checked: e}}) => h(e),
-                    description: o(a.description),
-                    warning: a.dirty,
-                    children: o(a.title)
+                    description: s(i.description),
+                    warning: i.dirty,
+                    children: s(i.title)
                 }), (0, hw.jsx)(bu, {
                     vertical: !0,
                     gap: "100",
                     className: "sol-u-padding-is-250",
-                    children: n.map((e => (0, hw.jsx)(Kp, {
+                    children: r.map((e => (0, hw.jsx)(Kp, {
                         type: "toggle",
-                        description: o(e.description),
+                        description: s(e.description),
                         checked: e.value,
                         onChange: ({target: {checked: t}}) => d(t, e.id),
-                        disabled: a.value,
+                        disabled: i.value,
                         warning: e.dirty,
-                        children: o(e.title)
+                        children: s(e.title)
                     }, e.id)))
-                }), a.value && (0, hw.jsx)(Hp, {
+                }), i.value && (0, hw.jsx)(Hp, {
                     className: "sol-u-padding-is-250",
                     children: (0, hw.jsx)(Wp, {
                         type: "informative",
-                        children: o("settings_accessibility_reduce_motion_information_" + (e ? "enabled" : "disabled"))
+                        children: s("settings_accessibility_reduce_motion_information_" + (t ? "enabled" : "disabled"))
                     })
                 }), c() && (0, hw.jsx)(Wp, {
                     className: "sol-u-margin-bs-150",
                     type: "notice",
-                    icon: ik,
+                    icon: pk,
                     children: (0, hw.jsx)(ht, {
                         i18nKey: "settings_accessibility_reduce_motion_information_restart_link_label",
                         ns: "settingsPage",
-                        components: {
-                            iclink: (0, hw.jsx)(j_, {
-                                href: "#",
-                                onClick: () => s.actions.restartApp(),
-                                inherit: !0
-                            })
-                        }
+                        components: {iclink: (0, hw.jsx)(j_, {href: "#", onClick: () => IC.restartApp(), inherit: !0})}
                     })
                 })]
             })
-        }, UA = () => {
+        }, kD = () => {
             const {t: e} = yt("settingsPage");
-            return (0, hw.jsx)(ix, {title: e("settings_accessibility_title"), children: (0, hw.jsx)(VA, {})})
-        }, GA = () => {
-            const e = kC((e => e.dialog)),
-                t = kC((e => e.settings)), {t: n} = yt("settingsPage"), [r, a] = (0, ke.useState)(!1), [i, o] = (0, ke.useState)(null);
-            jA((() => {
-                o(null), a(!1)
-            }), Aw, r), (0, ke.useEffect)((() => {
+            return (0, hw.jsx)(ix, {title: e("settings_accessibility_title"), children: (0, hw.jsx)(wD, {})})
+        }, ED = () => {
+            const e = nI((e => e.dialog)), {t: t} = yt("settingsPage"), [n, r] = (0, ke.useState)(!1), [a, i] = (0, ke.useState)(null);
+            mD((() => {
+                i(null), r(!1)
+            }), Aw, n), (0, ke.useEffect)((() => {
                 const e = window.launcherAPI.store.onClearStoreSuccess((() => {
-                    a(!0), o({id: "isCacheCleared", message: n("settings_common_saved")})
-                })), t = window.launcherAPI.store.onClearStoreError((() => {
-                    a(!1), o(null)
+                    r(!0), i({id: "isCacheCleared", message: t("settings_common_saved")})
+                })), n = window.launcherAPI.store.onClearStoreError((() => {
+                    r(!1), i(null)
                 }));
                 return () => {
-                    e(), t()
+                    e(), n()
                 }
             }), []);
-            const s = (0, ke.useCallback)((async () => {
-                i && o(null), await e.actions.showWarningDialogCacheClear()
-            }), [e.actions, i]), l = (0, ke.useCallback)((async () => {
-                t.actions.debugGetLogs()
-            }), [t.actions]);
+            const o = (0, ke.useCallback)((async () => {
+                a && i(null), await e.actions.showWarningDialogCacheClear()
+            }), [e.actions, a]), s = (0, ke.useCallback)((async () => {
+                IC.debugGetLogs()
+            }), []);
             return (0, hw.jsx)(qp, {
-                title: n("settings_application_debug_tools_title"),
+                title: t("settings_application_debug_tools_title"),
                 description: (0, hw.jsx)(ht, {
                     i18nKey: "settings_application_debug_tools_description",
                     ns: "settingsPage",
                     components: {
                         iclink: (0, hw.jsx)(j_, {
                             href: dw.configuration.issueCouncilUrl,
-                            label: n("app_header_menu_issue_council"),
+                            label: t("app_header_menu_issue_council"),
                             external: !0
                         })
                     }
                 }),
                 children: (0, hw.jsxs)(Yg, {
                     horizontal: !0,
-                    success: i && i.message,
-                    label: n("settings_application_debug_tools_label"),
+                    success: a && a.message,
+                    label: t("settings_application_debug_tools_label"),
                     labelType: "hidden",
                     children: [(0, hw.jsx)(uu, {
+                        onClick: () => o(),
+                        type: "button",
+                        children: t("settings_application_debug_tools_button_clear_cache")
+                    }), (0, hw.jsx)(uu, {
                         onClick: () => s(),
                         type: "button",
-                        children: n("settings_application_debug_tools_button_clear_cache")
-                    }), (0, hw.jsx)(uu, {
-                        onClick: () => l(),
-                        type: "button",
-                        children: n("settings_application_debug_tools_button_get_logs")
+                        children: t("settings_application_debug_tools_button_get_logs")
                     })]
                 })
             })
-        }, BA = () => {
-            const e = kC((e => e.settings)), [t, n] = (0, ke.useState)(e.appSettings.quitOnWindowClose), [r, a] = (0, ke.useState)(!1), [i, o] = (0, ke.useState)(null), {t: s} = yt("settingsPage");
-            jA((() => {
+        }, SD = () => {
+            const e = nI((e => e.launcher)), [t, n] = (0, ke.useState)(e.quitOnWindowClose), [r, a] = (0, ke.useState)(!1), [i, o] = (0, ke.useState)(null), {t: s} = yt("settingsPage");
+            mD((() => {
                 o(null), a(!1)
             }), Aw, r), (0, ke.useEffect)((() => {
                 const e = window.launcherAPI.store.onSetValueToStoreSuccess((e => {
@@ -45915,12 +46678,9 @@
                     e(), t()
                 }
             }), []), (0, ke.useEffect)((() => {
-                n(e.appSettings.quitOnWindowClose)
-            }), [e.appSettings.quitOnWindowClose]);
-            const l = zA((async t => await e.actions.saveApplicationSettings({
-                name: "quitOnWindowClose",
-                value: t
-            })), 400), c = (0, ke.useCallback)((async e => {
+                n(e.quitOnWindowClose)
+            }), [e.quitOnWindowClose]);
+            const l = xD((e => IC.changeQuitOnWindowCloseBehaviour(e)), 400), c = (0, ke.useCallback)((async e => {
                 i && o(null), n(e), l(e)
             }), [l, i]);
             return (0, hw.jsx)(qp, {
@@ -45934,37 +46694,34 @@
                     children: s("settings_application_window_behavior_close_to_quit")
                 })
             })
-        }, $A = () => {
+        }, OD = () => {
             const {t: e} = yt("settingsPage");
             return (0, hw.jsxs)(ix, {
                 title: e("settings_application_title"),
-                children: [(0, hw.jsx)(BA, {}), (0, hw.jsx)(lf, {spacing: "250"}), (0, hw.jsx)(GA, {})]
+                children: [(0, hw.jsx)(SD, {}), (0, hw.jsx)(lf, {spacing: "250"}), (0, hw.jsx)(ED, {})]
             })
-        }, WA = (e, t) => t.find((t => t.code === e));
-        const HA = new class {
+        }, PD = (e, t) => t.find((t => t.code === e));
+        const CD = new class {
+            async checkLanguage() {
+                var e;
+                const t = null !== (e = VP.getQueryData(ES().queryKey)) && void 0 !== e ? e : await VP.fetchQuery(ES());
+                this.updateLanguageCollection(t)
+            }
+
             updateCurrentLanguage(e) {
-                const {actions: t, languageCollection: n} = kC.getState().language, r = WA(e.code, n);
-                if (void 0 === r) throw new Error("Did not find language in the collection");
-                this.seti18nLanguage(r.code), t.setCurrentLanguage(r)
+                // const {actions: t, languageCollection: n} = nI.getState().language, r = PD(e.code, n);
+                // if (void 0 === r) throw new Error("Did not find language in the collection");
+                // this.seti18nLanguage(r.code), t.setCurrentLanguage(r)
             }
 
             updatei18nLanguage(e) {
-                const {languageCollection: t} = kC.getState().language, n = WA(e.code, t);
-                if (void 0 === n) throw new Error("Did not find language in the collection");
-                this.seti18nLanguage(n.code)
-            }
-
-            updateLanguageCollection(e) {
-                const {actions: t, currentLanguage: n} = kC.getState().language;
-                t.setLanguageCollection(e);
-                if (void 0 !== WA(n.code, e)) return;
-                const r = WA(dw.configuration.language.defaultLanguage.code, e);
-                if (!r) throw new Error("Did not find default language");
-                t.setCurrentLanguage(r), this.seti18nLanguage(r.code)
+                // const {languageCollection: t} = nI.getState().language, n = PD(e.code, t);
+                // if (void 0 === n) throw new Error("Did not find language in the collection");
+                // this.seti18nLanguage(n.code)
             }
 
             setLanguageErrorToast() {
-                const {actions: e} = kC.getState().toasts;
+                const {actions: e} = nI.getState().toasts;
                 return e.add({
                     title: bt.t("settings_toast_change_language_failure", {ns: "settingsPage"}),
                     type: "negative",
@@ -45973,80 +46730,88 @@
                 })
             }
 
+            updateLanguageCollection(e) {
+                const {actions: t, currentLanguage: n} = nI.getState().language;
+                t.setLanguageCollection(e);
+                if (void 0 !== PD(n.code, e)) return;
+                const r = PD(dw.configuration.language.defaultLanguage.code, e);
+                if (!r) throw new Error("Did not find default language");
+                t.setCurrentLanguage(r), this.seti18nLanguage(r.code)
+            }
+
             seti18nLanguage(e) {
                 bt.changeLanguage(e)
             }
-        }, qA = () => {
-            const e = kC((e => e.settings)), {
-                currentLanguage: t,
-                languageCollection: n
-            } = kC((e => e.language)), [r, a] = (0, ke.useState)(e.appSettings.isDiscoverDone), [i, o] = (0, ke.useState)(!1), [s, l] = (0, ke.useState)(null), {t: c} = yt("settingsPage");
-            jA((() => {
-                l(null), o(!1)
-            }), Aw, i), (0, ke.useEffect)((() => {
+        }, ID = () => {
+            const {currentLanguage: e, languageCollection: t} = nI((e => e.language)), n = nI((e => e.discovery)),
+                r = nI((e => e.installer)), [a, i] = (0, ke.useState)(n.isDone), [o, s] = (0, ke.useState)(r.downloadOptions.forceDataPatcher), [l, c] = (0, ke.useState)(!1), [u, d] = (0, ke.useState)(null), {t: h} = yt("settingsPage");
+            mD((() => {
+                d(null), c(!1)
+            }), Aw, l), (0, ke.useEffect)((() => {
                 const e = window.launcherAPI.store.onSetValueToStoreSuccess((e => {
-                    "application.isDiscoverDone" === e.key && (o(!0), l({
+                    "application.isDiscoverDone" === e.key && (c(!0), d({
                         id: "isDiscoverDone",
-                        message: c("settings_common_saved")
+                        message: h("settings_common_saved")
                     }))
                 })), t = window.launcherAPI.store.onSetValueToStoreError((e => {
-                    "application.isDiscoverDone" === e.key && (o(!1), l(null))
+                    "application.isDiscoverDone" === e.key && (c(!1), d(null))
                 }));
                 return () => {
                     e(), t()
                 }
             }), []), (0, ke.useEffect)((() => {
-                a(e.appSettings.isDiscoverDone)
-            }), [e.appSettings.isDiscoverDone]);
-            const u = zA((async t => await e.actions.saveApplicationSettings({name: "isDiscoverDone", value: t})), 400),
-                d = (0, ke.useCallback)((async e => {
-                    s && l(null), a(e), u(e)
-                }), [u, s]), h = (0, ke.useCallback)((e => {
-                    const t = WA(e, n);
-                    t ? HA.updateCurrentLanguage(t) : HA.setLanguageErrorToast()
-                }), [n]);
+                i(n.isDone)
+            }), [n.isDone]);
+            const p = xD((async e => await kC.finish()), 400), f = (0, ke.useCallback)((async e => {
+                u && d(null), i(e), p(e)
+            }), [p, u]), m = (0, ke.useCallback)((e => {
+                const n = PD(e, t);
+                n ? CD.updateCurrentLanguage(n) : CD.setLanguageErrorToast()
+            }), [t]), g = (0, ke.useCallback)((e => {
+                s(!!e), aC.setForceDataPatcher(!!e)
+            }), []);
             return (0, hw.jsxs)(ix, {
-                title: c("settings_dev_title"),
+                title: h("settings_dev_title"),
                 children: [(0, hw.jsx)(bu, {
                     vertical: !0,
                     gap: 100,
                     children: (0, hw.jsx)(qp, {
-                        title: c("settings_application_language_title"),
+                        title: h("settings_application_language_title"),
                         children: (0, hw.jsx)(Yg, {
-                            label: c("settings_application_language_description"),
+                            label: h("settings_application_language_description"),
                             children: (0, hw.jsx)(ax, {
-                                onChange: ({target: {value: e}}) => h(e),
-                                defaultValue: t.code,
-                                value: t.code,
-                                children: n.map(((e, t) => (0, hw.jsx)(rx, {label: e.label, value: e.code}, t)))
+                                onChange: ({target: {value: e}}) => m(e),
+                                defaultValue: e.code,
+                                value: e.code,
+                                children: t.map(((e, t) => (0, hw.jsx)(rx, {label: e.label, value: e.code}, t)))
                             })
                         })
                     })
                 }), (0, hw.jsx)(lf, {spacing: "250"}), (0, hw.jsx)(qp, {
-                    title: c("settings_application_discover_behavior_title"),
-                    description: c("settings_application_discover_behavior_description"),
+                    title: h("settings_application_discover_behavior_title"),
+                    description: h("settings_application_discover_behavior_description"),
                     children: (0, hw.jsx)(Kp, {
                         type: "toggle",
-                        checked: r,
-                        onChange: ({target: {checked: e}}) => d(e),
-                        success: s && s.message,
-                        children: c("settings_application_discover_behavior_isDiscoverDone")
+                        checked: a,
+                        onChange: ({target: {checked: e}}) => f(e),
+                        success: u && u.message,
+                        children: h("settings_application_discover_behavior_isDiscoverDone")
                     })
                 }), (0, hw.jsx)(lf, {spacing: "250"}), (0, hw.jsx)(qp, {
-                    title: c("settings_download_force_datapatcher_title"),
-                    description: c("settings_download_force_datapatcher_description"),
+                    title: h("settings_download_force_datapatcher_title"),
+                    description: h("settings_download_force_datapatcher_description"),
                     children: (0, hw.jsx)(Kp, {
                         type: "toggle",
-                        checked: e.appSettings.download.forceDataPatcher,
-                        description: c("settings_download_force_datapatcher_force_datapatcher_description"),
-                        onChange: ({target: {checked: t}}) => e.actions.setForceDataPatcher(t),
-                        children: c("settings_download_force_datapatcher_force_datapatcher_toggle")
+                        checked: o,
+                        description: h("settings_download_force_datapatcher_force_datapatcher_description"),
+                        onChange: ({target: {checked: e}}) => g(e),
+                        children: h("settings_download_force_datapatcher_force_datapatcher_toggle")
                     })
                 })]
             })
-        }, KA = () => {
+        }, AD = () => {
             const {t: e} = yt("settingsPage"),
-                t = kC((e => e.settings)), [n, r] = (0, ke.useState)({state: !1}), [a, i] = (0, ke.useState)(t.appSettings.download.concurrentTransfers), {
+                t = nI((e => e.installer.downloadOptions)), [n, r] = (0, ke.useState)({state: !1}), [a, i] = (0, ke.useState)(t.concurrentTransfers), {
                     value: o,
                     setValue: s
                 } = (({initialValue: e, cb: t, delay: n = 2e3}) => {
@@ -46058,27 +46823,28 @@
                         return () => clearTimeout(e)
                     }), [t, n]), {value: r, setValue: a}
                 })({
-                    initialValue: PC(t.appSettings.download.maximumDownloadBandwidth), cb: () => {
-                        PC(t.appSettings.download.maximumDownloadBandwidth) !== o && c(o)
+                    initialValue: oI(t.maximumDownloadBandwidth), cb: () => {
+                        oI(t.maximumDownloadBandwidth) !== o && c(o)
                     }
                 });
-            jA((() => {
+            mD((() => {
                 r({state: !1})
             }), Aw, n.state);
-            const l = (0, ke.useCallback)((async e => {
-                const n = parseInt(e, 10);
-                i(n), t.actions.setDownloadSettings(dw.InstallerOptions.ConcurrentTransfers, n)
-            }), [t.actions]), c = (0, ke.useCallback)((async e => {
-                s(e), t.actions.setDownloadSettings(dw.InstallerOptions.MaximumDownloadBandwidth, 1e3 * e)
-            }), [s, t.actions]);
+            const l = (0, ke.useCallback)((e => {
+                const t = parseInt(e, 10);
+                i(t), aC.changeDownloadSettings({name: dw.InstallerOptions.ConcurrentTransfers, value: t})
+            }), []), c = (0, ke.useCallback)((e => {
+                var t;
+                s(e), aC.changeDownloadSettings({
+                    name: dw.InstallerOptions.MaximumDownloadBandwidth,
+                    value: (t = e, 1e3 * t)
+                })
+            }), [s]);
             return (0, ke.useEffect)((() => {
-                const e = window.launcherAPI.installer.onSetDownloadOptionsSuccess((e => {
-                    t.actions.onSetDownloadSettingsSuccess(e), r({state: !0, option: e.name})
-                }));
-                return () => {
-                    e()
-                }
-            }), [t.actions]), (0, hw.jsx)(ix, {
+                r({state: !0, option: dw.InstallerOptions.ConcurrentTransfers})
+            }), [t.concurrentTransfers]), (0, ke.useEffect)((() => {
+                r({state: !0, option: dw.InstallerOptions.MaximumDownloadBandwidth})
+            }), [t.maximumDownloadBandwidth]), (0, hw.jsx)(ix, {
                 title: e("settings_download_title"),
                 children: (0, hw.jsxs)(qp, {
                     title: e("settings_download_main_title"),
@@ -46091,7 +46857,7 @@
                         children: (0, hw.jsx)(ax, {
                             onValueChange: e => l(e),
                             value: a.toString(),
-                            children: QP.map((e => (0, hw.jsx)(rx, {
+                            children: mk.map((e => (0, hw.jsx)(rx, {
                                 value: e.value.toString(),
                                 label: e.label
                             }, e.label)))
@@ -46113,7 +46879,7 @@
                 })
             })
         };
-        var YA = class extends pS.l {
+        var DD = class extends CS.l {
             constructor(e, t) {
                 super(), this.#R = void 0, this.#T = void 0, this.#O = void 0, this.#j = new Set, this.#P = e, this.options = t, this.#L = null, this.bindMethods(), this.setOptions(t)
             }
@@ -46138,7 +46904,7 @@
             }
 
             onSubscribe() {
-                1 === this.listeners.size && (this.#R.addObserver(this), ZA(this.#R, this.options) ? this.#$() : this.updateResult(), this.#W())
+                1 === this.listeners.size && (this.#R.addObserver(this), RD(this.#R, this.options) ? this.#$() : this.updateResult(), this.#W())
             }
 
             onUnsubscribe() {
@@ -46146,11 +46912,11 @@
             }
 
             shouldFetchOnReconnect() {
-                return QA(this.#R, this.options, this.options.refetchOnReconnect)
+                return TD(this.#R, this.options, this.options.refetchOnReconnect)
             }
 
             shouldFetchOnWindowFocus() {
-                return QA(this.#R, this.options, this.options.refetchOnWindowFocus)
+                return TD(this.#R, this.options, this.options.refetchOnWindowFocus)
             }
 
             destroy() {
@@ -46159,14 +46925,14 @@
 
             setOptions(e, t) {
                 const n = this.options, r = this.#R;
-                if (this.options = this.#P.defaultQueryOptions(e), (0, dS.VS)(n, this.options) || this.#P.getQueryCache().notify({
+                if (this.options = this.#P.defaultQueryOptions(e), (0, OS.VS)(n, this.options) || this.#P.getQueryCache().notify({
                     type: "observerOptionsUpdated",
                     query: this.#R,
                     observer: this
                 }), "undefined" !== typeof this.options.enabled && "boolean" !== typeof this.options.enabled) throw new Error("Expected enabled to be a boolean");
                 this.options.queryKey || (this.options.queryKey = n.queryKey), this.#K();
                 const a = this.hasListeners();
-                a && XA(this.#R, r, this.options, n) && this.#$(), this.updateResult(t), !a || this.#R === r && this.options.enabled === n.enabled && this.options.staleTime === n.staleTime || this.#Y();
+                a && jD(this.#R, r, this.options, n) && this.#$(), this.updateResult(t), !a || this.#R === r && this.options.enabled === n.enabled && this.options.staleTime === n.staleTime || this.#Y();
                 const i = this.#Z();
                 !a || this.#R === r && this.options.enabled === n.enabled && i === this.#B || this.#Q(i)
             }
@@ -46174,7 +46940,7 @@
             getOptimisticResult(e) {
                 const t = this.#P.getQueryCache().build(this.#P, e), n = this.createResult(t, e);
                 return function (e, t) {
-                    if (!(0, dS.VS)(e.getCurrentResult(), t)) return !0;
+                    if (!(0, OS.VS)(e.getCurrentResult(), t)) return !0;
                     return !1
                 }(this, n) && (this.#O = n, this.#M = this.options, this.#N = this.#R.state), n
             }
@@ -46213,12 +46979,12 @@
             #$(e) {
                 this.#K();
                 let t = this.#R.fetch(this.options, e);
-                return e?.throwOnError || (t = t.catch(dS.ZT)), t
+                return e?.throwOnError || (t = t.catch(OS.ZT)), t
             }
 
             #Y() {
-                if (this.#H(), dS.sk || this.#O.isStale || !(0, dS.PN)(this.options.staleTime)) return;
-                const e = (0, dS.Kp)(this.#O.dataUpdatedAt, this.options.staleTime) + 1;
+                if (this.#H(), OS.sk || this.#O.isStale || !(0, OS.PN)(this.options.staleTime)) return;
+                const e = (0, OS.Kp)(this.#O.dataUpdatedAt, this.options.staleTime) + 1;
                 this.#U = setTimeout((() => {
                     this.#O.isStale || this.updateResult()
                 }), e)
@@ -46229,8 +46995,8 @@
             }
 
             #Q(e) {
-                this.#q(), this.#B = e, !dS.sk && !1 !== this.options.enabled && (0, dS.PN)(this.#B) && 0 !== this.#B && (this.#G = setInterval((() => {
-                    (this.options.refetchIntervalInBackground || fS.isFocused()) && this.#$()
+                this.#q(), this.#B = e, !OS.sk && !1 !== this.options.enabled && (0, OS.PN)(this.#B) && 0 !== this.#B && (this.#G = setInterval((() => {
+                    (this.options.refetchIntervalInBackground || IS.isFocused()) && this.#$()
                 }), this.#B))
             }
 
@@ -46251,11 +47017,11 @@
                     s = e !== n ? e.state : this.#T, {state: l} = e;
                 let c, {error: u, errorUpdatedAt: d, fetchStatus: h, status: p} = l, f = !1;
                 if (t._optimisticResults) {
-                    const a = this.hasListeners(), i = !a && ZA(e, t), o = a && XA(e, n, t, r);
-                    (i || o) && (h = vS(e.options.networkMode) ? "fetching" : "paused", l.dataUpdatedAt || (p = "pending")), "isRestoring" === t._optimisticResults && (h = "idle")
+                    const a = this.hasListeners(), i = !a && RD(e, t), o = a && jD(e, n, t, r);
+                    (i || o) && (h = RS(e.options.networkMode) ? "fetching" : "paused", l.dataUpdatedAt || (p = "pending")), "isRestoring" === t._optimisticResults && (h = "idle")
                 }
                 if (t.select && "undefined" !== typeof l.data) if (a && l.data === i?.data && t.select === this.#F) c = this.#z; else try {
-                    this.#F = t.select, c = t.select(l.data), c = (0, dS.oE)(a?.data, c, t), this.#z = c, this.#L = null
+                    this.#F = t.select, c = t.select(l.data), c = (0, OS.oE)(a?.data, c, t), this.#z = c, this.#L = null
                 } catch (b) {
                     this.#L = b
                 } else c = l.data;
@@ -46266,7 +47032,7 @@
                     } catch (b) {
                         this.#L = b
                     }
-                    "undefined" !== typeof e && (p = "success", c = (0, dS.oE)(a?.data, e, t), f = !0)
+                    "undefined" !== typeof e && (p = "success", c = (0, OS.oE)(a?.data, e, t), f = !0)
                 }
                 this.#L && (u = this.#L, c = this.#z, d = Date.now(), p = "error");
                 const m = "fetching" === h, g = "pending" === p, v = "error" === p, y = g && m;
@@ -46293,14 +47059,14 @@
                     isPaused: "paused" === h,
                     isPlaceholderData: f,
                     isRefetchError: v && 0 !== l.dataUpdatedAt,
-                    isStale: JA(e, t),
+                    isStale: LD(e, t),
                     refetch: this.refetch
                 }
             }
 
             updateResult(e) {
                 const t = this.#O, n = this.createResult(this.#R, this.options);
-                if (this.#N = this.#R.state, this.#M = this.options, (0, dS.VS)(n, t)) return;
+                if (this.#N = this.#R.state, this.#M = this.options, (0, OS.VS)(n, t)) return;
                 void 0 !== this.#N.data && (this.#V = this.#R), this.#O = n;
                 const r = {};
                 !1 !== e?.listeners && (() => {
@@ -46327,7 +47093,7 @@
             }
 
             #D(e) {
-                hS.batch((() => {
+                PS.batch((() => {
                     e.listeners && this.listeners.forEach((e => {
                         e(this.#O)
                     })), this.#P.getQueryCache().notify({query: this.#R, type: "observerResultsUpdated"})
@@ -46335,29 +47101,29 @@
             }
         };
 
-        function ZA(e, t) {
+        function RD(e, t) {
             return function (e, t) {
                 return !1 !== t.enabled && !e.state.dataUpdatedAt && !("error" === e.state.status && !1 === t.retryOnMount)
-            }(e, t) || e.state.dataUpdatedAt > 0 && QA(e, t, t.refetchOnMount)
+            }(e, t) || e.state.dataUpdatedAt > 0 && TD(e, t, t.refetchOnMount)
         }
 
-        function QA(e, t, n) {
+        function TD(e, t, n) {
             if (!1 !== t.enabled) {
                 const r = "function" === typeof n ? n(e) : n;
-                return "always" === r || !1 !== r && JA(e, t)
+                return "always" === r || !1 !== r && LD(e, t)
             }
             return !1
         }
 
-        function XA(e, t, n, r) {
-            return !1 !== n.enabled && (e !== t || !1 === r.enabled) && (!n.suspense || "error" !== e.state.status) && JA(e, n)
+        function jD(e, t, n, r) {
+            return !1 !== n.enabled && (e !== t || !1 === r.enabled) && (!n.suspense || "error" !== e.state.status) && LD(e, n)
         }
 
-        function JA(e, t) {
+        function LD(e, t) {
             return e.isStaleByTime(t.staleTime)
         }
 
-        function eD() {
+        function ND() {
             let e = !1;
             return {
                 clearReset: () => {
@@ -46368,11 +47134,11 @@
             }
         }
 
-        var tD = ke.createContext(eD()), nD = ke.createContext(!1);
-        nD.Provider;
+        var MD = ke.createContext(ND()), FD = ke.createContext(!1);
+        FD.Provider;
 
-        function rD(e, t, n) {
-            const r = (0, Bl.NL)(n), a = ke.useContext(nD), i = ke.useContext(tD), o = r.defaultQueryOptions(e);
+        function zD(e, t, n) {
+            const r = (0, Bl.NL)(n), a = ke.useContext(FD), i = ke.useContext(MD), o = r.defaultQueryOptions(e);
             o._optimisticResults = a ? "isRestoring" : "optimistic", (e => {
                 e.suspense && "number" !== typeof e.staleTime && (e.staleTime = 1e3)
             })(o), ((e, t) => {
@@ -46385,7 +47151,7 @@
             const [s] = ke.useState((() => new t(r, o))), l = s.getOptimisticResult(o);
             if (ke.useSyncExternalStore(ke.useCallback((e => {
                 const t = a ? () => {
-                } : s.subscribe(hS.batchCalls(e));
+                } : s.subscribe(PS.batchCalls(e));
                 return s.updateResult(), t
             }), [s, a]), (() => s.getCurrentResult()), (() => s.getCurrentResult())), ke.useEffect((() => {
                 s.setOptions(o, {listeners: !1})
@@ -46397,7 +47163,7 @@
                       errorResetBoundary: t,
                       throwOnError: n,
                       query: r
-                  }) => e.isError && !t.isReset() && !e.isFetching && AA(n, [e.error, r]))({
+                  }) => e.isError && !t.isReset() && !e.isFetching && dD(n, [e.error, r]))({
                 result: l,
                 errorResetBoundary: i,
                 throwOnError: o.throwOnError,
@@ -46406,48 +47172,48 @@
             return o.notifyOnChangeProps ? l : s.trackResult(l)
         }
 
-        function aD(e, t) {
-            return rD(e, YA, t)
+        function VD(e, t) {
+            return zD(e, DD, t)
         }
 
-        let iD;
+        let UD;
         !function (e) {
             e.HOSTNAME = "hostname", e.PORT = "port", e.EXECUTABLE = "executable", e.LAUNCHOPTIONS = "launchOptions", e.EACSANDBOX = "eacSandbox"
-        }(iD || (iD = {}));
-        const oD = e => {
+        }(UD || (UD = {}));
+        const GD = e => {
                 var t, n, r, a, i, o;
-                const {t: s} = yt("settingsPage"), l = kC((e => e.settings)), c = e.gameSettings, u = {
-                        [iD.HOSTNAME]: null !== (t = c.hostname) && void 0 !== t ? t : "",
-                        [iD.PORT]: null !== (n = c.port) && void 0 !== n ? n : null,
-                        [iD.EXECUTABLE]: null !== (r = c.executable) && void 0 !== r ? r : "",
-                        [iD.LAUNCHOPTIONS]: null !== (a = c.launchOptions) && void 0 !== a ? a : "",
-                        [iD.EACSANDBOX]: null !== (i = c.eacSandbox) && void 0 !== i ? i : null
-                    }, [d, h] = (0, ke.useState)(!1), [p, f] = (0, ke.useState)(null), [m, g] = (0, ke.useState)(u),
-                    v = null !== (o = (() => {
-                        const {data: e} = aD(aS(c.gameId, c.channelId));
+                const {t: s} = yt("settingsPage"), l = e.gameSettings, c = {
+                        [UD.HOSTNAME]: null !== (t = l.hostname) && void 0 !== t ? t : "",
+                        [UD.PORT]: null !== (n = l.port) && void 0 !== n ? n : null,
+                        [UD.EXECUTABLE]: null !== (r = l.executable) && void 0 !== r ? r : "",
+                        [UD.LAUNCHOPTIONS]: null !== (a = l.launchOptions) && void 0 !== a ? a : "",
+                        [UD.EACSANDBOX]: null !== (i = l.eacSandbox) && void 0 !== i ? i : null
+                    }, [u, d] = (0, ke.useState)(!1), [h, p] = (0, ke.useState)(null), [f, m] = (0, ke.useState)(c),
+                    g = null !== (o = (() => {
+                        const {data: e} = VD(vS(l.gameId, l.channelId));
                         return e
                     })()) && void 0 !== o ? o : {};
-                jA((() => {
-                    f(null), h(!1)
-                }), Aw, d);
-                const y = FA((async (e, t) => {
+                mD((() => {
+                    p(null), d(!1)
+                }), Aw, u);
+                const v = _D((async (e, t) => {
                     const n = Object.fromEntries(Object.entries({
-                        ...m,
-                        [e]: _(e, t)
+                        ...f,
+                        [e]: b(e, t)
                     }).filter((([e, t]) => null != t && "" !== t)));
-                    0 === Object.values(n).length ? await l.actions.resetChannelGameSettings(c) : await l.actions.saveChannelGameSettings({
+                    0 === Object.values(n).length ? await UP.resetChannelGameSettings(l) : await UP.saveChannelGameSettings({
                         ...n,
-                        gameId: c.gameId,
-                        gameName: c.gameName,
-                        channelId: c.channelId,
-                        channelName: c.channelName,
-                        platformId: c.platformId
-                    }), h(!0), f({id: e, message: s("settings_common_saved")})
-                }), 300), b = (0, ke.useCallback)((async (e, t) => {
-                    p && f(null), g({...m, [e]: _(e, t)}), y(e, t)
-                }), [m, y, p]), _ = (e, t) => {
+                        gameId: l.gameId,
+                        gameName: l.gameName,
+                        channelId: l.channelId,
+                        channelName: l.channelName,
+                        platformId: l.platformId
+                    }), d(!0), p({id: e, message: s("settings_common_saved")})
+                }), 300), y = (0, ke.useCallback)((async (e, t) => {
+                    h && p(null), m({...f, [e]: b(e, t)}), v(e, t)
+                }), [f, v, h]), b = (e, t) => {
                     var n;
-                    return e === iD.PORT ? "" === t ? null : parseInt(t) : e === iD.EACSANDBOX ? !1 === t ? null : t : e !== iD.LAUNCHOPTIONS ? null !== (n = t.trim()) && void 0 !== n ? n : "" : null !== t && void 0 !== t ? t : ""
+                    return e === UD.PORT ? "" === t ? null : parseInt(t) : e === UD.EACSANDBOX ? !1 === t ? null : t : e !== UD.LAUNCHOPTIONS ? null !== (n = t.trim()) && void 0 !== n ? n : "" : null !== t && void 0 !== t ? t : ""
                 };
                 return (0, hw.jsxs)(hw.Fragment, {
                     children: [(0, hw.jsx)(lf, {spacing: "250"}), (0, hw.jsxs)(qp, {
@@ -46457,74 +47223,74 @@
                             horizontal: !0,
                             label: s("settings_games_launch_hostname"),
                             necessityIndicator: "Optional",
-                            help: v.universeHost ? (0, hw.jsxs)(iu, {
+                            help: g.universeHost ? (0, hw.jsxs)(iu, {
                                 as: "span",
                                 variant: "body-m-bold",
                                 children: [s("settings_games_launch_default"), " ", (0, hw.jsx)(iu, {
                                     as: "span",
-                                    children: v.universeHost
+                                    children: g.universeHost
                                 })]
                             }) : void 0,
-                            success: p && p.id === iD.HOSTNAME ? s("settings_common_saved") : void 0,
+                            success: h && h.id === UD.HOSTNAME ? s("settings_common_saved") : void 0,
                             children: (0, hw.jsx)(T_, {
-                                value: null === m || void 0 === m ? void 0 : m.hostname,
-                                name: iD.HOSTNAME,
-                                onChange: ({target: {name: e, value: t}}) => b(e, t)
+                                value: null === f || void 0 === f ? void 0 : f.hostname,
+                                name: UD.HOSTNAME,
+                                onChange: ({target: {name: e, value: t}}) => y(e, t)
                             })
                         }), (0, hw.jsx)(Yg, {
                             horizontal: !0,
                             label: s("settings_games_launch_port"),
                             necessityIndicator: "Optional",
-                            help: v.universePort ? (0, hw.jsxs)(iu, {
+                            help: g.universePort ? (0, hw.jsxs)(iu, {
                                 as: "span",
                                 variant: "body-m-bold",
                                 children: [s("settings_games_launch_default"), " ", (0, hw.jsx)(iu, {
                                     as: "span",
-                                    children: v.universePort
+                                    children: g.universePort
                                 })]
                             }) : void 0,
-                            success: p && p.id === iD.PORT ? s("settings_common_saved") : void 0,
+                            success: h && h.id === UD.PORT ? s("settings_common_saved") : void 0,
                             children: (0, hw.jsx)(T_, {
-                                value: null === (null === m || void 0 === m ? void 0 : m.port) ? "" : null === m || void 0 === m ? void 0 : m.port,
-                                name: iD.PORT,
+                                value: null === (null === f || void 0 === f ? void 0 : f.port) ? "" : null === f || void 0 === f ? void 0 : f.port,
+                                name: UD.PORT,
                                 type: "number",
-                                onChange: ({target: {name: e, value: t}}) => b(e, t)
+                                onChange: ({target: {name: e, value: t}}) => y(e, t)
                             })
                         }), (0, hw.jsx)(Yg, {
                             horizontal: !0,
                             label: s("settings_games_launch_executable"),
                             necessityIndicator: "Optional",
-                            help: v.executable ? (0, hw.jsxs)(iu, {
+                            help: g.executable ? (0, hw.jsxs)(iu, {
                                 as: "span",
                                 variant: "body-m-bold",
                                 children: [s("settings_games_launch_default"), " ", (0, hw.jsx)(iu, {
                                     as: "span",
-                                    children: v.executable
+                                    children: g.executable
                                 })]
                             }) : void 0,
-                            success: p && p.id === iD.EXECUTABLE ? s("settings_common_saved") : void 0,
+                            success: h && h.id === UD.EXECUTABLE ? s("settings_common_saved") : void 0,
                             children: (0, hw.jsx)(T_, {
-                                value: null === m || void 0 === m ? void 0 : m.executable,
-                                name: iD.EXECUTABLE,
-                                onChange: ({target: {name: e, value: t}}) => b(e, t)
+                                value: null === f || void 0 === f ? void 0 : f.executable,
+                                name: UD.EXECUTABLE,
+                                onChange: ({target: {name: e, value: t}}) => y(e, t)
                             })
                         }), (0, hw.jsx)(Yg, {
                             horizontal: !0,
                             label: s("settings_games_launch_launch_options"),
                             necessityIndicator: "Optional",
-                            help: v.launchOptions ? (0, hw.jsxs)(hw.Fragment, {
+                            help: g.launchOptions ? (0, hw.jsxs)(hw.Fragment, {
                                 children: [(0, hw.jsx)(iu, {
                                     as: "span",
                                     variant: "body-m-bold",
                                     children: s("settings_games_launch_default")
-                                }), (0, hw.jsx)("br", {}), (0, hw.jsx)(iu, {as: "span", children: v.launchOptions})]
+                                }), (0, hw.jsx)("br", {}), (0, hw.jsx)(iu, {as: "span", children: g.launchOptions})]
                             }) : void 0,
-                            success: p && p.id === iD.LAUNCHOPTIONS ? s("settings_common_saved") : null,
+                            success: h && h.id === UD.LAUNCHOPTIONS ? s("settings_common_saved") : null,
                             children: (0, hw.jsx)(T_, {
                                 as: "textarea",
-                                value: null === m || void 0 === m ? void 0 : m.launchOptions,
-                                name: iD.LAUNCHOPTIONS,
-                                onChange: ({target: {name: e, value: t}}) => b(e, t)
+                                value: null === f || void 0 === f ? void 0 : f.launchOptions,
+                                name: UD.LAUNCHOPTIONS,
+                                onChange: ({target: {name: e, value: t}}) => y(e, t)
                             })
                         })]
                     }), (0, hw.jsx)(lf, {spacing: "250"}), (0, hw.jsxs)(qp, {
@@ -46535,103 +47301,103 @@
                             children: s("settings_games_launch_eac_informative")
                         }), (0, hw.jsx)(Kp, {
                             type: "toggle",
-                            checked: null !== (null === m || void 0 === m ? void 0 : m.eacSandbox),
-                            disabled: !(null != (null === m || void 0 === m ? void 0 : m.executable) && "" !== (null === m || void 0 === m ? void 0 : m.executable)) && (null != (null === m || void 0 === m ? void 0 : m.eacSandbox) && g({
-                                ...m,
-                                [iD.EACSANDBOX]: null
+                            checked: null !== (null === f || void 0 === f ? void 0 : f.eacSandbox),
+                            disabled: !(null != (null === f || void 0 === f ? void 0 : f.executable) && "" !== (null === f || void 0 === f ? void 0 : f.executable)) && (null != (null === f || void 0 === f ? void 0 : f.eacSandbox) && m({
+                                ...f,
+                                [UD.EACSANDBOX]: null
                             }), !0),
-                            onChange: ({target: {checked: e}}) => b(iD.EACSANDBOX, e),
-                            success: p && p.id === iD.EACSANDBOX ? s("settings_common_saved") : null,
+                            onChange: ({target: {checked: e}}) => y(UD.EACSANDBOX, e),
+                            success: h && h.id === UD.EACSANDBOX ? s("settings_common_saved") : null,
                             children: s("settings_games_launch_eac_disable")
                         })]
                     })]
                 })
             },
-            sD = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":90,"w":16,"h":16,"nm":"download - option 2","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":1,"nm":"Dark Royal Blue Solid 1","td":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8,8,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"hasMask":true,"masksProperties":[{"inv":false,"mode":"a","pt":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[0,0.031],[0,14.5],[16,14.5],[16,0.031]],"c":true},"ix":1},"o":{"a":0,"k":100,"ix":3},"x":{"a":0,"k":0,"ix":4},"nm":"Mask 1"}],"sw":16,"sh":16,"sc":"#0a1d29","ip":0,"op":90,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Arrow Outlines","tt":1,"sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":22,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":23,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":30,"s":[0]},{"t":31,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.41,"y":1},"o":{"x":0.01,"y":0},"t":0,"s":[8,6.484,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.75,"y":1},"o":{"x":0.01,"y":0},"t":29,"s":[8,21.484,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.75,"y":1},"o":{"x":0.46,"y":0},"t":30,"s":[8,-5.516,0],"to":[0,0,0],"ti":[0,0,0]},{"t":45,"s":[8,6.484,0]}],"ix":2,"l":2},"a":{"a":0,"k":[3.983,5.734,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-0.398,0],[-0.025,-0.392],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[-0.22,0],[0,-0.414],[0.164,-0.137],[0,0],[0.206,0],[0.135,0.134],[0,0],[0,0.231],[-0.414,0],[-0.138,-0.151],[0,0],[0,0],[0,0]],"o":[[0.398,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0.137,-0.151],[0.414,0],[0,0.231],[0,0],[-0.135,0.135],[-0.206,0],[0,0],[-0.164,-0.137],[0,-0.414],[0.22,0],[0,0],[0,0],[0,0],[0.025,-0.392]],"v":[[0,-5.484],[0.749,-4.781],[0.75,-4.781],[0.75,-4.736],[0.75,-4.734],[0.75,-4.732],[0.75,2.93],[2.427,1.253],[2.983,1.007],[3.733,1.757],[3.464,2.331],[0.528,5.268],[0,5.484],[-0.527,5.268],[-3.464,2.331],[-3.733,1.757],[-2.983,1.007],[-2.427,1.253],[-0.75,2.93],[-0.75,-4.781],[-0.749,-4.781]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[3.983,5.734],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":90,"st":-28,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"Base Outlines","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,14.25,0],"ix":2,"l":2},"a":{"a":0,"k":[7.25,1,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0.414],[0.414,0],[0,0],[0,-0.414],[-0.414,0]],"o":[[0.414,0],[0,-0.414],[0,0],[-0.414,0],[0,0.414],[0,0]],"v":[[6.25,0.75],[7,0],[6.25,-0.75],[-6.25,-0.75],[-7,0],[-6.25,0.75]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[7.25,1],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":90,"st":0,"bm":0}],"markers":[]}'),
-            lD = ({open: e = !1, ...t}) => {
+            BD = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":90,"w":16,"h":16,"nm":"download - option 2","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":1,"nm":"Dark Royal Blue Solid 1","td":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8,8,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"hasMask":true,"masksProperties":[{"inv":false,"mode":"a","pt":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[0,0.031],[0,14.5],[16,14.5],[16,0.031]],"c":true},"ix":1},"o":{"a":0,"k":100,"ix":3},"x":{"a":0,"k":0,"ix":4},"nm":"Mask 1"}],"sw":16,"sh":16,"sc":"#0a1d29","ip":0,"op":90,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Arrow Outlines","tt":1,"sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":22,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":23,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":30,"s":[0]},{"t":31,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.41,"y":1},"o":{"x":0.01,"y":0},"t":0,"s":[8,6.484,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.75,"y":1},"o":{"x":0.01,"y":0},"t":29,"s":[8,21.484,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.75,"y":1},"o":{"x":0.46,"y":0},"t":30,"s":[8,-5.516,0],"to":[0,0,0],"ti":[0,0,0]},{"t":45,"s":[8,6.484,0]}],"ix":2,"l":2},"a":{"a":0,"k":[3.983,5.734,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-0.398,0],[-0.025,-0.392],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[-0.22,0],[0,-0.414],[0.164,-0.137],[0,0],[0.206,0],[0.135,0.134],[0,0],[0,0.231],[-0.414,0],[-0.138,-0.151],[0,0],[0,0],[0,0]],"o":[[0.398,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0.137,-0.151],[0.414,0],[0,0.231],[0,0],[-0.135,0.135],[-0.206,0],[0,0],[-0.164,-0.137],[0,-0.414],[0.22,0],[0,0],[0,0],[0,0],[0.025,-0.392]],"v":[[0,-5.484],[0.749,-4.781],[0.75,-4.781],[0.75,-4.736],[0.75,-4.734],[0.75,-4.732],[0.75,2.93],[2.427,1.253],[2.983,1.007],[3.733,1.757],[3.464,2.331],[0.528,5.268],[0,5.484],[-0.527,5.268],[-3.464,2.331],[-3.733,1.757],[-2.983,1.007],[-2.427,1.253],[-0.75,2.93],[-0.75,-4.781],[-0.749,-4.781]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[3.983,5.734],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":90,"st":-28,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"Base Outlines","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,14.25,0],"ix":2,"l":2},"a":{"a":0,"k":[7.25,1,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0.414],[0.414,0],[0,0],[0,-0.414],[-0.414,0]],"o":[[0.414,0],[0,-0.414],[0,0],[-0.414,0],[0,0.414],[0,0]],"v":[[6.25,0.75],[7,0],[6.25,-0.75],[-6.25,-0.75],[-7,0],[-6.25,0.75]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[7.25,1],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":90,"st":0,"bm":0}],"markers":[]}'),
+            $D = ({open: e = !1, ...t}) => {
                 var n;
-                const {t: r} = yt("settingsPage"), a = VC(), i = kC((e => e.application)), o = kC((e => e.dialog)),
-                    s = kC((e => e.installer)), l = kC((e => e.library)), c = kC((e => e.settings)),
-                    u = kC((e => e.storage)), d = kC((e => e.user)),
-                    h = (0, ke.useMemo)((() => [u.defaultLibraryFolder, ...u.additionalLibraries]), [u.defaultLibraryFolder, u.additionalLibraries]),
-                    p = t.item.libraryFolder,
-                    f = (0, ke.useMemo)((() => h.find((e => e === p)) || u.defaultLibraryFolder), [p, h, u]), [m, g] = (0, ke.useState)(f),
-                    v = (0, ke.useMemo)((() => ({
+                const {t: r} = yt("settingsPage"), a = bI(), i = nI((e => e.application)), o = nI((e => e.dialog)),
+                    s = nI((e => e.installer)), l = nI((e => e.library)), c = nI((e => e.storage)),
+                    u = nI((e => e.user)),
+                    d = (0, ke.useMemo)((() => [c.defaultLibraryFolder, ...c.additionalLibraries]), [c.defaultLibraryFolder, c.additionalLibraries]),
+                    h = t.item.libraryFolder,
+                    p = (0, ke.useMemo)((() => d.find((e => e === h)) || c.defaultLibraryFolder), [h, d, c]), [f, m] = (0, ke.useState)(p),
+                    g = (0, ke.useMemo)((() => ({
                         platformId: t.item.platformId,
                         gameId: t.item.gameId,
                         gameName: t.item.gameName,
                         channelId: t.item.channelId,
                         channelName: t.item.channelName
-                    })), [t]), y = s.current && pk(s.current.game, v) ? s.current : dk(s.queue, v),
-                    b = hk(s.uninstallations, v), _ = (0, ke.useCallback)((e => {
+                    })), [t]), v = s.current && kk(s.current.game, g) ? s.current : xk(s.queue, g),
+                    y = wk(s.uninstallations, g), b = (0, ke.useCallback)((e => {
                         const t = l.availableGames.find((t => t.id === e.gameId));
                         return null === t || void 0 === t ? void 0 : t.logo
                     }), [l.availableGames]), {
-                        isGameChannelInstalled: x,
-                        isInstalling: w,
-                        isUpdating: k,
-                        isUninstalling: E,
-                        isUserPriviled: S,
-                        isVerifying: O,
-                        isPaused: P,
-                        isGameRunning: C,
-                        hasGamePackage: I,
-                        gameStatus: A
+                        isGameChannelInstalled: _,
+                        isInstalling: x,
+                        isUpdating: w,
+                        isUninstalling: k,
+                        isUserPriviled: E,
+                        isVerifying: S,
+                        isPaused: O,
+                        isGameRunning: P,
+                        hasGamePackage: C,
+                        gameStatus: I
                     } = (0, ke.useMemo)((() => {
                         var e, t;
-                        const n = kP.getAvailableChannel(v),
+                        const n = QP.getAvailableChannel(g),
                             r = (null === n || void 0 === n ? void 0 : n.status) === dw.GameChannelStatus.INSTALLED || (null === n || void 0 === n ? void 0 : n.status) === dw.GameChannelStatus.UPDATE_AVAILABLE,
-                            a = y && y.type === dw.InstallationType.VERIFY, i = y && y.type === dw.InstallationType.INSTALL,
-                            o = y && y.type === dw.InstallationType.UPDATE,
-                            s = y && y.status === dw.InstallationStatus.PAUSED, c = void 0 !== b,
-                            u = null !== (e = null === (t = d.identity) || void 0 === t ? void 0 : t.privileged) && void 0 !== e && e,
-                            h = Ow(v.gameId, l.availableGames), p = null === h || void 0 === h ? void 0 : h.hasGamePackage,
+                            a = v && v.type === dw.InstallationType.VERIFY, i = v && v.type === dw.InstallationType.INSTALL,
+                            o = v && v.type === dw.InstallationType.UPDATE,
+                            s = v && v.status === dw.InstallationStatus.PAUSED, c = void 0 !== y,
+                            d = null !== (e = null === (t = u.identity) || void 0 === t ? void 0 : t.privileged) && void 0 !== e && e,
+                            h = Ow(g.gameId, l.availableGames), p = null === h || void 0 === h ? void 0 : h.hasGamePackage,
                             f = null === h || void 0 === h ? void 0 : h.status;
                         return {
                             isGameChannelInstalled: r,
-                            isGameRunning: void 0 !== l.gameChannelRunning && l.gameChannelRunning && l.gameChannelRunning.channelId === v.channelId && l.gameChannelRunning.gameId === v.gameId,
+                            isGameRunning: void 0 !== l.gameChannelRunning && l.gameChannelRunning && l.gameChannelRunning.channelId === g.channelId && l.gameChannelRunning.gameId === g.gameId,
                             isVerifying: a,
                             isInstalling: i,
                             isUpdating: o,
                             isUninstalling: c,
-                            isUserPriviled: u,
+                            isUserPriviled: d,
                             isPaused: s,
                             hasGamePackage: p,
                             gameStatus: f
                         }
-                    }), [v, y, l.gameChannelRunning, l.availableGames, b, null === (n = d.identity) || void 0 === n ? void 0 : n.privileged]),
-                    D = i.actions.isOffline(), {
-                        verifyButtonLabel: R,
-                        installButtonLabel: T,
-                        uninstallButtonLabel: j
+                    }), [g, v, l.gameChannelRunning, l.availableGames, y, null === (n = u.identity) || void 0 === n ? void 0 : n.privileged]),
+                    A = i.actions.isOffline(), {
+                        verifyButtonLabel: D,
+                        installButtonLabel: R,
+                        uninstallButtonLabel: T
                     } = (0, ke.useMemo)((() => ({
-                        verifyButtonLabel: O && (null === y || void 0 === y ? void 0 : y.status) === dw.InstallationStatus.PAUSED ? r("settings_games_game_files_process_paused") : r(O ? "settings_games_game_files_verifying_files" : "settings_games_game_files_verify_files"),
-                        installButtonLabel: w && (null === y || void 0 === y ? void 0 : y.status) === dw.InstallationStatus.PAUSED ? r("settings_games_game_files_process_paused") : r(w ? "settings_games_game_files_installing_files" : "settings_games_game_files_install_files"),
-                        uninstallButtonLabel: r(E ? "settings_games_game_files_uninstalling_files" : "settings_games_game_files_uninstall_files")
-                    })), [null === y || void 0 === y ? void 0 : y.status, w, E, O, r]),
-                    L = (0, ke.useMemo)((() => O && P || w && P ? $w : O || w ? sD : void 0), [P, O, w]),
-                    N = (0, ke.useCallback)((async e => {
-                        y && y.type === e ? i.actions.setDownloadPopoverOpened(!0) : e !== dw.InstallationType.INSTALL ? AP.addInstallationToQueue(v, e) : await o.actions.showGameStartInstallationDialog(e, v, !0)
-                    }), [i.actions, v, y, o.actions]), M = (0, ke.useCallback)((async () => {
+                        verifyButtonLabel: S && (null === v || void 0 === v ? void 0 : v.status) === dw.InstallationStatus.PAUSED ? r("settings_games_game_files_process_paused") : r(S ? "settings_games_game_files_verifying_files" : "settings_games_game_files_verify_files"),
+                        installButtonLabel: x && (null === v || void 0 === v ? void 0 : v.status) === dw.InstallationStatus.PAUSED ? r("settings_games_game_files_process_paused") : r(x ? "settings_games_game_files_installing_files" : "settings_games_game_files_install_files"),
+                        uninstallButtonLabel: r(k ? "settings_games_game_files_uninstalling_files" : "settings_games_game_files_uninstall_files")
+                    })), [null === v || void 0 === v ? void 0 : v.status, x, k, S, r]),
+                    j = (0, ke.useMemo)((() => S && O || x && O ? Qw : S || x ? BD : void 0), [O, S, x]),
+                    L = (0, ke.useCallback)((async e => {
+                        v && v.type === e ? i.actions.setDownloadPopoverOpened(!0) : e !== dw.InstallationType.INSTALL ? aC.addInstallationToQueue(g, e) : await o.actions.showGameStartInstallationDialog(e, g, !0)
+                    }), [i.actions, g, v, o.actions]), N = (0, ke.useCallback)((async () => {
                         const e = await o.actions.showDeleteLocalSettingsDialog();
                         if (e.resolved && Object.values(e.results).length > 0) {
                             const n = {
-                                directory: `${f}${t.item.installDir}\\${t.item.channelId}`,
+                                directory: `${p}${t.item.installDir}\\${t.item.channelId}`,
                                 args: Object.keys(e.results)
                             };
                             Sw().launcherSupport.deleteLocalSettings(n)
                         }
-                    }), [o.actions, t.item, f]), F = (0, ke.useCallback)((() => AP.uninstallChannel(t.item)), [t.item]),
-                    z = (0, ke.useCallback)((async e => {
+                    }), [o.actions, t.item, p]), M = (0, ke.useCallback)((() => aC.uninstallChannel(t.item)), [t.item]),
+                    F = (0, ke.useCallback)((async e => {
                         if ("manage-library" === e) a("/settings/storage"); else {
-                            await c.actions.setChannelLibraryFolder(v, e) && g(e)
+                            await UP.setChannelLibraryFolder(g, e) && m(e)
                         }
-                    }), [a, c, v]),
-                    V = (0, ke.useMemo)((() => l.installedGames.some((e => e.id === v.gameId && e.channels.some((e => e.id === v.channelId))))), [l.installedGames, v.gameId, v.channelId]);
+                    }), [a, g]),
+                    z = (0, ke.useMemo)((() => l.installedGames.some((e => e.id === g.gameId && e.channels.some((e => e.id === g.channelId))))), [l.installedGames, g.gameId, g.channelId]);
                 return (0, hw.jsxs)(vu, {
-                    prefix: (0, hw.jsx)("img", {src: _(v), alt: "", width: "32"}),
+                    prefix: (0, hw.jsx)("img", {src: b(g), alt: "", width: "32"}),
                     open: e,
-                    title: `${v.gameName} - ${v.channelId}`,
+                    title: `${g.gameName} - ${g.channelId}`,
                     children: [(0, hw.jsx)(qp, {
                         title: r("settings_games_game_location_title"),
                         description: r("settings_games_game_location_description"),
@@ -46649,11 +47415,11 @@
                             }), (0, hw.jsx)(Yg, {
                                 label: "Game Library",
                                 children: (0, hw.jsxs)(ax, {
-                                    onChange: ({target: {value: e}}) => z(e),
-                                    disabled: C || w || O || E,
-                                    defaultValue: f,
-                                    value: m,
-                                    children: [h.map(((e, t) => (0, hw.jsx)(rx, {
+                                    onChange: ({target: {value: e}}) => F(e),
+                                    disabled: P || x || S || k,
+                                    defaultValue: p,
+                                    value: f,
+                                    children: [d.map(((e, t) => (0, hw.jsx)(rx, {
                                         label: e,
                                         value: e
                                     }, t))), (0, hw.jsx)(rx, {
@@ -46661,7 +47427,7 @@
                                         children: (0, hw.jsxs)(bu, {
                                             gap: "100",
                                             align: "center",
-                                            children: [(0, hw.jsx)(au, {source: rk}), (0, hw.jsx)(iu, {
+                                            children: [(0, hw.jsx)(au, {source: dk}), (0, hw.jsx)(iu, {
                                                 variant: "button-s",
                                                 transform: "uppercase",
                                                 truncate: !0,
@@ -46682,46 +47448,46 @@
                                     children: [(0, hw.jsxs)(zp, {
                                         type: "neutral",
                                         icon: !1,
-                                        children: [(0, hw.jsx)("strong", {children: f}), t.item.installDir, "\\", v.channelId]
+                                        children: [(0, hw.jsx)("strong", {children: p}), t.item.installDir, "\\", g.channelId]
                                     }), (0, hw.jsx)(uu, {
-                                        icon: Zw,
+                                        icon: rk,
                                         variant: "plain",
                                         size: "small",
-                                        onClick: () => window.launcherAPI.settings.openFileSystemDialog(V ? `${f}${t.item.installDir}\\${v.channelId}` : `${f}`)
+                                        onClick: () => window.launcherAPI.settings.openFileSystemDialog(z ? `${p}${t.item.installDir}\\${g.channelId}` : `${p}`)
                                     })]
                                 })]
                             })]
                         })
-                    }), (0, hw.jsx)(lf, {spacing: "250"}), dw.GameStatus.AVAILABLE === A && x && (0, hw.jsxs)(hw.Fragment, {
+                    }), (0, hw.jsx)(lf, {spacing: "250"}), dw.GameStatus.AVAILABLE === I && _ && (0, hw.jsxs)(hw.Fragment, {
                         children: [(0, hw.jsx)(qp, {
                             title: r("settings_games_game_files_title"),
                             description: r("settings_games_game_files_description"),
                             children: (0, hw.jsxs)(bu, {
                                 vertical: !1,
                                 gap: "100",
-                                children: [I && A === dw.GameStatus.AVAILABLE ? (0, hw.jsxs)(hw.Fragment, {
+                                children: [C && I === dw.GameStatus.AVAILABLE ? (0, hw.jsxs)(hw.Fragment, {
                                     children: [(0, hw.jsx)(uu, {
-                                        onClick: () => N(dw.InstallationType.VERIFY),
-                                        disabled: C || w || k || E || D,
-                                        loading: O,
-                                        loadingIcon: L,
+                                        onClick: () => L(dw.InstallationType.VERIFY),
+                                        disabled: P || x || w || k || A,
+                                        loading: S,
+                                        loadingIcon: j,
+                                        children: D
+                                    }), !_ && (0, hw.jsx)(uu, {
+                                        onClick: () => L(dw.InstallationType.INSTALL),
+                                        disabled: P || S || A,
+                                        loading: x,
+                                        loadingIcon: j,
+                                        icon: x ? void 0 : ek,
                                         children: R
-                                    }), !x && (0, hw.jsx)(uu, {
-                                        onClick: () => N(dw.InstallationType.INSTALL),
-                                        disabled: C || O || D,
-                                        loading: w,
-                                        loadingIcon: L,
-                                        icon: w ? void 0 : qw,
-                                        children: T
                                     })]
-                                }) : null, x || x && !I ? (0, hw.jsx)(uu, {
+                                }) : null, _ || _ && !C ? (0, hw.jsx)(uu, {
                                     variant: "plain",
                                     color: "negative",
-                                    onClick: F,
-                                    disabled: C || O || k,
-                                    loading: E,
-                                    loadingIcon: L,
-                                    children: j
+                                    onClick: M,
+                                    disabled: P || S || w,
+                                    loading: k,
+                                    loadingIcon: j,
+                                    children: T
                                 }) : null]
                             })
                         }), (0, hw.jsx)(lf, {spacing: "250"})]
@@ -46731,23 +47497,23 @@
                         children: (0, hw.jsx)(bu, {
                             vertical: !1,
                             gap: "100",
-                            children: (0, hw.jsx)(uu, {onClick: () => M(), children: r("settings_games_local_button")})
+                            children: (0, hw.jsx)(uu, {onClick: () => N(), children: r("settings_games_local_button")})
                         })
-                    }), S ? (0, hw.jsx)(oD, {gameSettings: t.item}) : null]
-                }, `${v.gameName}${v.channelId}`)
-            }, cD = () => {
-                const {t: e} = yt("settingsPage"), t = kC((e => e.settings)), {gameId: n, channelId: r} = function () {
-                    let {matches: e} = ke.useContext(LC), t = e[e.length - 1];
+                    }), E ? (0, hw.jsx)(GD, {gameSettings: t.item}) : null]
+                }, `${g.gameName}${g.channelId}`)
+            }, WD = () => {
+                const {t: e} = yt("settingsPage"), t = nI((e => e.game)), {gameId: n, channelId: r} = function () {
+                    let {matches: e} = ke.useContext(fI), t = e[e.length - 1];
                     return t ? t.params : {}
                 }(), {items: a} = (0, ke.useMemo)((() => {
-                    const e = t.gamesSettings.find((e => e.gameId === n && e.channelId === r));
+                    const e = t.settings.find((e => e.gameId === n && e.channelId === r));
                     return {
-                        items: t.gamesSettings.map((t => (0, hw.jsx)(lD, {
+                        items: t.settings.map((t => (0, hw.jsx)($D, {
                             item: t,
                             open: t === e
                         }, `${t.gameName}${t.channelId}`)))
                     }
-                }), [r, n, t.gamesSettings]);
+                }), [r, n, t.settings]);
                 return (0, hw.jsx)(ix, {
                     title: e("settings_games_title"),
                     children: (0, hw.jsx)(yu, {
@@ -46757,53 +47523,53 @@
                         className: 1 === a.length ? "sol-u-margin-bs-250" : ""
                     })
                 })
-            }, uD = () => {
+            }, HD = () => {
                 const {t: e} = yt("settingsPage"), {
                         defaultLibraryFolder: t,
                         additionalLibraries: n
-                    } = kC((e => e.storage)), [r, a] = (0, ke.useState)(!1), [i, o] = (0, ke.useState)(null), [s, l] = (0, ke.useState)(null),
-                    c = kC((e => e.installer)), u = void 0 !== kC((e => e.library)).gameChannelRunning;
-                jA((() => {
+                    } = nI((e => e.storage)), [r, a] = (0, ke.useState)(!1), [i, o] = (0, ke.useState)(null), [s, l] = (0, ke.useState)(null),
+                    c = nI((e => e.installer)), u = void 0 !== nI((e => e.library)).gameChannelRunning;
+                mD((() => {
                     o(null), l(null), a(!1)
                 }), Aw, r);
                 const d = (0, ke.useCallback)((async () => {
                     const n = t, r = await window.launcherAPI.settings.openLibraryFolderDialog(n);
                     if (r.length > 0) {
                         const t = Pw(r[0]);
-                        await hC.saveDefaultLibraryFolder(t, n) && (o({
+                        await WC.saveDefaultLibraryFolder(t, n) && (o({
                             id: "library",
                             message: e("settings_games_installation_library_folder_success")
                         }), a(!0))
                     }
-                }), [hC, t]), h = (0, ke.useCallback)((async () => {
+                }), [WC, t]), h = (0, ke.useCallback)((async () => {
                     const r = t, i = await window.launcherAPI.settings.openLibraryFolderDialog(r), o = n.length;
                     if (i.length > 0) {
                         const t = Pw(i[0]);
-                        await hC.saveAdditionalLibraryFolders(t) && (l({
+                        await WC.saveAdditionalLibraryFolders(t) && (l({
                             id: `additionalLibrary${o}`,
                             message: e("settings_games_installation_library_folder_success")
                         }), a(!0))
                     }
-                }), [hC, t, n]), p = (0, ke.useCallback)((async t => {
+                }), [WC, t, n]), p = (0, ke.useCallback)((async t => {
                     const r = n[t], i = await window.launcherAPI.settings.openLibraryFolderDialog(r);
                     if (i.length > 0) {
                         const n = Pw(i[0]);
-                        await hC.replaceAdditionalLibraryFolder(n, r, t) && (l({
+                        await WC.replaceAdditionalLibraryFolder(n, r, t) && (l({
                             id: `additionalLibrary${t}`,
                             message: e("settings_games_installation_library_folder_success")
                         }), a(!0))
                     }
-                }), [hC, n]), f = (0, ke.useCallback)((async (e, t) => {
-                    hC.deleteAdditionalLibrary(e, t)
-                }), [hC]), m = (0, ke.useCallback)((async (t, n) => {
-                    await hC.replaceDefaultLibrary(t, n) && (o({
+                }), [WC, n]), f = (0, ke.useCallback)((async (e, t) => {
+                    WC.deleteAdditionalLibrary(e, t)
+                }), [WC]), m = (0, ke.useCallback)((async (t, n) => {
+                    await WC.replaceDefaultLibrary(t, n) && (o({
                         id: "library",
                         message: e("settings_games_installation_library_folder_success")
                     }), l({
                         id: `additionalLibrary${n}`,
                         message: e("settings_games_installation_library_folder_success")
                     }), a(!0))
-                }), [hC]);
+                }), [WC]);
                 return (0, hw.jsxs)(ix, {
                     title: e("settings_storage_title"),
                     children: [(0, hw.jsx)(qp, {
@@ -46841,7 +47607,7 @@
                                     children: e("settings_games_installation_library_folder_change")
                                 }), (0, hw.jsxs)(Y_, {
                                     trigger: (0, hw.jsx)(uu, {
-                                        icon: Yw,
+                                        icon: nk,
                                         size: "medium",
                                         variant: "plain"
                                     }),
@@ -46860,69 +47626,66 @@
                                 })]
                             })
                         }, a))), (0, hw.jsx)(uu, {
-                            icon: Mw,
+                            icon: Bw,
                             onClick: () => h(),
                             type: "button",
                             children: e("settings_storage_add_additional_libraries")
                         })]
                     })]
                 })
-            }, dD = ({children: e}) => {
-                const t = kC((e => e.application)), n = kC((e => e.settings)),
-                    r = kC((e => e.window)), {t: a} = yt("discover"), i = dP.isLoggedIn(), o = t.isDiscoverStarted,
-                    s = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
+            }, qD = ({children: e}) => {
+                const t = nI((e => e.window)), n = nI((e => e.discovery)), {t: r} = yt("discover"), a = FP.isLoggedIn(),
+                    i = n.isStarted,
+                    o = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
                 return (0, ke.useEffect)((() => {
-                    if (!n.appSettings.isDiscoverDone && i) {
+                    if (!n.isDone && a) {
                         const e = setTimeout((() => {
-                            r.actions.openDiscover()
-                        }), s);
+                            t.actions.openDiscover()
+                        }), o);
                         return () => clearTimeout(e)
                     }
-                }), [i]), (0, hw.jsx)(hw.Fragment, {
+                }), [a]), (0, hw.jsx)(hw.Fragment, {
                     children: (0, hw.jsx)(nw, {
-                        open: o,
+                        open: i,
                         onOpenChange: e => {
-                            e || (t.actions.setDiscoverStarted(!1), n.actions.saveApplicationSettings({
-                                name: "isDiscoverDone",
-                                value: !0
-                            }))
+                            e || kC.finish()
                         },
-                        doneLabel: a("step_done_label"),
+                        doneLabel: r("step_done_label"),
                         steps: [{
                             selector: '[data-sol-discover="menu"]',
-                            title: a("step_menu_title"),
-                            description: a("step_menu_description")
+                            title: r("step_menu_title"),
+                            description: r("step_menu_description")
                         }, {
                             selector: '[data-sol-discover="status"]',
-                            title: a("step_status_title"),
-                            description: a("step_status_description"),
+                            title: r("step_status_title"),
+                            description: r("step_status_description"),
                             placement: "bottom-end"
                         }, {
                             selector: '[data-sol-discover="download"]',
-                            title: a("step_download_title"),
-                            description: a("step_download_description"),
+                            title: r("step_download_title"),
+                            description: r("step_download_description"),
                             placement: "bottom-end"
                         }, {
                             selector: '[data-sol-discover="user-profile"]',
-                            title: a("step_user-profile_title"),
-                            description: a("step_user-profile_description"),
+                            title: r("step_user-profile_title"),
+                            description: r("step_user-profile_description"),
                             placement: "bottom-end"
-                        }, {title: a("step_last_title"), description: a("step_last_description")}],
+                        }, {title: r("step_last_title"), description: r("step_last_description")}],
                         children: e
                     })
                 })
             },
-            hD = JSON.parse('{"v":"5.9.0","fr":29.9700012207031,"ip":0,"op":180.00000733155,"w":16,"h":16,"nm":"wifi-off","ddd":0,"assets":[{"id":"comp_0","nm":"wifi-off_export","fr":29.9700012207031,"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Bar","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8.16,6.619,0],"ix":2,"l":2},"a":{"a":0,"k":[4.162,5.114,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[-3.412,-4.365],[3.412,4.365]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[4.162,5.114],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":140,"s":[0]},{"t":150.000006109625,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":18,"s":[0]},{"t":28.0000011404634,"s":[100]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":180.00000733155,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":0,"nm":"Waves 6","refId":"comp_1","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8,8,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"hasMask":true,"masksProperties":[{"inv":false,"mode":"a","pt":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[5.938,0.188],[-5.5,2.875],[2.593,9.624],[4.941,5.621],[2.142,2.005],[3.63,1.404],[12.72,12.599],[16.149,12.425],[18.625,6.812],[21.938,0.188]],"c":true},"ix":1},"o":{"a":0,"k":100,"ix":3},"x":{"a":0,"k":0,"ix":4},"nm":"Mask 1"}],"w":16,"h":16,"ip":20.0000008146167,"op":142.000005783779,"st":0,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"Waves 9","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-2.4,0],[-1.681,-1.372]],"o":[[1.7,-1.436],[2.339,0],[0,0]],"v":[[-6.232,1.151],[0.064,-1.151],[6.232,1.044]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[9.982,4.901],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.47],"y":[1]},"o":{"x":[0.53],"y":[0]},"t":149,"s":[0]},{"t":154.000006272549,"s":[100]}],"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":142.000005783779,"op":229.000009327361,"st":142.000005783779,"bm":0},{"ddd":0,"ind":4,"ty":4,"nm":"Waves 3","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-2.4,0],[-1.681,-1.372]],"o":[[1.7,-1.436],[2.339,0],[0,0]],"v":[[-6.232,1.151],[0.064,-1.151],[6.232,1.044]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[9.982,4.901],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":12,"s":[0]},{"t":17.0000006924242,"s":[100]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":20.0000008146167,"st":0,"bm":0},{"ddd":0,"ind":5,"ty":0,"nm":"Waves 5","refId":"comp_2","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8,8,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"hasMask":true,"masksProperties":[{"inv":false,"mode":"a","pt":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[1.188,5.5],[2.438,10.875],[6.938,8.281],[4.75,4.906],[6.188,4.25],[13.938,16],[14,11.375],[15.812,6.125],[16,0]],"c":true},"ix":1},"o":{"a":0,"k":100,"ix":3},"x":{"a":0,"k":0,"ix":4},"nm":"Mask 1"}],"w":16,"h":16,"ip":22.0000008960784,"op":144.00000586524,"st":0,"bm":0},{"ddd":0,"ind":6,"ty":4,"nm":"Waves 8","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-1.599,0],[-1.144,-0.948]],"o":[[1.143,-0.945],[1.602,0],[0,0]],"v":[[-4.212,0.755],[-0.003,-0.758],[4.212,0.758]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.049,7.659],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.47],"y":[1]},"o":{"x":[0.53],"y":[0]},"t":152,"s":[0]},{"t":157.000006394741,"s":[100]}],"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":1,"ix":3,"nm":"Trim Paths 2","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":144.00000586524,"op":229.000009327361,"st":144.00000586524,"bm":0},{"ddd":0,"ind":7,"ty":4,"nm":"Waves 2","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-1.599,0],[-1.144,-0.948]],"o":[[1.143,-0.945],[1.602,0],[0,0]],"v":[[-4.212,0.755],[-0.003,-0.758],[4.212,0.758]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.049,7.659],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":8,"s":[0]},{"t":13.0000005295009,"s":[100]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":22.0000008960784,"st":0,"bm":0},{"ddd":0,"ind":8,"ty":0,"nm":"Waves 4","refId":"comp_3","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8,8,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"hasMask":true,"masksProperties":[{"inv":false,"mode":"a","pt":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[2.562,9.125],[4.938,12.5],[9.998,11.721],[6.481,7.588],[7.843,7.154],[14,14.75],[16,0]],"c":true},"ix":1},"o":{"a":0,"k":100,"ix":3},"x":{"a":0,"k":0,"ix":4},"nm":"Mask 1"}],"w":16,"h":16,"ip":24.00000097754,"op":146.000005946702,"st":0,"bm":0},{"ddd":0,"ind":9,"ty":4,"nm":"Waves 7","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-0.804,0],[-0.577,-0.439]],"o":[[0.585,-0.463],[0.78,0],[0,0]],"v":[[-2.102,0.37],[0.026,-0.37],[2.102,0.33]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.021,10.452],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.47],"y":[1]},"o":{"x":[0.53],"y":[0]},"t":156,"s":[0]},{"t":161.000006557664,"s":[100]}],"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":1,"ix":3,"nm":"Trim Paths 2","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":146.000005946702,"op":229.000009327361,"st":146.000005946702,"bm":0},{"ddd":0,"ind":10,"ty":4,"nm":"Waves","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-0.804,0],[-0.577,-0.439]],"o":[[0.585,-0.463],[0.78,0],[0,0]],"v":[[-2.102,0.37],[0.026,-0.37],[2.102,0.33]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.021,10.452],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":4,"s":[0]},{"t":9.00000036657752,"s":[100]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":24.00000097754,"st":0,"bm":0},{"ddd":0,"ind":11,"ty":4,"nm":"Circle","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,12.513,0],"ix":2,"l":2},"a":{"a":0,"k":[1.237,1.237,0],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.667,0.667,0.667],"y":[1,1,1]},"o":{"x":[0.333,0.333,0.333],"y":[0,0,0]},"t":0,"s":[0,0,100]},{"i":{"x":[0.49,0.49,0.49],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0,0,0]},"t":5,"s":[100,100,100]},{"i":{"x":[0.49,0.49,0.49],"y":[1,1,1]},"o":{"x":[0.51,0.51,0.51],"y":[0,0,0]},"t":160,"s":[100,100,100]},{"t":166.000006761319,"s":[0,0,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,-0.545],[0.545,0],[0,0.545],[-0.545,0]],"o":[[0,0.545],[-0.545,0],[0,-0.545],[0.545,0]],"v":[[0.987,0],[0,0.987],[-0.987,0],[0,-0.987]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[1.237,1.237],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":180.00000733155,"st":0,"bm":0}]},{"id":"comp_1","nm":"Waves 6","fr":29.9700012207031,"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Waves 6","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-2.4,0],[-1.681,-1.372]],"o":[[1.7,-1.436],[2.339,0],[0,0]],"v":[[-6.232,1.151],[0.064,-1.151],[6.232,1.044]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[9.982,4.901],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":-1.00000004073083,"op":181.000007372281,"st":0,"bm":0}]},{"id":"comp_2","nm":"Waves 5","fr":29.9700012207031,"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Waves 5","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-1.599,0],[-1.144,-0.948]],"o":[[1.143,-0.945],[1.602,0],[0,0]],"v":[[-4.212,0.755],[-0.003,-0.758],[4.212,0.758]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.049,7.659],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":180.00000733155,"st":0,"bm":0}]},{"id":"comp_3","nm":"Waves 4","fr":29.9700012207031,"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Waves 4","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-0.804,0],[-0.577,-0.439]],"o":[[0.585,-0.463],[0.78,0],[0,0]],"v":[[-2.102,0.37],[0.026,-0.37],[2.102,0.33]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.021,10.452],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":-3.00000012219251,"op":181.000007372281,"st":0,"bm":0}]}],"layers":[{"ddd":0,"ind":1,"ty":0,"nm":"wifi-off_content","refId":"comp_0","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":60,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":62,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":64,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":66,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":68,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":70,"s":[10]},{"t":72.0000029326201,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8,8,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"w":16,"h":16,"ip":0,"op":180.00000733155,"st":0,"bm":0}],"markers":[]}'),
-            pD = () => {
+            KD = JSON.parse('{"v":"5.9.0","fr":29.9700012207031,"ip":0,"op":180.00000733155,"w":16,"h":16,"nm":"wifi-off","ddd":0,"assets":[{"id":"comp_0","nm":"wifi-off_export","fr":29.9700012207031,"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Bar","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8.16,6.619,0],"ix":2,"l":2},"a":{"a":0,"k":[4.162,5.114,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[-3.412,-4.365],[3.412,4.365]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[4.162,5.114],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":140,"s":[0]},{"t":150.000006109625,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":18,"s":[0]},{"t":28.0000011404634,"s":[100]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":180.00000733155,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":0,"nm":"Waves 6","refId":"comp_1","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8,8,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"hasMask":true,"masksProperties":[{"inv":false,"mode":"a","pt":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[5.938,0.188],[-5.5,2.875],[2.593,9.624],[4.941,5.621],[2.142,2.005],[3.63,1.404],[12.72,12.599],[16.149,12.425],[18.625,6.812],[21.938,0.188]],"c":true},"ix":1},"o":{"a":0,"k":100,"ix":3},"x":{"a":0,"k":0,"ix":4},"nm":"Mask 1"}],"w":16,"h":16,"ip":20.0000008146167,"op":142.000005783779,"st":0,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"Waves 9","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-2.4,0],[-1.681,-1.372]],"o":[[1.7,-1.436],[2.339,0],[0,0]],"v":[[-6.232,1.151],[0.064,-1.151],[6.232,1.044]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[9.982,4.901],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.47],"y":[1]},"o":{"x":[0.53],"y":[0]},"t":149,"s":[0]},{"t":154.000006272549,"s":[100]}],"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":142.000005783779,"op":229.000009327361,"st":142.000005783779,"bm":0},{"ddd":0,"ind":4,"ty":4,"nm":"Waves 3","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-2.4,0],[-1.681,-1.372]],"o":[[1.7,-1.436],[2.339,0],[0,0]],"v":[[-6.232,1.151],[0.064,-1.151],[6.232,1.044]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[9.982,4.901],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":12,"s":[0]},{"t":17.0000006924242,"s":[100]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":20.0000008146167,"st":0,"bm":0},{"ddd":0,"ind":5,"ty":0,"nm":"Waves 5","refId":"comp_2","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8,8,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"hasMask":true,"masksProperties":[{"inv":false,"mode":"a","pt":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[1.188,5.5],[2.438,10.875],[6.938,8.281],[4.75,4.906],[6.188,4.25],[13.938,16],[14,11.375],[15.812,6.125],[16,0]],"c":true},"ix":1},"o":{"a":0,"k":100,"ix":3},"x":{"a":0,"k":0,"ix":4},"nm":"Mask 1"}],"w":16,"h":16,"ip":22.0000008960784,"op":144.00000586524,"st":0,"bm":0},{"ddd":0,"ind":6,"ty":4,"nm":"Waves 8","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-1.599,0],[-1.144,-0.948]],"o":[[1.143,-0.945],[1.602,0],[0,0]],"v":[[-4.212,0.755],[-0.003,-0.758],[4.212,0.758]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.049,7.659],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.47],"y":[1]},"o":{"x":[0.53],"y":[0]},"t":152,"s":[0]},{"t":157.000006394741,"s":[100]}],"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":1,"ix":3,"nm":"Trim Paths 2","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":144.00000586524,"op":229.000009327361,"st":144.00000586524,"bm":0},{"ddd":0,"ind":7,"ty":4,"nm":"Waves 2","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-1.599,0],[-1.144,-0.948]],"o":[[1.143,-0.945],[1.602,0],[0,0]],"v":[[-4.212,0.755],[-0.003,-0.758],[4.212,0.758]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.049,7.659],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":8,"s":[0]},{"t":13.0000005295009,"s":[100]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":22.0000008960784,"st":0,"bm":0},{"ddd":0,"ind":8,"ty":0,"nm":"Waves 4","refId":"comp_3","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8,8,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"hasMask":true,"masksProperties":[{"inv":false,"mode":"a","pt":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[2.562,9.125],[4.938,12.5],[9.998,11.721],[6.481,7.588],[7.843,7.154],[14,14.75],[16,0]],"c":true},"ix":1},"o":{"a":0,"k":100,"ix":3},"x":{"a":0,"k":0,"ix":4},"nm":"Mask 1"}],"w":16,"h":16,"ip":24.00000097754,"op":146.000005946702,"st":0,"bm":0},{"ddd":0,"ind":9,"ty":4,"nm":"Waves 7","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-0.804,0],[-0.577,-0.439]],"o":[[0.585,-0.463],[0.78,0],[0,0]],"v":[[-2.102,0.37],[0.026,-0.37],[2.102,0.33]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.021,10.452],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.47],"y":[1]},"o":{"x":[0.53],"y":[0]},"t":156,"s":[0]},{"t":161.000006557664,"s":[100]}],"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":1,"ix":3,"nm":"Trim Paths 2","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":146.000005946702,"op":229.000009327361,"st":146.000005946702,"bm":0},{"ddd":0,"ind":10,"ty":4,"nm":"Waves","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-0.804,0],[-0.577,-0.439]],"o":[[0.585,-0.463],[0.78,0],[0,0]],"v":[[-2.102,0.37],[0.026,-0.37],[2.102,0.33]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.021,10.452],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":4,"s":[0]},{"t":9.00000036657752,"s":[100]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":24.00000097754,"st":0,"bm":0},{"ddd":0,"ind":11,"ty":4,"nm":"Circle","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,12.513,0],"ix":2,"l":2},"a":{"a":0,"k":[1.237,1.237,0],"ix":1,"l":2},"s":{"a":1,"k":[{"i":{"x":[0.667,0.667,0.667],"y":[1,1,1]},"o":{"x":[0.333,0.333,0.333],"y":[0,0,0]},"t":0,"s":[0,0,100]},{"i":{"x":[0.49,0.49,0.49],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0,0,0]},"t":5,"s":[100,100,100]},{"i":{"x":[0.49,0.49,0.49],"y":[1,1,1]},"o":{"x":[0.51,0.51,0.51],"y":[0,0,0]},"t":160,"s":[100,100,100]},{"t":166.000006761319,"s":[0,0,100]}],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,-0.545],[0.545,0],[0,0.545],[-0.545,0]],"o":[[0,0.545],[-0.545,0],[0,-0.545],[0.545,0]],"v":[[0.987,0],[0,0.987],[-0.987,0],[0,-0.987]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[1.237,1.237],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":180.00000733155,"st":0,"bm":0}]},{"id":"comp_1","nm":"Waves 6","fr":29.9700012207031,"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Waves 6","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-2.4,0],[-1.681,-1.372]],"o":[[1.7,-1.436],[2.339,0],[0,0]],"v":[[-6.232,1.151],[0.064,-1.151],[6.232,1.044]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[9.982,4.901],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":-1.00000004073083,"op":181.000007372281,"st":0,"bm":0}]},{"id":"comp_2","nm":"Waves 5","fr":29.9700012207031,"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Waves 5","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-1.599,0],[-1.144,-0.948]],"o":[[1.143,-0.945],[1.602,0],[0,0]],"v":[[-4.212,0.755],[-0.003,-0.758],[4.212,0.758]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.049,7.659],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":180.00000733155,"st":0,"bm":0}]},{"id":"comp_3","nm":"Waves 4","fr":29.9700012207031,"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Waves 4","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.936,6.288,0],"ix":2,"l":2},"a":{"a":0,"k":[9.982,7.286,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-0.804,0],[-0.577,-0.439]],"o":[[0.585,-0.463],[0.78,0],[0,0]],"v":[[-2.102,0.37],[0.026,-0.37],[2.102,0.33]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[10.021,10.452],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":0,"k":100,"ix":2},"o":{"a":0,"k":0,"ix":3},"m":2,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":-3.00000012219251,"op":181.000007372281,"st":0,"bm":0}]}],"layers":[{"ddd":0,"ind":1,"ty":0,"nm":"wifi-off_content","refId":"comp_0","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":60,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":62,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":64,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":66,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":68,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":70,"s":[10]},{"t":72.0000029326201,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8,8,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"w":16,"h":16,"ip":0,"op":180.00000733155,"st":0,"bm":0}],"markers":[]}'),
+            YD = () => {
                 const {t: e} = yt("connection"),
-                    t = kC((e => e.application)), {reduceMotion: {unessentialAnimationsDisabled: n}} = $c();
+                    t = nI((e => e.application)), {reduceMotion: {unessentialAnimationsDisabled: n}} = $c();
                 return (0, hw.jsx)(tx, {
                     title: e("connection_title"),
                     offset: "large",
                     placement: "bottom-end",
                     trigger: (0, hw.jsx)(xu, {
                         "data-test-id": "connection",
-                        icon: (0, hw.jsx)(au, {source: n ? ok : hD})
+                        icon: (0, hw.jsx)(au, {source: n ? fk : KD})
                     }),
                     open: t.isConnectionPopoverOpened,
                     onOpenChange: e => {
@@ -46939,10 +47702,10 @@
                     }),
                     children: (0, hw.jsx)(bu, {vertical: !0, gap: "100", children: e("connection_offline_information")})
                 })
-            }, fD = ({labelItem: e}) => {
-                const {t: t} = yt("download"), n = kC((e => e.installer)), r = kC((e => e.application)),
+            }, ZD = ({labelItem: e}) => {
+                const {t: t} = yt("download"), n = nI((e => e.installer)), r = nI((e => e.application)),
                     a = r.connection.mode !== dw.ConnectionMode.ONLINE, [i, o] = (0, ke.useState)(!1),
-                    s = VC(), {reduceMotion: {wipeAnimationsDisabled: l, unessentialAnimationsDisabled: c}} = $c(),
+                    s = bI(), {reduceMotion: {wipeAnimationsDisabled: l, unessentialAnimationsDisabled: c}} = $c(),
                     u = e => {
                         r.actions.setDownloadPopoverOpened(e)
                     };
@@ -46950,12 +47713,12 @@
                     offset: "large",
                     placement: "bottom-end",
                     footer: (0, hw.jsx)(uu, {
-                        size: "small", variant: "plain", icon: nk, onClick: () => (() => {
+                        size: "small", variant: "plain", icon: ck, onClick: () => (() => {
                             const e = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
-                            if (u(!1), l) return void s(`${vR.SETTINGS}/${vR.SETTINGS_DOWNLOAD}`);
+                            if (u(!1), l) return void s(`${rT.SETTINGS}/${rT.SETTINGS_DOWNLOAD}`);
                             r.actions.setAnimatingAppLayoutWipe("full", !0);
                             const t = setTimeout((() => {
-                                s(`${vR.SETTINGS}/${vR.SETTINGS_DOWNLOAD}`)
+                                s(`${rT.SETTINGS}/${rT.SETTINGS_DOWNLOAD}`)
                             }), e / 2);
                             return () => clearTimeout(t)
                         })(), children: t("download_settings")
@@ -46965,7 +47728,7 @@
                         "data-test-id": "download",
                         "data-sol-discover": "download",
                         icon: (0, hw.jsx)(au, {
-                            source: c ? $w : sD,
+                            source: c ? Qw : BD,
                             isPlaying: void 0 !== n.current && !r.isDownloadPopoverOpened && !i
                         }),
                         label: e,
@@ -46983,7 +47746,7 @@
                             children: [(0, hw.jsx)(iu, {
                                 variant: "emphasis-m",
                                 children: t("download_downloads_on_going")
-                            }), (0, hw.jsx)(uf, {...mD({t: t, isOffline: a, installation: n.current})})]
+                            }), (0, hw.jsx)(uf, {...QD({t: t, isOffline: a, installation: n.current})})]
                         }), n.queue.length > 0 && (0, hw.jsxs)(bu, {
                             gap: "100",
                             vertical: !0,
@@ -46992,10 +47755,10 @@
                                 children: t("download_downloads_waiting")
                             }), (0, hw.jsx)(Vg, {
                                 draggable: n.queue.length > 1,
-                                items: n.queue.map((e => mD({t: t, isOffline: a, installation: e}))),
+                                items: n.queue.map((e => QD({t: t, isOffline: a, installation: e}))),
                                 onItemsReordered: e => {
-                                    const t = e.map((e => e.id)), r = vD(n.queue, t);
-                                    AP.updateQueue(r)
+                                    const t = e.map((e => e.id)), r = JD(n.queue, t);
+                                    aC.updateQueue(r)
                                 }
                             })]
                         }), n.finished.length > 0 && (0, hw.jsxs)(bu, {
@@ -47004,30 +47767,29 @@
                             children: [(0, hw.jsx)(iu, {
                                 variant: "emphasis-m",
                                 children: t("download_downloads_finished")
-                            }), (0, hw.jsx)(Vg, {items: n.finished.map((e => mD({t: t, isOffline: a, installation: e})))})]
+                            }), (0, hw.jsx)(Vg, {items: n.finished.map((e => QD({t: t, isOffline: a, installation: e})))})]
                         }), void 0 === n.current && 0 === n.queue.length && 0 === n.finished.length && (0, hw.jsx)(iu, {children: t("download_empty")})]
                     })
                 })
-            }, mD = ({t: e, isOffline: t, installation: n}) => {
+            }, QD = ({t: e, isOffline: t, installation: n}) => {
                 var r, a;
                 return {
-                    id: gD(n),
+                    id: XD(n),
                     title: `${n.game.gameName} - ${n.release ? n.release.versionLabel + " - " : ""}${n.game.channelId}`,
                     subtitle: e(`download_type_${n.type}`),
                     state: n.type === dw.InstallationType.VERIFY && n.status === dw.InstallationStatus.IN_PROGRESS ? "verifying" : n.status,
                     actions: (n => {
                         if (n.status === dw.InstallationStatus.WAITING || n.status === dw.InstallationStatus.COMPLETED || n.status === dw.InstallationStatus.ERROR) return [{
-                            icon: Bw,
+                            icon: Yw,
                             label: e("download_remove"),
                             tooltip: e("download_remove"),
-                            onClick: () => AP.cancelInstallation(n.game)
+                            onClick: () => aC.cancelInstallation(n.game)
                         }];
-                        const r = n.progress && uk(n.progress), a = n.progress && (e => {
+                        const r = n.progress && _k(n.progress), a = n.progress && (e => {
                             switch (e.phase) {
                                 case dw.InstallerPhases.InitialDownloadProgress:
                                 case dw.InstallerPhases.PatcherUpdateLooseFileProgress:
                                 case dw.InstallerPhases.PatcherUpdateP4kProgress:
-                                case dw.InstallerPhases.PatcherVerificationP4kProgress:
                                     return !0;
                                 default:
                                     return !1
@@ -47035,16 +47797,16 @@
                         })(n.progress), i = [];
                         return i.push({
                             disabled: n.status === dw.InstallationStatus.CANCELLING || t || !r,
-                            icon: n.status === dw.InstallationStatus.PAUSED ? Xw : Qw,
+                            icon: n.status === dw.InstallationStatus.PAUSED ? ik : ak,
                             label: n.status === dw.InstallationStatus.PAUSED ? e("download_resume") : e("download_pause"),
                             tooltip: n.status === dw.InstallationStatus.PAUSED ? e("download_resume") : e("download_pause"),
-                            onClick: n.status === dw.InstallationStatus.PAUSED ? () => AP.resumeInstallation(n.game) : () => AP.pauseInstallation(n.game)
+                            onClick: n.status === dw.InstallationStatus.PAUSED ? () => aC.resumeInstallation(n.game) : () => aC.pauseInstallation(n.game)
                         }), i.push({
                             disabled: n.status === dw.InstallationStatus.CANCELLING || !a,
-                            icon: Gw,
+                            icon: Kw,
                             label: e("download_cancel"),
                             tooltip: e("download_cancel"),
-                            onClick: () => AP.cancelInstallation(n.game)
+                            onClick: () => aC.cancelInstallation(n.game)
                         }), i
                     })(n),
                     progress: n.status === dw.InstallationStatus.IN_PROGRESS && null !== (r = n.progress) && void 0 !== r && r.showProgress ? null === (a = n.progress) || void 0 === a ? void 0 : a.percentage : void 0,
@@ -47076,21 +47838,21 @@
                         return t.progress.speed && !dw.InstallerVerificationPhases.includes(t.progress.phase) && o.push({
                             label: e("download_speed"),
                             value: `${t.progress.speed}/s`
-                        }, {label: e("download_left"), value: ck()(s)}), o.push({
+                        }, {label: e("download_left"), value: bk()(s)}), o.push({
                             label: e("download_files_left"),
                             value: Math.max((null !== (a = t.progress.filesTotal) && void 0 !== a ? a : 0) - (null !== (i = t.progress.filesDone) && void 0 !== i ? i : 0), 0)
                         }), o
                     })(n)
                 }
-            }, gD = e => `${e.game.gameId}-${e.game.channelId}`, vD = (e, t) => {
+            }, XD = e => `${e.game.gameId}-${e.game.channelId}`, JD = (e, t) => {
                 const n = new Map;
                 return t.forEach(((e, t) => {
                     n.set(e, t)
                 })), [...e].sort(((e, t) => {
-                    const r = gD(e), a = gD(t), i = n.get(r), o = n.get(a);
+                    const r = XD(e), a = XD(t), i = n.get(r), o = n.get(a);
                     return void 0 === i ? 1 : void 0 === o ? -1 : i - o
                 }))
-            }, yD = ({title: e, status: t, label: n}) => (0, hw.jsxs)(bu, {
+            }, eR = ({title: e, status: t, label: n}) => (0, hw.jsxs)(bu, {
                 as: "dl",
                 align: "center",
                 gap: "100",
@@ -47102,16 +47864,16 @@
                     children: e
                 }), (0, hw.jsx)(tv, {as: "dd", status: Rw(t), children: null !== n && void 0 !== n ? n : "-"})]
             }),
-            bD = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"icon_status_animated","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"i outlines - Orion style","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":50,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":52.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":54.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":56.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":58.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":60.01,"s":[10]},{"t":62.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[1,4,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-0.414,0],[0,0.414],[0,0],[0.414,0],[0,-0.414],[0,0]],"o":[[0.414,0],[0,0],[0,-0.414],[-0.414,0],[0,0],[0,0.414]],"v":[[0,2.625],[0.75,1.875],[0.75,-1.875],[0,-2.625],[-0.75,-1.875],[-0.75,1.875]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[1,5.125],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0.414],[-0.414,0],[0,-0.414],[0.414,0]],"o":[[0,-0.414],[0.414,0],[0,0.414],[-0.414,0]],"v":[[-0.75,0],[0,-0.75],[0.75,0],[0,0.75]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[1,1],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":6870.87087087087,"st":0,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"Cercle Outlines 2","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":50.021,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":52.022,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":54.024,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":56.026,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":58.028,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":60.03,"s":[10]},{"t":62.0322265625,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8.86,8.86,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[3.512,0],[0,-3.513],[-3.513,0],[0,3.512]],"o":[[-3.513,0],[0,3.512],[3.512,0],[0,-3.513]],"v":[[0,-6.36],[-6.36,0],[0,6.36],[6.36,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[8.86,8.86],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.985],"y":[2.857]},"o":{"x":[0.159],"y":[0]},"t":30,"s":[100]},{"i":{"x":[0.735],"y":[3.042]},"o":{"x":[0.143],"y":[3.552]},"t":60.03,"s":[100]},{"t":90.060546875,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.709],"y":[1.164]},"o":{"x":[0.474],"y":[0.066]},"t":30,"s":[0]},{"i":{"x":[0.602],"y":[0.921]},"o":{"x":[0.314],"y":[0.13]},"t":60.03,"s":[78.782]},{"t":82,"s":[0]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.472],"y":[0.887]},"o":{"x":[0.51],"y":[0.095]},"t":30,"s":[-360]},{"t":90.060546875,"s":[720]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":120,"st":0,"bm":0}],"markers":[]}'),
-            _D = ({labelItem: e}) => {
-                const [t, n] = (0, ke.useState)(!1), {t: r} = yt("status"), a = kC((e => e.status)),
-                    i = kC((e => e.application)), {reduceMotion: {unessentialAnimationsDisabled: o}} = $c(),
+            tR = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"icon_status_animated","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"i outlines - Orion style","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":50,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":52.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":54.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":56.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":58.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":60.01,"s":[10]},{"t":62.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[1,4,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-0.414,0],[0,0.414],[0,0],[0.414,0],[0,-0.414],[0,0]],"o":[[0.414,0],[0,0],[0,-0.414],[-0.414,0],[0,0],[0,0.414]],"v":[[0,2.625],[0.75,1.875],[0.75,-1.875],[0,-2.625],[-0.75,-1.875],[-0.75,1.875]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[1,5.125],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0.414],[-0.414,0],[0,-0.414],[0.414,0]],"o":[[0,-0.414],[0.414,0],[0,0.414],[-0.414,0]],"v":[[-0.75,0],[0,-0.75],[0.75,0],[0,0.75]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[1,1],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":6870.87087087087,"st":0,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"Cercle Outlines 2","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":50.021,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":52.022,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":54.024,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":56.026,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":58.028,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":60.03,"s":[10]},{"t":62.0322265625,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[8.86,8.86,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[3.512,0],[0,-3.513],[-3.513,0],[0,3.512]],"o":[[-3.513,0],[0,3.512],[3.512,0],[0,-3.513]],"v":[[0,-6.36],[-6.36,0],[0,6.36],[6.36,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[8.86,8.86],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.985],"y":[2.857]},"o":{"x":[0.159],"y":[0]},"t":30,"s":[100]},{"i":{"x":[0.735],"y":[3.042]},"o":{"x":[0.143],"y":[3.552]},"t":60.03,"s":[100]},{"t":90.060546875,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.709],"y":[1.164]},"o":{"x":[0.474],"y":[0.066]},"t":30,"s":[0]},{"i":{"x":[0.602],"y":[0.921]},"o":{"x":[0.314],"y":[0.13]},"t":60.03,"s":[78.782]},{"t":82,"s":[0]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.472],"y":[0.887]},"o":{"x":[0.51],"y":[0.095]},"t":30,"s":[-360]},{"t":90.060546875,"s":[720]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":120,"st":0,"bm":0}],"markers":[]}'),
+            nR = ({labelItem: e}) => {
+                const [t, n] = (0, ke.useState)(!1), {t: r} = yt("status"), a = nI((e => e.status)),
+                    i = nI((e => e.application)), {reduceMotion: {unessentialAnimationsDisabled: o}} = $c(),
                     s = a.systems && a.systems.length > 0, l = i.connection.mode === dw.ConnectionMode.NO_CONNECTION,
                     c = (0, ke.useMemo)((() => {
                         if (!t && !i.isStatusPopoverOpened && a.summaryStatus && a.summaryStatus !== dw.RSISystemStatus.OPERATIONAL) return "status-" + Rw(a.summaryStatus)
                     }), [t, i.isStatusPopoverOpened, a.summaryStatus]);
                 return (0, ke.useEffect)((() => {
-                    oC()
+                    GC.fetchAndSetStatus()
                 }), [i.connection.mode]), (0, hw.jsx)(tx, {
                     title: r("status_title"),
                     offset: "large",
@@ -47122,7 +47884,7 @@
                         "data-sol-discover": "status",
                         icon: (0, hw.jsx)(au, {
                             color: c,
-                            source: o || l ? Hw : bD,
+                            source: o || l ? Jw : tR,
                             isPlaying: !i.isStatusPopoverOpened && !t && a.summaryStatus !== dw.RSISystemStatus.OPERATIONAL
                         }),
                         label: e,
@@ -47138,7 +47900,7 @@
                             external: !0,
                             href: dw.configuration.statusUrl,
                             size: "small",
-                            endIcon: Zw,
+                            endIcon: rk,
                             variant: "plain",
                             children: r("status_more_information")
                         }), (0, hw.jsx)(iu, {
@@ -47150,31 +47912,38 @@
                     children: (0, hw.jsx)(bu, {
                         vertical: !0,
                         gap: "100",
-                        children: s ? a.systems.map((e => (0, hw.jsx)(yD, {
+                        children: s ? a.systems.map((e => (0, hw.jsx)(eR, {
                             title: e.name,
                             status: e.status,
                             label: r("status_" + e.status)
                         }, e.name))) : r("status_empty")
                     })
                 })
-            }, xD = () => {
+            };
+
+        function rR(e, t, n) {
+            return e.find((e => e.game_id === t && e.channel_id === n && e.status !== LC.UNAVAILABLE))
+        }
+
+        const aR = () => {
                 var e, t, n, r, a, i;
-                const {t: o} = yt("appHeader"), s = kC((e => e.application)), l = kC((e => e.user)),
-                    c = kC((e => e.soundSystem)), u = kC((e => e.window)),
-                    d = kC((e => e.installer)), {window: {setMinimizeWindow: h}} = Sw(),
-                    p = VC(), {reduceMotion: {wipeAnimationsDisabled: f}} = $c(), m = void 0 !== d.current,
-                    g = (0, ke.useMemo)((() => {
+                const {t: o} = yt("appHeader"), s = nI((e => e.application)), l = nI((e => e.user)),
+                    c = nI((e => e.soundSystem)), u = nI((e => e.window)), d = nI((e => e.installer)),
+                    h = nI((e => e.promotion)), p = nI((e => e.discovery)),
+                    f = void 0 !== rR(h.promotions, Ok, Pk), {window: {setMinimizeWindow: m}} = Sw(),
+                    g = bI(), {reduceMotion: {wipeAnimationsDisabled: v}} = $c(), y = void 0 !== d.current,
+                    b = d.queue.length > 0 || d.finished.length > 0, _ = y || b || p.isStarted, x = (0, ke.useMemo)((() => {
                         var e;
                         const t = null === (e = l.identity) || void 0 === e ? void 0 : e.avatar;
-                        return t ? t.match(/^https?:\/\//) ? t : OC(t) : dw.configuration.assets.avatar.defaultUrl
+                        return t ? t.match(/^https?:\/\//) ? t : iI(t) : dw.configuration.assets.avatar.defaultUrl
                     }), [null === (e = l.identity) || void 0 === e ? void 0 : e.avatar]),
-                    v = (0, ke.useMemo)((() => dw.configuration.assets.directory + dw.configuration.assets.avatar.defaultLocal), []),
-                    y = (0, ke.useMemo)((() => {
+                    w = (0, ke.useMemo)((() => dw.configuration.assets.directory + dw.configuration.assets.avatar.defaultLocal), []),
+                    k = (0, ke.useMemo)((() => {
                         var e;
                         const t = null === (e = l.identity) || void 0 === e ? void 0 : e.nickname;
-                        return t ? OC(`/citizens/${t}`) : dw.configuration.playnowUrl
+                        return t ? iI(`/citizens/${t}`) : dw.configuration.playnowUrl
                     }), [null === (t = l.identity) || void 0 === t ? void 0 : t.nickname]),
-                    b = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
+                    E = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
                 return (0, hw.jsxs)(ku, {
                     children: [(0, hw.jsxs)(Y_, {
                         offset: "large",
@@ -47183,48 +47952,48 @@
                             "data-sol-discover": "menu",
                             label: o("app_header_menu"),
                             className: "sol-c-app-header__item--rsi-logo",
-                            children: [(0, hw.jsx)(nx, {}), (0, hw.jsx)(Vw, {className: "sol-c-icon sol-c-icon--arrow-up"}), (0, hw.jsx)(zw, {className: "sol-c-icon sol-c-icon--arrow-down"})]
+                            children: [(0, hw.jsx)(nx, {}), (0, hw.jsx)(Hw, {className: "sol-c-icon sol-c-icon--arrow-up"}), (0, hw.jsx)(Ww, {className: "sol-c-icon sol-c-icon--arrow-down"})]
                         }),
-                        children: [dP.isLoggedIn() && (0, hw.jsx)(q_, {
+                        children: [FP.isLoggedIn() && (0, hw.jsx)(q_, {
                             onClick: () => {
-                                if (f) return void p(vR.SETTINGS);
+                                if (v) return void g(rT.SETTINGS);
                                 s.actions.setAnimatingAppLayoutWipe("full", !0);
                                 const e = setTimeout((() => {
-                                    p(vR.SETTINGS)
-                                }), b / 2);
+                                    g(rT.SETTINGS)
+                                }), E / 2);
                                 return () => clearTimeout(e)
-                            }, label: o("app_header_menu_settings"), disabled: window.location.hash.includes(vR.SETTINGS)
+                            }, label: o("app_header_menu_settings"), disabled: window.location.hash.includes(rT.SETTINGS)
                         }), (0, hw.jsx)(q_, {
                             external: !0,
-                            endIcon: Zw,
+                            endIcon: rk,
                             href: dw.configuration.supportUrl,
                             label: o("app_header_menu_get_help"),
                             "data-test-id": "rsi-menu-help"
                         }), (0, hw.jsx)(q_, {
                             external: !0,
-                            endIcon: Zw,
+                            endIcon: rk,
                             href: dw.configuration.spectrumUrl,
                             label: o("app_header_menu_spectrum")
                         }), (0, hw.jsx)(q_, {
                             external: !0,
-                            endIcon: Zw,
+                            endIcon: rk,
                             href: dw.configuration.issueCouncilUrl,
                             label: o("app_header_menu_issue_council")
-                        }), dP.isLoggedIn() && (0, hw.jsx)(q_, {
+                        }), FP.isLoggedIn() && (0, hw.jsx)(q_, {
                             label: o("app_header_menu_discover"),
                             "data-test-id": "rsi-menu-discover",
                             onClick: () => {
-                                if (window.location.hash.includes(vR.SETTINGS)) {
-                                    if (f) return void p(vR.HOME);
+                                if (window.location.hash.includes(rT.SETTINGS)) {
+                                    if (v) return void g(rT.HOME);
                                     s.actions.setAnimatingAppLayoutWipe("full", !0);
                                     const e = setTimeout((() => {
-                                        p(vR.HOME), u.actions.openDiscover()
-                                    }), b / 2);
+                                        g(rT.HOME), u.actions.openDiscover()
+                                    }), E / 2);
                                     return () => clearTimeout(e)
                                 }
                                 u.actions.openDiscover()
                             },
-                            disabled: m
+                            disabled: y
                         }), (0, hw.jsx)(q_, {
                             label: o("app_header_menu_exit_the_app"),
                             "data-test-id": "rsi-menu-exit",
@@ -47241,8 +48010,16 @@
                             c.actions.changeVolume(e)
                         }
                     }), (0, hw.jsxs)(_u, {
-                        children: [dP.isLoggedIn() && (0, hw.jsxs)(hw.Fragment, {
-                            children: [s.actions.isOffline() && (0, hw.jsxs)(hw.Fragment, {children: [(0, hw.jsx)(pD, {}), (0, hw.jsx)(wu, {})]}), (0, hw.jsx)(_D, {labelItem: o("app_header_actions_menu_rsi_status")}), (void 0 !== d.current || d.queue.length > 0 || d.finished.length > 0) && (0, hw.jsxs)(hw.Fragment, {children: [(0, hw.jsx)(wu, {}), (0, hw.jsx)(fD, {labelItem: o("app_header_actions_download")})]}), (0, hw.jsxs)(Y_, {
+                        children: [FP.isLoggedIn() && (0, hw.jsxs)(hw.Fragment, {
+                            children: [s.actions.isOffline() && (0, hw.jsxs)(hw.Fragment, {children: [(0, hw.jsx)(YD, {}), (0, hw.jsx)(wu, {})]}), (0, hw.jsx)(nR, {labelItem: o("app_header_actions_menu_rsi_status")}), _ && (0, hw.jsxs)(hw.Fragment, {children: [(0, hw.jsx)(wu, {}), (0, hw.jsx)(ZD, {labelItem: o("app_header_actions_download")})]}), f && (0, hw.jsx)(uu, {
+                                className: "sol-c-app-header__item",
+                                onClick: () => {
+                                    var e;
+                                    return window.open(null === (e = dw.configuration.assets.games.find((e => e.id === Ok))) || void 0 === e ? void 0 : e.buyGamePage, "_blank")
+                                },
+                                icon: rk,
+                                children: bt.t("game_page_buy_game_package_button_label", {ns: "gamePage"})
+                            }), (0, hw.jsxs)(Y_, {
                                 offset: "large",
                                 placement: "bottom-end",
                                 trigger: (0, hw.jsx)(xu, {
@@ -47252,7 +48029,7 @@
                                     label: o("app_header_account"),
                                     children: (0, hw.jsx)(Su, {
                                         "data-test-id": "avatar-img",
-                                        src: s.actions.isOffline() ? v : g
+                                        src: s.actions.isOffline() ? w : x
                                     })
                                 }),
                                 children: [(0, hw.jsx)(K_, {
@@ -47261,8 +48038,8 @@
                                     subtitle: `@${null !== (a = null === (i = l.identity) || void 0 === i ? void 0 : i.nickname) && void 0 !== a ? a : o("app_header_account_name")}`
                                 }), (0, hw.jsx)(q_, {
                                     external: !0,
-                                    href: y,
-                                    endIcon: Zw,
+                                    href: k,
+                                    endIcon: rk,
                                     label: o("app_header_actions_menu_rsi_account"),
                                     "data-test-id": "avatar-url"
                                 }), (0, hw.jsx)(q_, {
@@ -47276,17 +48053,17 @@
                         }), (0, hw.jsx)(xu, {
                             alwaysOnTop: !0,
                             "aria-label": "Minimize",
-                            onClick: () => h(),
+                            onClick: () => m(),
                             disableFocus: !0,
-                            icon: Kw
+                            icon: tk
                         }), (0, hw.jsx)(xu, {
                             alwaysOnTop: !0, "aria-label": "Close", onClick: e => {
                                 e.preventDefault(), u.actions.closeLauncher()
-                            }, disableFocus: !0, icon: Bw
+                            }, disableFocus: !0, icon: Yw
                         })]
                     })]
                 })
-            }, wD = () => {
+            }, iR = () => {
                 const [e, t] = (0, ke.useState)(""), {t: n} = yt();
                 return (0, ke.useEffect)((() => {
                     const e = setTimeout((() => t("in")), dw.configuration.appLayoutLoaderWipeTrigger);
@@ -47301,152 +48078,181 @@
                     })
                 })
             },
-            kD = JSON.parse('{"v":"5.9.0","fr":60,"ip":0,"op":180,"w":16,"h":16,"nm":"icon_analyze","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":3,"nm":"loupe-mouvement","sr":1,"ks":{"o":{"a":0,"k":0,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":0,"s":[8,8,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":45,"s":[5,8,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":90,"s":[5,5,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":135,"s":[8,5,0],"to":[0,0,0],"ti":[0,0,0]},{"t":180,"s":[8,8,0]}],"ix":2,"l":2},"a":{"a":0,"k":[0,0,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"ip":0,"op":180,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"loupe","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[2.975,2.818,0],"ix":2,"l":2},"a":{"a":0,"k":[5.225,5.068,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[1.654,0],[0,1.654],[-1.654,0],[0,-1.654]],"o":[[-1.654,0],[0,-1.654],[1.654,0],[0,1.654]],"v":[[-0.475,2.682],[-3.475,-0.318],[-0.475,-3.318],[2.525,-0.318]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[0.293,0.293],[0,0],[0,0.889],[2.481,0],[0,-2.481],[-2.481,0],[-0.766,0.605],[0,0],[-0.293,0.293]],"o":[[0,0],[0.447,-0.699],[0,-2.481],[-2.481,0],[0,2.481],[1.05,0],[0,0],[0.293,0.293],[0.293,-0.293]],"v":[[4.682,3.464],[3.312,2.094],[4.025,-0.318],[-0.475,-4.818],[-4.975,-0.318],[-0.475,4.182],[2.296,3.201],[3.62,4.525],[4.682,4.525]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[5.224,5.069],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":180,"st":0,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"mask","parent":1,"td":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[2.5,2.5,0],"ix":2,"l":2},"a":{"a":0,"k":[5.75,5.75,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-3.038,0],[0,-3.038],[3.038,0],[0,3.038]],"o":[[3.038,0],[0,3.038],[-3.038,0],[0,-3.038]],"v":[[0,-5.5],[5.5,0],[0,5.5],[-5.5,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.349019607843,0.349019607843,0.349019607843,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[5.75,5.75],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":180,"st":0,"bm":0},{"ddd":0,"ind":4,"ty":4,"nm":"file","tt":2,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[5.5,6,0],"ix":2,"l":2},"a":{"a":0,"k":[5.75,6.25,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0.276,0],[0,0],[0,-0.276],[-0.276,0],[0,0],[0,0.276]],"o":[[0,0],[-0.276,0],[0,0.276],[0,0],[0.276,0],[0,-0.276]],"v":[[0.5,-0.5],[-0.5,-0.5],[-1,0],[-0.5,0.5],[0.5,0.5],[1,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[4.75,8.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0.276,0],[0,0],[0,-0.276],[-0.276,0],[0,0],[0,0.276]],"o":[[0,0],[-0.276,0],[0,0.276],[0,0],[0.276,0],[0,-0.276]],"v":[[1.5,-0.5],[-1.5,-0.5],[-2,0],[-1.5,0.5],[1.5,0.5],[2,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[5.75,6.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0.276,0],[0,0],[0,-0.276],[-0.276,0],[0,0],[0,0.276]],"o":[[0,0],[-0.276,0],[0,0.276],[0,0],[0.276,0],[0,-0.276]],"v":[[1.5,-0.5],[-1.5,-0.5],[-2,0],[-1.5,0.5],[1.5,0.5],[2,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[5.75,4.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0.276,0],[0,0],[0,0.276],[0,0],[0,0],[-0.094,-0.098],[0,0],[0,-0.13]],"o":[[0,0.276],[0,0],[-0.276,0],[0,0],[0,0],[0.136,0],[0,0],[0.09,0.093],[0,0]],"v":[[4,4],[3.5,4.5],[-3.5,4.5],[-4,4],[-4,-4.5],[2.098,-4.5],[2.458,-4.347],[3.86,-2.891],[4,-2.544]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[0.18,0.187],[0,0],[0.272,0],[0,0],[0,-0.552],[0,0],[-0.552,0],[0,0],[0,0.552],[0,0]],"o":[[0,0],[-0.188,-0.195],[0,0],[-0.552,0],[0,0],[0,0.552],[0,0],[0.552,0],[0,0],[0,-0.258]],"v":[[5.22,-3.642],[3.243,-5.694],[2.523,-6],[-4.5,-6],[-5.5,-5],[-5.5,5],[-4.5,6],[4.5,6],[5.5,5],[5.5,-2.948]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[5.75,6.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 4","np":4,"cix":2,"bm":0,"ix":4,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":180,"st":0,"bm":0}],"markers":[]}'),
-            ED = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"install","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Light","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":0,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":12,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":24,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":36,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":48,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":60,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":72,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":84,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":96,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":108,"s":[0]},{"t":120,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[11.75,11.75,0],"ix":2,"l":2},"a":{"a":0,"k":[1,1,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-0.414,0],[0,-0.414],[0.414,0],[0,0.414]],"o":[[0.414,0],[0,0.414],[-0.414,0],[0,-0.414]],"v":[[0,-0.75],[0.75,0],[0,0.75],[-0.75,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[1,1],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Arrow","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":0,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":2.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":4.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":6.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":8.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":10.01,"s":[10]},{"t":12.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.925,4.036,0],"ix":2,"l":2},"a":{"a":0,"k":[2.981,3.287,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0.221,0],[0,-0.414],[-0.164,-0.138],[0,0],[-0.206,0],[-0.136,0.134],[0,0],[0,0.232],[0.414,0],[0.137,-0.151],[0,0]],"o":[[0,0],[0,0],[0,0],[-0.137,-0.151],[-0.414,0],[0,0.232],[0,0],[0.136,0.134],[0.206,0],[0,0],[0.164,-0.138],[0,-0.414],[-0.22,0],[0,0],[0,0]],"v":[[0.825,-3.036],[-0.675,-3.036],[-0.675,0.482],[-1.425,-0.115],[-1.981,-0.363],[-2.731,0.387],[-2.462,0.964],[-0.453,2.82],[0.075,3.036],[0.603,2.82],[2.462,0.964],[2.731,0.387],[1.981,-0.363],[1.425,-0.115],[0.825,0.482]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[2.981,3.287],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"Base","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.25,7.25,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0.69,0],[0,0],[0,0.69],[0,0],[0,0]],"o":[[0,0.69],[0,0],[-0.69,0],[0,0],[0,0],[0,0]],"v":[[5.5,4.25],[4.25,5.5],[-4.25,5.5],[-5.5,4.25],[-5.5,2],[5.5,2]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[1.519,0],[0,0],[0,0],[0,0],[0,-0.69],[0,0],[0,0],[0,0],[-0.69,0],[0,0],[0,0],[0,0],[0,-1.519],[0,0],[-1.519,0],[0,0],[0,1.519],[0,0]],"o":[[0,0],[0,0],[0,0],[0.69,0],[0,0],[0,0],[0,0],[0,-0.69],[0,0],[0,0],[0,0],[-1.519,0],[0,0],[0,1.519],[0,0],[1.519,0],[0,0],[0,-1.519]],"v":[[4.25,-7],[2,-7],[2,-5.5],[4.25,-5.5],[5.5,-4.25],[5.5,0.5],[-5.5,0.5],[-5.5,-4.25],[-4.25,-5.5],[-2,-5.5],[-2,-7],[-4.25,-7],[-7,-4.25],[-7,4.25],[-4.25,7],[4.25,7],[7,4.25],[7,-4.25]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[7.25,7.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0}],"markers":[]}'),
-            SD = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"play - option 5","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"play-2 Outlines","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":20.021,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":22.022,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":24.024,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":26.026,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":28.028,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":30.03,"s":[10]},{"t":32.0322265625,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8.086,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.236,7.911,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0.685,0.383],[0,0],[0,-0.765],[0,0],[-0.685,0.382]],"o":[[0.685,-0.383],[0,0],[-0.685,-0.383],[0,0],[0,0.766],[0,0]],"v":[[5.051,0.861],[5.051,-0.861],[-4.195,-6.029],[-5.736,-5.167],[-5.736,5.167],[-4.195,6.029]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":1,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.236,7.911],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.985],"y":[2.857]},"o":{"x":[0.159],"y":[0]},"t":0,"s":[100]},{"i":{"x":[0.735],"y":[3.042]},"o":{"x":[0.143],"y":[3.552]},"t":30.03,"s":[100]},{"t":60.060546875,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.709],"y":[1.164]},"o":{"x":[0.474],"y":[0.066]},"t":0,"s":[0]},{"i":{"x":[0.602],"y":[0.921]},"o":{"x":[0.314],"y":[0.13]},"t":30.03,"s":[78.782]},{"t":52,"s":[0]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.472],"y":[0.887]},"o":{"x":[0.51],"y":[0.095]},"t":0,"s":[-360]},{"t":60.060546875,"s":[720]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":1261.26126126126,"st":0,"bm":0}],"markers":[]}'),
-            OD = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"update","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Circle 2","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":27,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":29.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":31.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":33.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":35.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":37.01,"s":[10]},{"t":39.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.7,7.7,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[3.1,0],[0,3.4],[-3.5,0],[-1,-2.1]],"o":[[-0.5,3],[-3.5,0],[0,-3.4],[2.5,0],[0,0]],"v":[[6.2,1],[0,6.2],[-6.2,0],[0,-6.2],[5.6,-2.7]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.7,7.7],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[0]},{"t":146,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":30,"s":[0]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":45,"s":[100]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[100]},{"t":146,"s":[100]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[0]},{"t":146,"s":[360]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":27,"op":147,"st":27,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Circle","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-84.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-82.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-80.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-78.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-76,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-73.998,"s":[10]},{"t":-71.99609375,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.7,7.7,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[3.1,0],[0,3.4],[-3.5,0],[-1,-2.1]],"o":[[-0.5,3],[-3.5,0],[0,-3.4],[2.5,0],[0,0]],"v":[[6.2,1],[0,6.2],[-6.2,0],[0,-6.2],[5.6,-2.7]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.7,7.7],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[0]},{"t":26,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":-90,"s":[0]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":-75,"s":[100]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[100]},{"t":26,"s":[100]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[0]},{"t":26,"s":[360]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":-93,"op":27,"st":-93,"bm":0},{"ddd":0,"ind":4,"ty":4,"nm":"Arrow 2","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":27,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":29.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":31.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":33.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":35.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":37.01,"s":[10]},{"t":39.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[12.7,4,0],"ix":2,"l":2},"a":{"a":0,"k":[3,3,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":1,"k":[{"i":{"x":0.5,"y":1},"o":{"x":0.5,"y":0},"t":43,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":46,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":130,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"t":133,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]}],"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":2,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[3,3],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":43,"op":133,"st":25,"bm":0},{"ddd":0,"ind":5,"ty":4,"nm":"Arrow","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-84.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-82.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-80.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-78.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-76,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-73.998,"s":[10]},{"t":-71.99609375,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[12.7,4,0],"ix":2,"l":2},"a":{"a":0,"k":[3,3,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":1,"k":[{"i":{"x":0.5,"y":1},"o":{"x":0.5,"y":0},"t":-77,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":-74,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":10,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"t":13,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]}],"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":2,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[3,3],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":-77,"op":13,"st":-95,"bm":0}],"markers":[]}'),
-            PD = ({gameChannel: e}) => {
-                const t = (e => {
-                    var t;
-                    const n = kC((e => e.application)), r = kC((e => e.installer)), a = kC((e => e.library)),
-                        i = kC((e => e.dialog)), o = Sw(), {reduceMotion: {unessentialAnimationsDisabled: s}} = $c(),
-                        l = Ow(e.gameId, a.availableGames),
-                        c = null === l || void 0 === l ? void 0 : l.channels.find((t => t.id === e.channelId)),
-                        u = r.current && pk(r.current.game, e) ? r.current : dk(r.queue, e),
-                        d = hk(r.uninstallations, e), h = fk(c, u, d),
-                        p = null === l || void 0 === l ? void 0 : l.status,
-                        f = null === l || void 0 === l ? void 0 : l.hasGamePackage,
-                        m = null === l || void 0 === l ? void 0 : l.discoverPage,
-                        g = null === l || void 0 === l ? void 0 : l.buyGamePage, v = void 0 !== a.gameChannelRunning,
-                        y = a.gameChannelRunning && a.gameChannelRunning.channelId === e.channelId && a.gameChannelRunning.gameId === e.gameId,
-                        b = n.actions.isOffline(), _ = {
-                            [dw.InstallationType.INSTALL]: {
-                                titleInProgress: "game_page_installing",
-                                titlePaused: "game_page_installing_paused"
-                            },
-                            [dw.InstallationType.UPDATE]: {
-                                titleInProgress: "game_page_updating",
-                                titlePaused: "game_page_updating_paused"
-                            },
-                            [dw.InstallationType.VERIFY]: {
-                                titleInProgress: "game_page_verifying",
-                                titlePaused: "game_page_verifying_paused"
-                            }
-                        }[null !== (t = null === u || void 0 === u ? void 0 : u.type) && void 0 !== t ? t : dw.InstallationType.INSTALL];
-                    if (y) return {
-                        buttonProps: {
-                            children: bt.t("game_page_game_is_running", {ns: "gamePage"}),
-                            loading: !0,
-                            disabled: !1
-                        }, action: o.window.setMinimizeWindow
-                    };
-                    if (p === dw.GameStatus.PREVIEW || p === dw.GameStatus.PREORDER || !f) {
-                        const e = (p === dw.GameStatus.PREORDER || p === dw.GameStatus.AVAILABLE) && !f;
-                        return {
+            oR = JSON.parse('{"v":"5.9.0","fr":60,"ip":0,"op":180,"w":16,"h":16,"nm":"icon_analyze","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":3,"nm":"loupe-mouvement","sr":1,"ks":{"o":{"a":0,"k":0,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":1,"k":[{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":0,"s":[8,8,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":45,"s":[5,8,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":90,"s":[5,5,0],"to":[0,0,0],"ti":[0,0,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.167},"t":135,"s":[8,5,0],"to":[0,0,0],"ti":[0,0,0]},{"t":180,"s":[8,8,0]}],"ix":2,"l":2},"a":{"a":0,"k":[0,0,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"ip":0,"op":180,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"loupe","parent":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[2.975,2.818,0],"ix":2,"l":2},"a":{"a":0,"k":[5.225,5.068,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[1.654,0],[0,1.654],[-1.654,0],[0,-1.654]],"o":[[-1.654,0],[0,-1.654],[1.654,0],[0,1.654]],"v":[[-0.475,2.682],[-3.475,-0.318],[-0.475,-3.318],[2.525,-0.318]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[0.293,0.293],[0,0],[0,0.889],[2.481,0],[0,-2.481],[-2.481,0],[-0.766,0.605],[0,0],[-0.293,0.293]],"o":[[0,0],[0.447,-0.699],[0,-2.481],[-2.481,0],[0,2.481],[1.05,0],[0,0],[0.293,0.293],[0.293,-0.293]],"v":[[4.682,3.464],[3.312,2.094],[4.025,-0.318],[-0.475,-4.818],[-4.975,-0.318],[-0.475,4.182],[2.296,3.201],[3.62,4.525],[4.682,4.525]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[5.224,5.069],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":180,"st":0,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"mask","parent":1,"td":1,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[2.5,2.5,0],"ix":2,"l":2},"a":{"a":0,"k":[5.75,5.75,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-3.038,0],[0,-3.038],[3.038,0],[0,3.038]],"o":[[3.038,0],[0,3.038],[-3.038,0],[0,-3.038]],"v":[[0,-5.5],[5.5,0],[0,5.5],[-5.5,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.349019607843,0.349019607843,0.349019607843,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[5.75,5.75],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":180,"st":0,"bm":0},{"ddd":0,"ind":4,"ty":4,"nm":"file","tt":2,"sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[5.5,6,0],"ix":2,"l":2},"a":{"a":0,"k":[5.75,6.25,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0.276,0],[0,0],[0,-0.276],[-0.276,0],[0,0],[0,0.276]],"o":[[0,0],[-0.276,0],[0,0.276],[0,0],[0.276,0],[0,-0.276]],"v":[[0.5,-0.5],[-0.5,-0.5],[-1,0],[-0.5,0.5],[0.5,0.5],[1,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[4.75,8.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0.276,0],[0,0],[0,-0.276],[-0.276,0],[0,0],[0,0.276]],"o":[[0,0],[-0.276,0],[0,0.276],[0,0],[0.276,0],[0,-0.276]],"v":[[1.5,-0.5],[-1.5,-0.5],[-2,0],[-1.5,0.5],[1.5,0.5],[2,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[5.75,6.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0.276,0],[0,0],[0,-0.276],[-0.276,0],[0,0],[0,0.276]],"o":[[0,0],[-0.276,0],[0,0.276],[0,0],[0.276,0],[0,-0.276]],"v":[[1.5,-0.5],[-1.5,-0.5],[-2,0],[-1.5,0.5],[1.5,0.5],[2,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[5.75,4.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0.276,0],[0,0],[0,0.276],[0,0],[0,0],[-0.094,-0.098],[0,0],[0,-0.13]],"o":[[0,0.276],[0,0],[-0.276,0],[0,0],[0,0],[0.136,0],[0,0],[0.09,0.093],[0,0]],"v":[[4,4],[3.5,4.5],[-3.5,4.5],[-4,4],[-4,-4.5],[2.098,-4.5],[2.458,-4.347],[3.86,-2.891],[4,-2.544]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[0.18,0.187],[0,0],[0.272,0],[0,0],[0,-0.552],[0,0],[-0.552,0],[0,0],[0,0.552],[0,0]],"o":[[0,0],[-0.188,-0.195],[0,0],[-0.552,0],[0,0],[0,0.552],[0,0],[0.552,0],[0,0],[0,-0.258]],"v":[[5.22,-3.642],[3.243,-5.694],[2.523,-6],[-4.5,-6],[-5.5,-5],[-5.5,5],[-4.5,6],[4.5,6],[5.5,5],[5.5,-2.948]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[5.75,6.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 4","np":4,"cix":2,"bm":0,"ix":4,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":180,"st":0,"bm":0}],"markers":[]}'),
+            sR = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"install","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Light","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":0,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":12,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":24,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":36,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":48,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":60,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":72,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":84,"s":[0]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":96,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":108,"s":[0]},{"t":120,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[11.75,11.75,0],"ix":2,"l":2},"a":{"a":0,"k":[1,1,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-0.414,0],[0,-0.414],[0.414,0],[0,0.414]],"o":[[0.414,0],[0,0.414],[-0.414,0],[0,-0.414]],"v":[[0,-0.75],[0.75,0],[0,0.75],[-0.75,0]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[1,1],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Arrow","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":0,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":2.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":4.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":6.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":8.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":10.01,"s":[10]},{"t":12.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[7.925,4.036,0],"ix":2,"l":2},"a":{"a":0,"k":[2.981,3.287,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0.221,0],[0,-0.414],[-0.164,-0.138],[0,0],[-0.206,0],[-0.136,0.134],[0,0],[0,0.232],[0.414,0],[0.137,-0.151],[0,0]],"o":[[0,0],[0,0],[0,0],[-0.137,-0.151],[-0.414,0],[0,0.232],[0,0],[0.136,0.134],[0.206,0],[0,0],[0.164,-0.138],[0,-0.414],[-0.22,0],[0,0],[0,0]],"v":[[0.825,-3.036],[-0.675,-3.036],[-0.675,0.482],[-1.425,-0.115],[-1.981,-0.363],[-2.731,0.387],[-2.462,0.964],[-0.453,2.82],[0.075,3.036],[0.603,2.82],[2.462,0.964],[2.731,0.387],[1.981,-0.363],[1.425,-0.115],[0.825,0.482]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[2.981,3.287],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"Base","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.25,7.25,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0.69,0],[0,0],[0,0.69],[0,0],[0,0]],"o":[[0,0.69],[0,0],[-0.69,0],[0,0],[0,0],[0,0]],"v":[[5.5,4.25],[4.25,5.5],[-4.25,5.5],[-5.5,4.25],[-5.5,2],[5.5,2]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ind":1,"ty":"sh","ix":2,"ks":{"a":0,"k":{"i":[[1.519,0],[0,0],[0,0],[0,0],[0,-0.69],[0,0],[0,0],[0,0],[-0.69,0],[0,0],[0,0],[0,0],[0,-1.519],[0,0],[-1.519,0],[0,0],[0,1.519],[0,0]],"o":[[0,0],[0,0],[0,0],[0.69,0],[0,0],[0,0],[0,0],[0,-0.69],[0,0],[0,0],[0,0],[-1.519,0],[0,0],[0,1.519],[0,0],[1.519,0],[0,0],[0,-1.519]],"v":[[4.25,-7],[2,-7],[2,-5.5],[4.25,-5.5],[5.5,-4.25],[5.5,0.5],[-5.5,0.5],[-5.5,-4.25],[-4.25,-5.5],[-2,-5.5],[-2,-7],[-4.25,-7],[-7,-4.25],[-7,4.25],[-4.25,7],[4.25,7],[7,4.25],[7,-4.25]],"c":true},"ix":2},"nm":"Path 2","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"mm","mm":1,"nm":"Merge Paths 1","mn":"ADBE Vector Filter - Merge","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[7.25,7.25],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":4,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":120,"st":0,"bm":0}],"markers":[]}'),
+            lR = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"play - option 5","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"play-2 Outlines","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":20.021,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":22.022,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":24.024,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":26.026,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":28.028,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":30.03,"s":[10]},{"t":32.0322265625,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8.086,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.236,7.911,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0.685,0.383],[0,0],[0,-0.765],[0,0],[-0.685,0.382]],"o":[[0.685,-0.383],[0,0],[-0.685,-0.383],[0,0],[0,0.766],[0,0]],"v":[[5.051,0.861],[5.051,-0.861],[-4.195,-6.029],[-5.736,-5.167],[-5.736,5.167],[-4.195,6.029]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":1,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.236,7.911],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.985],"y":[2.857]},"o":{"x":[0.159],"y":[0]},"t":0,"s":[100]},{"i":{"x":[0.735],"y":[3.042]},"o":{"x":[0.143],"y":[3.552]},"t":30.03,"s":[100]},{"t":60.060546875,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.709],"y":[1.164]},"o":{"x":[0.474],"y":[0.066]},"t":0,"s":[0]},{"i":{"x":[0.602],"y":[0.921]},"o":{"x":[0.314],"y":[0.13]},"t":30.03,"s":[78.782]},{"t":52,"s":[0]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.472],"y":[0.887]},"o":{"x":[0.51],"y":[0.095]},"t":0,"s":[-360]},{"t":60.060546875,"s":[720]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":0,"op":1261.26126126126,"st":0,"bm":0}],"markers":[]}'),
+            cR = JSON.parse('{"v":"5.9.0","fr":30,"ip":0,"op":120,"w":16,"h":16,"nm":"update","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":1,"ty":4,"nm":"Circle 2","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":27,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":29.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":31.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":33.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":35.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":37.01,"s":[10]},{"t":39.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.7,7.7,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[3.1,0],[0,3.4],[-3.5,0],[-1,-2.1]],"o":[[-0.5,3],[-3.5,0],[0,-3.4],[2.5,0],[0,0]],"v":[[6.2,1],[0,6.2],[-6.2,0],[0,-6.2],[5.6,-2.7]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.7,7.7],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[0]},{"t":146,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":30,"s":[0]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":45,"s":[100]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[100]},{"t":146,"s":[100]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":120,"s":[0]},{"t":146,"s":[360]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":27,"op":147,"st":27,"bm":0},{"ddd":0,"ind":2,"ty":4,"nm":"Circle","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-84.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-82.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-80.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-78.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-76,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-73.998,"s":[10]},{"t":-71.99609375,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[8,8,0],"ix":2,"l":2},"a":{"a":0,"k":[7.7,7.7,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[3.1,0],[0,3.4],[-3.5,0],[-1,-2.1]],"o":[[-0.5,3],[-3.5,0],[0,-3.4],[2.5,0],[0,0]],"v":[[6.2,1],[0,6.2],[-6.2,0],[0,-6.2],[5.6,-2.7]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":1,"ml":4,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[7.7,7.7],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[0]},{"t":26,"s":[100]}],"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":-90,"s":[0]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":-75,"s":[100]},{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[100]},{"t":26,"s":[100]}],"ix":2},"o":{"a":1,"k":[{"i":{"x":[0.5],"y":[1]},"o":{"x":[0.5],"y":[0]},"t":0,"s":[0]},{"t":26,"s":[360]}],"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":-93,"op":27,"st":-93,"bm":0},{"ddd":0,"ind":4,"ty":4,"nm":"Arrow 2","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":27,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":29.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":31.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":33.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":35.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":37.01,"s":[10]},{"t":39.01171875,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[12.7,4,0],"ix":2,"l":2},"a":{"a":0,"k":[3,3,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":1,"k":[{"i":{"x":0.5,"y":1},"o":{"x":0.5,"y":0},"t":43,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":46,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":130,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"t":133,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]}],"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":2,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[3,3],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":43,"op":133,"st":25,"bm":0},{"ddd":0,"ind":5,"ty":4,"nm":"Arrow","sr":1,"ks":{"o":{"a":1,"k":[{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-84.008,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-82.006,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-80.004,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-78.002,"s":[10]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-76,"s":[100]},{"i":{"x":[0.833],"y":[0.833]},"o":{"x":[0.167],"y":[0.167]},"t":-73.998,"s":[10]},{"t":-71.99609375,"s":[100]}],"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[12.7,4,0],"ix":2,"l":2},"a":{"a":0,"k":[3,3,0],"ix":1,"l":2},"s":{"a":0,"k":[100,100,100],"ix":6,"l":2}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":1,"k":[{"i":{"x":0.5,"y":1},"o":{"x":0.5,"y":0},"t":-77,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":-74,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"i":{"x":0.5,"y":1},"o":{"x":0.167,"y":0},"t":10,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[1.5,-1.5],[1.5,1.5],[-1.5,1.5]],"c":false}]},{"t":13,"s":[{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[-0.281,-0.312],[1.5,1.5],[-0.375,-0.406]],"c":false}]}],"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.5,"ix":5},"lc":2,"lj":2,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[3,3],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":-77,"op":13,"st":-95,"bm":0}],"markers":[]}'),
+            uR = e => {
+                var t;
+                const n = nI((e => e.application)), r = nI((e => e.installer)), a = nI((e => e.library)),
+                    i = nI((e => e.dialog)), o = nI((e => e.promotion)),
+                    s = Sw(), {reduceMotion: {unessentialAnimationsDisabled: l}} = $c(),
+                    c = Ow(e.gameId, a.availableGames),
+                    u = null === c || void 0 === c ? void 0 : c.channels.find((t => t.id === e.channelId)),
+                    d = r.current && kk(r.current.game, e) ? r.current : xk(r.queue, e), h = wk(r.uninstallations, e),
+                    p = Ek(u, d, h), f = null === c || void 0 === c ? void 0 : c.status,
+                    m = null === c || void 0 === c ? void 0 : c.hasGamePackage,
+                    g = null === c || void 0 === c ? void 0 : c.discoverPage,
+                    v = null === c || void 0 === c ? void 0 : c.buyGamePage,
+                    y = o.promotions.find((e => e.game_id === (null === c || void 0 === c ? void 0 : c.id) && e.channel_id === (null === u || void 0 === u ? void 0 : u.id))),
+                    b = void 0 !== y, _ = void 0 !== a.gameChannelRunning,
+                    x = a.gameChannelRunning && a.gameChannelRunning.channelId === e.channelId && a.gameChannelRunning.gameId === e.gameId,
+                    w = n.actions.isOffline(), k = {
+                        [dw.InstallationType.INSTALL]: {
+                            titleInProgress: "game_page_installing",
+                            titlePaused: "game_page_installing_paused"
+                        },
+                        [dw.InstallationType.UPDATE]: {
+                            titleInProgress: "game_page_updating",
+                            titlePaused: "game_page_updating_paused"
+                        },
+                        [dw.InstallationType.VERIFY]: {
+                            titleInProgress: "game_page_verifying",
+                            titlePaused: "game_page_verifying_paused"
+                        }
+                    }[null !== (t = null === d || void 0 === d ? void 0 : d.type) && void 0 !== t ? t : dw.InstallationType.INSTALL];
+                if (x) return {
+                    buttonProps: {
+                        children: bt.t("game_page_game_is_running", {ns: "gamePage"}),
+                        loading: !0,
+                        disabled: !1
+                    }, action: s.window.setMinimizeWindow
+                };
+                if (f === dw.GameStatus.PREVIEW || f === dw.GameStatus.PREORDER || !m) {
+                    const e = (f === dw.GameStatus.PREORDER || f === dw.GameStatus.AVAILABLE) && !m;
+                    if (b) {
+                        if ((null === y || void 0 === y ? void 0 : y.status) === LC.LOADING) return {
                             buttonProps: {
-                                children: e ? bt.t("game_page_buy_game_package_button_label", {ns: "gamePage"}) : bt.t("game_page_discover_button_label", {ns: "gamePage"}),
+                                children: bt.t("game_page_access_free_fly_preparing_label", {ns: "gamePage"}),
+                                loading: !0,
+                                disabled: !0
+                            }, action: () => {
+                            }
+                        };
+                        if ((null === y || void 0 === y ? void 0 : y.status) === LC.AVAILABLE) return {
+                            buttonProps: {
+                                children: bt.t("game_page_access_free_fly_button_label", {ns: "gamePage"}),
                                 disabled: !1,
-                                icon: Zw
-                            }, action: () => window.open(e ? g : m)
+                                icon: uk
+                            }, action: async () => await (async (e, t, n) => {
+                                if (e && t && n) {
+                                    NC.setPromotionStatusById(e, LC.LOADING);
+                                    try {
+                                        if (1 !== await VP.fetchQuery(wS(e, t))) throw new Error("The promotion could not be applied to your account");
+                                        NC.setPromotionStatusById(e, LC.FINISHED), await i.actions.showPromotionSuccessDialog()
+                                    } catch (r) {
+                                        NC.setPromotionStatusById(e, LC.AVAILABLE), i.actions.showPromotionErrorDialog(n, t)
+                                    }
+                                }
+                            })(y.id, y.code, y.url)
                         }
                     }
-                    switch (h) {
-                        case dw.InstallationStatus.PAUSED:
-                            return {
-                                buttonProps: {
-                                    children: bt.t(_.titlePaused, {ns: "gamePage"}),
-                                    iconAnimation: !1,
-                                    icon: $w,
-                                    disabled: b
-                                }, action: n.actions.toggleDownloadPopoverOpened
-                            };
-                        case dw.InstallationStatus.CANCELLING:
-                        case dw.InstallationStatus.IN_PROGRESS:
-                            const t = (null === u || void 0 === u ? void 0 : u.type) === dw.InstallationType.VERIFY,
-                                r = s ? ak : kD, a = s ? $w : sD;
-                            return {
-                                buttonProps: {
-                                    children: bt.t(_.titleInProgress, {ns: "gamePage"}),
-                                    loading: !0,
-                                    disabled: !1,
-                                    loadingIcon: t ? r : a
-                                }, action: n.actions.toggleDownloadPopoverOpened
-                            };
-                        case dw.GameChannelStatus.INSTALLED:
-                            return {
-                                buttonProps: {
-                                    children: bt.t("game_page_launch_game", {ns: "gamePage"}),
-                                    disabled: b || v,
-                                    icon: s ? Xw : SD
-                                }, action: () => kP.launchGame(e)
-                            };
-                        case dw.GameChannelStatus.UNINSTALLING:
-                            return {
-                                buttonProps: {
-                                    children: bt.t("game_page_uninstalling", {ns: "gamePage"}),
-                                    loading: !0,
-                                    disabled: !0
-                                }, action: () => {
-                                }
-                            };
-                        case dw.GameChannelStatus.UPDATE_AVAILABLE:
-                            return {
-                                buttonProps: {
-                                    children: bt.t("game_page_update_game", {ns: "gamePage"}),
-                                    icon: s ? ek : OD,
-                                    disabled: b
-                                }, action: async () => {
-                                    await i.actions.showGameStartInstallationDialog(dw.InstallationType.UPDATE, e, !1)
-                                }
-                            };
-                        case dw.InstallationStatus.ERROR:
-                        case dw.InstallationStatus.WAITING:
-                            return {
-                                buttonProps: {
-                                    children: bt.t("game_page_waiting_in_queue", {ns: "gamePage"}),
-                                    loading: !0,
-                                    disabled: !1
-                                }, action: n.actions.toggleDownloadPopoverOpened
-                            };
-                        case dw.InstallationStatus.COMPLETED:
-                        case dw.GameChannelStatus.AVAILABLE:
-                        default:
-                            return {
-                                buttonProps: {
-                                    children: bt.t("game_page_install_game", {ns: "gamePage"}),
-                                    icon: s ? qw : ED,
-                                    disabled: b
-                                }, action: async () => {
-                                    await i.actions.showGameStartInstallationDialog(dw.InstallationType.INSTALL, e, !1)
-                                }
-                            }
+                    return {
+                        buttonProps: {
+                            children: e ? bt.t("game_page_buy_game_package_button_label", {ns: "gamePage"}) : bt.t("game_page_discover_button_label", {ns: "gamePage"}),
+                            disabled: !1,
+                            icon: rk
+                        }, action: () => window.open(e ? v : g)
                     }
-                })(e), {reduceMotion: {unessentialAnimationsDisabled: n}} = $c();
+                }
+                switch (p) {
+                    case dw.InstallationStatus.PAUSED:
+                        return {
+                            buttonProps: {
+                                children: bt.t(k.titlePaused, {ns: "gamePage"}),
+                                iconAnimation: !1,
+                                icon: Qw,
+                                disabled: w
+                            }, action: n.actions.toggleDownloadPopoverOpened
+                        };
+                    case dw.InstallationStatus.CANCELLING:
+                    case dw.InstallationStatus.IN_PROGRESS:
+                        const t = (null === d || void 0 === d ? void 0 : d.type) === dw.InstallationType.VERIFY,
+                            r = l ? hk : oR, a = l ? Qw : BD;
+                        return {
+                            buttonProps: {
+                                children: bt.t(k.titleInProgress, {ns: "gamePage"}),
+                                loading: !0,
+                                disabled: !1,
+                                loadingIcon: t ? r : a
+                            }, action: n.actions.toggleDownloadPopoverOpened
+                        };
+                    case dw.GameChannelStatus.INSTALLED:
+                        return {
+                            buttonProps: {
+                                children: bt.t("game_page_launch_game", {ns: "gamePage"}),
+                                disabled: w || _,
+                                icon: l ? ik : lR
+                            }, action: () => QP.launchGame(e)
+                        };
+                    case dw.GameChannelStatus.UNINSTALLING:
+                        return {
+                            buttonProps: {
+                                children: bt.t("game_page_uninstalling", {ns: "gamePage"}),
+                                loading: !0,
+                                disabled: !0
+                            }, action: () => {
+                            }
+                        };
+                    case dw.GameChannelStatus.UPDATE_AVAILABLE:
+                        return {
+                            buttonProps: {
+                                children: bt.t("game_page_update_game", {ns: "gamePage"}),
+                                icon: l ? sk : cR,
+                                disabled: w
+                            }, action: async () => {
+                                await i.actions.showGameStartInstallationDialog(dw.InstallationType.UPDATE, e, !1)
+                            }
+                        };
+                    case dw.InstallationStatus.ERROR:
+                    case dw.InstallationStatus.WAITING:
+                        return {
+                            buttonProps: {
+                                children: bt.t("game_page_waiting_in_queue", {ns: "gamePage"}),
+                                loading: !0,
+                                disabled: !1
+                            }, action: n.actions.toggleDownloadPopoverOpened
+                        };
+                    case dw.InstallationStatus.COMPLETED:
+                    case dw.GameChannelStatus.AVAILABLE:
+                    default:
+                        return {
+                            buttonProps: {
+                                children: bt.t("game_page_install_game", {ns: "gamePage"}),
+                                icon: l ? ek : sR,
+                                disabled: w
+                            }, action: async () => {
+                                await i.actions.showGameStartInstallationDialog(dw.InstallationType.INSTALL, e, !1)
+                            }
+                        }
+                }
+            }, dR = ({gameChannel: e}) => {
+                const t = uR(e), {reduceMotion: {unessentialAnimationsDisabled: n}} = $c();
                 return (0, hw.jsx)(Zg, {iconAnimation: !n && "hover", onClick: () => t.action(), ...t.buttonProps})
-            }, CD = ({gameChannel: e}) => {
-                const t = kC((e => e.library)), n = kC((e => e.installer)), r = Ow(e.gameId, t.availableGames),
+            }, hR = ({gameChannel: e}) => {
+                const t = nI((e => e.library)), n = nI((e => e.installer)), r = Ow(e.gameId, t.availableGames),
                     a = null === r || void 0 === r ? void 0 : r.channels.find((t => t.id === e.channelId)),
-                    i = n.current && pk(n.current.game, e) ? n.current : dk(n.queue, e), o = hk(n.uninstallations, e);
-                return fk(a, i, o) === dw.GameChannelStatus.UPDATE_AVAILABLE ? (0, hw.jsx)(ht, {
+                    i = n.current && kk(n.current.game, e) ? n.current : xk(n.queue, e), o = wk(n.uninstallations, e);
+                return Ek(a, i, o) === dw.GameChannelStatus.UPDATE_AVAILABLE ? (0, hw.jsx)(ht, {
                     i18nKey: "game_page_update_game_is_available",
                     ns: "gamePage",
                     components: [(0, hw.jsx)(j_, {href: dw.configuration.patchnotesUrl, external: !0})],
                     values: {version: null === a || void 0 === a ? void 0 : a.versionLabel}
                 }) : null
-            }, ID = e => {
+            }, pR = e => {
                 const {t: t} = yt("gamePage"), [n, r] = (0, ke.useState)(null), [a, i] = (0, ke.useState)(!1),
-                    o = kC((e => e.application)), s = kC((e => e.installer)), l = kC((e => e.library)),
-                    c = kC((e => e.settings)), u = VC(), {reduceMotion: {wipeAnimationsDisabled: d}} = $c(),
-                    h = kP.getAvailableChannel(e), p = Ow(e.gameId, l.availableGames),
+                    o = nI((e => e.application)), s = nI((e => e.installer)), l = nI((e => e.library)),
+                    c = nI((e => e.game)), u = bI(), {reduceMotion: {wipeAnimationsDisabled: d}} = $c(),
+                    h = QP.getAvailableChannel(e), p = Ow(e.gameId, l.availableGames),
                     f = null === p || void 0 === p ? void 0 : p.hasGamePackage,
                     m = l.gameChannelRunning && l.gameChannelRunning.channelId === e.channelId && l.gameChannelRunning.gameId === e.gameId,
                     g = (null === h || void 0 === h ? void 0 : h.status) === dw.GameChannelStatus.INSTALLED || (null === h || void 0 === h ? void 0 : h.status) === dw.GameChannelStatus.UPDATE_AVAILABLE || m,
                     v = (null === h || void 0 === h ? void 0 : h.status) === dw.GameChannelStatus.UPDATE_AVAILABLE,
-                    y = void 0 !== hk(s.uninstallations, e),
-                    b = s.current && pk(s.current.game, e) ? s.current : dk(s.queue, e),
+                    y = void 0 !== wk(s.uninstallations, e),
+                    b = s.current && kk(s.current.game, e) ? s.current : xk(s.queue, e),
                     _ = void 0 !== b && b.status !== (dw.InstallationStatus.COMPLETED || dw.InstallationStatus.ERROR),
-                    x = rO(`/${vR.SETTINGS}/${vR.SETTINGS_GAMES}`, {gameId: e.gameId, channelId: e.channelId}),
-                    w = c.gamesSettings.find((t => t.gameId === e.gameId && t.channelId === e.channelId)),
+                    x = bO(`/${rT.SETTINGS}/${rT.SETTINGS_GAMES}`, {gameId: e.gameId, channelId: e.channelId}),
+                    w = c.settings.find((t => t.gameId === e.gameId && t.channelId === e.channelId)),
                     k = o.actions.isOffline(), E = (0, ke.useCallback)((() => {
                         if (d) return void u(x);
                         const e = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
@@ -47456,7 +48262,7 @@
                         }), e / 2);
                         return () => clearTimeout(t)
                     }), [o.actions, u, x, d]), S = (0, ke.useCallback)((t => {
-                        const n = kP.getAvailableChannelsSorted(e.gameId).find((e => e.id === t)),
+                        const n = QP.getAvailableChannelsSorted(e.gameId).find((e => e.id === t)),
                             r = l.availableGames.find((t => t.id === e.gameId));
                         if (!n || !r) return;
                         const a = {
@@ -47475,7 +48281,7 @@
                         placement: "bottom-end",
                         trigger: (0, hw.jsx)(uu, {
                             "aria-label": t("game_page_settings"),
-                            icon: nk,
+                            icon: ck,
                             size: "small",
                             variant: "plain"
                         }),
@@ -47491,15 +48297,15 @@
                             disabled: !w
                         }), (0, hw.jsx)(q_, {
                             label: t("game_page_settings_verify"),
-                            onClick: () => AP.addInstallationToQueue(e, dw.InstallationType.VERIFY),
+                            onClick: () => aC.addInstallationToQueue(e, dw.InstallationType.VERIFY),
                             disabled: m || _ || y || k || !f
                         }), g && (0, hw.jsxs)(hw.Fragment, {
                             children: [(0, hw.jsx)(q_, {
                                 label: t("game_page_settings_check_update"),
-                                endIcon: a ? (0, hw.jsx)(Jw, {}) : void 0,
+                                endIcon: a ? (0, hw.jsx)(ok, {}) : void 0,
                                 onClick: () => {
                                     i(!0), setTimeout((async () => {
-                                        await kP.checkForGameChannelUpdates(e), i(!1)
+                                        await QP.checkForGameChannelUpdates(e), i(!1)
                                     }), 3e3)
                                 },
                                 disabled: a || m || v || _ || y || k || !f,
@@ -47507,42 +48313,43 @@
                             }), (0, hw.jsx)(q_, {
                                 color: "negative",
                                 label: t("game_page_settings_uninstall"),
-                                onClick: () => AP.uninstallChannel(e),
+                                onClick: () => aC.uninstallChannel(e),
                                 disabled: m || _ || y
                             })]
                         })]
                     })), [n, t, E, g, w, m, _, y, k, f, a, v, e]),
                     setGameSettingsMenuAnchor: r
                 }
-            }, AD = ({gameChannel: e}) => {
-                const {t: t} = yt("gamePage"), {
-                    handleChannelSelection: n,
-                    channelSelectorSuffix: r,
-                    setGameSettingsMenuAnchor: a
-                } = ID(e), i = kP.getAvailableChannelsSorted(e.gameId);
+            }, fR = ({gameChannel: e, disabled: t}) => {
+                const {t: n} = yt("gamePage"), {
+                    handleChannelSelection: r,
+                    channelSelectorSuffix: a,
+                    setGameSettingsMenuAnchor: i
+                } = pR(e), o = QP.getAvailableChannelsSorted(e.gameId);
                 return (0, hw.jsx)(Yg, {
-                    label: t("game_page_channels"),
+                    label: n("game_page_channels"),
                     labelType: "classic",
                     className: "sol-c-game-page__channel-selector",
                     children: (0, hw.jsx)(ax, {
-                        onValueChange: n,
+                        disabled: t,
+                        onValueChange: r,
                         value: e.channelId,
-                        suffix: r,
-                        wrapperProps: {ref: a},
-                        children: i.map((({id: e, versionLabel: t}) => (0, hw.jsx)(rx, {
+                        suffix: a,
+                        wrapperProps: {ref: i},
+                        children: o.map((({id: e, versionLabel: t}) => (0, hw.jsx)(rx, {
                             description: t,
                             label: e,
                             value: e
                         }, e)))
                     })
                 })
-            }, DD = ({gameChannel: e}) => {
+            }, mR = ({gameChannel: e}) => {
                 var t;
-                const {t: n} = yt("download"), r = kC((e => e.installer)), a = kC((e => e.library)),
+                const {t: n} = yt("download"), r = nI((e => e.installer)), a = nI((e => e.library)),
                     i = Ow(e.gameId, a.availableGames),
                     o = null === i || void 0 === i ? void 0 : i.channels.find((t => t.id === e.channelId)),
-                    s = r.current && pk(r.current.game, e) ? r.current : dk(r.queue, e), l = hk(r.uninstallations, e),
-                    c = fk(o, s, l),
+                    s = r.current && kk(r.current.game, e) ? r.current : xk(r.queue, e), l = wk(r.uninstallations, e),
+                    c = Ek(o, s, l),
                     u = (c === dw.InstallationStatus.PAUSED || c === dw.InstallationStatus.IN_PROGRESS || c === dw.InstallationStatus.WAITING) && (null === s || void 0 === s ? void 0 : s.progress),
                     d = [];
                 var h, p;
@@ -47555,7 +48362,7 @@
                     value: `${s.progress.speed}/s`
                 }), d.push({
                     label: n("download_left", {ns: "download"}),
-                    value: ck()(Math.max((null !== (h = s.progress.total) && void 0 !== h ? h : 0) - (null !== (p = s.progress.downloaded) && void 0 !== p ? p : 0), 0))
+                    value: bk()(Math.max((null !== (h = s.progress.total) && void 0 !== h ? h : 0) - (null !== (p = s.progress.downloaded) && void 0 !== p ? p : 0), 0))
                 })));
                 return u ? (0, hw.jsx)(uf, {
                     id: `${e.gameId}-${e.channelId}`,
@@ -47563,15 +48370,15 @@
                     progress: c === dw.InstallationStatus.IN_PROGRESS && null !== (t = s.progress) && void 0 !== t && t.showProgress ? s.progress.percentage : void 0,
                     stats: d
                 }) : null
-            }, RD = e => {
+            }, gR = e => {
                 var t, n, r;
-                const {t: a} = yt("gamePage"), i = kC((e => e.library)),
-                    o = kC((e => e.application)), {reduceMotion: {wipeAnimationsDisabled: s}} = $c(),
+                const {t: a} = yt("gamePage"), i = nI((e => e.library)),
+                    o = nI((e => e.application)), {reduceMotion: {wipeAnimationsDisabled: s}} = $c(),
                     l = null !== (t = null === (n = o.animations) || void 0 === n || null === (r = n.appLayoutWipe) || void 0 === r ? void 0 : r.isAnimating) && void 0 !== t && t,
                     c = (0, ke.useCallback)(((e, t) => {
-                        e.preventDefault(), t.id === i.gameSelected || l || (s || o.actions.setAnimatingAppLayoutWipe("full", !0), kP.changeGameSelected(t.id))
+                        e.preventDefault(), t.id === i.gameSelected || l || (s || o.actions.setAnimatingAppLayoutWipe("full", !0), QP.changeGameSelected(t.id))
                     }), [i.gameSelected, l, s, o.actions]),
-                    u = (0, ke.useMemo)((() => null === i || void 0 === i ? void 0 : i.availableGames.sort(_P).map((e => e.channels.length > 0 ? (0, hw.jsx)(O_, {
+                    u = (0, ke.useMemo)((() => null === i || void 0 === i ? void 0 : i.availableGames.sort(YP).map((e => e.channels.length > 0 ? (0, hw.jsx)(O_, {
                         logo: e.logo,
                         name: e.name,
                         active: e.id === i.gameSelected,
@@ -47583,10 +48390,10 @@
                     "data-test-id": "game-navigation", ...e,
                     children: u
                 })
-            }, TD = ({status: e}) => {
+            }, vR = ({status: e}) => {
                 var t, n;
-                const {t: r} = yt(["gamePage", "status"]), a = kC((e => e.library)), i = kC((e => e.application)),
-                    o = (null === (t = a.gameChannelSelected) || void 0 === t ? void 0 : t.gameId) === gk && (null === (n = a.gameChannelSelected) || void 0 === n ? void 0 : n.channelId) === vk && i.nonOperationalStatus,
+                const {t: r} = yt(["gamePage", "status"]), a = nI((e => e.library)), i = nI((e => e.application)),
+                    o = (null === (t = a.gameChannelSelected) || void 0 === t ? void 0 : t.gameId) === Ok && (null === (n = a.gameChannelSelected) || void 0 === n ? void 0 : n.channelId) === Pk && i.nonOperationalStatus,
                     s = e === dw.RSISystemStatus.MAINTENANCE ? r("game_page_status_under_maintenance", {ns: "gamePage"}) : r("game_page_status_issue", {ns: "gamePage"});
                 return (0, hw.jsx)(hw.Fragment, {
                     children: o && (0, hw.jsxs)(nv, {
@@ -47601,17 +48408,17 @@
                 })
             };
 
-        function jD() {
-            return jD = Object.assign ? Object.assign.bind() : function (e) {
+        function yR() {
+            return yR = Object.assign ? Object.assign.bind() : function (e) {
                 for (var t = 1; t < arguments.length; t++) {
                     var n = arguments[t];
                     for (var r in n) Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r])
                 }
                 return e
-            }, jD.apply(this, arguments)
+            }, yR.apply(this, arguments)
         }
 
-        function LD(e, t) {
+        function bR(e, t) {
             if (null == e) return {};
             var n, r, a = {}, i = Object.keys(e);
             for (r = 0; r < i.length; r++) n = i[r], t.indexOf(n) >= 0 || (a[n] = e[n]);
@@ -47619,43 +48426,48 @@
         }
 
         new Set(["application/x-www-form-urlencoded", "multipart/form-data", "text/plain"]);
-        const ND = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset", "unstable_viewTransition"];
-
-        function MD() {
-            var e;
-            let t = null == (e = window) ? void 0 : e.__staticRouterHydrationData;
-            return t && t.errors && (t = jD({}, t, {errors: FD(t.errors)})), t
+        const _R = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset", "viewTransition"];
+        try {
+            window.__reactRouterVersion = "6"
+        } catch (cT) {
         }
 
-        function FD(e) {
+        function xR() {
+            var e;
+            let t = null == (e = window) ? void 0 : e.__staticRouterHydrationData;
+            return t && t.errors && (t = yR({}, t, {errors: wR(t.errors)})), t
+        }
+
+        function wR(e) {
             if (!e) return null;
             let t = Object.entries(e), n = {};
-            for (let [a, i] of t) if (i && "RouteErrorResponse" === i.__type) n[a] = new gO(i.status, i.statusText, i.data, !0 === i.internal); else if (i && "Error" === i.__type) {
-                if (i.__subType) {
-                    let e = window[i.__subType];
+            for (let [r, a] of t) if (a && "RouteErrorResponse" === a.__type) n[r] = new TO(a.status, a.statusText, a.data, !0 === a.internal); else if (a && "Error" === a.__type) {
+                if (a.__subType) {
+                    let e = window[a.__subType];
                     if ("function" === typeof e) try {
-                        let t = new e(i.message);
-                        t.stack = "", n[a] = t
-                    } catch (r) {
+                        let t = new e(a.message);
+                        t.stack = "", n[r] = t
+                    } catch (cT) {
                     }
                 }
-                if (null == n[a]) {
-                    let e = new Error(i.message);
-                    e.stack = "", n[a] = e
+                if (null == n[r]) {
+                    let e = new Error(a.message);
+                    e.stack = "", n[r] = e
                 }
-            } else n[a] = i;
+            } else n[r] = a;
             return n
         }
 
-        const zD = ke.createContext({isTransitioning: !1});
-        const VD = ke.createContext(new Map);
-        const UD = Ee.startTransition, GD = Hl.flushSync;
+        const kR = ke.createContext({isTransitioning: !1});
+        const ER = ke.createContext(new Map);
+        const SR = Ee.startTransition, OR = Hl.flushSync;
+        Ee.useId;
 
-        function BD(e) {
-            GD ? GD(e) : e()
+        function PR(e) {
+            OR ? OR(e) : e()
         }
 
-        class $D {
+        class CR {
             constructor() {
                 this.status = "pending", this.promise = new Promise(((e, t) => {
                     this.resolve = t => {
@@ -47667,7 +48479,7 @@
             }
         }
 
-        function WD(e) {
+        function IR(e) {
             let {
                     fallbackElement: t,
                     router: n,
@@ -47675,17 +48487,17 @@
                 } = e, [a, i] = ke.useState(n.state), [o, s] = ke.useState(), [l, c] = ke.useState({isTransitioning: !1}), [u, d] = ke.useState(), [h, p] = ke.useState(), [f, m] = ke.useState(),
                 g = ke.useRef(new Map), {v7_startTransition: v} = r || {}, y = ke.useCallback((e => {
                     v ? function (e) {
-                        UD ? UD(e) : e()
+                        SR ? SR(e) : e()
                     }(e) : e()
                 }), [v]), b = ke.useCallback(((e, t) => {
-                    let {deletedFetchers: r, unstable_flushSync: a, unstable_viewTransitionOpts: o} = t;
-                    r.forEach((e => g.current.delete(e))), e.fetchers.forEach(((e, t) => {
+                    let {deletedFetchers: r, flushSync: a, viewTransitionOpts: o} = t;
+                    e.fetchers.forEach(((e, t) => {
                         void 0 !== e.data && g.current.set(t, e.data)
-                    }));
-                    let l = null == n.window || "function" !== typeof n.window.document.startViewTransition;
+                    })), r.forEach((e => g.current.delete(e)));
+                    let l = null == n.window || null == n.window.document || "function" !== typeof n.window.document.startViewTransition;
                     if (o && !l) {
                         if (a) {
-                            BD((() => {
+                            PR((() => {
                                 h && (u && u.resolve(), h.skipTransition()), c({
                                     isTransitioning: !0,
                                     flushSync: !0,
@@ -47694,13 +48506,13 @@
                                 })
                             }));
                             let t = n.window.document.startViewTransition((() => {
-                                BD((() => i(e)))
+                                PR((() => i(e)))
                             }));
                             return t.finished.finally((() => {
-                                BD((() => {
+                                PR((() => {
                                     d(void 0), p(void 0), s(void 0), c({isTransitioning: !1})
                                 }))
-                            })), void BD((() => p(t)))
+                            })), void PR((() => p(t)))
                         }
                         h ? (u && u.resolve(), h.skipTransition(), m({
                             state: e,
@@ -47712,10 +48524,10 @@
                             currentLocation: o.currentLocation,
                             nextLocation: o.nextLocation
                         }))
-                    } else a ? BD((() => i(e))) : y((() => i(e)))
+                    } else a ? PR((() => i(e))) : y((() => i(e)))
                 }), [n.window, h, u, g, y]);
             ke.useLayoutEffect((() => n.subscribe(b)), [n, b]), ke.useEffect((() => {
-                l.isTransitioning && !l.flushSync && d(new $D)
+                l.isTransitioning && !l.flushSync && d(new CR)
             }), [l]), ke.useEffect((() => {
                 if (u && o && n.window) {
                     let e = o, t = u.promise, r = n.window.document.startViewTransition((async () => {
@@ -47734,7 +48546,8 @@
                     currentLocation: f.currentLocation,
                     nextLocation: f.nextLocation
                 }), m(void 0))
-            }), [l.isTransitioning, f]);
+            }), [l.isTransitioning, f]), ke.useEffect((() => {
+            }), []);
             let _ = ke.useMemo((() => ({
                     createHref: n.createHref,
                     encodeLocation: n.encodeLocation,
@@ -47749,22 +48562,30 @@
                         preventScrollReset: null == r ? void 0 : r.preventScrollReset
                     })
                 })), [n]), x = n.basename || "/",
-                w = ke.useMemo((() => ({router: n, navigator: _, static: !1, basename: x})), [n, _, x]);
-            return ke.createElement(ke.Fragment, null, ke.createElement(DC.Provider, {value: w}, ke.createElement(RC.Provider, {value: a}, ke.createElement(VD.Provider, {value: g.current}, ke.createElement(zD.Provider, {value: l}, ke.createElement(nI, {
+                w = ke.useMemo((() => ({router: n, navigator: _, static: !1, basename: x})), [n, _, x]),
+                k = ke.useMemo((() => ({v7_relativeSplatPath: n.future.v7_relativeSplatPath})), [n.future.v7_relativeSplatPath]);
+            return ke.useEffect((() => jI(r, n.future)), [r, n.future]), ke.createElement(ke.Fragment, null, ke.createElement(uI.Provider, {value: w}, ke.createElement(dI.Provider, {value: a}, ke.createElement(ER.Provider, {value: g.current}, ke.createElement(kR.Provider, {value: l}, ke.createElement(MI, {
                 basename: x,
                 location: a.location,
                 navigationType: a.historyAction,
-                navigator: _
-            }, a.initialized ? ke.createElement(HD, {routes: n.routes, state: a}) : t))))), null)
+                navigator: _,
+                future: k
+            }, a.initialized || n.future.v7_partialHydration ? ke.createElement(AR, {
+                routes: n.routes,
+                future: n.future,
+                state: a
+            }) : t))))), null)
         }
 
-        function HD(e) {
-            let {routes: t, state: n} = e;
-            return BC(t, void 0, n)
+        const AR = ke.memo(DR);
+
+        function DR(e) {
+            let {routes: t, future: n, state: r} = e;
+            return wI(t, void 0, r, n)
         }
 
-        const qD = "undefined" !== typeof window && "undefined" !== typeof window.document && "undefined" !== typeof window.document.createElement,
-            KD = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i, YD = ke.forwardRef((function (e, t) {
+        const RR = "undefined" !== typeof window && "undefined" !== typeof window.document && "undefined" !== typeof window.document.createElement,
+            TR = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i, jR = ke.forwardRef((function (e, t) {
                 let n, {
                     onClick: r,
                     relative: a,
@@ -47774,23 +48595,23 @@
                     target: l,
                     to: c,
                     preventScrollReset: u,
-                    unstable_viewTransition: d
-                } = e, h = LD(e, ND), {basename: p} = ke.useContext(TC), f = !1;
-                if ("string" === typeof c && KD.test(c) && (n = c, qD)) try {
+                    viewTransition: d
+                } = e, h = bR(e, _R), {basename: p} = ke.useContext(hI), f = !1;
+                if ("string" === typeof c && TR.test(c) && (n = c, RR)) try {
                     let e = new URL(window.location.href), t = c.startsWith("//") ? new URL(e.protocol + c) : new URL(c),
-                        n = oO(t.pathname, p);
+                        n = wO(t.pathname, p);
                     t.origin === e.origin && null != n ? c = n + t.search + t.hash : f = !0
-                } catch (v) {
+                } catch (cT) {
                 }
                 let m = function (e, t) {
                     let {relative: n} = void 0 === t ? {} : t;
-                    MC() || VS(!1);
-                    let {basename: r, navigator: a} = ke.useContext(TC), {
+                    gI() || tO(!1);
+                    let {basename: r, navigator: a} = ke.useContext(hI), {
                         hash: i,
                         pathname: o,
                         search: s
-                    } = GC(e, {relative: n}), l = o;
-                    return "/" !== r && (l = "/" === o ? r : uO([r, o])), a.createHref({pathname: l, search: s, hash: i})
+                    } = xI(e, {relative: n}), l = o;
+                    return "/" !== r && (l = "/" === o ? r : PO([r, o])), a.createHref({pathname: l, search: s, hash: i})
                 }(c, {relative: a}), g = function (e, t) {
                     let {
                         target: n,
@@ -47798,8 +48619,8 @@
                         state: a,
                         preventScrollReset: i,
                         relative: o,
-                        unstable_viewTransition: s
-                    } = void 0 === t ? {} : t, l = VC(), c = FC(), u = GC(e, {relative: o});
+                        viewTransition: s
+                    } = void 0 === t ? {} : t, l = bI(), c = vI(), u = xI(e, {relative: o});
                     return ke.useCallback((t => {
                         if (function (e, t) {
                             return 0 === e.button && (!t || "_self" === t) && !function (e) {
@@ -47807,24 +48628,24 @@
                             }(e)
                         }(t, n)) {
                             t.preventDefault();
-                            let n = void 0 !== r ? r : $S(c) === $S(u);
-                            l(e, {replace: n, state: a, preventScrollReset: i, relative: o, unstable_viewTransition: s})
+                            let n = void 0 !== r ? r : iO(c) === iO(u);
+                            l(e, {replace: n, state: a, preventScrollReset: i, relative: o, viewTransition: s})
                         }
                     }), [c, l, u, r, a, n, e, i, o, s])
-                }(c, {replace: o, state: s, target: l, preventScrollReset: u, relative: a, unstable_viewTransition: d});
-                return ke.createElement("a", jD({}, h, {
+                }(c, {replace: o, state: s, target: l, preventScrollReset: u, relative: a, viewTransition: d});
+                return ke.createElement("a", yR({}, h, {
                     href: n || m, onClick: f || i ? r : function (e) {
                         r && r(e), e.defaultPrevented || g(e)
                     }, ref: t, target: l
                 }))
             }));
-        var ZD, QD;
+        var LR, NR;
         (function (e) {
             e.UseScrollRestoration = "useScrollRestoration", e.UseSubmit = "useSubmit", e.UseSubmitFetcher = "useSubmitFetcher", e.UseFetcher = "useFetcher", e.useViewTransitionState = "useViewTransitionState"
-        })(ZD || (ZD = {})), function (e) {
+        })(LR || (LR = {})), function (e) {
             e.UseFetcher = "useFetcher", e.UseFetchers = "useFetchers", e.UseScrollRestoration = "useScrollRestoration"
-        }(QD || (QD = {}));
-        const XD = (0, ke.forwardRef)((({
+        }(NR || (NR = {}));
+        const MR = (0, ke.forwardRef)((({
                                             children: e,
                                             href: t = "",
                                             ...n
@@ -47834,13 +48655,13 @@
                 rel: "noopener noreferrer",
                 target: "_blank", ...n,
                 children: e
-            }) : (0, hw.jsx)(YD, {ref: r, to: t, ...n, children: e}))),
-            JD = ({children: e, control: t, name: n, defaultValue: r, required: a, rules: i, selectProps: o, ...s}) => {
+            }) : (0, hw.jsx)(jR, {ref: r, to: t, ...n, children: e}))),
+            FR = ({children: e, control: t, name: n, defaultValue: r, required: a, rules: i, selectProps: o, ...s}) => {
                 var l;
                 const {
                     field: {value: c, onBlur: u, onChange: d, ref: h},
                     fieldState: {error: p, invalid: f}
-                } = GI({name: n, control: t, defaultValue: r, rules: {required: a, ...i}});
+                } = kA({name: n, control: t, defaultValue: r, rules: {required: a, ...i}});
                 return (0, hw.jsx)(Yg, {
                     error: null === p || void 0 === p ? void 0 : p.message,
                     invalid: f,
@@ -47854,9 +48675,9 @@
                         children: e
                     })
                 })
-            }, eR = ({control: e, name: t, defaultValue: n, required: r, rules: a, type: i, inputProps: o, ...s}) => {
+            }, zR = ({control: e, name: t, defaultValue: n, required: r, rules: a, type: i, inputProps: o, ...s}) => {
                 var l;
-                const {field: {value: c, onBlur: u, onChange: d, ref: h}, fieldState: {error: p, invalid: f}} = GI({
+                const {field: {value: c, onBlur: u, onChange: d, ref: h}, fieldState: {error: p, invalid: f}} = kA({
                     name: t,
                     control: e,
                     defaultValue: n,
@@ -47877,7 +48698,7 @@
                         type: i, ...o
                     })
                 })
-            }, tR = {
+            }, VR = {
                 twitch: {
                     name: om.TWITCH, icon: e => {
                         var {title: t, titleId: n} = e, r = function (e, t) {
@@ -48029,9 +48850,9 @@
                         }))))
                     }
                 }
-            }, nR = () => {
+            }, UR = () => {
                 var e;
-                const {t: t} = yt("form"), n = kC((e => e.application)), r = VC(),
+                const {t: t} = yt("form"), n = nI((e => e.application)), r = bI(),
                     a = null !== (e = n.launcherVersion.includes("rc")) && void 0 !== e && e, {
                         isPending: i,
                         submitSignIn: o,
@@ -48042,27 +48863,27 @@
                         serverError: d,
                         control: h
                     } = (() => {
-                        const e = VC(), [t, n] = ke.useState(null), {captcha: r} = kC((e => e.authentication)), {
+                        const e = bI(), [t, n] = ke.useState(null), {captcha: r} = nI((e => e.authentication)), {
                             launcherVersion: a,
                             platformMaster: i
-                        } = kC((e => e.application)), {
+                        } = nI((e => e.application)), {
                             handleSubmit: o,
                             register: s,
                             setError: l,
                             formState: {errors: c},
                             resetField: u,
                             control: d
-                        } = CA(), {authentication: {onSignInSuccess: h}} = Sw(), {
+                        } = cD(), {authentication: {onSignInSuccess: h}} = Sw(), {
                             mutate: p,
                             isPending: f
-                        } = DA({
+                        } = hD({
                             mutationFn: ({
                                              username: e,
                                              password: t,
                                              captcha: n,
                                              remember: r,
                                              launcherVersion: a
-                                         }) => rS.authentication.signIn({
+                                         }) => gS.authentication.signIn({
                                 username: e,
                                 password: t,
                                 captcha: n,
@@ -48070,19 +48891,19 @@
                                 launcherVersion: a
                             }), onSuccess: (e, t) => v(e, t), onError: async (e, t) => await g(e, t)
                         }), m = (0, ke.useCallback)((async () => {
-                            await dP.getSession(i) && uP.fetchCaptcha()
+                            await FP.getSession(i) && MP.fetchCaptcha()
                         }), [i]), g = async (t, r) => {
                             const {username: a, remember: i, captcha: o} = r;
-                            if (o && uP.fetchCaptcha(), t instanceof fE) {
-                                const e = await rS.authentication.getCaptcha();
-                                kC.setState((t => ({authentication: {...t.authentication, captcha: e}})))
+                            if (o && MP.fetchCaptcha(), t instanceof OE) {
+                                const e = await gS.authentication.getCaptcha();
+                                nI.setState((t => ({authentication: {...t.authentication, captcha: e}})))
                             } else {
-                                if (t instanceof mE) return l("captcha", {
+                                if (t instanceof PE) return l("captcha", {
                                     type: "custom",
                                     message: null === t || void 0 === t ? void 0 : t.message
                                 }), void u("captcha", {keepDirty: !0, keepError: !0, keepTouched: !0, defaultValue: ""});
-                                if (t instanceof lE) throw e(vR.SIGN_IN_MFA, {state: {remember: i, username: a}});
-                                if (t instanceof WE) throw n((0, hw.jsx)(ht, {
+                                if (t instanceof _E) throw e(rT.SIGN_IN_MFA, {state: {remember: i, username: a}});
+                                if (t instanceof rS) throw n((0, hw.jsx)(ht, {
                                     i18nKey: "error_sign_in_not_authorized",
                                     ns: "errors",
                                     components: [(0, hw.jsx)(j_, {
@@ -48094,16 +48915,16 @@
                                 n(t.message)
                             }
                         }, v = ({identity: t, session: n}, r) => {
-                            uP.resetAuthentication();
+                            MP.resetAuthentication();
                             const a = r.remember;
-                            throw dP.setIdentity({identity: t, remember: a}), dP.setSession({
+                            throw FP.setIdentity({identity: t, remember: a}), FP.setSession({
                                 session: n,
                                 remember: a
                             }), h({
                                 accountName: t.username,
                                 trackingMetricsId: t.trackingMetricsId,
                                 heapAccountId: t.heapAccountId
-                            }), e(vR.HOME)
+                            }), e(rT.HOME)
                         };
                         return {
                             refreshCaptcha: m,
@@ -48120,23 +48941,23 @@
                             formErrors: c,
                             serverError: t
                         }
-                    })(), {data: p = []} = aD({
+                    })(), {data: p = []} = VD({
                         queryKey: ["authProviders"],
-                        queryFn: async () => rS.rsiClient.getAuthProviders(),
+                        queryFn: async () => gS.rsiClient.getAuthProviders(),
                         refetchInterval: ww(dw.configuration.requestPollingInterval.signInPageProviders.base, dw.configuration.requestPollingInterval.signInPageProviders.window),
-                        enabled: uS(),
+                        enabled: SS(),
                         refetchOnWindowFocus: !0,
                         refetchOnReconnect: !0,
                         staleTime: 0,
                         gcTime: 0
                     });
                 (0, ke.useEffect)((() => {
-                    n.connection.mode !== dw.ConnectionMode.ONLINE && r(`/${vR.OFFLINE}`)
+                    n.connection.mode !== dw.ConnectionMode.ONLINE && r(`/${rT.OFFLINE}`)
                 }), [n.connection, r]);
                 const f = (0, ke.useCallback)((async e => {
-                    r(`${vR.SIGN_IN_THIRD_PARTY}`);
+                    r(`${rT.SIGN_IN_THIRD_PARTY}`);
                     const t = Object.values(om).find((t => t === e));
-                    await uP.startThirdPartyAuthProcess(t || e)
+                    await MP.startThirdPartyAuthProcess(t || e)
                 }), [r]);
                 return (0, hw.jsxs)(cx, {
                     as: "form",
@@ -48153,9 +48974,9 @@
                     onSubmit: l(o),
                     children: [a && (0, hw.jsx)(zp, {
                         type: "notice",
-                        icon: ik,
+                        icon: pk,
                         children: t("sign_in_prerelease")
-                    }), d && (0, hw.jsx)(zp, {type: "negative", children: d}), (0, hw.jsx)(eR, {
+                    }), d && (0, hw.jsx)(zp, {type: "negative", children: d}), (0, hw.jsx)(zR, {
                         control: h,
                         name: "username",
                         rules: {required: {value: !0, message: t("error_email_field_is_required")}},
@@ -48163,7 +48984,7 @@
                         disabled: i,
                         "data-test-id": "email",
                         inputProps: {id: "email"}
-                    }), (0, hw.jsx)(eR, {
+                    }), (0, hw.jsx)(zR, {
                         control: h,
                         name: "password",
                         rules: {required: {value: !0, message: t("error_password_field_is_required")}},
@@ -48192,7 +49013,7 @@
                             id: "captcha",
                             src: c,
                             alt: ""
-                        }), (0, hw.jsx)(eR, {
+                        }), (0, hw.jsx)(zR, {
                             control: h,
                             name: "captcha",
                             rules: {required: {value: !0, message: t("error_field_is_required")}},
@@ -48206,7 +49027,7 @@
                                     "aria-label": t("sign_in_captcha_refresh"),
                                     "aria-controls": "captcha",
                                     disabled: i,
-                                    icon: Uw,
+                                    icon: qw,
                                     variant: "plain",
                                     size: "small",
                                     onClick: u
@@ -48236,7 +49057,7 @@
                         })]
                     })]
                 })
-            }, rR = () => {
+            }, GR = () => {
                 const {t: e} = yt("form"), {
                     serverError: t,
                     submitSignInMfa: n,
@@ -48244,29 +49065,29 @@
                     isPending: a,
                     control: i
                 } = (() => {
-                    const {t: e} = yt("errors"), [t, n] = ke.useState(null), r = VC(), a = FC(), {
+                    const {t: e} = yt("errors"), [t, n] = ke.useState(null), r = bI(), a = vI(), {
                         handleSubmit: i,
                         register: o,
                         formState: {errors: s},
                         control: l
-                    } = CA(), {authentication: {onSignInSuccess: c}} = Sw(), {
+                    } = cD(), {authentication: {onSignInSuccess: c}} = Sw(), {
                         mutate: u,
                         isPending: d
-                    } = DA({
+                    } = hD({
                         mutationFn: ({
                                          username: e,
                                          codeMfa: t,
                                          deviceName: n,
                                          duration: r
-                                     }) => rS.authentication.signInMfa({
+                                     }) => gS.authentication.signInMfa({
                             username: e,
                             codeMfa: t,
                             deviceName: n,
                             duration: r
                         }), onSuccess: e => p(e), onError: e => h(e)
                     }), h = t => {
-                        if (t instanceof cE) n(e("error_wrong_mfa_code")); else {
-                            if (t instanceof WE) throw n((0, hw.jsx)(ht, {
+                        if (t instanceof xE) n(e("error_wrong_mfa_code")); else {
+                            if (t instanceof rS) throw n((0, hw.jsx)(ht, {
                                 i18nKey: "error_sign_in_not_authorized",
                                 ns: "errors",
                                 components: [(0, hw.jsx)(j_, {
@@ -48278,16 +49099,16 @@
                             n(t.message)
                         }
                     }, p = ({identity: e, session: t, device: n}) => {
-                        uP.resetAuthentication();
-                        const i = a.state.remember && n.duration !== Tw.SESSION;
-                        throw dP.setIdentity({identity: e, remember: i}), dP.setSession({
+                        MP.resetAuthentication();
+                        const i = a.state.remember && n.duration !== zw.SESSION;
+                        throw FP.setIdentity({identity: e, remember: i}), FP.setSession({
                             session: t,
                             remember: i
-                        }), dP.setDevice({device: n, remember: i}), c({
+                        }), FP.setDevice({device: n, remember: i}), c({
                             accountName: e.username,
                             trackingMetricsId: e.trackingMetricsId,
                             heapAccountId: e.heapAccountId
-                        }), r(vR.HOME)
+                        }), r(rT.HOME)
                     };
                     return {
                         isPending: d, submitSignInMfa: e => {
@@ -48300,21 +49121,21 @@
                             n(null), u(t)
                         }, mutateMfaSignIn: u, handleSubmit: i, register: o, control: l, errors: s, serverError: t
                     }
-                })(), o = [{label: e("sign_in_mfa_session"), value: Tw.SESSION}, {
+                })(), o = [{label: e("sign_in_mfa_session"), value: zw.SESSION}, {
                     label: e("sign_in_mfa_day"),
-                    value: Tw.DAY
-                }, {label: e("sign_in_mfa_week"), value: Tw.WEEK}, {
+                    value: zw.DAY
+                }, {label: e("sign_in_mfa_week"), value: zw.WEEK}, {
                     label: e("sign_in_mfa_month"),
-                    value: Tw.MONTH
-                }, {label: e("sign_in_mfa_year"), value: Tw.YEAR}], s = o[3].value, l = (0, ke.useCallback)((() => {
-                    dP.resetUser({clearDevice: !1}), uP.resetAuthentication()
+                    value: zw.MONTH
+                }, {label: e("sign_in_mfa_year"), value: zw.YEAR}], s = o[3].value, l = (0, ke.useCallback)((() => {
+                    FP.resetUser({clearDevice: !1}), MP.resetAuthentication()
                 }), []), c = (0, ke.useMemo)((() => (0, hw.jsxs)(hw.Fragment, {
                     children: [(0, hw.jsx)(uu, {
                         disabled: a,
                         onClick: l,
                         variant: "plain",
                         href: "..",
-                        icon: Fw,
+                        icon: $w,
                         size: "large",
                         children: e("sign_in_mfa_back_sign_in")
                     }), (0, hw.jsx)(uu, {
@@ -48330,13 +49151,13 @@
                     subtitle: e("sign_in_mfa_subtitle"),
                     footer: c,
                     onSubmit: r(n),
-                    children: [t && (0, hw.jsx)(zp, {type: "negative", children: t}), (0, hw.jsx)(eR, {
+                    children: [t && (0, hw.jsx)(zp, {type: "negative", children: t}), (0, hw.jsx)(zR, {
                         control: i,
                         name: "codeMfa",
                         rules: {required: {value: !0, message: e("error_code_required")}},
                         help: e("sign_in_mfa_code_help"),
                         label: e("sign_in_mfa_code_label")
-                    }), (0, hw.jsx)(eR, {
+                    }), (0, hw.jsx)(zR, {
                         control: i,
                         name: "deviceName",
                         rules: {
@@ -48345,7 +49166,7 @@
                         },
                         help: e("sign_in_mfa_device_help"),
                         label: e("sign_in_mfa_device_label")
-                    }), (0, hw.jsx)(JD, {
+                    }), (0, hw.jsx)(FR, {
                         control: i,
                         name: "duration",
                         label: e("sign_in_mfa_duration_label"),
@@ -48354,19 +49175,19 @@
                         children: o.map((({label: e, value: t}) => (0, hw.jsx)(rx, {value: t, children: e}, t)))
                     })]
                 })
-            }, aR = ({date: e}) => (0, hw.jsx)(Mp, {
+            }, BR = ({date: e}) => (0, hw.jsx)(Mp, {
                 content: kw(e, "long"),
                 placement: "bottom",
                 interactive: !1,
                 children: (0, hw.jsx)("time", {dateTime: e, children: kw(e, "relative")})
-            }), iR = ({gameChannel: e}) => {
-                const {t: t} = yt("gamePage"), n = kC((e => e.application)), [r, a] = (0, ke.useState)(Lw.COMM_LINKS), {
+            }), $R = ({gameChannel: e}) => {
+                const {t: t} = yt("gamePage"), n = nI((e => e.application)), [r, a] = (0, ke.useState)(Uw.COMM_LINKS), {
                     dynamicContentSections: i,
                     contents: o,
                     isLoading: s
                 } = (({channelId: e, gameId: t}) => {
-                    const n = kC((e => e.application)), {data: r, isLoading: a} = aD({
-                        ...lS(t, e),
+                    const n = nI((e => e.application)), {data: r, isLoading: a} = VD({
+                        ...kS(t, e),
                         enabled: n.connection.mode === dw.ConnectionMode.ONLINE && !n.isWindowMinimized
                     });
                     return {
@@ -48376,7 +49197,7 @@
                                 i = null !== (t = null === r || void 0 === r ? void 0 : r.patchNotes) && void 0 !== t ? t : [],
                                 o = null !== (n = null === r || void 0 === r ? void 0 : r.launcherCards) && void 0 !== n ? n : [],
                                 s = [], l = {};
-                            return l[`${Lw.COMM_LINKS}`] = a.map(fw).sort(gw).slice(0, 8), l[`${Lw.PATCH_NOTES}`] = i, o.map(mw).forEach((e => {
+                            return l[`${Uw.COMM_LINKS}`] = a.map(fw).sort(gw).slice(0, 8), l[`${Uw.PATCH_NOTES}`] = i, o.map(mw).forEach((e => {
                                 var t, n;
                                 if (null === (t = e.channel) || void 0 === t || !t.name) return;
                                 const r = void 0 !== l[e.channel.name];
@@ -48385,7 +49206,7 @@
                         }), [r]), isLoading: a
                     }
                 })({gameId: e.gameId, channelId: e.channelId}), l = (0, ke.useMemo)((() => {
-                    const e = [Lw.PATCH_NOTES], t = [...i, Lw.COMM_LINKS, Lw.PATCH_NOTES].filter((t => {
+                    const e = [Uw.PATCH_NOTES], t = [...i, Uw.COMM_LINKS, Uw.PATCH_NOTES].filter((t => {
                         const n = e.find((e => e === t));
                         return !(0 === o[t].length && n)
                     }));
@@ -48398,18 +49219,18 @@
                             active: r === e,
                             onClick: () => a(e)
                         }, e)))
-                    }), n.actions.isOffline() && (s || 0 === o[Lw.COMM_LINKS].length) ? (0, hw.jsx)(oR, {}) : (0, hw.jsx)(sR, {
+                    }), n.actions.isOffline() && (s || 0 === o[Uw.COMM_LINKS].length) ? (0, hw.jsx)(WR, {}) : (0, hw.jsx)(HR, {
                         contents: o,
                         activeTab: r
                     })]
                 })
-            }, oR = () => (0, hw.jsx)(Jg, {
+            }, WR = () => (0, hw.jsx)(Jg, {
                 children: (0, hw.jsx)(Fp, {
                     title: "No Connection",
                     href: "#",
                     isOffline: !0
                 }, "Card-no-connection")
-            }), sR = ({contents: e, activeTab: t}) => {
+            }), HR = ({contents: e, activeTab: t}) => {
                 const {t: n} = yt("gamePage"), r = (0, ke.useCallback)((e => {
                     var t;
                     return null !== (t = e.media) && void 0 !== t && t.overlay ? {
@@ -48431,59 +49252,76 @@
                             title: e.title,
                             excerpt: e.excerpt,
                             external: !0,
-                            subtitle: null !== e && void 0 !== e && e.publish_start ? (0, hw.jsx)(aR, {date: e.publish_start}) : void 0,
+                            subtitle: null !== e && void 0 !== e && e.publish_start ? (0, hw.jsx)(BR, {date: e.publish_start}) : void 0,
                             image: a(e),
                             overlay: r(e)
                         }, `Card-${e.id}`)))
                     }) : (0, hw.jsx)(Jg, {empty: n("game_page_cards_empty")})
                 })
-            }, lR = () => {
-                var e, t;
-                const {t: n} = yt("gamePage"), r = kC((e => e.library)), a = kC((e => e.application)), {
+            }, qR = ({promotion: e}) => {
+                const t = null !== e && void 0 !== e && e.publish_end ? kw(new Date(e.publish_end).toDateString(), "duration", {}) : "";
+                return (0, hw.jsx)(nv, {
+                    children: (0, hw.jsx)(ht, {
+                        i18nKey: "game_page_access_free_fly_remaining_message",
+                        ns: "gamePage",
+                        values: {remainingTime: t},
+                        components: [(0, hw.jsx)("b", {})]
+                    })
+                })
+            }, KR = () => {
+                var e, t, n;
+                const {t: r} = yt("gamePage"), a = nI((e => e.library)), i = nI((e => e.application)),
+                    o = nI((e => e.promotion)), {
                         reduceMotion: {
-                            backgroundVideoDisabled: i,
-                            wipeAnimationsDisabled: o
+                            backgroundVideoDisabled: s,
+                            wipeAnimationsDisabled: l
                         }
-                    } = $c(), s = mP(r.gameSelected, r.availableGames),
-                    l = null === (e = a.animations.gamePageEntering) || void 0 === e ? void 0 : e.isAnimating,
-                    c = null === (t = a.animations.gamePageEntering) || void 0 === t ? void 0 : t.animState,
-                    u = null === s || void 0 === s ? void 0 : s.status, d = a.actions.isOffline();
+                    } = $c(), c = $P(a.gameSelected, a.availableGames),
+                    u = null === (e = i.animations.gamePageEntering) || void 0 === e ? void 0 : e.isAnimating,
+                    d = null === (t = i.animations.gamePageEntering) || void 0 === t ? void 0 : t.animState,
+                    h = null === c || void 0 === c ? void 0 : c.status, p = i.actions.isOffline(),
+                    f = rR(o.promotions, (null === c || void 0 === c ? void 0 : c.id) || "", (null === (n = a.gameChannelSelected) || void 0 === n ? void 0 : n.channelId) || ""),
+                    m = void 0 !== f,
+                    g = h !== dw.GameStatus.AVAILABLE || m || !(null !== c && void 0 !== c && c.hasGamePackage);
                 return (0, hw.jsxs)(hw.Fragment, {
                     children: [(0, hw.jsx)(Xg, {
-                        image: null === s || void 0 === s ? void 0 : s.bgImage,
-                        video: i || null === s || void 0 === s ? void 0 : s.bgVideo
+                        image: null === c || void 0 === c ? void 0 : c.bgImage,
+                        video: s || null === c || void 0 === c ? void 0 : c.bgVideo
                     }), (0, hw.jsx)(ev, {
-                        logo: null === s || void 0 === s ? void 0 : s.logoWide,
-                        animation: null === s || void 0 === s ? void 0 : s.logoAnimation,
-                        playLottie: !!o || l && "entering" === c
+                        logo: null === c || void 0 === c ? void 0 : c.logoWide,
+                        animation: null === c || void 0 === c ? void 0 : c.logoAnimation,
+                        playLottie: !!l || u && "entering" === d
                     }), (0, hw.jsx)(E_, {
                         children: (0, hw.jsx)(ht, {
-                            i18nKey: "game_page_" + (null === s || void 0 === s ? void 0 : s.id.toLowerCase()) + "_title",
-                            values: {name: null === s || void 0 === s ? void 0 : s.name},
+                            i18nKey: "game_page_" + (null === c || void 0 === c ? void 0 : c.id.toLowerCase()) + "_title",
+                            values: {name: null === c || void 0 === c ? void 0 : c.name},
                             components: [(0, hw.jsx)("br", {}), (0, hw.jsx)("b", {})],
-                            t: n
+                            t: r
                         })
                     }), (0, hw.jsxs)(Qg, {
-                        children: [r.availableGames.length > 0 && r.gameChannelSelected && u === dw.GameStatus.AVAILABLE && (0, hw.jsx)(AD, {gameChannel: r.gameChannelSelected}), r.gameChannelSelected && (0, hw.jsx)(PD, {gameChannel: r.gameChannelSelected}), r.gameChannelSelected && (0, hw.jsx)(DD, {gameChannel: r.gameChannelSelected}), d && r.gameChannelSelected && (0, hw.jsx)(nv, {
+                        children: [a.availableGames.length > 0 && a.gameChannelSelected && h === dw.GameStatus.AVAILABLE && (0, hw.jsx)(fR, {
+                            disabled: g,
+                            gameChannel: a.gameChannelSelected
+                        }), a.gameChannelSelected && (0, hw.jsx)(dR, {gameChannel: a.gameChannelSelected}), a.gameChannelSelected && (0, hw.jsx)(mR, {gameChannel: a.gameChannelSelected}), p && a.gameChannelSelected && (0, hw.jsx)(nv, {
                             children: (0, hw.jsx)(ht, {
                                 i18nKey: "game_page_game_is_not_available_offline",
                                 ns: "gamePage",
-                                values: {game: r.gameChannelSelected.gameName}
+                                values: {game: a.gameChannelSelected.gameName}
                             })
-                        }), r.gameChannelSelected && (0, hw.jsx)(CD, {gameChannel: r.gameChannelSelected}), !d && a.nonOperationalStatus && (0, hw.jsx)(TD, {status: a.nonOperationalStatus})]
-                    }), r.gameChannelSelected && (0, hw.jsx)(iR, {gameChannel: r.gameChannelSelected})]
+                        }), a.gameChannelSelected && (0, hw.jsx)(hR, {gameChannel: a.gameChannelSelected}), m && (0, hw.jsx)(qR, {promotion: f}), !p && i.nonOperationalStatus && (0, hw.jsx)(vR, {status: i.nonOperationalStatus})]
+                    }), a.gameChannelSelected && (0, hw.jsx)($R, {gameChannel: a.gameChannelSelected})]
                 })
-            }, cR = () => {
-                const {t: e} = yt("errors"), t = kC((e => e.window)), n = kC((e => e.application)),
-                    r = VC(), [a, i] = (0, ke.useState)(!1), o = (0, ke.useCallback)((() => t.actions.exitLauncher()), [t]),
+            }, YR = () => {
+                const {t: e} = yt("errors"), t = nI((e => e.window)), n = nI((e => e.application)),
+                    r = bI(), [a, i] = (0, ke.useState)(!1), o = (0, ke.useCallback)((() => t.actions.exitLauncher()), [t]),
                     s = (0, ke.useCallback)((() => {
                         i(!0);
                         const e = setTimeout((() => {
-                            i(!1), r(`/${vR.SIGN_IN}`), clearTimeout(e)
+                            i(!1), r(`/${rT.SIGN_IN}`), clearTimeout(e)
                         }), 3 * xw.second)
                     }), [i, r]);
                 return (0, ke.useEffect)((() => {
-                    n.connection.mode === dw.ConnectionMode.ONLINE && r(`/${vR.SIGN_IN}`)
+                    n.connection.mode === dw.ConnectionMode.ONLINE && r(`/${rT.SIGN_IN}`)
                 }), [n.connection, r]), (0, hw.jsx)(ux, {
                     children: (0, hw.jsx)(cx, {
                         title: e("error_sign_in_offline_header_title"),
@@ -48517,10 +49355,10 @@
                         })
                     })
                 })
-            }, uR = () => {
-                const {t: e} = yt("form"), t = kC((e => e.authentication)), n = VC(), r = (0, ke.useCallback)((() => {
-                    "connecting" !== t.status && "connected" !== t.status || uP.cancelThirdPartyAuthProcess(), n(`/${vR.SIGN_IN}`)
-                }), [n, t.status]), a = t.provider ? tR[t.provider].icon : Ww;
+            }, ZR = () => {
+                const {t: e} = yt("form"), t = nI((e => e.authentication)), n = bI(), r = (0, ke.useCallback)((() => {
+                    "connecting" !== t.status && "connected" !== t.status || MP.cancelThirdPartyAuthProcess(), n(`/${rT.SIGN_IN}`)
+                }), [n, t.status]), a = t.provider ? VR[t.provider].icon : Xw;
                 return (0, hw.jsx)(cx, {
                     justify: "space-around", children: (0, hw.jsxs)(bu, {
                         align: "center",
@@ -48543,12 +49381,12 @@
                                 children: [(0, hw.jsx)(au, {
                                     color: "foreground-weak",
                                     size: "500",
-                                    source: tk
+                                    source: lk
                                 }), (0, hw.jsx)(au, {
                                     color: "foreground-weak",
                                     size: "150",
                                     isPlaying: !0,
-                                    source: "connecting" === t.status ? Jw : Yw
+                                    source: "connecting" === t.status ? ok : nk
                                 }), (0, hw.jsx)(au, {color: "foreground-weak", size: "500", source: a})]
                             }), (0, hw.jsx)(iu, {
                                 color: "foreground-weak",
@@ -48563,13 +49401,13 @@
                         })]
                     })
                 })
-            }, dR = () => {
-                const e = kC((e => e.toasts)), t = kC((e => e.application)), {
+            }, QR = () => {
+                const e = nI((e => e.toasts)), t = nI((e => e.application)), {
                     wipeAnimType: n,
                     isHeaderVisible: r
                 } = (() => {
                     var e, t;
-                    const n = kC((e => e.application)),
+                    const n = nI((e => e.application)),
                         r = null === (e = n.animations.appLayoutWipe) || void 0 === e ? void 0 : e.isAnimating,
                         a = null === (t = n.animations.appLayoutWipe) || void 0 === t ? void 0 : t.animType,
                         i = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/)), [o, s] = (0, ke.useState)(!1), [l, c] = (0, ke.useState)(""),
@@ -48599,13 +49437,13 @@
                         r ? u() : s(!0)
                     }), [r, u]), {wipeAnimType: l, isHeaderVisible: o}
                 })(), {t: a} = yt("settingsPage"), i = (0, ke.useRef)(!1);
-                return NA(), (0, ke.useEffect)((() => (kP.registerEventListener(), () => {
-                    kP.removeEventListener()
-                })), []), (0, ke.useEffect)((() => (AP.registerEventListener(), () => {
-                    AP.removeEventListener()
+                return yD(), (0, ke.useEffect)((() => (QP.registerEventListener(), () => {
+                    QP.removeEventListener()
+                })), []), (0, ke.useEffect)((() => (aC.registerEventListener(), () => {
+                    aC.removeEventListener()
                 })), []), (() => {
                     const {connectivity: {onConnectionAvailable: e, onConnectionUnavailable: t}} = window.launcherAPI,
-                        n = kC((e => e.application));
+                        n = nI((e => e.application));
                     (0, ke.useEffect)((() => e((() => {
                         n.actions.setConnectionAvailable()
                     }))), [n.actions, e]), (0, ke.useEffect)((() => t((() => {
@@ -48626,12 +49464,12 @@
                             onDeleteLocalSettingsSuccess: e,
                             onDeleteLocalSettingsError: t
                         }
-                    } = window.launcherAPI, n = kC((e => e.toasts)), {t: r} = yt("settingsPage");
+                    } = window.launcherAPI, n = nI((e => e.toasts)), {t: r} = yt("settingsPage");
                     (0, ke.useEffect)((() => e((e => {
                         n.actions.add({
                             title: r("settings_games_local_delete_success", {ns: "settingsPage"}),
                             type: "positive",
-                            icon: Hw,
+                            icon: Jw,
                             closeOnClick: !0
                         })
                     }))), [e, r, n.actions]), (0, ke.useEffect)((() => t((e => {
@@ -48639,7 +49477,7 @@
                             title: r("settings_games_local_delete_error", {ns: "settingsPage"}),
                             children: r("settings_games_local_delete_error_message", {ns: "settingsPage"}),
                             type: "negative",
-                            icon: Ww,
+                            icon: Xw,
                             closeOnClick: !0
                         })
                     }))), [t, r, n.actions])
@@ -48653,24 +49491,24 @@
                 }), []), (0, ke.useEffect)((() => {
                     e.actions.init()
                 }), [e.actions]), (0, hw.jsx)(hw.Fragment, {
-                    children: (0, hw.jsx)(dD, {
+                    children: (0, hw.jsx)(qD, {
                         children: (0, hw.jsxs)(Eu, {
                             className: "sol-u-animation-wipe",
                             "data-sol-animation-wipe": n,
-                            header: r ? (0, hw.jsx)(xD, {}) : void 0,
-                            children: [(0, hw.jsx)(tI, {}), (0, hw.jsx)(FP, {}), (0, hw.jsx)(mx, {toasts: e.list})]
+                            header: r ? (0, hw.jsx)(aR, {}) : void 0,
+                            children: [(0, hw.jsx)(NI, {}), (0, hw.jsx)(hC, {}), (0, hw.jsx)(mx, {toasts: e.list})]
                         })
                     })
                 })
-            }, hR = () => {
+            }, XR = () => {
                 const e = (0, ke.useCallback)((() => {
                     Sw().window.setLargeWindow()
                 }), []);
                 (0, ke.useEffect)((() => {
                     e()
                 }), [e])
-            }, pR = () => {
-                const e = kC((e => e.application)), {wipeAnimationsDisabled: t} = $c().reduceMotion,
+            }, JR = () => {
+                const e = nI((e => e.application)), {wipeAnimationsDisabled: t} = $c().reduceMotion,
                     n = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
                 (() => {
                     const e = (0, ke.useCallback)((() => {
@@ -48690,53 +49528,48 @@
                 }), [e.actions, n, t]);
                 return (0, ke.useEffect)((() => {
                     r()
-                }), [r]), (0, hw.jsx)(ux, {children: (0, hw.jsx)(tI, {})})
-            }, fR = () => {
+                }), [r]), (0, hw.jsx)(ux, {children: (0, hw.jsx)(NI, {})})
+            }, eT = () => {
                 var e;
-                const t = kC((e => e.application)),
-                    n = kC((e => e.library)), {reduceMotion: {wipeAnimationsDisabled: r}} = $c();
-                hR();
-                const [a, i] = (0, ke.useState)("is-init"), o = (0, ke.useCallback)((async () => {
-                    await kP.checkForGamesChannelsUpdates()
-                }), []);
+                const t = nI((e => e.application)), n = nI((e => e.library)),
+                    r = nI((e => e.promotion)), {reduceMotion: {wipeAnimationsDisabled: a}} = $c();
+                XR();
+                const [i, o] = (0, ke.useState)("is-init"),
+                    s = (0, ke.useCallback)((() => QP.checkForGamesChannelsUpdates()), []);
                 (0, ke.useEffect)((() => {
-                    n.installedGames.length > 0 && o()
-                }), [n.installedGames.length, o]);
-                const s = (0, ke.useMemo)((() => ww(dw.configuration.requestPollingInterval.library.base, dw.configuration.requestPollingInterval.library.window)), []);
-                ((e, t) => {
-                    const n = (0, ke.useRef)(e);
-                    (0, ke.useEffect)((() => {
-                        n.current = e
-                    }), [e]), (0, ke.useEffect)((() => {
-                        if (null !== t) {
-                            const e = setInterval((() => n.current()), t);
-                            return () => clearInterval(e)
-                        }
-                    }), [t])
-                })((() => o()), n.installedGames.length > 0 ? s : null);
-                const l = (0, ke.useCallback)((() => {
+                    n.installedGames.length && s()
+                }), [n.installedGames.length, s]);
+                const l = (0, ke.useMemo)((() => ww(dw.configuration.requestPollingInterval.library.base, dw.configuration.requestPollingInterval.library.window)), []);
+                gD(s, n.installedGames.length ? l : null);
+                const c = (0, ke.useCallback)((() => NC.checkPromotions()), []);
+                (0, ke.useEffect)((() => {
+                    r.promotions.length && c()
+                }), [r.promotions.length, c]);
+                const u = (0, ke.useMemo)((() => ww(dw.configuration.requestPollingInterval.library.base, dw.configuration.requestPollingInterval.library.window)), []);
+                gD(c, r.promotions.length ? u : null);
+                const d = (0, ke.useCallback)((() => {
                     var e;
-                    if (r) return t.actions.setAnimatingGamePageEntering(!1, "entered"), void i("is-entered");
-                    if (!(null === (e = t.animations.appLayoutWipe) || void 0 === e ? void 0 : e.isAnimating) && "is-init" === a) {
-                        t.actions.setAnimatingGamePageEntering(!0, "entering"), i("is-entering");
+                    if (a) return t.actions.setAnimatingGamePageEntering(!1, "entered"), void o("is-entered");
+                    if (!(null === (e = t.animations.appLayoutWipe) || void 0 === e ? void 0 : e.isAnimating) && "is-init" === i) {
+                        t.actions.setAnimatingGamePageEntering(!0, "entering"), o("is-entering");
                         const e = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/)),
                             n = setTimeout((() => {
-                                t.actions.setAnimatingGamePageEntering(!1, "entered"), i("is-entered")
+                                t.actions.setAnimatingGamePageEntering(!1, "entered"), o("is-entered")
                             }), e / 2 + 2e3);
                         return () => clearTimeout(n)
                     }
-                }), [a, t.actions, null === (e = t.animations.appLayoutWipe) || void 0 === e ? void 0 : e.isAnimating, r]);
+                }), [i, t.actions, null === (e = t.animations.appLayoutWipe) || void 0 === e ? void 0 : e.isAnimating, a]);
                 return (0, ke.useEffect)((() => {
-                    l()
-                }), [l]), (0, hw.jsx)(S_, {
-                    navigation: (0, hw.jsx)(RD, {}),
-                    "data-sol-animation-gamepage": a,
-                    children: (0, hw.jsx)(tI, {})
+                    d()
+                }), [d]), (0, hw.jsx)(S_, {
+                    navigation: (0, hw.jsx)(gR, {}),
+                    "data-sol-animation-gamepage": i,
+                    children: (0, hw.jsx)(NI, {})
                 })
-            }, mR = () => {
-                const e = kC((e => e.application)), t = kC((e => e.user)),
-                    n = VC(), {pathname: r} = FC(), {t: a} = yt("settingsPage");
-                hR();
+            }, tT = () => {
+                const e = nI((e => e.application)), t = nI((e => e.user)),
+                    n = bI(), {pathname: r} = vI(), {t: a} = yt("settingsPage");
+                XR();
                 const {wipeAnimationsDisabled: i} = $c().reduceMotion,
                     o = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/)),
                     s = [{
@@ -48757,33 +49590,33 @@
                         back: {label: a("settings_common_back"), href: ".."},
                         title: a("settings_main_title"),
                         backCallback: () => {
-                            if (i) return void n(vR.HOME);
+                            if (i) return void n(rT.HOME);
                             e.actions.setAnimatingAppLayoutWipe("full-rtl", !0);
                             const t = setTimeout((() => {
-                                n(vR.HOME)
+                                n(rT.HOME)
                             }), o / 2);
                             return () => clearTimeout(t)
                         },
                         children: s.map((e => {
                             const n = t.identity && t.identity.privileged,
-                                a = aO({path: `/${vR.SETTINGS}/${e.path}`, end: !1}, r);
+                                a = _O({path: `/${rT.SETTINGS}/${e.path}`, end: !1}, r);
                             return (!e.staff || e.staff && n) && (0, hw.jsx)(sx, {
                                 active: Boolean(a),
                                 href: e.path,
                                 children: e.title
                             }, e.path)
                         }))
-                    }), (0, hw.jsx)(tI, {})]
+                    }), (0, hw.jsx)(NI, {})]
                 })
             };
-        const gR = () => {
-            const e = FC();
-            return (kC((e => e.user)), dP.isLoggedIn()) ? (0, hw.jsx)(tI, {}) : (0, hw.jsx)(eI, {
+        const nT = () => {
+            const e = vI();
+            return (nI((e => e.user)), FP.isLoggedIn()) ? (0, hw.jsx)(NI, {}) : (0, hw.jsx)(LI, {
                 to: "sign-in",
                 replace: !0,
                 state: {from: e}
             })
-        }, vR = {
+        }, rT = {
             HOME: "/",
             SIGN_IN: "sign-in",
             SIGN_IN_MFA: "mfa",
@@ -48798,13 +49631,13 @@
             SETTINGS_DEV: "dev",
             SETTINGS_STORAGE: "storage",
             OFFLINE: "offline"
-        }, yR = function (e, t) {
-            return AO({
+        }, aT = function (e, t) {
+            return qO({
                 basename: null == t ? void 0 : t.basename,
-                future: jD({}, null == t ? void 0 : t.future, {v7_prependBasename: !0}),
-                history: (n = {window: null == t ? void 0 : t.window}, void 0 === n && (n = {}), HS((function (e, t) {
-                    let {pathname: n = "/", search: r = "", hash: a = ""} = WS(e.location.hash.substr(1));
-                    return n.startsWith("/") || n.startsWith(".") || (n = "/" + n), BS("", {
+                future: yR({}, null == t ? void 0 : t.future, {v7_prependBasename: !0}),
+                history: (n = {window: null == t ? void 0 : t.window}, void 0 === n && (n = {}), sO((function (e, t) {
+                    let {pathname: n = "/", search: r = "", hash: a = ""} = oO(e.location.hash.substr(1));
+                    return n.startsWith("/") || n.startsWith(".") || (n = "/" + n), aO("", {
                         pathname: n,
                         search: r,
                         hash: a
@@ -48815,84 +49648,100 @@
                         let t = e.location.href, n = t.indexOf("#");
                         r = -1 === n ? t : t.slice(0, n)
                     }
-                    return r + "#" + ("string" === typeof t ? t : $S(t))
+                    return r + "#" + ("string" === typeof t ? t : iO(t))
                 }), (function (e, t) {
-                    US("/" === e.pathname.charAt(0), "relative pathnames are not supported in hash history.push(" + JSON.stringify(t) + ")")
+                    nO("/" === e.pathname.charAt(0), "relative pathnames are not supported in hash history.push(" + JSON.stringify(t) + ")")
                 }), n)),
-                hydrationData: (null == t ? void 0 : t.hydrationData) || MD(),
+                hydrationData: (null == t ? void 0 : t.hydrationData) || xR(),
                 routes: e,
-                mapRouteProperties: aI,
+                mapRouteProperties: zI,
+                dataStrategy: null == t ? void 0 : t.dataStrategy,
+                patchRoutesOnNavigation: null == t ? void 0 : t.patchRoutesOnNavigation,
                 window: null == t ? void 0 : t.window
             }).initialize();
             var n
         }([{
-            element: (0, hw.jsx)(dR, {}), loader: async () => {
-                const e = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
-                try {
-                    const t = kC.getState().application, n = kC.getState().language;
-                    if (t.isAppInitialized) return t.actions.checkConnection(), void await HA.updatei18nLanguage(n.currentLanguage);
-                    await new Promise((t => setTimeout(t, dw.configuration.appLayoutLoaderWipeTrigger + e / 2)))
-                } finally {
-                    return null
-                }
+            element: (0, hw.jsx)(QR, {}), loader: async () => {
+                await (async () => {
+                    const {
+                        application: e,
+                        accessibility: t,
+                        library: n,
+                        launcher: r,
+                        soundSystem: a,
+                        authentication: i,
+                        discovery: o,
+                        installer: s,
+                        status: l,
+                        user: c,
+                        storage: u,
+                        language: d,
+                        promotion: h,
+                        game: p
+                    } = nI.getState();
+                    e.isAppInitialized || (window.launcherAPI.log.info("[Store] Initialization of the transient store started"), await e.actions.initializeApplication(), await a.actions.initializeSoundContext(), await t.actions.initialize(), await i.actions.initialize(), await r.actions.initialize(), await c.actions.initialize(), await n.actions.initialize(), await o.actions.initialize(), await p.actions.initialize(), await s.actions.initialize(), await l.actions.initialize(), await u.actions.initialize(), await d.actions.initialize(), await h.actions.initialize(), window.launcherAPI.log.info("[Store] Initialization of the transient store finished"))
+                })();
+                const e = nI.getState().application, t = nI.getState().language;
+                if (e.isAppInitialized) return e.actions.checkConnection(), CD.updatei18nLanguage(t.currentLanguage), null;
+                const n = Number(getComputedStyle(document.body).getPropertyValue("--sol-motion-anim-wipe-duration").match(/\d+/));
+                return await new Promise((e => setTimeout(e, dw.configuration.appLayoutLoaderWipeTrigger + n / 2))), null
             }, children: [{
-                path: vR.HOME,
-                element: (0, hw.jsx)(gR, {}),
+                path: rT.HOME,
+                element: (0, hw.jsx)(nT, {}),
                 children: [{
-                    element: (0, hw.jsx)(fR, {}), children: [{
+                    element: (0, hw.jsx)(eT, {}), children: [{
                         index: !0, loader: async () => {
-                            const e = `/game-page/${kC.getState().library.gameSelected}`;
-                            throw mO(e)
+                            const e = `/game-page/${nI.getState().library.gameSelected}`;
+                            throw RO(e)
                         }
                     }, {
-                        path: vR.GAME_PAGE, element: (0, hw.jsx)(lR, {}), loader: async ({params: e}) => {
+                        path: rT.GAME_PAGE, element: (0, hw.jsx)(KR, {}), loader: async () => {
+                            await async function () {
+                                const {user: e, application: t} = nI.getState();
+                                if (t.actions.isOffline() && !t.actions.isOfflineSessionValid() && await FP.logOutCurrentUser(), !FP.isLoggedIn()) {
+                                    const e = `/${rT.SIGN_IN}`;
+                                    throw window.launcherAPI.log.debug(`[Loader::utils] User is not logged in, redirecting to ${e}`), RO(e)
+                                }
+                                return e.identity
+                            }();
                             try {
-                                var t;
-                                if (await async function (e = vR.SIGN_IN) {
-                                    const t = kC.getState().user, n = kC.getState().application;
-                                    if (n.actions.isOffline() && !n.actions.isOfflineSessionValid() && await dP.logOutCurrentUser(), !dP.isLoggedIn()) throw mO(e);
-                                    return t.identity
-                                }(), !e.gameId) return null;
-                                const n = kC.getState().settings,
-                                    r = null !== (t = pP.getQueryData(cS().queryKey)) && void 0 !== t ? t : await pP.fetchQuery(cS());
-                                return HA.updateLanguageCollection(r), await kP.checkForGamesChannelsUpdates(), await n.actions.initializeGameSettings(), null
-                            } catch (n) {
-                                return window.launcherAPI.log.error(`[Loader] Not able to load game layout : ${JSON.stringify(n)}`), null
-                            } finally {
-                                kC.getState().status.actions.checkStatus()
+                                await Promise.all([CD.checkLanguage(), QP.checkForGamesChannelsUpdates(), NC.checkPromotions(), GC.checkStatus()])
+                            } catch (e) {
+                                window.launcherAPI.log.error(`[Loader] Error during checks : ${JSON.stringify(e)}`)
                             }
+                            return null
                         }
                     }]
                 }, {
-                    element: (0, hw.jsx)(mR, {}), path: vR.SETTINGS, children: [{
+                    element: (0, hw.jsx)(tT, {}), path: rT.SETTINGS, children: [{
                         index: !0, loader: async () => {
-                            throw mO(vR.SETTINGS_APPLICATION)
+                            throw RO(rT.SETTINGS_APPLICATION)
                         }
-                    }, {path: vR.SETTINGS_APPLICATION, element: (0, hw.jsx)($A, {})}, {
-                        path: vR.SETTINGS_ACCESSIBILITY,
-                        element: (0, hw.jsx)(UA, {})
-                    }, {path: vR.SETTINGS_GAMES, element: (0, hw.jsx)(cD, {})}, {
-                        path: vR.SETTINGS_STORAGE,
-                        element: (0, hw.jsx)(uD, {})
-                    }, {path: vR.SETTINGS_DOWNLOAD, element: (0, hw.jsx)(KA, {})}, {
-                        path: vR.SETTINGS_ABOUT,
+                    }, {path: rT.SETTINGS_APPLICATION, element: (0, hw.jsx)(OD, {})}, {
+                        path: rT.SETTINGS_ACCESSIBILITY,
+                        element: (0, hw.jsx)(kD, {})
+                    }, {path: rT.SETTINGS_GAMES, element: (0, hw.jsx)(WD, {})}, {
+                        path: rT.SETTINGS_STORAGE,
+                        element: (0, hw.jsx)(HD, {})
+                    }, {path: rT.SETTINGS_DOWNLOAD, element: (0, hw.jsx)(AD, {})}, {
+                        path: rT.SETTINGS_ABOUT,
                         element: (0, hw.jsx)(pw, {})
-                    }, {path: vR.SETTINGS_DEV, element: (0, hw.jsx)(qA, {})}]
+                    }, {path: rT.SETTINGS_DEV, element: (0, hw.jsx)(ID, {})}]
                 }]
             }, {
-                path: vR.SIGN_IN,
-                element: (0, hw.jsx)(pR, {}),
+                path: rT.SIGN_IN,
+                element: (0, hw.jsx)(JR, {}),
                 loader: async () => {
-                    const e = kC.getState().library, t = kC.getState().application, n = `/game-page/${e.gameSelected}`,
-                        r = `/${vR.OFFLINE}`;
-                    return dP.isLoggedIn() ? mO(n) : t.actions.isOffline() ? mO(r) : null
+                    const e = nI.getState().library, t = nI.getState().application, n = `/game-page/${e.gameSelected}`,
+                        r = `/${rT.OFFLINE}`;
+                    return FP.isLoggedIn() ? RO(n) : t.actions.isOffline() ? RO(r) : null
                 },
-                children: [{index: !0, element: (0, hw.jsx)(nR, {})}, {
-                    path: vR.SIGN_IN_MFA,
-                    element: (0, hw.jsx)(rR, {})
-                }, {path: vR.SIGN_IN_THIRD_PARTY, element: (0, hw.jsx)(uR, {})}]
-            }, {path: vR.OFFLINE, element: (0, hw.jsx)(cR, {})}]
-        }]), bR = () => (0, hw.jsx)(WD, {router: yR, fallbackElement: (0, hw.jsx)(wD, {})}), _R = e => {
+                children: [{index: !0, element: (0, hw.jsx)(UR, {})}, {
+                    path: rT.SIGN_IN_MFA,
+                    element: (0, hw.jsx)(GR, {})
+                }, {path: rT.SIGN_IN_THIRD_PARTY, element: (0, hw.jsx)(ZR, {})}]
+            }, {path: rT.OFFLINE, element: (0, hw.jsx)(YR, {})}]
+        }]), iT = () => (0, hw.jsx)(IR, {router: aT, fallbackElement: (0, hw.jsx)(iR, {})}), oT = e => {
             e && e instanceof Function && n.e(496).then(n.bind(n, 1496)).then((({
                                                                                     getCLS: t,
                                                                                     getFID: n,
@@ -48922,31 +49771,25 @@
                 }), e._metadata = a
             }(t, "react"), n = "react", r = {version: ke.version}, Jr().setContext(n, r), Ys(t)
         }));
-        const xR = ke.lazy((() => n.e(803).then(n.bind(n, 803)).then((e => ({default: e.ReactQueryDevtools}))))),
-            wR = () => {
-                const [e, t] = ke.useState(!1), {reduceMotion: n} = kC((e => e.settings.appSettings.accessibility));
+        const sT = ke.lazy((() => n.e(803).then(n.bind(n, 803)).then((e => ({default: e.ReactQueryDevtools}))))),
+            lT = () => {
+                const [e, t] = ke.useState(!1), {reduceMotion: n} = nI((e => e.accessibility.options));
                 return (0, ke.useEffect)((() => {
                     window.toggleDevtools = () => t((e => !e))
-                }), []), (async () => {
-                    const e = kC.getState().application, t = kC.getState().library, n = kC.getState().soundSystem,
-                        r = kC.getState().authentication, a = kC.getState().settings, i = kC.getState().installer,
-                        o = kC.getState().status, s = kC.getState().user, l = kC.getState().storage,
-                        c = kC.getState().language;
-                    e.isAppInitialized || (await e.actions.initializeApplication(), await n.actions.initializeSoundContext(), await r.actions.initialize(), await s.actions.initialize(), await t.actions.initialize(), await a.actions.initializeApplicationSettings(), await a.actions.initializeGameSettings(), await i.actions.initialize(), await o.actions.initializeStatus(), await l.actions.initialize(), await c.actions.initialize())
-                })(), (0, hw.jsx)(ke.StrictMode, {
+                }), []), (0, hw.jsx)(ke.StrictMode, {
                     children: (0, hw.jsx)(ml, {
                         fallback: (0, hw.jsx)("p", {children: "An error has occurred"}),
-                        children: (0, hw.jsx)(IC, {
+                        children: (0, hw.jsx)(lI, {
                             children: (0, hw.jsx)(Bl.aH, {
-                                client: pP,
+                                client: VP,
                                 children: (0, hw.jsxs)(Bc, {
-                                    reduceMotion: null !== n && void 0 !== n ? n : XP.reduceMotion,
+                                    reduceMotion: null !== n && void 0 !== n ? n : Fw.reduceMotion,
                                     children: [(0, hw.jsx)(zc, {
-                                        value: XD,
-                                        children: (0, hw.jsx)(Gl.Provider, {children: (0, hw.jsx)(bR, {})})
+                                        value: MR,
+                                        children: (0, hw.jsx)(Gl.Provider, {children: (0, hw.jsx)(iT, {})})
                                     }), (0, hw.jsx)($l, {initialIsOpen: !0}), e && (0, hw.jsx)(ke.Suspense, {
                                         fallback: null,
-                                        children: (0, hw.jsx)(xR, {})
+                                        children: (0, hw.jsx)(sT, {})
                                     })]
                                 })
                             })
@@ -48954,8 +49797,8 @@
                     }, uw())
                 })
             };
-        gl.createRoot(document.getElementById("root")).render((0, hw.jsx)(wR, {})), _R()
+        gl.createRoot(document.getElementById("root")).render((0, hw.jsx)(lT, {})), oT()
     })()
 })();
-//# sourceMappingURL=main.ada23334.js.map
-//# debugId=83185437-0682-5618-b069-edef3e3cc601
+//# sourceMappingURL=main.27c346b9.js.map
+//# debugId=7e5e9aa7-48b1-5119-92ea-ef03fe6716c1
