@@ -1,4 +1,4 @@
-/*! For license information please see index.292d5e23.js.LICENSE.txt */
+/*! For license information please see index.9743a9c0.js.LICENSE.txt */
 (() => {
     "use strict";
     const SC_TOOLBOX_ENABLED_LOCALIZATION = "en";
@@ -40067,7 +40067,7 @@ ${n}`);
                             primaryLabel: n("dialog_action_cancel", { ns: "dialog" }),
                             secondaryLabel: n("dialog_start_installation_action_go_to_settings", { ns: "dialog" }),
                             secondaryCallback: () => {
-                                let A = (0, pl.Gn)(`/${bo.SETTINGS}/${bo.SETTINGS_GAMES}`, {
+                                let A = (0, pl.Gn)(`/${bi.SETTINGS}/${bi.SETTINGS_GAMES}`, {
                                     gameId: e.gameId,
                                     channelId: e.channelId,
                                 });
@@ -40181,7 +40181,7 @@ ${n}`);
                             r = a
                                 ? void 0
                                 : () => {
-                                      let A = (0, pl.Gn)(`/${bo.SETTINGS}/${bo.SETTINGS_GAMES}`, {
+                                      let A = (0, pl.Gn)(`/${bi.SETTINGS}/${bi.SETTINGS_GAMES}`, {
                                           gameId: e.gameId,
                                           channelId: e.channelId,
                                       });
@@ -45438,7 +45438,7 @@ ${n}`);
                             let { authentication: e } = Br.getState();
                             this.removeEventListener();
                             try {
-                                (await this.retrieveUserInfo(A), (window.location.hash = (0, pl.Gn)(`${bo.HOME}`)));
+                                (await this.retrieveUserInfo(A), (window.location.hash = (0, pl.Gn)(`${bi.HOME}`)));
                             } catch (A) {
                                 e.actions.setStatus("error");
                             }
@@ -53244,10 +53244,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                 onClick: () =>
                                     (() => {
                                         let A = Bc("--sol-motion-anim-wipe-duration");
-                                        if ((d(!1), c)) return void l(`${bo.SETTINGS}/${bo.SETTINGS_DOWNLOAD}`);
+                                        if ((d(!1), c)) return void l(`${bi.SETTINGS}/${bi.SETTINGS_DOWNLOAD}`);
                                         (pn.setAnimatingAppLayoutWipe("full", !0), md.play("wipeFull"));
                                         let e = setTimeout(() => {
-                                            l(`${bo.SETTINGS}/${bo.SETTINGS_DOWNLOAD}`);
+                                            l(`${bi.SETTINGS}/${bi.SETTINGS_DOWNLOAD}`);
                                         }, A / 2);
                                         return () => clearTimeout(e);
                                     })(),
@@ -53608,15 +53608,15 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                         f_.isLoggedIn() &&
                                             (0, Y.jsx)(c5, {
                                                 onClick: () => {
-                                                    if (p) return void h(bo.SETTINGS);
+                                                    if (p) return void h(bi.SETTINGS);
                                                     (pn.setAnimatingAppLayoutWipe("full", !0), md.play("wipeFull"));
                                                     let A = setTimeout(() => {
-                                                        h(bo.SETTINGS);
+                                                        h(bi.SETTINGS);
                                                     }, b / 2);
                                                     return () => clearTimeout(A);
                                                 },
                                                 label: A("app_header_menu_settings"),
-                                                disabled: window.location.hash.includes(bo.SETTINGS),
+                                                disabled: window.location.hash.includes(bi.SETTINGS),
                                             }),
                                         (0, Y.jsx)(c5, {
                                             external: !0,
@@ -53642,11 +53642,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                 label: A("app_header_menu_discover"),
                                                 "data-test-id": "rsi-menu-discover",
                                                 onClick: () => {
-                                                    if (window.location.hash.includes(bo.SETTINGS)) {
-                                                        if (p) return void h(bo.HOME);
+                                                    if (window.location.hash.includes(bi.SETTINGS)) {
+                                                        if (p) return void h(bi.HOME);
                                                         (pn.setAnimatingAppLayoutWipe("full", !0), md.play("wipeFull"));
                                                         let A = setTimeout(() => {
-                                                            (h(bo.HOME), r.actions.openDiscover());
+                                                            (h(bi.HOME), r.actions.openDiscover());
                                                         }, b / 2);
                                                         return () => clearTimeout(A);
                                                     }
@@ -54045,7 +54045,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                     w = B && v !== ht.COMPLETED,
                                     E =
                                         A &&
-                                        (0, pl.Gn)(`/${bo.SETTINGS}/${bo.SETTINGS_GAMES}`, {
+                                        (0, pl.Gn)(`/${bi.SETTINGS}/${bi.SETTINGS_GAMES}`, {
                                             gameId: A.game.id,
                                             channelId: A.channel?.id,
                                         }),
@@ -54627,7 +54627,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                         memberProfile: (A) => [...Ez.all, "member", A, "profile"],
                     };
                 function EJ() {
-                    return { queryKey: Ez.topics(), queryFn: () => pc.spectrum.guide.listTopics(), staleTime: 6e5 };
+                    return {
+                        queryKey: Ez.topics(),
+                        queryFn: () => pc.spectrum.guide.listTopics(),
+                        staleTime: 6e5,
+                        enabled: EX(),
+                    };
                 }
                 function EW(A) {
                     return {
@@ -54641,9 +54646,13 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                         retryDelay: 5e3,
                     };
                 }
-                let EX = () => Br((A) => A.connection.mode !== uW.ONLINE),
-                    EV = Bz.do.CLOSE_PANEL,
-                    EZ = ({ className: A }) => {
+                function EX() {
+                    let { window: A, guide: e } = Br.getState();
+                    return !fi.isOffline() && !A.isWindowMinimized && e.isGuidePanelOpen;
+                }
+                let EV = () => Br((A) => A.connection.mode !== uW.ONLINE),
+                    EZ = Bz.do.CLOSE_PANEL,
+                    Eq = ({ className: A }) => {
                         let { t: e } = (0, N.$G)("guide"),
                             t = Br((A) => A.guide.isGuidePanelOpen),
                             a = Br((A) => A.guide.isGuide),
@@ -54678,7 +54687,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             }),
                         });
                     },
-                    Eq = ({ onCancel: A, onClosePanel: e }) => {
+                    E_ = ({ onCancel: A, onClosePanel: e }) => {
                         let { t } = (0, N.$G)("guide"),
                             {
                                 hasRsiAccount: a,
@@ -54754,7 +54763,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             showClosePanel: !!e,
                             onClosePanel: e,
                             closePanelLabel: t("guide_close"),
-                            closePanelIcon: EV,
+                            closePanelIcon: EZ,
                             requirementsHeading: t("guide_become_section_title"),
                             requirements: s,
                             cancelLabel: t("guide_become_cancel"),
@@ -54764,7 +54773,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             isPrimaryActionDisabled: !o || r,
                         });
                     };
-                function E_(A) {
+                function E$(A) {
                     let [e, t] = (0, S.useState)(() => Date.now());
                     return (
                         (0, S.useEffect)(() => {
@@ -54776,12 +54785,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                         e
                     );
                 }
-                function E$(A, e) {
+                function E0(A, e) {
                     let t = Br.getState().guide,
                         a = t.incomingRequests.find((e) => e.id === A);
                     return (a && t.actions.upsertIncomingRequest({ ...a, status: e }), a);
                 }
-                let E0 = ({ onClosePanel: A }) => {
+                let E1 = ({ onClosePanel: A }) => {
                         let { t: e } = (0, N.$G)("guide"),
                             {
                                 profile: t,
@@ -54899,7 +54908,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                 onDecline: u,
                             } = (function () {
                                 let A = Br((A) => A.guide.incomingRequests),
-                                    e = E_(
+                                    e = E$(
                                         (0, S.useMemo)(
                                             () =>
                                                 A.filter((A) => A.status === dl.CX.Pending).map(
@@ -54921,7 +54930,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                     ),
                                     n = (0, Bp.D)({
                                         mutationFn: async (A) => {
-                                            let e = E$(A, dl.CX.Accepted);
+                                            let e = E0(A, dl.CX.Accepted);
                                             fq.openPanel();
                                             try {
                                                 let t = await pc.spectrum.guide.acceptRequest(A);
@@ -54943,7 +54952,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                     }),
                                     o = (0, Bp.D)({
                                         mutationFn: async (A) => {
-                                            let e = E$(A, dl.CX.Declined);
+                                            let e = E0(A, dl.CX.Declined);
                                             try {
                                                 let t = await pc.spectrum.guide.declineRequest(A);
                                                 return (
@@ -55004,7 +55013,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             showClosePanel: !!A,
                             onClosePanel: A,
                             closePanelLabel: e("guide_close"),
-                            closePanelIcon: EV,
+                            closePanelIcon: EZ,
                             pendingRequests: g,
                             pendingTitle: e("guide_incoming_requests"),
                             onAcceptRequest: d,
@@ -55024,7 +55033,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             onProficiencyChange: i,
                         });
                     },
-                    E1 = ({ onBecomeGuide: A, onClosePanel: e }) => {
+                    E2 = ({ onBecomeGuide: A, onClosePanel: e }) => {
                         let { t } = (0, N.$G)("guide"),
                             a = (function () {
                                 var A;
@@ -55038,45 +55047,49 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                     s = (0, S.useMemo)(() => r ?? [], [r]),
                                     l = (0, S.useMemo)(() => new Map(s.map((A) => [A.id, A])), [s]),
                                     c = (0, S.useMemo)(() => s.map(fO), [s]),
-                                    g = t.length > 0,
-                                    { data: d } = (0, BP.a)(
+                                    g = (0, S.useRef)(!1);
+                                (0, S.useEffect)(() => {
+                                    g.current || 0 === c.length || ((g.current = !0), 0 === t.length && n([c[0].id]));
+                                }, [c, t, n]);
+                                let d = t.length > 0,
+                                    { data: u } = (0, BP.a)(
                                         ((A = { topicIds: t, locales: a }),
                                         {
                                             queryKey: Ez.search(A),
                                             queryFn: () => pc.spectrum.guide.search(A),
                                             refetchInterval: 6e4,
-                                            enabled: g,
+                                            enabled: d && EX(),
                                         }),
                                     ),
-                                    u = Br((A) => A.guide.outgoingRequests),
-                                    h = E_(
+                                    h = Br((A) => A.guide.outgoingRequests),
+                                    p = E$(
                                         (0, S.useMemo)(
                                             () =>
-                                                u
+                                                h
                                                     .filter((A) => A.status === dl.CX.Pending)
                                                     .map((A) => Number(A.timeCreated) + 6e5),
-                                            [u],
+                                            [h],
                                         ),
                                     ),
-                                    p = (0, S.useMemo)(
+                                    m = (0, S.useMemo)(
                                         () =>
-                                            u.filter(
-                                                (A) => A.status === dl.CX.Pending && Number(A.timeCreated) + 6e5 > h,
+                                            h.filter(
+                                                (A) => A.status === dl.CX.Pending && Number(A.timeCreated) + 6e5 > p,
                                             ),
-                                        [u, h],
+                                        [h, p],
                                     ),
-                                    m = (0, S.useMemo)(() => new Map(p.map((A) => [String(A.guide.id), A.id])), [p]),
-                                    f = (0, S.useMemo)(
-                                        () => new Map(p.map((A) => [String(A.guide.id), Number(A.timeCreated) + 6e5])),
-                                        [p],
-                                    ),
+                                    f = (0, S.useMemo)(() => new Map(m.map((A) => [String(A.guide.id), A.id])), [m]),
                                     B = (0, S.useMemo)(
+                                        () => new Map(m.map((A) => [String(A.guide.id), Number(A.timeCreated) + 6e5])),
+                                        [m],
+                                    ),
+                                    v = (0, S.useMemo)(
                                         () =>
-                                            (d ?? []).map((A) => {
+                                            (u ?? []).map((A) => {
                                                 var e, t;
                                                 let a = String(A.id);
                                                 return (
-                                                    (e = { hasPendingRequest: m.has(a), expiresAt: f.get(a) }),
+                                                    (e = { hasPendingRequest: f.has(a), expiresAt: B.get(a) }),
                                                     {
                                                         id: String(A.id),
                                                         avatarSrc: fP(A.avatar),
@@ -55102,13 +55115,13 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     }
                                                 );
                                             }),
-                                        [d, l, m, f],
+                                        [u, l, f, B],
                                     ),
-                                    v = (0, S.useMemo)(
-                                        () => p.map((A) => fR(A.guide, A.id, Number(A.timeCreated))),
-                                        [p],
+                                    C = (0, S.useMemo)(
+                                        () => m.map((A) => fR(A.guide, A.id, Number(A.timeCreated))),
+                                        [m],
                                     ),
-                                    C = (0, Bp.D)({
+                                    w = (0, Bp.D)({
                                         mutationFn: async (A) => {
                                             let e = `optimistic-${Date.now()}`,
                                                 a = {
@@ -55142,7 +55155,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                             }
                                         },
                                     }),
-                                    w = (0, Bp.D)({
+                                    E = (0, Bp.D)({
                                         mutationFn: async (A) => {
                                             let e = Br.getState().guide,
                                                 t = e.outgoingRequests.find((e) => e.id === A);
@@ -55165,17 +55178,17 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                             }
                                         },
                                     }),
-                                    { mutate: E } = C,
                                     { mutate: b } = w,
-                                    Q = (0, S.useCallback)(
+                                    { mutate: Q } = E,
+                                    y = (0, S.useCallback)(
                                         (A) => {
-                                            let e = m.get(A);
-                                            e ? b(e) : E(A);
+                                            let e = f.get(A);
+                                            e ? Q(e) : b(A);
                                         },
-                                        [m, b, E],
+                                        [f, Q, b],
                                     ),
-                                    y = (0, S.useCallback)((A) => b(A), [b]),
-                                    D = (0, S.useCallback)(() => {
+                                    D = (0, S.useCallback)((A) => Q(A), [Q]),
+                                    k = (0, S.useCallback)(() => {
                                         e.invalidateQueries({ queryKey: Ez.search({ topicIds: t, locales: a }) });
                                     }, [e, t, a]);
                                 return {
@@ -55184,11 +55197,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                     onTopicsChange: n,
                                     selectedLocaleIds: a,
                                     onLocalesChange: o,
-                                    guides: B,
-                                    pendingRequests: v,
-                                    onRequestOrCancel: Q,
-                                    onCancelRequest: y,
-                                    onRefresh: D,
+                                    guides: v,
+                                    pendingRequests: C,
+                                    onRequestOrCancel: y,
+                                    onCancelRequest: D,
+                                    onRefresh: k,
                                 };
                             })();
                         return (0, Y.jsx)(CI, {
@@ -55200,7 +55213,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             showClosePanel: !!e,
                             onClosePanel: e,
                             closePanelLabel: t("guide_close"),
-                            closePanelIcon: EV,
+                            closePanelIcon: EZ,
                             pendingRequests: a.pendingRequests,
                             pendingTitle: t("guide_pending_requests"),
                             onCancelRequest: a.onCancelRequest,
@@ -55209,7 +55222,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             proficiencies: a.proficiencies,
                             selectedProficiencyIds: a.selectedTopicIds,
                             onProficiencyChange: a.onTopicsChange,
-                            proficiencyLimit: 3,
+                            proficiencyLimit: 4,
                             languageOptions: fY,
                             selectedLanguageIds: a.selectedLocaleIds,
                             onLanguagesChange: a.onLocalesChange,
@@ -55228,7 +55241,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             cancelGuideLabel: t("guide_request_cancel"),
                         });
                     },
-                    E2 = ({ onClose: A }) => {
+                    E3 = ({ onClose: A }) => {
                         let { t: e } = (0, N.$G)("guide"),
                             {
                                 view: t,
@@ -55241,7 +55254,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                     [e, t] = (0, S.useState)("player"),
                                     a = Br((A) => A.guide.isGuide),
                                     n = Br((A) => A.guide.centrifugeConnected),
-                                    o = EX();
+                                    o = EV();
                                 (0, S.useEffect)(() => {
                                     a || t("player");
                                 }, [a]);
@@ -55279,16 +55292,16 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                           showClosePanel: !!A,
                                           onClosePanel: A,
                                           closePanelLabel: e("guide_close"),
-                                          closePanelIcon: EV,
+                                          closePanelIcon: EZ,
                                       })
                                     : "guide" === t
-                                      ? (0, Y.jsx)(E0, { onClosePanel: A })
+                                      ? (0, Y.jsx)(E1, { onClosePanel: A })
                                       : "becoming" === t
-                                        ? (0, Y.jsx)(Eq, { onCancel: o, onClosePanel: A })
-                                        : (0, Y.jsx)(E1, { onBecomeGuide: n, onClosePanel: A }),
+                                        ? (0, Y.jsx)(E_, { onCancel: o, onClosePanel: A })
+                                        : (0, Y.jsx)(E2, { onBecomeGuide: n, onClosePanel: A }),
                         });
                     },
-                    E3 = ({ session: A, topics: e, onComplete: t }) => {
+                    E5 = ({ session: A, topics: e, onComplete: t }) => {
                         let { t: a } = (0, N.$G)("guide"),
                             { submit: n } = {
                                 submit: (0, S.useCallback)(
@@ -55322,7 +55335,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             description: a("guide_endorsement_description"),
                             onClosePanel: t,
                             closePanelLabel: a("guide_close"),
-                            closePanelIcon: EV,
+                            closePanelIcon: EZ,
                             playedQuestionLabel: a("guide_endorsement_question"),
                             yesLabel: a("guide_endorsement_yes"),
                             noLabel: a("guide_endorsement_no"),
@@ -55333,7 +55346,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             successMessage: a("guide_endorsement_thanks"),
                         });
                     };
-                function E5(A, e) {
+                function E7(A, e) {
                     return {
                         id: Number(A) || 0,
                         accountId: 0,
@@ -55348,7 +55361,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                         subscriptionKey: "",
                     };
                 }
-                let E7 = () => {
+                let E4 = () => {
                         let { t: A } = (0, N.$G)("guide"),
                             e = (function () {
                                 let [A, e] = (0, S.useState)(!1),
@@ -55357,7 +55370,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                     n = Br((A) => A.guide.isGuidePanelOpen),
                                     o = Br((A) => A.guide.isGuide),
                                     i = Br((A) => A.guide.otherMemberPresence),
-                                    r = EX();
+                                    r = EV();
                                 if (!t) return { status: "hidden" };
                                 let { data: s = [] } = (0, BP.a)(EJ()),
                                     l = t.lobby;
@@ -55396,7 +55409,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                 retry: 1,
                                                 retryDelay: 3e3,
                                             }),
-                                        ).data ?? E5(f.id, o);
+                                        ).data ?? E7(f.id, o);
                                 ((u = B.subscriptionKey || null),
                                     (0, S.useEffect)(() => {
                                         if (n && u) return (fZ.subscribePresence(u), () => fZ.unsubscribePresence(u));
@@ -55437,7 +55450,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                 lobby_id: n,
                                                 content_body: a,
                                                 time_created: new Date().toISOString(),
-                                                member: E5(String(E), o),
+                                                member: E7(String(E), o),
                                             };
                                         fq.addOptimisticMessage(i);
                                         try {
@@ -55483,13 +55496,13 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                         onRetry: e.onRetry,
                                         onClosePanel: e.onClose,
                                         closePanelLabel: A("guide_close"),
-                                        closePanelIcon: EV,
+                                        closePanelIcon: EZ,
                                     }),
                                 })
                               : "endorsement" === e.status
                                 ? (0, Y.jsx)(Ck, {
                                       variant: "live",
-                                      children: (0, Y.jsx)(E3, {
+                                      children: (0, Y.jsx)(E5, {
                                           session: e.session,
                                           topics: e.topics,
                                           onComplete: e.onComplete,
@@ -55510,7 +55523,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                           onEndSession: e.onEndSession,
                                           closePanelLabel: A("guide_close"),
                                           onClosePanel: e.onClose,
-                                          closePanelIcon: EV,
+                                          closePanelIcon: EZ,
                                           showClosePanel: !!e.onClose,
                                           messages: e.messages,
                                           currentMemberId: e.currentMemberId,
@@ -55522,7 +55535,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                       }),
                                   }));
                     },
-                    E4 = () => {
+                    E8 = () => {
                         let A = Br((A) => A.guide.isUndocked),
                             e = Br((A) => A.guide.isGuidePanelOpen),
                             t = Br((A) => A.guide.activeSession),
@@ -55536,12 +55549,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             : (0, Y.jsxs)("div", {
                                   className: `sol-c-game-page__panel-zone${e ? " sol-c-game-page__panel-zone--open" : ""}`,
                                   children: [
-                                      (0, Y.jsx)(EZ, { className: "sol-c-game-page__panel-zone__widget" }),
-                                      t ? (0, Y.jsx)(E7, {}) : (0, Y.jsx)(E2, { onClose: () => fq.closePanel() }),
+                                      (0, Y.jsx)(Eq, { className: "sol-c-game-page__panel-zone__widget" }),
+                                      t ? (0, Y.jsx)(E4, {}) : (0, Y.jsx)(E3, { onClose: () => fq.closePanel() }),
                                   ],
                               });
                     },
-                    E8 = () => {
+                    E9 = () => {
                         let A = (0, S.useCallback)(() => {
                             window.launcherAPI.window.setLargeWindow();
                         }, []);
@@ -55549,7 +55562,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             A();
                         }, [A]);
                     },
-                    E9 = async () => {
+                    E6 = async () => {
                         let {
                             application: A,
                             accessibility: e,
@@ -55609,8 +55622,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                 window.launcherAPI.log.info("[Store] Initialization of the transient store finished"));
                         }
                     },
-                    E6 = async () => {
-                        await E9();
+                    bA = async () => {
+                        await E6();
                         let A = Br.getState().application,
                             e = Br.getState().language;
                         return (
@@ -55621,13 +55634,13 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             null
                         );
                     };
-                async function bA() {
+                async function be() {
                     let { user: A } = Br.getState();
                     if (
                         (fi.isOffline() && !fi.isOfflineSessionValid() && (await f_.logOutCurrentUser()),
                         !f_.isLoggedIn())
                     ) {
-                        let A = `/${bo.SIGN_IN}`;
+                        let A = `/${bi.SIGN_IN}`;
                         throw (
                             window.launcherAPI.log.debug(`[Loader::utils] User is not logged in, redirecting to ${A}`),
                             (0, pl.uX)(A)
@@ -55635,8 +55648,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                     }
                     return A.identity;
                 }
-                let be = async () => {
-                        (await bA(), fq.init());
+                let bt = async () => {
+                        (await be(), fq.init());
                         try {
                             await Promise.all([
                                 BD.checkLanguage(),
@@ -55650,21 +55663,21 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                         }
                         return null;
                     },
-                    bt = async () => {
+                    ba = async () => {
                         let A = Br.getState().library,
                             e = `/game-page/${A.gameChannelSelected.game.id}`;
                         throw (0, pl.uX)(e);
                     },
-                    ba = async () => {
-                        throw (0, pl.uX)(bo.SETTINGS_APPLICATION);
-                    },
                     bn = async () => {
+                        throw (0, pl.uX)(bi.SETTINGS_APPLICATION);
+                    },
+                    bo = async () => {
                         let A = Br.getState().library,
                             e = `/game-page/${A.gameChannelSelected.game.id}`,
-                            t = `/${bo.OFFLINE}`;
+                            t = `/${bi.OFFLINE}`;
                         return f_.isLoggedIn() ? (0, pl.uX)(e) : fi.isOffline() ? (0, pl.uX)(t) : null;
                     },
-                    bo = {
+                    bi = {
                         HOME: "/",
                         SIGN_IN: "sign-in",
                         SIGN_IN_MFA: "mfa",
@@ -55681,7 +55694,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                         SETTINGS_STORAGE: "storage",
                         OFFLINE: "offline",
                     },
-                    bi = (0, ER.cP)([
+                    br = (0, ER.cP)([
                         {
                             element: (0, Y.jsx)(() => {
                                 let A = Br((A) => A.toasts),
@@ -55913,10 +55926,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                     })
                                 );
                             }, {}),
-                            loader: E6,
+                            loader: bA,
                             children: [
                                 {
-                                    path: bo.HOME,
+                                    path: bi.HOME,
                                     element: (0, Y.jsx)(() => {
                                         let A = (0, Bh.TH)();
                                         return (Br((A) => A.user), f_.isLoggedIn())
@@ -55932,7 +55945,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     {
                                                         reduceMotion: { wipeAnimationsDisabled: a },
                                                     } = Aj();
-                                                E8();
+                                                E9();
                                                 let [n, o] = (0, S.useState)("is-init"),
                                                     i = (0, S.useCallback)(() => mw.checkForGamesChannelsUpdates(), []);
                                                 (0, S.useEffect)(() => {
@@ -55977,9 +55990,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                 );
                                             }, {}),
                                             children: [
-                                                { index: !0, loader: bt },
+                                                { index: !0, loader: ba },
                                                 {
-                                                    path: bo.GAME_PAGE,
+                                                    path: bi.GAME_PAGE,
                                                     element: (0, Y.jsx)(() => {
                                                         let { t: A } = (0, N.$G)("gamePage"),
                                                             e = Br((A) => A.application),
@@ -56192,12 +56205,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                                         (0, Y.jsx)(EH, {
                                                                             gameChannel: t.gameChannelSelected,
                                                                         }),
-                                                                    (0, Y.jsx)(E4, {}),
+                                                                    (0, Y.jsx)(E8, {}),
                                                                 ],
                                                             })
                                                         );
                                                     }, {}),
-                                                    loader: be,
+                                                    loader: bt,
                                                 },
                                             ],
                                         },
@@ -56207,7 +56220,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     e = (0, Bh.s0)(),
                                                     { pathname: t } = (0, Bh.TH)(),
                                                     { t: a } = (0, N.$G)("settingsPage");
-                                                E8();
+                                                E9();
                                                 let { wipeAnimationsDisabled: n } = Aj().reduceMotion,
                                                     o = Bc("--sol-motion-anim-wipe-duration"),
                                                     i = [
@@ -56235,18 +56248,18 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                             back: { label: a("settings_common_back"), href: ".." },
                                                             title: a("settings_main_title"),
                                                             backCallback: () => {
-                                                                if (n) return void e(bo.HOME);
+                                                                if (n) return void e(bi.HOME);
                                                                 (pn.setAnimatingAppLayoutWipe("full-rtl", !0),
                                                                     md.play("wipeFull"));
                                                                 let A = setTimeout(() => {
-                                                                    e(bo.HOME);
+                                                                    e(bi.HOME);
                                                                 }, o / 2);
                                                                 return () => clearTimeout(A);
                                                             },
                                                             children: i.map((e) => {
                                                                 let a = A.identity && A.identity.privileged,
                                                                     n = (0, pl.LX)(
-                                                                        { path: `/${bo.SETTINGS}/${e.path}`, end: !1 },
+                                                                        { path: `/${bi.SETTINGS}/${e.path}`, end: !1 },
                                                                         t,
                                                                     );
                                                                 return (
@@ -56269,11 +56282,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     ],
                                                 });
                                             }, {}),
-                                            path: bo.SETTINGS,
+                                            path: bi.SETTINGS,
                                             children: [
-                                                { index: !0, loader: ba },
+                                                { index: !0, loader: bn },
                                                 {
-                                                    path: bo.SETTINGS_APPLICATION,
+                                                    path: bi.SETTINGS_APPLICATION,
                                                     element: (0, Y.jsx)(() => {
                                                         let { t: A } = (0, N.$G)("settingsPage");
                                                         return (0, Y.jsxs)(gi, {
@@ -56287,7 +56300,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     }, {}),
                                                 },
                                                 {
-                                                    path: bo.SETTINGS_NOTIFICATIONS,
+                                                    path: bi.SETTINGS_NOTIFICATIONS,
                                                     element: (0, Y.jsx)(() => {
                                                         let { t: A } = (0, N.$G)("settingsPage");
                                                         return (0, Y.jsxs)(gi, {
@@ -56303,7 +56316,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     }, {}),
                                                 },
                                                 {
-                                                    path: bo.SETTINGS_ACCESSIBILITY,
+                                                    path: bi.SETTINGS_ACCESSIBILITY,
                                                     element: (0, Y.jsx)(() => {
                                                         let { t: A } = (0, N.$G)("settingsPage");
                                                         return (0, Y.jsx)(gi, {
@@ -56313,7 +56326,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     }, {}),
                                                 },
                                                 {
-                                                    path: bo.SETTINGS_GAMES,
+                                                    path: bi.SETTINGS_GAMES,
                                                     element: (0, Y.jsx)(() => {
                                                         let { t: A } = (0, N.$G)("settingsPage"),
                                                             e = Br((A) => A.game),
@@ -56344,7 +56357,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     }, {}),
                                                 },
                                                 {
-                                                    path: bo.SETTINGS_STORAGE,
+                                                    path: bi.SETTINGS_STORAGE,
                                                     element: (0, Y.jsx)(() => {
                                                         let { t: A } = (0, N.$G)("settingsPage"),
                                                             { defaultLibraryFolder: e, additionalLibraries: t } = Br(
@@ -56566,7 +56579,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     }, {}),
                                                 },
                                                 {
-                                                    path: bo.SETTINGS_DOWNLOAD,
+                                                    path: bi.SETTINGS_DOWNLOAD,
                                                     element: (0, Y.jsx)(() => {
                                                         let { t: A } = (0, N.$G)("settingsPage"),
                                                             e = Br((A) => A.installer.downloadOptions),
@@ -56692,7 +56705,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     }, {}),
                                                 },
                                                 {
-                                                    path: bo.SETTINGS_ABOUT,
+                                                    path: bi.SETTINGS_ABOUT,
                                                     element: (0, Y.jsx)(() => {
                                                         let { t: A } = (0, N.$G)("settingsPage");
                                                         return (0, Y.jsxs)(gi, {
@@ -56738,7 +56751,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     }, {}),
                                                 },
                                                 {
-                                                    path: bo.SETTINGS_DEV,
+                                                    path: bi.SETTINGS_DEV,
                                                     element: (0, Y.jsx)(() => {
                                                         let { t: A } = (0, N.$G)("settingsPage"),
                                                             { currentLanguage: e, languageCollection: t } = Br(
@@ -56836,7 +56849,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                     ],
                                 },
                                 {
-                                    path: bo.SIGN_IN,
+                                    path: bi.SIGN_IN,
                                     element: (0, Y.jsx)(() => {
                                         let { wipeAnimationsDisabled: A } = Aj().reduceMotion,
                                             e = Bc("--sol-motion-anim-wipe-duration"),
@@ -56861,7 +56874,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                             (0, Y.jsx)(gg, { children: (0, Y.jsx)(Bh.j3, {}) })
                                         );
                                     }, {}),
-                                    loader: bn,
+                                    loader: bo,
                                     children: [
                                         {
                                             index: !0,
@@ -56953,7 +56966,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                                     return;
                                                                 }
                                                                 if (e instanceof dh)
-                                                                    throw A(bo.SIGN_IN_MFA, {
+                                                                    throw A(bi.SIGN_IN_MFA, {
                                                                         state: { remember: o, username: n },
                                                                     });
                                                                 if (e instanceof dZ)
@@ -56986,7 +56999,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                                         trackingMetricsId: e.trackingMetricsId,
                                                                         heapAccountId: e.heapAccountId,
                                                                     }),
-                                                                    A(bo.HOME)
+                                                                    A(bi.HOME)
                                                                 );
                                                             };
                                                         return {
@@ -57016,11 +57029,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                         gcTime: 0,
                                                     });
                                                 (0, S.useEffect)(() => {
-                                                    e.mode !== uW.ONLINE && a(`/${bo.OFFLINE}`);
+                                                    e.mode !== uW.ONLINE && a(`/${bi.OFFLINE}`);
                                                 }, [e, a]);
                                                 let p = (0, S.useCallback)(
                                                     async (A) => {
-                                                        a(`${bo.SIGN_IN_THIRD_PARTY}`);
+                                                        a(`${bi.SIGN_IN_THIRD_PARTY}`);
                                                         let e = Object.values(rd).find((e) => e === A);
                                                         await f$.startThirdPartyAuthProcess(e || A);
                                                     },
@@ -57198,7 +57211,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                             }, {}),
                                         },
                                         {
-                                            path: bo.SIGN_IN_MFA,
+                                            path: bi.SIGN_IN_MFA,
                                             element: (0, Y.jsx)(() => {
                                                 let { t: A } = (0, N.$G)("form"),
                                                     {
@@ -57271,7 +57284,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                                         trackingMetricsId: A.trackingMetricsId,
                                                                         heapAccountId: A.heapAccountId,
                                                                     }),
-                                                                    a(bo.HOME)
+                                                                    a(bi.HOME)
                                                                 );
                                                             };
                                                         return {
@@ -57378,7 +57391,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                             }, {}),
                                         },
                                         {
-                                            path: bo.SIGN_IN_THIRD_PARTY,
+                                            path: bi.SIGN_IN_THIRD_PARTY,
                                             element: (0, Y.jsx)(() => {
                                                 let { t: A } = (0, N.$G)("form"),
                                                     e = Br((A) => A.authentication),
@@ -57386,7 +57399,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                     a = (0, S.useCallback)(() => {
                                                         (("connecting" === e.status || "connected" === e.status) &&
                                                             f$.cancelThirdPartyAuthProcess(),
-                                                            t(`/${bo.SIGN_IN}`));
+                                                            t(`/${bi.SIGN_IN}`));
                                                     }, [t, e.status]),
                                                     n = e.provider ? EF[e.provider].icon : pQ;
                                                 return (0, Y.jsx)(gc, {
@@ -57486,7 +57499,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                     ],
                                 },
                                 {
-                                    path: bo.OFFLINE,
+                                    path: bi.OFFLINE,
                                     element: (0, Y.jsx)(() => {
                                         let { t: A } = (0, N.$G)("errors"),
                                             e = Br((A) => A.window),
@@ -57497,12 +57510,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                             r = (0, S.useCallback)(() => {
                                                 o(!0);
                                                 let A = setTimeout(() => {
-                                                    (o(!1), a(`/${bo.SIGN_IN}`), clearTimeout(A));
+                                                    (o(!1), a(`/${bi.SIGN_IN}`), clearTimeout(A));
                                                 }, 3 * uA.second);
                                             }, [o, a]);
                                         return (
                                             (0, S.useEffect)(() => {
-                                                t.mode === uW.ONLINE && a(`/${bo.SIGN_IN}`);
+                                                t.mode === uW.ONLINE && a(`/${bi.SIGN_IN}`);
                                             }, [t, a]),
                                             (0, Y.jsx)(gg, {
                                                 children: (0, Y.jsx)(gc, {
@@ -57580,9 +57593,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             ],
                         },
                     ]),
-                    br = () => (0, Y.jsx)(ER.pG, { router: bi, fallbackElement: null });
+                    bs = () => (0, Y.jsx)(ER.pG, { router: br, fallbackElement: null });
                 (0, P.S1)({ sendDefaultPii: !0, integrations: [] }, O.S);
-                let bs = S.lazy(() =>
+                let bl = S.lazy(() =>
                     t
                         .e("785")
                         .then(t.bind(t, 5295))
@@ -57613,7 +57626,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                             children: (0, Y.jsx)(T.ZP.Provider, {
                                                                 children: (0, Y.jsx)(F.n, {
                                                                     i18n: { language: a, direction: "ltr" },
-                                                                    children: (0, Y.jsx)(br, {}),
+                                                                    children: (0, Y.jsx)(bs, {}),
                                                                 }),
                                                             }),
                                                         }),
@@ -57625,7 +57638,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                                         A &&
                                                             (0, Y.jsx)(S.Suspense, {
                                                                 fallback: null,
-                                                                children: (0, Y.jsx)(bs, {
+                                                                children: (0, Y.jsx)(bl, {
                                                                     buttonPosition: "bottom-left",
                                                                     position: "left",
                                                                 }),
@@ -57844,7 +57857,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             n = new e.Error().stack;
         n &&
             ((e._sentryDebugIds = e._sentryDebugIds || {}),
-            (e._sentryDebugIds[n] = "fcfea500-e099-5300-bacf-cb644e1f4477"));
+            (e._sentryDebugIds[n] = "7e5838ad-44aa-5620-aad2-e89e3b05063b"));
     } catch (e) {}
 })();
-//# debugId=fcfea500-e099-5300-bacf-cb644e1f4477
+//# debugId=7e5838ad-44aa-5620-aad2-e89e3b05063b
